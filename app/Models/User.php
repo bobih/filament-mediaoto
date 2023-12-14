@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 //class User extends Authenticatable implements HasName
-class User extends Authenticatable implements JWTSubject, HasName
+class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
