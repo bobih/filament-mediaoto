@@ -6,6 +6,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Http\Controllers\FcmController;
 use App\Models\User;
+use App\Models\Prospek;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,6 +17,7 @@ use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use RyanChandler\FilamentProgressColumn\ProgressColumn;
 
 class UserResource extends Resource
 {
@@ -115,14 +117,28 @@ class UserResource extends Resource
         return $table
             ->columns([
                 //Tables\Columns\TextColumn::make('id'),
+                ProgressColumn::make('progress')
+                ->progress(function ($record) {
+                    $totalProspek = new Prospek();
+                    $prospekinfo = $totalProspek::where('userid', '=',  $record->id);
+                    if ($prospekinfo->count() > 0){
+                        return round(($prospekinfo->count() /$record->quota  ) * 100);
+
+                    } else {
+                        return 0;
+
+                    }
+
+
+                }),
                 Tables\Columns\TextColumn::make('nama')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('pakets.name')
                     ->label('Paket'),
-                Tables\Columns\TextColumn::make('brands.brand')
-                    ->label('Brand'),
-                Tables\Columns\TextColumn::make('positions.name')
-                    ->label('Posisi'),
+
+
+
+
                 /*
                 Tables\Columns\TextColumn::make('cities.name')
                 ->label('Kota'),
