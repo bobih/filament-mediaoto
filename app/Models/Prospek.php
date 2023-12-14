@@ -25,10 +25,22 @@ class Prospek extends Model
                 'updated_at',
                 ];
 
+
+                /*
     public function users() : BelongsToMany
     {
         return $this->belongsToMany(
             related: User::class,
+        );
+    }
+    */
+
+    public function users() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: User::class,
+            foreignKey: 'userid',
+            ownerKey: 'id'
         );
     }
 
