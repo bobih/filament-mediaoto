@@ -4,12 +4,15 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Http\Controllers\FcmController;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -30,66 +33,80 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
+                Tabs::make('Heading')
+                    ->tabs([
+                        Tabs\Tab::make('User Info')
+                            ->schema([
+                                Forms\Components\TextInput::make('nama')
+                                ->label('Nama')
+                                ->required(),
+
+                            Forms\Components\TextInput::make('email')
+                                ->label('Email')
+                                ->email()
+                                ->required(),
+
+                            Forms\Components\Select::make('posision_id')
+                                ->label('Posisi')
+                                ->relationship('positions', 'name'),
+
+                                Forms\Components\TextInput::make('phone')
+                                ->label('Phone'),
+                                Forms\Components\Select::make('brand')
+                                ->label('Brand')
+                                ->relationship('brands', 'brand')
+                                ->searchable()
+                                ->preload(),
+                                Forms\Components\Select::make('acctype')
+                                ->label('Paket')
+                                ->relationship('pakets', 'name')
+                                ->preload()
+                                ->required(),
 
 
-                Forms\Components\TextInput::make('nama')
-                ->label('Nama')
-                ->required(),
+                            ])->columns(2),
+                        Tabs\Tab::make('Lokasi')
+                            ->schema([
+                                Forms\Components\TextArea::make('alamat')
+                                ->label('Alamat'),
 
-                Forms\Components\TextInput::make('email')
-                ->label('Email')
-                ->email()
-                ->required(),
-
-                Forms\Components\Select::make('posision_id')
-                ->label('Posisi')
-                ->relationship('positions', 'name'),
-
-                Forms\Components\TextInput::make('alamat')
-                ->label('Alamat'),
-                Forms\Components\TextInput::make('phone')
-                ->label('Phone'),
+                                Forms\Components\Select::make('showroom')
+                                ->label('Showroom')
+                                ->relationship('showrooms', 'showroom')
+                                ->searchable()
+                                ->preload(),
 
 
-                Forms\Components\Select::make('brand')
-                ->label('Brand')
-                ->relationship('brands', 'brand')
-                ->searchable()
-                ->preload(),
 
-                Forms\Components\Select::make('acctype')
-                ->label('Paket')
-                ->relationship('pakets', 'name')
-                ->preload()
-                ->required(),
+                            Forms\Components\Select::make('province_id')
+                                ->label('Provinsi')
+                                ->relationship('province', 'name')
+                                ->searchable()
+                                ->preload(),
 
-                Forms\Components\Select::make('province_id')
-                ->label('Provinsi')
-                ->relationship('province', 'name')
-                ->searchable()
-                ->preload(),
-
-                Forms\Components\Select::make('city_id')
-                ->label('Kota')
-                ->relationship('cities', 'name')
-                ->searchable()
-                ->preload(),
-
-                Forms\Components\Select::make('showroom')
-                ->label('Showroom')
-                ->relationship('showrooms', 'showroom')
-                ->searchable()
-                ->preload(),
+                            Forms\Components\Select::make('city_id')
+                                ->label('Kota')
+                                ->relationship('cities', 'name')
+                                ->searchable()
+                                ->preload(),
 
 
-                Forms\Components\FileUpload::make('image')
-                ->label('Image'),
+                            ])->columns(2),
 
-                Forms\Components\FileUpload::make('ktp')
-                ->label('KTP'),
-                Forms\Components\FileUpload::make('npwp')
-                ->label('NPWP'),
 
+                        Tabs\Tab::make('Images')
+                            ->schema([
+                                Forms\Components\FileUpload::make('image')
+                                ->label('Image'),
+
+                                Forms\Components\FileUpload::make('ktp')
+                                ->label('KTP'),
+                                Forms\Components\FileUpload::make('npwp')
+                                ->label('NPWP'),
+                            ])->columns(2),
+                    ])
+                    ->columnSpanFull()
+                    ->activeTab(1),
             ]);
     }
 
@@ -101,11 +118,11 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('nama')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('pakets.name')
-                ->label('Paket'),
+                    ->label('Paket'),
                 Tables\Columns\TextColumn::make('brands.brand')
-                ->label('Brand'),
+                    ->label('Brand'),
                 Tables\Columns\TextColumn::make('positions.name')
-                ->label('Posisi'),
+                    ->label('Posisi'),
                 /*
                 Tables\Columns\TextColumn::make('cities.name')
                 ->label('Kota'),
@@ -120,7 +137,25 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+
+
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\Action::make('Notification')
+                        ->icon('heroicon-o-bell-alert')
+                        ->action(function (User $record) {
+                            //$fcmtoken = 'dOAzRsgRS1G7My_jWZ7sqs:APA91bHsNlbsZ4QxzFDkEUJWTn714viqkON6C8jl1QEMuLI2VtenvMRwHfUaZNo0A4BYpX-feQisobv4NrlVqKoo9XC1BXxfRaQJ50ZF_2OvjfoDECx8uGyvton9K6reV3Tu4_LfWGQZ';// $record->fcmtoken;
+                            $fcmtoken = $record->fcmtoken;
+                            $title = '';
+                            $payload = '';
+                            $message = '';
+
+                            $pushController = new FcmController();
+                            $push = $pushController->sendWelcomeNotification($fcmtoken, $title, $payload, $message);
+                        }),
+                ]),
+
+
 
             ])
             ->bulkActions([
@@ -135,7 +170,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ProspekRelationManager::class
         ];
     }
 

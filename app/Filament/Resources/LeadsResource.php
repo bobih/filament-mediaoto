@@ -32,11 +32,10 @@ class LeadsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->searchable()
                 ->label('ID'),
                 Tables\Columns\TextColumn::make('name')
                 ->label('Name')
-
+                ->searchable()
                 ->formatStateUsing(function (string $state){
                     return ucwords(htmlentities($state));
                 }),
@@ -53,12 +52,14 @@ class LeadsResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+               // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                /*
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+                */
             ]);
     }
 
@@ -73,8 +74,8 @@ class LeadsResource extends Resource
     {
         return [
             'index' => Pages\ListLeads::route('/'),
-            'create' => Pages\CreateLeads::route('/create'),
-            'edit' => Pages\EditLeads::route('/{record}/edit'),
+            //'create' => Pages\CreateLeads::route('/create'),
+            //'edit' => Pages\EditLeads::route('/{record}/edit'),
         ];
     }
 }

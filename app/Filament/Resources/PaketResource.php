@@ -80,8 +80,8 @@ class PaketResource extends Resource
     {
         return [
             'index' => Pages\ListPakets::route('/'),
-            'create' => Pages\CreatePaket::route('/create'),
-            'edit' => Pages\EditPaket::route('/{record}/edit'),
+            //'create' => Pages\CreatePaket::route('/create'),
+            //'edit' => Pages\EditPaket::route('/{record}/edit'),
         ];
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PositionResource\Pages;
-use App\Filament\Resources\PositionResource\RelationManagers;
-use App\Models\Position;
+use App\Filament\Resources\ProspekResource\Pages;
+use App\Filament\Resources\ProspekResource\RelationManagers;
+use App\Models\Prospek;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PositionResource extends Resource
+class ProspekResource extends Resource
 {
-    protected static ?string $model = Position::class;
+    protected static ?string $model = Prospek::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,9 +23,7 @@ class PositionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                ->label('Posisi')
-                ->required(),
+                //
             ]);
     }
 
@@ -33,10 +31,16 @@ class PositionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                ->label('ID'),
-                Tables\Columns\TextColumn::make('name')
-                ->label('Posisi'),
+                Tables\Columns\TextColumn::make('users.nama')->searchable()
+                ->label('Sales'),
+                Tables\Columns\TextColumn::make('leadusers.name')
+                ->label('Prospek'),
+                Tables\Columns\TextColumn::make('view')
+                ->label('View'),
+                Tables\Columns\TextColumn::make('favorite')
+                ->label('Favorite'),
+                Tables\Columns\TextColumn::make('lost')
+                ->label('Lost'),
             ])
             ->filters([
                 //
@@ -61,9 +65,9 @@ class PositionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPositions::route('/'),
-            //'create' => Pages\CreatePosition::route('/create'),
-            //'edit' => Pages\EditPosition::route('/{record}/edit'),
+            'index' => Pages\ListProspeks::route('/'),
+            'create' => Pages\CreateProspek::route('/create'),
+            'edit' => Pages\EditProspek::route('/{record}/edit'),
         ];
     }
 }

@@ -33,6 +33,7 @@ class CityResource extends Resource
                 ->searchable()
                 ->preload()
                 ->required(),
+
                 Forms\Components\TextInput::make('name')
                 ->label('Kota')
                 ->required(),
@@ -44,8 +45,10 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('province.name')->searchable(),
-                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('province.name')->searchable()
+                ->label('Provinsi'),
+                Tables\Columns\TextColumn::make('name')->searchable()
+                ->label('Kota'),
             ])
             ->filters([
                 //
@@ -71,8 +74,8 @@ class CityResource extends Resource
     {
         return [
             'index' => Pages\ListCities::route('/'),
-            'create' => Pages\CreateCity::route('/create'),
-            'edit' => Pages\EditCity::route('/{record}/edit'),
+           // 'create' => Pages\CreateCity::route('/create'),
+           // 'edit' => Pages\EditCity::route('/{record}/edit'),
         ];
     }
 }

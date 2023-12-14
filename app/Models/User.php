@@ -106,15 +106,20 @@ class User extends Authenticatable implements HasName
             foreignKey: 'position_id');
     }
 
-
-
-
     public function pakets(): BelongsTo
     {
         return $this->belongsTo(
             related: Paket::class,
             ownerKey: 'id',
             foreignKey: 'acctype');
+    }
+
+    public function prospek(): HasMany
+    {
+        return $this->hasMany(
+            related: Prospek::class,
+            foreignKey: 'userid',
+            localKey: 'id');
     }
 
 }
