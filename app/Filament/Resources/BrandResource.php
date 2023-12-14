@@ -16,9 +16,13 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
+    protected static ?string $navigationGroup = 'Settings';
 
     protected static ?string $navigationIcon = 'heroicon-o-truck';
 
+    protected static ?string $navigationLabel = 'List Brand';
+
+    protected static ?string $slug = 'brand-List';
     public static function form(Form $form): Form
     {
         return $form

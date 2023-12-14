@@ -16,6 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ShowroomResource extends Resource
 {
     protected static ?string $model = Showroom::class;
+    protected static ?string $navigationGroup = 'Settings';
+
+    protected static ?string $navigationLabel = 'List Showroom';
+
+    protected static ?string $slug = 'showroom-List';
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
 

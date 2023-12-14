@@ -18,6 +18,8 @@ class ProvinceResource extends Resource
 {
     protected static ?string $model = Province::class;
 
+    protected static ?string $navigationGroup = 'Settings';
+
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
     protected static ?string $navigationLabel = 'List Provinsi';
