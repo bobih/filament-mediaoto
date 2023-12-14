@@ -2,22 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Http\Controllers\FcmController;
 use App\Models\User;
 use App\Models\Prospek;
-use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+
+
 use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Section;
-use Filament\Tables\Columns\ImageColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
+use App\Http\Controllers\FcmController;
+use Filament\Forms\Components\Tabs\Tab;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use App\Filament\Resources\UserResource\Pages;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
+use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {
@@ -39,27 +39,27 @@ class UserResource extends Resource
                     ->tabs([
                         Tabs\Tab::make('User Info')
                             ->schema([
-                                Forms\Components\TextInput::make('nama')
+                                TextInput::make('nama')
                                     ->label('Nama')
                                     ->required(),
 
-                                Forms\Components\TextInput::make('email')
+                                TextInput::make('email')
                                     ->label('Email')
                                     ->email()
                                     ->required(),
 
-                                Forms\Components\Select::make('posision_id')
+                                Select::make('posision_id')
                                     ->label('Posisi')
                                     ->relationship('positions', 'name'),
 
-                                Forms\Components\TextInput::make('phone')
+                                TextInput::make('phone')
                                     ->label('Phone'),
-                                Forms\Components\Select::make('brand')
+                                Select::make('brand')
                                     ->label('Brand')
                                     ->relationship('brands', 'brand')
                                     ->searchable()
                                     ->preload(),
-                                Forms\Components\Select::make('acctype')
+                                Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
                                     ->preload()
@@ -69,10 +69,10 @@ class UserResource extends Resource
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
                             ->schema([
-                                Forms\Components\TextArea::make('alamat')
+                                Textarea::make('alamat')
                                     ->label('Alamat'),
 
-                                Forms\Components\Select::make('showroom')
+                                Select::make('showroom')
                                     ->label('Showroom')
                                     ->relationship('showrooms', 'showroom')
                                     ->searchable()
