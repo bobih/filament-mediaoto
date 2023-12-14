@@ -53,15 +53,15 @@ class ProspekController extends Controller
 
         // Lost
         $Lost = DB::table('prospek')
-        ->select(DB::raw('COUNT(id) as total'))
-        ->where('userid', $userid)
-        ->where('lost','>', 0)->first();
+            ->select(DB::raw('COUNT(id) as total'))
+            ->where('userid', $userid)
+            ->where('lost', '>', 0)->first();
 
         $lost_today = DB::table('prospek')
             ->select(DB::raw('COUNT(id) as total'))
             ->where(DB::raw('DATE(`created_at`) = CURRENT_DATE()'))
             ->where('userid', $userid)
-            ->where('lost','>', 0)->first();
+            ->where('lost', '>', 0)->first();
 
 
         //CAll
@@ -149,7 +149,7 @@ class ProspekController extends Controller
             $item = strval($item);
         });
         */
-       // $data = json_encode($data);
+        // $data = json_encode($data);
 
         return response()->json($data, 200);
     }
@@ -160,6 +160,7 @@ class ProspekController extends Controller
 
         $userid = $request['userid'];
         $listid = $request['listid'];
+        $page = $request['page'];
 
 
         $result = DB::table('prospek')
@@ -170,18 +171,33 @@ class ProspekController extends Controller
             case 0:
                 $result->where('prospek.userid', '=', $userid);
                 $result->orderBy('prospek.id', 'desc');
+                if ($page > 0) {
+                    $result->limit(10)->offset($page);
+                } else {
+                    $result->limit(10)->offset(0);
+                }
                 break;
             case 1:
 
                 $result->where('prospek.view', '=', 0);
                 $result->where('prospek.userid', '=', $userid);
                 $result->orderBy('prospek.id', 'desc');
+                if ($page > 0) {
+                    $result->limit(10)->offset($page);
+                } else {
+                    $result->limit(10)->offset(0);
+                }
                 break;
             case 2:
 
                 $result->where('prospek.view', '=', 1);
                 $result->where('prospek.userid', '=', $userid);
                 $result->orderBy('prospek.id', 'desc');
+                if ($page > 0) {
+                    $result->limit(10)->offset($page);
+                } else {
+                    $result->limit(10)->offset(0);
+                }
                 break;
             case 3:
                 $sql = "SELECT `leads`.*,`prospek`.`view`, `prospek`.`favorite`, `prospek`.`created_at` as regdate, `prospek`.`id` as pid
@@ -202,6 +218,11 @@ class ProspekController extends Controller
                 //$sql .= " WHERE prospek.userid='0' ";
                 $result->where('prospek.userid', '=', 0);
                 $result->orderBy('prospek.id', 'desc');
+                if ($page > 0) {
+                    $result->limit(10)->offset($page);
+                } else {
+                    $result->limit(10)->offset(0);
+                }
                 break;
         }
 
@@ -231,11 +252,11 @@ class ProspekController extends Controller
         });
         $data = json_encode($data);
 
-      return response($data,200)->withHeaders([
-        'Content-Type' => 'text/html; charset=UTF-8',
-        'X-Header-One' => 'Header Value',
-        'X-Header-Two' => 'Header Value',
-    ]);
+        return response($data, 200)->withHeaders([
+            'Content-Type' => 'text/html; charset=UTF-8',
+            'X-Header-One' => 'Header Value',
+            'X-Header-Two' => 'Header Value',
+        ]);
         //return response()->json($data, 200)->header('Content-Type', 'text/html; charset=UTF-8');
 
     }
@@ -388,10 +409,10 @@ class ProspekController extends Controller
         $x = 0;
         foreach ($return as $rows) {
             $data[$x]['id'] = $rows->pid;
-            $data[$x]['nama'] = trim( ucwords($rows->name));
+            $data[$x]['nama'] = trim(ucwords($rows->name));
             $data[$x]['nickname'] = '';
             $data[$x]['email'] = '';
-            $data[$x]['mobile'] =  $rows->phone;
+            $data[$x]['mobile'] = $rows->phone;
             $data[$x]['car'] = $rows->model . " " . html_entity_decode($rows->variant);
             $data[$x]['lokasi'] = $rows->city;
             $data[$x]['angsuran'] = "0";
@@ -399,8 +420,8 @@ class ProspekController extends Controller
             $data[$x]['tdp'] = "0";
             $data[$x]['favorite'] = $rows->favorite;
             $data[$x]['view'] = $rows->view;
-            $data[$x]['regdate'] =  $rows->regdate;
-            $data[$x]['lastview'] =  "2023-11-17 10:10:10";
+            $data[$x]['regdate'] = $rows->regdate;
+            $data[$x]['lastview'] = "2023-11-17 10:10:10";
             $data[$x]['catatan'] = $rows->note;
             $x++;
         }
@@ -411,7 +432,7 @@ class ProspekController extends Controller
             ->where('userid', '=', $userid)
             ->orderBy('tanggal', 'desc');
 
-            $data[0]['reminder'] = $reminder->get();
+        $data[0]['reminder'] = $reminder->get();
         $data = json_decode(json_encode($data), true);
         array_walk_recursive($data, function (&$item) {
             $item = strval($item);
