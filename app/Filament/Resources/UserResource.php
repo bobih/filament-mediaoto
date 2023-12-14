@@ -39,27 +39,27 @@ class UserResource extends Resource
                     ->tabs([
                         Tabs\Tab::make('User Info')
                             ->schema([
-                                TextInput::make('nama')
+                                Forms\Components\TextInput::make('nama')
                                     ->label('Nama')
                                     ->required(),
 
-                                TextInput::make('email')
+                                Forms\Components\TextInput::make('email')
                                     ->label('Email')
                                     ->email()
                                     ->required(),
 
-                                Select::make('posision_id')
+                                Forms\Components\Select::make('posision_id')
                                     ->label('Posisi')
                                     ->relationship('positions', 'name'),
 
-                                TextInput::make('phone')
+                                Forms\Components\TextInput::make('phone')
                                     ->label('Phone'),
-                                Select::make('brand')
+                                Forms\Components\Select::make('brand')
                                     ->label('Brand')
                                     ->relationship('brands', 'brand')
                                     ->searchable()
                                     ->preload(),
-                                Select::make('acctype')
+                                Forms\Components\Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
                                     ->preload()
@@ -69,10 +69,10 @@ class UserResource extends Resource
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
                             ->schema([
-                                Textarea::make('alamat')
+                                Forms\Components\Textarea::make('alamat')
                                     ->label('Alamat'),
 
-                                Select::make('showroom')
+                                Forms\Components\Select::make('showroom')
                                     ->label('Showroom')
                                     ->relationship('showrooms', 'showroom')
                                     ->searchable()
@@ -118,19 +118,19 @@ class UserResource extends Resource
             ->columns([
                 //Tables\Columns\TextColumn::make('id'),
                 ProgressColumn::make('progress')
-                ->progress(function ($record) {
-                    $totalProspek = new Prospek();
-                    $prospekinfo = $totalProspek::where('userid', '=',  $record->id);
-                    if ($prospekinfo->count() > 0){
-                        return round(($prospekinfo->count() /$record->quota  ) * 100);
+                    ->progress(function ($record) {
+                        $totalProspek = new Prospek();
+                        $prospekinfo = $totalProspek::where('userid', '=', $record->id);
+                        if ($prospekinfo->count() > 0) {
+                            return round(($prospekinfo->count() / $record->quota) * 100);
 
-                    } else {
-                        return 0;
+                        } else {
+                            return 0;
 
-                    }
+                        }
 
 
-                }),
+                    }),
                 Tables\Columns\TextColumn::make('nama')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('pakets.name')
