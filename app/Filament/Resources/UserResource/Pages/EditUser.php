@@ -20,4 +20,11 @@ class EditUser extends EditRecord
     {
         return route(name:'filament.dash.resources.user-List.index');
     }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserResource\Widgets\ProspekInfoWidget::class,
+        ];
+    }
 }

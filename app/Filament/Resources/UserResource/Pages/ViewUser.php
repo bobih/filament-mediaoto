@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserResource\Widgets\ProspekInfoWidget::class,
+        ];
+    }
 }

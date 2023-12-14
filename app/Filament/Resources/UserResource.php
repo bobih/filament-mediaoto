@@ -38,57 +38,57 @@ class UserResource extends Resource
                         Tabs\Tab::make('User Info')
                             ->schema([
                                 Forms\Components\TextInput::make('nama')
-                                ->label('Nama')
-                                ->required(),
+                                    ->label('Nama')
+                                    ->required(),
 
-                            Forms\Components\TextInput::make('email')
-                                ->label('Email')
-                                ->email()
-                                ->required(),
+                                Forms\Components\TextInput::make('email')
+                                    ->label('Email')
+                                    ->email()
+                                    ->required(),
 
-                            Forms\Components\Select::make('posision_id')
-                                ->label('Posisi')
-                                ->relationship('positions', 'name'),
+                                Forms\Components\Select::make('posision_id')
+                                    ->label('Posisi')
+                                    ->relationship('positions', 'name'),
 
                                 Forms\Components\TextInput::make('phone')
-                                ->label('Phone'),
+                                    ->label('Phone'),
                                 Forms\Components\Select::make('brand')
-                                ->label('Brand')
-                                ->relationship('brands', 'brand')
-                                ->searchable()
-                                ->preload(),
+                                    ->label('Brand')
+                                    ->relationship('brands', 'brand')
+                                    ->searchable()
+                                    ->preload(),
                                 Forms\Components\Select::make('acctype')
-                                ->label('Paket')
-                                ->relationship('pakets', 'name')
-                                ->preload()
-                                ->required(),
+                                    ->label('Paket')
+                                    ->relationship('pakets', 'name')
+                                    ->preload()
+                                    ->required(),
 
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
                             ->schema([
                                 Forms\Components\TextArea::make('alamat')
-                                ->label('Alamat'),
+                                    ->label('Alamat'),
 
                                 Forms\Components\Select::make('showroom')
-                                ->label('Showroom')
-                                ->relationship('showrooms', 'showroom')
-                                ->searchable()
-                                ->preload(),
+                                    ->label('Showroom')
+                                    ->relationship('showrooms', 'showroom')
+                                    ->searchable()
+                                    ->preload(),
 
 
 
-                            Forms\Components\Select::make('province_id')
-                                ->label('Provinsi')
-                                ->relationship('province', 'name')
-                                ->searchable()
-                                ->preload(),
+                                Forms\Components\Select::make('province_id')
+                                    ->label('Provinsi')
+                                    ->relationship('province', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
-                            Forms\Components\Select::make('city_id')
-                                ->label('Kota')
-                                ->relationship('cities', 'name')
-                                ->searchable()
-                                ->preload(),
+                                Forms\Components\Select::make('city_id')
+                                    ->label('Kota')
+                                    ->relationship('cities', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
 
                             ])->columns(2),
@@ -97,12 +97,12 @@ class UserResource extends Resource
                         Tabs\Tab::make('Images')
                             ->schema([
                                 Forms\Components\FileUpload::make('image')
-                                ->label('Image'),
+                                    ->label('Image'),
 
                                 Forms\Components\FileUpload::make('ktp')
-                                ->label('KTP'),
+                                    ->label('KTP'),
                                 Forms\Components\FileUpload::make('npwp')
-                                ->label('NPWP'),
+                                    ->label('NPWP'),
                             ])->columns(2),
                     ])
                     ->columnSpanFull()
@@ -167,10 +167,17 @@ class UserResource extends Resource
             ]);
     }
 
+    public static function getWidgets(): array
+    {
+        return [
+            UserResource\Widgets\ProspekInfoWidget::class,
+        ];
+    }
+
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ProspekRelationManager::class
+            RelationManagers\ProspekRelationManager::class,
         ];
     }
 
