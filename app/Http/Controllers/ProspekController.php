@@ -356,6 +356,8 @@ class ProspekController extends Controller
     public function getFavorite(Request $request)
     {
         $userid = $request['userid'];
+        $page = $request['page'];
+
 
         // Get Data
         $result = DB::table('prospek')
@@ -364,6 +366,12 @@ class ProspekController extends Controller
             ->where('prospek.userid', '=', $userid)
             ->where('prospek.favorite', '=', 1)
             ->orderBy('prospek.id', 'desc');
+
+            if ($page > 0) {
+                $result->limit(10)->offset($page);
+            } else {
+                $result->limit(10)->offset(0);
+            }
 
 
         $return = json_decode($result->get());
