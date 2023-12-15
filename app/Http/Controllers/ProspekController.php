@@ -233,9 +233,14 @@ class ProspekController extends Controller
             $data[$x]['id'] = $rows->pid;
             $data[$x]['nama'] = trim(ucwords($rows->name));
             $data[$x]['mobile'] = $rows->phone;
-            $data[$x]['car'] = $rows->model . " " . html_entity_decode($rows->variant);
+
+            $cartype = html_entity_decode($rows->variant);
+            if(strlen($cartype) > 15){
+                $cartype =  substr(html_entity_decode($rows->variant), 0, 15) . '...';
+            }
+            $data[$x]['car'] = $rows->model . " " .  $cartype;
             $data[$x]['model'] = $rows->model;
-            $data[$x]['type'] = html_entity_decode($rows->variant);
+            $data[$x]['type'] = $cartype;
             $data[$x]['lokasi'] = $rows->city;
             $data[$x]['angsuran'] = "0";
             $data[$x]['tenor'] = "0";
@@ -369,9 +374,15 @@ class ProspekController extends Controller
             $data[$x]['id'] = $rows->pid;
             $data[$x]['nama'] = trim(ucwords($rows->name));
             $data[$x]['mobile'] = $rows->phone;
-            $data[$x]['car'] = $rows->model . " " . html_entity_decode($rows->variant);
+
+
+            $cartype = html_entity_decode($rows->variant);
+            if(strlen($cartype) > 15){
+                $cartype =  substr(html_entity_decode($rows->variant), 0, 15) . '...';
+            }
+            $data[$x]['car'] = $rows->model . " " .  $cartype;
             $data[$x]['model'] = $rows->model;
-            $data[$x]['type'] = html_entity_decode($rows->variant);
+            $data[$x]['type'] = $cartype;
             $data[$x]['lokasi'] = $rows->city;
             $data[$x]['angsuran'] = "0";
             $data[$x]['tenor'] = "0";
@@ -460,9 +471,15 @@ class ProspekController extends Controller
             $data[$x]['id'] = $rows->pid;
             $data[$x]['nama'] = trim(ucwords($rows->name));
             $data[$x]['mobile'] = $rows->phone;
-            $data[$x]['car'] = $rows->model . " " . html_entity_decode($rows->variant);
+
+
+            $cartype = html_entity_decode($rows->variant);
+            if(strlen($cartype) > 15){
+                $cartype =  substr(html_entity_decode($rows->variant), 0, 15) . '...';
+            }
+            $data[$x]['car'] = $rows->model . " " .  $cartype;
             $data[$x]['model'] = $rows->model;
-            $data[$x]['type'] = html_entity_decode($rows->variant);
+            $data[$x]['type'] = $cartype;
             $data[$x]['lokasi'] = $rows->city;
             $data[$x]['angsuran'] = "0";
             $data[$x]['tenor'] = "0";
