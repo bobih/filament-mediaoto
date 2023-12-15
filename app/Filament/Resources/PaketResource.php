@@ -19,6 +19,10 @@ class PaketResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationLabel = 'List Paket';
+    protected static ?string $slug = 'paket-List';
+
     protected static ?string $navigationIcon = 'heroicon-o-banknotes';
 
     public static function form(Form $form): Form
