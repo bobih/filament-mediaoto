@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Models\ListAds;
 
@@ -10,7 +11,7 @@ class AppController extends Controller
     public function getAds(Request $request)
     {
 
-        $ads = ListAds::where('active', 1)->get();
+        $ads = Banner::where('active', 1)->get();
 
 
         $data = [];
