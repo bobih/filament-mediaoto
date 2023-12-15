@@ -56,6 +56,20 @@ class UserController extends Controller
             $token = JWT::encode($payload, $key, 'HS256');
             $data[$x]['token'] = $token;
 
+            switch ($rows->acctype) {
+                case 2:
+                    $data[$x]['acctype'] =  'SILVER';
+                    break;
+                case 3:
+                    $data[$x]['acctype'] =  'GOLD';
+                    break;
+                case 4:
+                    $data[$x]['acctype'] =  'DIAMOND';
+                    break;
+                default:
+                $data[$x]['acctype'] =  'BRONZE';
+            }
+
 
             $x++;
 
