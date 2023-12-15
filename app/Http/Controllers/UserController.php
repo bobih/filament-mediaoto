@@ -16,7 +16,7 @@ class UserController extends Controller
 
         $userid = $request['userid'];
         if (is_null($userid)) {
-            return $this->respond(['error' => 'Invalid User'], 401);
+            return response()->json(["Error" => "User Not Found"], 401);
         }
 
         $query = DB::table('users')->where('id', $userid)->get();
@@ -39,7 +39,8 @@ class UserController extends Controller
             $data[$x]['image'] = $rows->image;
             $data[$x]['fcmtoken'] = $rows->fcmtoken;
             $data[$x]['register'] = $rows->created_at;
-            $key = getenv('JWT_SECRET');
+
+            $key = "bobihaja";// getenv('JWT_SECRET');
             $iat = time(); // current timestamp value
             $exp = $iat + 36000;
 
@@ -93,6 +94,13 @@ class UserController extends Controller
 
         $file = $request->file('file');
 
+        // Check if is image
+        $extensions = ['jpeg','png','jpg','gif','svg','webp'];
+        $originalExtention = $request->file('file')->getClientOriginalExtension(); // the extension of file .
+        if (!in_array($originalExtention , $extensions)){
+            return response()->json(["Error" => "Update Failed"], 401);
+        }
+
         $fileName = time() . '.' . $file->extension();
         $saveFile = $request->file->storeAs('public/images', $fileName);
 
@@ -101,6 +109,7 @@ class UserController extends Controller
 
         $user->nama = $request->input('nama');
         $user->phone = trim($request->input('phone'));
+        $user->alamat = trim($request->input('alamat'));
         $user->image = $fileName;
 
         $user->save();
@@ -111,8 +120,7 @@ class UserController extends Controller
 
     public function updateUserInfo(Request $request)
     {
-        $affected = DB::table('users')
-            ->where('id', $request['userid'])
+        $affected = User::where('id', $request['userid'])
             ->update([
                 'nama' => $request['nama'],
                 'phone' => $request['phone'],
@@ -126,30 +134,30 @@ class UserController extends Controller
         }
     }
 
-    public function changePassword()
+    public function changePassword(Request $request)
     {
 
-        $userModel = new UserModel();
+       // $userModel = new User();
 
-        $userid = trim($this->request->getVar('userid', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $oldPassword = $this->request->getVar('oldpassword');
+        $userid = $request['userid'];
+        $oldPassword = trim($request['oldpassword']);
         //$oldPassword  = password_hash(trim($this->request->getVar('oldpassword')), PASSWORD_DEFAULT);
-        $newPassword = password_hash(trim($this->request->getVar('newpassword')), PASSWORD_DEFAULT);
+        $newPassword = password_hash(trim($request['newpassword']), PASSWORD_DEFAULT);
 
-        $user = $userModel->where('id', $userid)->first();
+        $user = User::where('id', $userid)->first();
         $pwd_verify = password_verify($oldPassword, $user['password']);
 
-        $db = db_connect();
+       // $db = db_connect();
 
         if ($pwd_verify) {
-            $sql = "UPDATE `users` SET password = '" . $newPassword . "' WHERE `users`.`id` = '" . $userid . "';";
-            if ($db->query($sql)) {
-                return $this->respond(['message' => 'Update Successfully'], 200);
+            $affected = $user->update(['password' => $newPassword]);
+            if ($affected == 1) {
+                return response()->json(["message" => "Data Updated"], 200);
             } else {
-                return $this->respond(['error' => 'Update Faled'], 401);
+                return response()->json(["Error" => "Update Failed"], 401);
             }
         } else {
-            return $this->respond(['error' => 'Update Faled'], 401);
+            return response()->json(["Error" => "Check Your Password"], 401);
         }
     }
 }

@@ -64,22 +64,32 @@ class ProspekController extends Controller
             ->where('lost', '>', 0)->first();
 
 
-        //CAll
-        $reminder = DB::table('reminder')
-            ->select(DB::raw('count(reminder.leadsid) as total'))
-            ->leftJoin('prospek', 'prospek.id', '=', 'reminder.leadsid')
-            ->where('prospek.userid', $userid)
-            ->where(DB::raw('DATE(reminder.tanggal)'), '>=', ' CURDATE()')
-            ->groupBy('reminder.userid')
-            ->first();
 
-        $reminder_today = DB::table('reminder')
-            ->select(DB::raw('count(*) as total'))
-            ->leftJoin('prospek', 'prospek.id', '=', 'reminder.leadsid')
-            ->where('prospek.userid', $userid)
-            ->where(DB::raw('DATE(reminder.tanggal)'), '=', ' CURDATE()')
-            ->groupBy('reminder.userid')
-            ->first();
+            /*
+            $reminder = DB::table('reminder')
+            ->select(DB::raw('count(reminder.leadsid) as total'))
+            ->where('reminder.userid', $userid)
+            ->wheredate('reminder.tanggal', '>', date('Y-m-d'))
+            ->groupBy('sreminder.leadsid')->get();
+            */
+
+            $reminder = DB::table('reminder')
+            ->select('leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
+            ->rightJoin('prospek', 'reminder.leadsid', '=', 'prospek.id')
+            ->join('leads', 'leads.id', '=', 'prospek.leadsid')
+            ->where('reminder.userid', '=', $userid)
+            ->wheredate('reminder.tanggal', '>=', date('Y-m-d H:i:s'))->get();
+
+            $getReminderTotal  = $reminder->count();
+
+
+            $reminder_today = DB::table('reminder')
+            ->select(DB::raw('count(reminder.leadsid) as total'))
+            ->where('reminder.userid', $userid)
+            ->whereBetween(DB::raw('DATE(reminder.tanggal)'), [now() ,date("Y-m-d 23:59:59")])
+            ->groupBy('reminder.leadsid')->get();
+
+            $getReminderTodayTotal  = $reminder_today->count();
 
 
         $data = [
@@ -103,11 +113,18 @@ class ProspekController extends Controller
             ],
 
             [
+                "id" => 4,
+                "title" => "Telepon Kembali",
+                "total" => $getReminderTotal,
+                "today" => $getReminderTodayTotal,
+            ],
+
+            [
                 "id" => 5,
                 "title" => "Lost",
                 "total" => $Lost->total,
                 "today" => $lost_today->total
-            ],
+            ]
 
             /*
             [
@@ -170,6 +187,7 @@ class ProspekController extends Controller
         switch ($listid) {
             case 0:
                 $result->where('prospek.userid', '=', $userid);
+                $result->where('prospek.lost', '=', 0);
                 $result->orderBy('prospek.id', 'desc');
                 if ($page > 0) {
                     $result->limit(10)->offset($page);
@@ -200,23 +218,30 @@ class ProspekController extends Controller
                 }
                 break;
             case 3:
-                $sql = "SELECT `leads`.*,`prospek`.`view`, `prospek`.`favorite`, `prospek`.`created_at` as regdate, `prospek`.`id` as pid
-                        FROM `prospek` LEFT JOIN `leads` ON `leads`.`id` = `prospek`.`leadsid`
-                        LEFT JOIN `reminder` ON `prospek`.`id`= `reminder`.`leadsid`
-                        WHERE `prospek`.`userid`='" . $userid . "' AND DATE(`reminder`.`tanggal`) >= CURDATE()
-                        GROUP BY `reminder`.`leadsid`;";
 
-                $result = DB::table('prospek')
-                    ->select('leads.*', 'reminder.leadsid', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
-                    ->leftJoin('leads', 'leads.id', '=', 'prospek.leadsid')
-                    ->leftJoin('reminder', 'prospek.id', '=', 'reminder.leadsid')
-                    ->where('prospek.userid', '=', $userid)
-                    ->whereDate('reminder.tanggal', '>=', 'CURDATE()');
+
+                        $result = DB::table('reminder')
+                        ->select('leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
+                        ->rightJoin('prospek', 'reminder.leadsid', '=', 'prospek.id')
+                        ->join('leads', 'leads.id', '=', 'prospek.leadsid')
+                        ->where('reminder.userid', '=', $userid)
+                        ->wheredate('reminder.tanggal', '>=', date('Y-m-d H:i:s'));
+                        if ($page > 0) {
+                            $result->limit(10)->offset($page);
+                        } else {
+                            $result->limit(10)->offset(0);
+                        }
+
+
+
+
+
+
 
                 break;
             case 4:
-                //$sql .= " WHERE prospek.userid='0' ";
-                $result->where('prospek.userid', '=', 0);
+                $result->where('prospek.userid', '=', $userid);
+                $result->where('prospek.lost', '>', 0);
                 $result->orderBy('prospek.id', 'desc');
                 if ($page > 0) {
                     $result->limit(10)->offset($page);
@@ -308,8 +333,11 @@ class ProspekController extends Controller
         $userid = $request['userid'];
         $leadid = $request['leadid'];
 
+        DB::enableQueryLog();
+
+
         $affected = DB::table('prospek')
-            ->where('prospek.leadsid', $leadid)
+            ->where('prospek.id', $leadid)
             ->where('prospek.userid', $userid)
             ->update(['lost' => $request['lost']]);
 
@@ -323,37 +351,52 @@ class ProspekController extends Controller
     public function setReminder(Request $request)
     {
 
-        DB::table('reminder')->insert([
+        $affected = DB::table('reminder')->insert([
             'leadsid' => $request['leadid'],
             'userid' => $request['userid'],
             'notifid' => $request['notifid'],
             'tanggal' => $request['tanggal']
         ]);
-        return response()->json(["message" => "Data Updated"], 200);
+
+
+        if ($affected == 1) {
+            return response()->json(["message" => "Data Updated"], 200);
+        } else {
+            return response()->json(["Error" => "Update Failed"], 401);
+        }
     }
 
     public function phoneLog(Request $request)
     {
 
-        DB::table('list_call')->insert([
+        $affected = DB::table('list_call')->insert([
             'leadsid' => $request['leadid'],
             'userid' => $request['userid'],
             'tanggal' => date("Y-m-d H:i:s")
         ]);
 
-        return response()->json(["message" => "Data Updated"], 200);
+
+        if ($affected == 1) {
+            return response()->json(["message" => "Data Updated"], 200);
+        } else {
+            return response()->json(["Error" => "Update Failed"], 401);
+        }
     }
 
     public function waLog(Request $request)
     {
 
-        DB::table('list_wa')->insert([
+        $affected = DB::table('list_wa')->insert([
             'leadsid' => $request['leadid'],
             'userid' => $request['userid'],
             'tanggal' => date("Y-m-d H:i:s")
         ]);
 
-        return response()->json(["message" => "Data Updated"], 200);
+        if ($affected == 1) {
+            return response()->json(["message" => "Data Updated"], 200);
+        } else {
+            return response()->json(["Error" => "Update Failed"], 401);
+        }
     }
 
     public function getFavorite(Request $request)

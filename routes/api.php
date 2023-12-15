@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
@@ -46,6 +47,7 @@ Route::post("refreshtoken", [LoginController::class, 'refreshToken']);
 
 Route::post("ads", [AppController::class, 'getAds']);
 
+Route::post("register", [RegisterController::class, 'registerUser']);
 
 Route::post("changepass", [UserController::class, 'changePassword']);
 //$routes->post("users", "User::index", ['filter' => 'authFilter']);
