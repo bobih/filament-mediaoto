@@ -17,6 +17,7 @@ class CityResource extends Resource
 
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $title = 'List Kota';
 

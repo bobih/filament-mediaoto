@@ -25,6 +25,7 @@ class ProvinceResource extends Resource
     protected static ?string $navigationLabel = 'List Provinsi';
 
     protected static ?string $slug = 'province-List';
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

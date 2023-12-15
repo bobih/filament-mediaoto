@@ -26,6 +26,7 @@ class DashPanelProvider extends PanelProvider
             ->default()
             ->id('dash')
             ->path('dash')
+            ->spa()
             ->login()
             ->colors([
                 'primary' => Color::Amber,

@@ -13,6 +13,10 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Tabs;
+use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\FontWeight;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\Layout\Split;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
@@ -117,28 +121,43 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                //Tables\Columns\TextColumn::make('id'),
-                ProgressColumn::make('progress')
-                ->progress(function ($record) {
-                    $totalProspek = new Prospek();
-                    $prospekinfo = $totalProspek::where('userid', '=',  $record->id);
-                    if ($prospekinfo->count() > 0){
-                        return round(($prospekinfo->count() /$record->quota  ) * 100);
 
-                    } else {
-                        return 0;
+                Tables\Columns\TextColumn::make('id')->sortable()
+                    ->label('ID')
 
-                    }
+                    ->grow(false),
+                Tables\Columns\ImageColumn::make('image')
+                ->label('Avatar')
+                    ->circular()
+                    ->alignment(Alignment::Center)
+                    ->grow(false),
+                Tables\Columns\TextColumn::make('nama')->searchable()
+                    ->label('Nama')
+                    ->weight(FontWeight::Bold)
+                    ->alignment(Alignment::Start),
 
+                /*
+                Tables\Columns\TextColumn::make('phone')->searchable()
+                    ->label('Email')
+                    ->icon('heroicon-m-phone'),
+                */
+                Tables\Columns\TextColumn::make('email')->searchable()
+                    ->label('Email'),
 
-                }),
-                Tables\Columns\TextColumn::make('nama')->searchable(),
-                Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('pakets.name')
-                    ->label('Paket'),
-
-
-
+                    ->label('Paket')
+                    ->grow(false)
+                    ->sortable(),
+                ProgressColumn::make('progress')
+                    ->progress(function ($record) {
+                        $totalProspek = new Prospek();
+                        $prospekinfo = $totalProspek::where('userid', '=', $record->id);
+                        if ($prospekinfo->count() > 0) {
+                            return round(($prospekinfo->count() / $record->quota) * 100);
+                        } else {
+                            return 0;
+                        }
+                    })->grow(true),
 
                 /*
                 Tables\Columns\TextColumn::make('cities.name')
@@ -148,7 +167,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('showrooms.showroom')
                 ->label('Showroom'),
                 */
-            ])
+
+            ])->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
