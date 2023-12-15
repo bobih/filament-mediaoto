@@ -31,7 +31,7 @@ class LoginController extends Controller
         $user = User::where('email', $email)->first();
         $pwd_verify = password_verify($password, $user['password']);
 
-        if($pwd_verify == false){
+        if ($pwd_verify == false) {
             return response()->json(['error' => "Password Error"], 401);
         }
 
@@ -48,9 +48,9 @@ class LoginController extends Controller
         );
         $token = JWT::encode($payload, $key, 'HS256');
 
-        $data = [ 'success' => true,
-        'id'    => $user->id,
-        'token' => $token];
+        $data = ['success' => true,
+            'id' => $user->id,
+            'token' => $token];
         array_walk_recursive($data, function (&$item) {
             $item = strval($item);
         });
@@ -65,7 +65,7 @@ class LoginController extends Controller
 
         $user = User::where('email', $email)->first();
 
-        if($user == null){
+        if ($user == null) {
             return response()->json(["Error" => "User Not Found"], 200);
         }
 
@@ -90,5 +90,38 @@ class LoginController extends Controller
         ];
 
         return response()->json($response, 200);
+    }
+
+    public function updateUser(Request $request)
+    {
+        $email = trim($request['email']);
+        $fcmtoken = trim($request['fcmtoken']);
+
+        if (is_null($email)) {
+            $response = [
+                'Error' => 'Invalid Email',
+                'message' => 'Invalid Email'
+            ];
+            return response()->json($response, 401);
+        }
+
+        $user = User::where('email', $email)->first();
+        if ($user == null) {
+            $response = [
+                'Error' => 'Invalid Email',
+                'message' => 'Invalid Email'
+            ];
+            return response()->json($response, 401);
+        } else {
+            try {
+                $user->update(['fcmtoken' => $fcmtoken]);
+                $response = [
+                    'message' => 'Update Success!'
+                ];
+                return response()->json($response, 401);
+            } catch (\Illuminate\Database\QueryException $e) {
+                return response()->json($response, 401);
+            }
+        }
     }
 }
