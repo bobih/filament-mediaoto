@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Models\Prospek;
 use Illuminate\Http\Request;
+use DB;
 
 class ProspekController extends Controller
 {
@@ -292,7 +291,8 @@ class ProspekController extends Controller
     public function setNote(Request $request)
     {
 
-        $affected = Prospek::where('prospek.id', $request['leadid'])
+        $affected = DB::table('prospek')
+            ->where('prospek.id', $request['leadid'])
             ->update(['note' => $request['note']]);
 
         if ($affected == 1) {
@@ -308,7 +308,8 @@ class ProspekController extends Controller
         $userid = $request['userid'];
         $leadid = $request['leadid'];
 
-        $affected = Prospek::where('prospek.leadsid', $leadid)
+        $affected = DB::table('prospek')
+            ->where('prospek.leadsid', $leadid)
             ->where('prospek.userid', $userid)
             ->update(['lost' => $request['lost']]);
 
