@@ -11,10 +11,7 @@ use DB;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+
     public function getUserInfo(Request $request)
     {
 
@@ -105,10 +102,11 @@ class UserController extends Controller
 
         $userid = trim($request['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $nama = trim($request['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $oldfilename = trim($request['oldfilename'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        //$oldfilename = trim($request['oldfilename'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $phone = trim($request['phone'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $alamat = trim($request['alamat'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+        $user = User::where('id', $userid)->first();
 
 
         $file = $request->file('file');
@@ -120,11 +118,16 @@ class UserController extends Controller
             return response()->json(["Error" => "Update Failed"], 401);
         }
 
-        $fileName = time() . '.' . $file->extension();
+        $fileName = time() . uniqid()  . '.' . $file->extension();
         $saveFile = $request->file->storeAs('public/images', $fileName);
 
+        $oldfilename = $user->image;
+        $storage = Storage::disk('public');
 
-        $user = User::where('id', $userid)->first();
+        // Delete Old File
+        if($storage->exists($oldfilename)){
+           $deleteFIle = $storage->delete($oldfilename);
+        }
 
         $user->nama = $request->input('nama');
         $user->phone = trim($request->input('phone'));
