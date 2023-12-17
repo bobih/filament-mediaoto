@@ -27,10 +27,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(AuthController::class)->group(function () {
-});
+Route::group(['middleware' => [\App\Http\Middleware\JwtMiddleware::class]], function() {
 
-    //Prospek
+
     Route::post("summary",  [ProspekController::class, 'getSummary']);
     Route::post("list",  [ProspekController::class, 'getList']);
     Route::post("setfavorite", [ProspekController::class,'setFavorite']);
@@ -44,6 +43,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::post("setlost", [ProspekController::class,'setLost']);
     Route::post("reminder", [ProspekController::class,'setReminder']);
     Route::post("search", [ProspekController::class,'searchLeads']);
+
+});
+
+    //Prospek
+
 
     Route::post("userinfo",  [UserController::class, 'getUserInfo']);
     Route::post("updateimage",  [UserController::class, 'updateImage'] );

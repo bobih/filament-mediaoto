@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasName;
@@ -10,15 +11,13 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-//class User extends Authenticatable implements HasName
 class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable;
+   // use HasApiTokens, HasFactory, Notifiable;
 
     public function canAccessPanel(Panel $panel): bool
     {
@@ -46,6 +45,9 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
         'updated_at',
         'remember_token'
     ];
+
+    protected $primaryKey = 'id';
+
 
     /**
      * The attributes that should be hidden for serialization.

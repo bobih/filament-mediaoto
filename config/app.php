@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-        PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
+        //PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...

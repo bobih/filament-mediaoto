@@ -8,6 +8,8 @@ use App\Models\ListAds;
 
 class AppController extends Controller
 {
+
+
     public function getAds(Request $request)
     {
 

@@ -27,16 +27,27 @@ class LoginController extends Controller
             return response()->json(['error' => $validator->messages()], 401);
         }
 
-        $email = $request['email'];
-        $password = $request['password'];
-        $user = User::where('email', $email)->first();
-        $pwd_verify = password_verify($password, $user['password']);
-
-        if ($pwd_verify == false) {
-            return response()->json(['error' => "Password Error"], 401);
+        //$user = Auth::guard('api')->user();
+       // $user = User::where('email', $request->email)->first();
+        //$token = Auth::login($user);
+        //$key = getenv('JWT_SECRET');
+       // $newToken = auth()->refresh();
+        //return response()->json(['error' => $token], 401);
+        if (auth()->validate($credentials)) {
         }
 
-        $key = getenv('JWT_SECRET');
+        $credentials = request(['email', 'password']);
+
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        $user = auth()->user();
+        $token = auth()->setTTL(1)->attempt($credentials);
+
+
+
+        /*
+        $key = 'bobihaja'; getenv('JWT_SECRET');
         $iat = time(); // current timestamp value
         $exp = $iat + 36000;
         $payload = array(
@@ -49,6 +60,13 @@ class LoginController extends Controller
         );
         $token = JWT::encode($payload, $key, 'HS256');
 
+        //$credentials = $request->only('email', 'password');
+        //$token = Auth::guard('api')->attempt($credentials);
+        */
+
+       //$token = Auth::guard('api')->login($user);
+
+
         $data = ['success' => true,
             'id' => $user->id,
             'token' => $token];
@@ -57,11 +75,22 @@ class LoginController extends Controller
         });
 
         return response()->json($data, 200);
+
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
     }
 
     public function refreshToken(Request $request)
     {
 
+        /*
         $email = $request['email'];
 
         $user = User::where('email', $email)->first();
@@ -84,7 +113,12 @@ class LoginController extends Controller
             "email" => $email,
         );
 
+
         $token = JWT::encode($payload, $key, 'HS256');
+        */
+        $token = auth()->setTTL(1)->refresh();
+
+
         $response = [
             'message' => 'Refresh Succesful',
             'token' => $token

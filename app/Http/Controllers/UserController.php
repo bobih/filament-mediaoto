@@ -11,8 +11,13 @@ use DB;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     public function getUserInfo(Request $request)
     {
+
 
         $userid = $request['userid'];
         if (is_null($userid)) {

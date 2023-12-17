@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7e44e8fab987d42e8c8e81fb44e5788f853cc1bc',
+        'reference' => '39ee49ff1906477dc8ce420652e5de7dbf1964fe',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -547,7 +547,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7e44e8fab987d42e8c8e81fb44e5788f853cc1bc',
+            'reference' => '39ee49ff1906477dc8ce420652e5de7dbf1964fe',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -1602,6 +1602,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => '83ee6f38df0a63106a9e4536e3060458b74ccedb',
+            'dev_requirement' => false,
+        ),
+        'tymon/jwt-auth' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tymon/jwt-auth',
+            'aliases' => array(),
+            'reference' => 'b0868a5b00801889a9e0c81a737963d8004e708c',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
