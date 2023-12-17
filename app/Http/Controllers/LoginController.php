@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
+    public function getTtl():int{
+        return 3600;
+    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -42,7 +44,7 @@ class LoginController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         $user = auth()->user();
-        $token = auth()->setTTL(1)->attempt($credentials);
+        $token = auth()->setTTL($this->getTtl())->attempt($credentials);
 
 
 
@@ -116,7 +118,7 @@ class LoginController extends Controller
 
         $token = JWT::encode($payload, $key, 'HS256');
         */
-        $token = auth()->setTTL(1)->refresh();
+        $token = auth()->setTTL($this->getTtl())->refresh();
 
 
         $response = [

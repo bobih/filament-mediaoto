@@ -74,7 +74,7 @@ class ProspekController extends Controller
             */
 
             $reminder = DB::table('reminder')
-            ->select('leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
+            ->select(DB::raw('distinct(leads.id'),'leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
             ->rightJoin('prospek', 'reminder.leadsid', '=', 'prospek.id')
             ->join('leads', 'leads.id', '=', 'prospek.leadsid')
             ->where('reminder.userid', '=', $userid)
@@ -87,7 +87,7 @@ class ProspekController extends Controller
             ->select(DB::raw('count(reminder.leadsid) as total'))
             ->where('reminder.userid', $userid)
             ->whereBetween(DB::raw('DATE(reminder.tanggal)'), [now() ,date("Y-m-d 23:59:59")])
-            ->groupBy('reminder.leadsid')->get();
+            ->groupBy('reminders.leadsid')->get();
 
             $getReminderTodayTotal  = $reminder_today->count();
 
