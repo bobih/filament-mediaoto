@@ -37,6 +37,10 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->orderBy('id','desc');
+    }
     public static function form(Form $form): Form
     {
         return $form
@@ -169,7 +173,7 @@ class UserResource extends Resource
                 ->label('Showroom'),
                 */
 
-            ])->defaultSort('id', 'desc')
+            ])
             ->filters([
                 //
             ])

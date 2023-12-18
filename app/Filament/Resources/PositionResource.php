@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class PositionResource extends Resource
 {
     protected static ?string $model = Position::class;
+    protected static ?string $label = 'List Posisi';
+    protected static ?string $pluralLabel = 'List Posisi';
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'List Posisi';
 

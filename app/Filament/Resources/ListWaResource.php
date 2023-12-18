@@ -17,6 +17,8 @@ class ListWaResource extends Resource
 {
     protected static ?string $model = ListWa::class;
 
+    protected static ?string $label = 'List Whatsapp';
+    protected static ?string $pluralLabel = 'List Whatsapp';
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'List Whatsapp';
     protected static ?string $slug = 'whatsapp-List';

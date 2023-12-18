@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ProspekRelationManager extends RelationManager
 {
     protected static string $relationship = 'prospek';
+    protected function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->orderBy('tanggal', 'asc');
+    }
 
     public function form(Form $form): Form
     {
@@ -31,10 +35,18 @@ class ProspekRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
+                Tables\Columns\TextColumn::make('leadusers.model')
+                ->label('Model'),
+                Tables\Columns\TextColumn::make('leadusers.variant')
+                ->label('Type'),
+
                 Tables\Columns\TextColumn::make('created_at')
                 ->label('Tanggal'),
 
             ])
+            ->defaultSort('created_at','desc')
+            ->defaultPaginationPageOption(5)
+
             ->filters([
                 //
             ])

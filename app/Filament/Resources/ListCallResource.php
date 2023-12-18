@@ -18,6 +18,8 @@ class ListCallResource extends Resource
     protected static ?string $model = ListCall::class;
 
     protected static ?string $navigationGroup = 'Settings';
+
+
     protected static ?string $navigationLabel = 'List Call';
     protected static ?string $slug = 'call-list';
 
