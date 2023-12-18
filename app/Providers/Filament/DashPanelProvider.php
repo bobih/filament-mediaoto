@@ -29,6 +29,10 @@ class DashPanelProvider extends PanelProvider
             ->path('dash')
             ->spa()
             ->login()
+            ->darkMode(true)
+            ->brandName('Mediaoto')
+            //->brandLogo(asset('images/white_logo.png'))
+            ->favicon(asset('images/orange_favicon.ico'))
             ->colors([
                 'primary' => Color::Amber,
             ])
