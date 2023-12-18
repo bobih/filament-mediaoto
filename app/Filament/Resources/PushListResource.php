@@ -43,6 +43,10 @@ class PushListResource extends Resource
                 ->label('Sales'),
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
+                Tables\Columns\TextColumn::make('leadusers.model')
+                ->label('Model'),
+                Tables\Columns\TextColumn::make('leadusers.variant')
+                ->label('Type'),
                 Tables\Columns\TextColumn::make('tanggal')
                 ->label('Tanggal'),
             ])

@@ -32,8 +32,12 @@ class WhatsapplistRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
+                Tables\Columns\TextColumn::make('leadusers.model')
+                ->label('Model'),
+                Tables\Columns\TextColumn::make('leadusers.variant')
+                ->label('Type'),
                 Tables\Columns\TextColumn::make('tanggal')
-                ->label('tanggal'),
+                ->label('Tanggal'),
             ])
             ->defaultSort('tanggal','desc')
             ->defaultPaginationPageOption(5)

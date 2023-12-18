@@ -14,6 +14,8 @@ class PushlistRelationManager extends RelationManager
 {
     protected static string $relationship = 'pushlist';
 
+    protected static ?string $title = 'Waiting List';
+
     public function form(Form $form): Form
     {
         return $form
