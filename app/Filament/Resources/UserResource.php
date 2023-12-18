@@ -164,15 +164,6 @@ class UserResource extends Resource
                         }
                     })->grow(true),
 
-                /*
-                Tables\Columns\TextColumn::make('cities.name')
-                ->label('Kota'),
-                Tables\Columns\TextColumn::make('province.name')
-                ->label('Provinsi'),
-                Tables\Columns\TextColumn::make('showrooms.showroom')
-                ->label('Showroom'),
-                */
-
             ])
             ->filters([
                 //
@@ -220,6 +211,9 @@ class UserResource extends Resource
     {
         return [
             RelationManagers\ProspekRelationManager::class,
+            RelationManagers\PushlistRelationManager::class,
+            RelationManagers\CalllistRelationManager::class,
+            RelationManagers\WhatsapplistRelationManager::class,
         ];
     }
 

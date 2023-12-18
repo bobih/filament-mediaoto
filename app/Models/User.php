@@ -146,5 +146,27 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
             foreignKey: 'userid',
             localKey: 'id');
     }
+    public function pushlist(): HasMany
+    {
+        return $this->hasMany(
+            related: PushList::class,
+            foreignKey: 'userid',
+            localKey: 'id');
+    }
 
+    public function calllist(): HasMany
+    {
+        return $this->hasMany(
+            related: ListCall::class,
+            foreignKey: 'userid',
+            localKey: 'id');
+    }
+
+    public function walist(): HasMany
+    {
+        return $this->hasMany(
+            related: ListWa::class,
+            foreignKey: 'userid',
+            localKey: 'id');
+    }
 }
