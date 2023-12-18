@@ -2,26 +2,30 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Http\Controllers\FcmController;
-use App\Models\User;
-use App\Models\Prospek;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\City;
+use App\Models\User;
 use Filament\Tables;
+use App\Models\Prospek;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Illuminate\Support\Collection;
 use Filament\Forms\Components\Tabs;
 use Filament\Support\Enums\Alignment;
-use Filament\Support\Enums\FontWeight;
-use Filament\Tables\Columns\Layout\Stack;
-use Filament\Tables\Columns\Layout\Split;
 use Filament\Forms\Components\Section;
+use Filament\Support\Enums\FontWeight;
+use App\Http\Controllers\FcmController;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
+use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {
@@ -68,7 +72,8 @@ class UserResource extends Resource
                                     ->label('Brand')
                                     ->relationship('brands', 'brand')
                                     ->searchable()
-                                    ->preload(),
+                                    ->preload()
+                                    ->required(),
                                 Forms\Components\Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
@@ -86,7 +91,8 @@ class UserResource extends Resource
                                     ->label('Showroom')
                                     ->relationship('showrooms', 'showroom')
                                     ->searchable()
-                                    ->preload(),
+                                    ->preload()
+                                    ->required(),
 
 
 
@@ -94,13 +100,18 @@ class UserResource extends Resource
                                     ->label('Provinsi')
                                     ->relationship('province', 'name')
                                     ->searchable()
+                                    ->live()
+                                    ->afterStateUpdated(fn(Set $set)=> $set('city_id',null))
                                     ->preload(),
 
                                 Forms\Components\Select::make('city_id')
                                     ->label('Kota')
-                                    ->relationship('cities', 'name')
+                                    ->options(fn(Get $get): Collection => City::query()
+                                    ->where('provinces_id',$get('province_id'))
+                                    ->pluck("name",'id'))
+                                    //->relationship('cities', 'name')
                                     ->searchable()
-                                    ->preload(),
+                                    //->preload(),
 
 
                             ])->columns(2),

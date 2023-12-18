@@ -49,6 +49,12 @@ class InvoiceResource extends Resource
                 ->preload()
                 ->required(),
 
+                Forms\Components\Select::make('quota')
+                ->label('Quota')
+                ->relationship('brands', 'brand')
+                ->required(),
+
+
                 Forms\Components\Hidden::make('tanggal')
                 ->default(function (mixed $state){
                     //return Carbon::parse($tgl)->format('Y-m-d');
