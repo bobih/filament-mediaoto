@@ -2,16 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InvoiceResource\Pages;
-use App\Filament\Resources\InvoiceResource\RelationManagers;
-use App\Models\Invoice;
+use App\Models\PushTemp;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Leads;
+use App\Models\Invoice;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Resource;
+use Filament\Infolists\Components;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\InvoiceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\InvoiceResource\RelationManagers;
+use App\Filament\Resources\UserResource\RelationManagers\PushlistRelationManager;
+use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
+use Livewire\Component;
 
 class InvoiceResource extends Resource
 {
@@ -35,6 +42,13 @@ class InvoiceResource extends Resource
                 ->relationship('pakets', 'name')
                 ->required(),
 
+                Forms\Components\Select::make('brand')
+                ->label('Brand')
+                ->relationship('brands', 'brand')
+                ->searchable()
+                ->preload()
+                ->required(),
+
                 Forms\Components\Hidden::make('tanggal')
                 ->default(function (mixed $state){
                     //return Carbon::parse($tgl)->format('Y-m-d');
@@ -42,10 +56,43 @@ class InvoiceResource extends Resource
                 }),
                 Forms\Components\Hidden::make('createdby')
                 ->default(function (mixed $state){
-                    //return Carbon::parse($tgl)->format('Y-m-d');
-                    //dump($state);
                     return auth()->user()->id;
                 }),
+                Forms\Components\Actions::make([
+                    Forms\Components\Actions\Action::make('Generate List')
+                        ->action(function (Forms\Get $get, Forms\Set $set) {
+
+
+                            // Delete PushList
+
+
+                            $userid = $get('userid');
+                            $brand = $get('brand');
+
+                            // Delete
+                            $templist = PushTemp::where('userid','=',$userid)->delete();
+
+                            //Generate List
+                            $pushList = Leads::where('brand',$brand)->whereNotIn('id', function($q) use ($userid){
+                                $q->select('leadsid')->from('prospek')->where('userid',$userid);
+                            })
+                            ->orderBy('create','desc')
+                            ->take(10)
+                            ->get();
+
+                            // Save Temporary
+                            foreach($pushList as $list) {
+                                $pushTemp = new PushTemp();
+                                $pushTemp->userid = $userid;
+                                $pushTemp->leadsid = $list->id;
+                                $pushTemp->save();
+                            }
+
+                           // $livewire->dispatch('refreshForm');
+                        })->after( function(Component $livewire){
+                            $livewire->dispatch('refreshProducts');
+                        })
+                ]),
 
             ]);
     }
@@ -73,6 +120,7 @@ class InvoiceResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -82,10 +130,23 @@ class InvoiceResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+        ->schema([
+            Components\Section::make()
+            ->schema([
+                Components\TextEntry::make("Check Info"),
+
+            ]),
+        ]);
+
+    }
+
     public static function getRelations(): array
     {
         return [
-            //
+           PushtempRelationManager::class,
         ];
     }
 
@@ -93,8 +154,9 @@ class InvoiceResource extends Resource
     {
         return [
             'index' => Pages\ListInvoices::route('/'),
-            //'create' => Pages\CreateInvoice::route('/create'),
-            //'edit' => Pages\EditInvoice::route('/{record}/edit'),
+            'create' => Pages\CreateInvoice::route('/create'),
+            'edit' => Pages\EditInvoice::route('/{record}/edit'),
+            'view' => Pages\ViewInvoice::route('/{record}'),
         ];
     }
 }

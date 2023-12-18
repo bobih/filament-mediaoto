@@ -22,6 +22,7 @@ class ListWaResource extends Resource
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'List Whatsapp';
     protected static ?string $slug = 'whatsapp-List';
+    protected static bool $shouldRegisterNavigation = false;
 
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

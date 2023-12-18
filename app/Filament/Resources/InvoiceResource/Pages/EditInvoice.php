@@ -6,9 +6,14 @@ use App\Filament\Resources\InvoiceResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
+use Livewire\Attributes\On;
+
+
 class EditInvoice extends EditRecord
 {
     protected static string $resource = InvoiceResource::class;
+
+    protected $listeners = ['refreshProducts' => '$refresh'];
 
     protected function getHeaderActions(): array
     {

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Invoice extends Model
 {
@@ -17,6 +18,7 @@ class Invoice extends Model
                 'id',
                 'userid',
                 'paketid',
+                'brand',
                 'status',
                 'tanggal',
                 'createdby',
@@ -59,4 +61,21 @@ class Invoice extends Model
             ownerKey: 'id'
         );
     }
+
+    public function pushtemp(): HasMany
+    {
+        return $this->hasMany(
+            related: PushTemp::class,
+            foreignKey: 'userid',
+            localKey: 'userid');
+    }
+
+    public function brands(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            ownerKey: 'id',
+            foreignKey: 'brand');
+    }
+
 }

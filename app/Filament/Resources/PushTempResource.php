@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ListCallResource\Pages;
-use App\Filament\Resources\ListCallResource\RelationManagers;
-use App\Models\ListCall;
+use App\Filament\Resources\PushTempResource\Pages;
+use App\Filament\Resources\PushTempResource\RelationManagers;
+use App\Models\PushTemp;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,18 +13,14 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ListCallResource extends Resource
+class PushTempResource extends Resource
 {
-    protected static ?string $model = ListCall::class;
-
-    protected static ?string $navigationGroup = 'Settings';
-
-
-    protected static ?string $navigationLabel = 'List Call';
-    protected static ?string $slug = 'call-list';
-    protected static bool $shouldRegisterNavigation = false;
+    protected static ?string $model = PushTemp::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $title = 'Waiting List';
+    protected static ?string $pluralLabel = 'Waiting List';
 
     public static function form(Form $form): Form
     {
@@ -39,13 +35,16 @@ class ListCallResource extends Resource
         return $table
             ->columns([
 
-                Tables\Columns\TextColumn::make('users.nama')->searchable()
+                Tables\Columns\TextColumn::make('users.nama')
                 ->label('Sales'),
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
-
+                Tables\Columns\TextColumn::make('leadusers.model')
+                ->label('Model'),
+                Tables\Columns\TextColumn::make('leadusers.variant')
+                ->label('Type'),
                 Tables\Columns\TextColumn::make('tanggal')
-                ->label('tanggal'),
+                ->label('Tanggal'),
                 //
             ])
             ->filters([
@@ -71,9 +70,9 @@ class ListCallResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListListCalls::route('/'),
-            'create' => Pages\CreateListCall::route('/create'),
-            'edit' => Pages\EditListCall::route('/{record}/edit'),
+            'index' => Pages\ListPushTemps::route('/'),
+            'create' => Pages\CreatePushTemp::route('/create'),
+            'edit' => Pages\EditPushTemp::route('/{record}/edit'),
         ];
     }
 }
