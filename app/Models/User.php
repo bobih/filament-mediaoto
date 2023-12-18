@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasName;
+use Illuminate\Support\Facades\Storage;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -15,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
+class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar
 {
    // use HasApiTokens, HasFactory, Notifiable;
 
@@ -47,6 +49,11 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser
     ];
 
     protected $primaryKey = 'id';
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return asset('images/'.$this->image);
+    }
 
 
     /**
