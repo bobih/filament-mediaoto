@@ -2,13 +2,17 @@
 
 namespace App\Filament\Resources\InvoiceResource\RelationManagers;
 
+use App\Models\Leads;
+use Closure;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
+use App\Models\User;
 use Filament\Tables;
+use Filament\Forms\Get;
+use Livewire\Component;
+
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\RelationManagers\RelationManager;
 
 class PushtempRelationManager extends RelationManager
 {
@@ -17,7 +21,7 @@ class PushtempRelationManager extends RelationManager
     protected static ?string $label = 'Waiting List';
     protected static ?string $pluralLabel = 'Waiting List';
 
-
+    protected $listeners = ['refreshExampleRelationManager' => '$refresh'];
 
     public function form(Form $form): Form
     {
@@ -36,28 +40,60 @@ class PushtempRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
+                Tables\Columns\TextColumn::make('brands.brand')
+                ->label('Brand'),
+
                 Tables\Columns\TextColumn::make('leadusers.model')
                 ->label('Model'),
                 Tables\Columns\TextColumn::make('leadusers.variant')
-                ->label('Type'),
-                //Tables\Columns\TextColumn::make('tanggal')
-                //->label('Tanggal'),
+                ->label('Type')
+                ->formatStateUsing(function (string $state): string {
+                    return html_entity_decode($state);
+                }),
+                Tables\Columns\TextColumn::make('create')
+                ->label('Data Date'),
+
             ])
+            ->defaultSort('create','desc')
             ->defaultPaginationPageOption(5)
             ->filters([
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                /*
+                Tables\Actions\CreateAction::make()
+                    ->after(function (Component $livewire) {
+                        $livewire->dispatch('refreshProducts');
+                    }),
+                */
             ])
             ->actions([
-                //Tables\Actions\EditAction::make(),
-                //Tables\Actions\DeleteAction::make(),
+                /*
+                Tables\Actions\EditAction::make()
+                    ->after(function (Component $livewire) {
+                        $livewire->dispatch('refreshProducts');
+                    }),
+                Tables\Actions\DeleteAction::make()
+                    ->after(function (Component $livewire) {
+                        $livewire->dispatch('refreshProducts');
+                    }),
+                */
             ])
             ->bulkActions([
+                /*
                 Tables\Actions\BulkActionGroup::make([
-                 //   Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->after(function (Component $livewire) {
+                            $livewire->dispatch('refreshProducts');
+                        }),
                 ]),
-            ]);
+                */
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make()
+                    ->after(function (Component $livewire) {
+                        $livewire->dispatch('refreshProducts');
+                    }),
+            ]);;
     }
 }

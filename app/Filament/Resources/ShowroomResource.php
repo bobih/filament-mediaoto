@@ -2,16 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ShowroomResource\Pages;
-use App\Filament\Resources\ShowroomResource\RelationManagers;
-use App\Models\Showroom;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\City;
 use Filament\Tables;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use App\Models\Showroom;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Illuminate\Support\Collection;
+
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ShowroomResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ShowroomResource\RelationManagers;
 
 class ShowroomResource extends Resource
 {
@@ -28,7 +33,39 @@ class ShowroomResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('showroom')
+                ->label('Showroom')
+                ->required(),
+                Forms\Components\Select::make('brand')
+                ->label('Brand')
+                ->relationship('brands', 'brand')
+                ->searchable()
+                ->preload()
+                ->required(),
+                Forms\Components\Textarea::make('alamat')
+                ->label('Alamat')
+                ->required(),
+
+                Forms\Components\Select::make('province')
+                ->label('Provinsi')
+                ->relationship('province', 'name')
+                ->searchable()
+                ->live()
+                //->afterStateUpdated(fn(Set $set)=> $set('city',null))
+                ->preload(),
+
+            Forms\Components\Select::make('city')
+                ->label('Kota')
+                ->options(fn(Get $get): Collection => City::query()
+                ->pluck("name",'id'))
+                //->options(fn(Get $get): Collection => City::query()
+                //->where('provinces_id',$get('province'))
+                //->pluck("name",'id'))
+                //->relationship('cities', 'name')
+                ->searchable()
+
+
+//
             ]);
     }
 

@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ListCallResource\Pages;
-use App\Filament\Resources\ListCallResource\RelationManagers;
-use App\Models\ListCall;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\ListCall;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ListCallResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ListCallResource\RelationManagers;
 
 class ListCallResource extends Resource
 {
@@ -22,9 +23,20 @@ class ListCallResource extends Resource
 
     protected static ?string $navigationLabel = 'List Call';
     protected static ?string $slug = 'call-list';
-    protected static bool $shouldRegisterNavigation = false;
+    //protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    /*
+    public static function getEloquentQuery(): Builder
+    {
+        $model = new ListCall();
+        $listCall = $model::select(DB::raw('leads.*'), DB::raw('prospek.*'))
+        ->leftJoin('prospek','prospek.id','list_call.leadsid')
+        ->join('leads','leads.id' ,'prospek.leadsid');
+        return $listCall;
+    }
+    */
 
     public static function form(Form $form): Form
     {
@@ -41,7 +53,11 @@ class ListCallResource extends Resource
 
                 Tables\Columns\TextColumn::make('users.nama')->searchable()
                 ->label('Sales'),
-                Tables\Columns\TextColumn::make('leadusers.name')
+                Tables\Columns\TextColumn::make('name')
+                ->label('Prospek'),
+                Tables\Columns\TextColumn::make('model')
+                ->label('Prospek'),
+                Tables\Columns\TextColumn::make('variant')
                 ->label('Prospek'),
 
                 Tables\Columns\TextColumn::make('tanggal')

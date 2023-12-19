@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ListCallScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,6 +15,10 @@ class ListCall extends Model
 
     protected $fillable = ['id','userid','leadsid','tanggal','created_at'];
 
+    protected static function booted()
+    {
+        static::addGlobalScope(new ListCallScope);
+    }
 
     public function users() : BelongsTo
     {
@@ -27,7 +32,7 @@ class ListCall extends Model
     public function leadusers() : BelongsTo
     {
         return $this->belongsTo(
-            related: Leads::class,
+            related: Prospek::class,
             foreignKey: 'leadsid',
             ownerKey: 'id'
         );

@@ -16,6 +16,8 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "php-open-source-saver/jwt-auth": "^2.1",
+        "psr/simple-cache": "2.0",
+        "pxlrbt/filament-excel": "^2.2",
         "ryangjchandler/filament-progress-column": "^0.4.1",
         "tymon/jwt-auth": "^2.0"
     },

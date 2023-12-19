@@ -13,7 +13,7 @@ class EditInvoice extends EditRecord
 {
     protected static string $resource = InvoiceResource::class;
 
-    protected $listeners = ['refreshProducts' => '$refresh'];
+
 
     protected function getHeaderActions(): array
     {

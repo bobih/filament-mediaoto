@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function getTtl():int{
-        return 3600;
+        return 60;
     }
     public function login(Request $request)
     {
@@ -29,12 +29,6 @@ class LoginController extends Controller
             return response()->json(['error' => $validator->messages()], 401);
         }
 
-        //$user = Auth::guard('api')->user();
-       // $user = User::where('email', $request->email)->first();
-        //$token = Auth::login($user);
-        //$key = getenv('JWT_SECRET');
-       // $newToken = auth()->refresh();
-        //return response()->json(['error' => $token], 401);
         if (auth()->validate($credentials)) {
         }
 
@@ -44,14 +38,13 @@ class LoginController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         $user = auth()->user();
-        $token = auth()->setTTL($this->getTtl())->attempt($credentials);
+        //$token = auth()->setTTL($this->getTtl())->attempt($credentials);
 
-
-
-        /*
-        $key = 'bobihaja'; getenv('JWT_SECRET');
+        $key = getenv('JWT_SECRET');
         $iat = time(); // current timestamp value
-        $exp = $iat + 36000;
+        $exp = $iat + $this->getTtl();
+        //$exp = $iat + 60; // Test 1 minutes
+
         $payload = array(
             "iss" => "mediaoto",
             "aud" => "mobile",
@@ -61,14 +54,6 @@ class LoginController extends Controller
             "email" => $request['email'],
         );
         $token = JWT::encode($payload, $key, 'HS256');
-
-        //$credentials = $request->only('email', 'password');
-        //$token = Auth::guard('api')->attempt($credentials);
-        */
-
-       //$token = Auth::guard('api')->login($user);
-
-
         $data = ['success' => true,
             'id' => $user->id,
             'token' => $token];
@@ -92,18 +77,11 @@ class LoginController extends Controller
     public function refreshToken(Request $request)
     {
 
-        /*
+
         $email = $request['email'];
-
-        $user = User::where('email', $email)->first();
-
-        if ($user == null) {
-            return response()->json(["Error" => "User Not Found"], 200);
-        }
-
         $key = getenv('JWT_SECRET');
         $iat = time(); // current timestamp value
-        $exp = $iat + 3600;
+        $exp = $iat + $this->getTtl();
         //$exp = $iat + 60; // Test 1 minutes
 
         $payload = array(
@@ -114,13 +92,7 @@ class LoginController extends Controller
             "exp" => $exp, // Expiration time of token
             "email" => $email,
         );
-
-
         $token = JWT::encode($payload, $key, 'HS256');
-        */
-        $token = auth()->setTTL($this->getTtl())->refresh();
-
-
         $response = [
             'message' => 'Refresh Succesful',
             'token' => $token

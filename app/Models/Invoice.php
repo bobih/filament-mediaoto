@@ -21,6 +21,7 @@ class Invoice extends Model
                 'brand',
                 'status',
                 'tanggal',
+                'datadate',
                 'createdby',
                 'approved',
                 'created_at',
@@ -77,5 +78,7 @@ class Invoice extends Model
             ownerKey: 'id',
             foreignKey: 'brand');
     }
+
+
 
 }

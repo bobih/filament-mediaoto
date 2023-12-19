@@ -11,10 +11,8 @@ use DB;
 
 class UserController extends Controller
 {
-
     public function getUserInfo(Request $request)
     {
-
 
         $userid = $request['userid'];
         if (is_null($userid)) {
@@ -22,7 +20,6 @@ class UserController extends Controller
         }
 
         $query = DB::table('users')->where('id', $userid)->get();
-
         $data = [];
         $x = 0;
         foreach ($query as $rows) {
@@ -71,10 +68,7 @@ class UserController extends Controller
                 default:
                 $data[$x]['acctype'] =  'BRONZE';
             }
-
-
             $x++;
-
         }
 
         array_walk_recursive($data, function (&$item) {
@@ -87,19 +81,6 @@ class UserController extends Controller
     public function updateImage(Request $request)
     {
 
-        //return response()->json($request->all(), 200);
-
-        /*
-        $request->validate([
-            'userid' => 'required',
-            'nama' => '',
-            'phone' => '',
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-        */
-
-
-
         $userid = trim($request['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $nama = trim($request['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         //$oldfilename = trim($request['oldfilename'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -107,8 +88,6 @@ class UserController extends Controller
         $alamat = trim($request['alamat'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $user = User::where('id', $userid)->first();
-
-
         $file = $request->file('file');
 
         // Check if is image
@@ -137,7 +116,6 @@ class UserController extends Controller
         $user->save();
         return response()->json("OK", 200);
 
-
     }
 
     public function updateUserInfo(Request $request)
@@ -159,8 +137,6 @@ class UserController extends Controller
     public function changePassword(Request $request)
     {
 
-       // $userModel = new User();
-
         $userid = $request['userid'];
         $oldPassword = trim($request['oldpassword']);
         //$oldPassword  = password_hash(trim($this->request->getVar('oldpassword')), PASSWORD_DEFAULT);
@@ -168,8 +144,6 @@ class UserController extends Controller
 
         $user = User::where('id', $userid)->first();
         $pwd_verify = password_verify($oldPassword, $user['password']);
-
-       // $db = db_connect();
 
         if ($pwd_verify) {
             $affected = $user->update(['password' => $newPassword]);

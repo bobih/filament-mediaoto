@@ -74,7 +74,7 @@ class ProspekController extends Controller
             */
 
             $reminder = DB::table('reminder')
-            ->select(DB::raw('distinct(leads.id'),'leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
+            ->select(DB::raw('distinct(prospek.leadsid)'),'leads.*', 'prospek.view', 'prospek.created_at as regdate', 'prospek.favorite', 'prospek.id as pid')
             ->rightJoin('prospek', 'reminder.leadsid', '=', 'prospek.id')
             ->join('leads', 'leads.id', '=', 'prospek.leadsid')
             ->where('reminder.userid', '=', $userid)
@@ -87,40 +87,40 @@ class ProspekController extends Controller
             ->select(DB::raw('count(reminder.leadsid) as total'))
             ->where('reminder.userid', $userid)
             ->whereBetween(DB::raw('DATE(reminder.tanggal)'), [now() ,date("Y-m-d 23:59:59")])
-            ->groupBy('reminders.leadsid')->get();
+            ->groupBy('reminder.leadsid')->get();
 
             $getReminderTodayTotal  = $reminder_today->count();
 
 
         $data = [
             [
-                "id" => 1,
+                "id" => 0,
                 "title" => "Semua Prospek",
                 "total" => $total->total,
                 "today" => $total_today->total
             ],
             [
-                "id" => 2,
+                "id" => 1,
                 "title" => "Baru",
                 "total" => $baru->total,
                 "today" => $baru_today->total
             ],
             [
-                "id" => 3,
+                "id" => 2,
                 "title" => "Sudah Pernah Dilihat",
                 "total" => $viewed->total,
                 "today" => $viewed_today->total
             ],
 
             [
-                "id" => 4,
+                "id" => 3,
                 "title" => "Telepon Kembali",
                 "total" => $getReminderTotal,
                 "today" => $getReminderTodayTotal,
             ],
 
             [
-                "id" => 5,
+                "id" => 4,
                 "title" => "Lost",
                 "total" => $Lost->total,
                 "today" => $lost_today->total

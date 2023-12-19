@@ -20,6 +20,8 @@ class PushTempResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $title = 'Waiting List';
+
+    protected static bool $shouldRegisterNavigation = false;
     protected static ?string $pluralLabel = 'Waiting List';
 
     public static function form(Form $form): Form

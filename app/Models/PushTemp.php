@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\PushTempScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,6 +17,11 @@ class PushTemp extends Model
     public $timestamps = false;
 
     protected $fillable = ['id','userid', 'leadsid', 'tanggal' ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new PushTempScope());
+    }
 
     public function users() : BelongsTo
     {
@@ -40,6 +46,15 @@ class PushTemp extends Model
         return $this->belongsTo(
             related: Leads::class,
             foreignKey: 'leadsid',
+            ownerKey: 'id'
+        );
+    }
+
+    public function brands() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            foreignKey: 'brand',
             ownerKey: 'id'
         );
     }
