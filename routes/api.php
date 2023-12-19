@@ -30,23 +30,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => [\App\Http\Middleware\JwtMiddleware::class]], function() {
 
 
-    Route::post("summary",  [ProspekController::class, 'getSummary']);
-    Route::post("list",  [ProspekController::class, 'getList']);
-    Route::post("setfavorite", [ProspekController::class,'setFavorite']);
-    Route::post("favorite", [ProspekController::class,'getFavorite']);
-    Route::post("detail", [ProspekController::class,'getDetail']);
-    Route::post("leadbyid", [ProspekController::class,'getLeadById']);
-    Route::post("detail", [ProspekController::class,'getDetail']);
-    Route::post("setnote", [ProspekController::class,'setNote']);
-    Route::post("phonelog", [ProspekController::class,'phoneLog']);
-    Route::post("walog", [ProspekController::class,'waLog']);
-    Route::post("setlost", [ProspekController::class,'setLost']);
-    Route::post("reminder", [ProspekController::class,'setReminder']);
-    Route::post("search", [ProspekController::class,'searchLeads']);
 
 });
 
-    //Prospek
+
+
+Route::post("summary",  [ProspekController::class, 'getSummary']);
+Route::post("list",  [ProspekController::class, 'getList']);
+Route::post("setfavorite", [ProspekController::class,'setFavorite']);
+Route::post("favorite", [ProspekController::class,'getFavorite']);
+Route::post("detail", [ProspekController::class,'getDetail']);
+Route::post("leadbyid", [ProspekController::class,'getLeadById']);
+Route::post("detail", [ProspekController::class,'getDetail']);
+Route::post("setnote", [ProspekController::class,'setNote']);
+Route::post("phonelog", [ProspekController::class,'phoneLog']);
+Route::post("walog", [ProspekController::class,'waLog']);
+Route::post("setlost", [ProspekController::class,'setLost']);
+Route::post("reminder", [ProspekController::class,'setReminder']);
+Route::post("search", [ProspekController::class,'searchLeads']);
+
+//Prospek
 
 
     Route::post("userinfo",  [UserController::class, 'getUserInfo']);
