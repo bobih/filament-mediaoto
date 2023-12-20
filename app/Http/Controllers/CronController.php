@@ -79,7 +79,7 @@ class CronController extends Controller
         $tanggal = date('Y-m-d H:i');
         $pushlist = PushList::select(DB::raw('push_list.id as pushid'), 'users.showroom', 'users.fcmtoken', 'push_list.userid', 'push_list.leadsid')
             ->leftJoin('users', 'users.id', 'push_list.userid')
-            ->where(DB::raw('DATE_FORMAT(push_list.tanggal,"%Y-%m-%d %H:%i"'), "<=", $tanggal);
+            ->where(DB::raw('DATE_FORMAT(push_list.tanggal,"%Y-%m-%d %H:%i")'), "<=", $tanggal);
         return $pushlist->get();
     }
 }
