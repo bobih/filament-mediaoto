@@ -98,7 +98,8 @@ class UserController extends Controller
         }
 
         $fileName = time() . uniqid()  . '.' . $file->extension();
-        $saveFile = $request->file->storeAs('../../public_htlm/images', $fileName);
+        //$saveFile = $request->file->storeAs('../../public_html/images', $fileName);
+        $saveFile = $request->file->storeAs( $fileName);
 
         $oldfilename = $user->image;
         $storage = Storage::disk('public');
