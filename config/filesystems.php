@@ -34,13 +34,12 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('../../../public_html/images'),
+            'root' => storage_path('../../public_html/images'),
              'throw' => false,
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('../../../public_html/images'),
             'url' => env('APP_URL').'/images',
             'visibility' => 'public',
             'throw' => false,
