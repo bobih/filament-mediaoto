@@ -14,29 +14,33 @@ class CronController extends Controller
 
     public function pushData(Request $request)
     {
-        // Get PushList
-        $pushList = $this->getPushList();
-        foreach ($pushList as $list) {
+        $enableCrond = (bool) env('CROND', false);
 
-            $insertProspek = $this->insertProspek($list->userid, $list->leadsid, $list->showroom);
-            if (!$insertProspek->status() == 200) {
-                return response()->json(["Error" => "Save Failed"], 401);
+        if ($enableCrond) {
+            // Get PushList
+            $pushList = $this->getPushList();
+            foreach ($pushList as $list) {
 
+                $insertProspek = $this->insertProspek($list->userid, $list->leadsid, $list->showroom);
+                if (!$insertProspek->status() == 200) {
+                    return response()->json(["Error" => "Save Failed"], 401);
+
+                }
+                // delete Prospek
+                $deleteList = $this->deletePushList($list->pushid);
+                if (!$deleteList->status() == 200) {
+                    return response()->json(["Error" => "Save Failed"], 401);
+                }
+                //echo "<br /> Success Delete ID : " . $list->leadsid;
+                // Push Notification
+                $fcm = new FcmController();
+                $title = '';
+                $payload = json_encode(array("page" => "ProspectList", "requestData" => "1"));
+                $msgType = '';
+
+                $push = $fcm->sendPushNotification($list->fcmtoken, '', $payload);
+                // echo "<br /> Success Push : " . $list->leadsid;
             }
-            // delete Prospek
-            $deleteList = $this->deletePushList($list->pushid);
-            if (!$deleteList->status() == 200) {
-                return response()->json(["Error" => "Save Failed"], 401);
-            }
-            //echo "<br /> Success Delete ID : " . $list->leadsid;
-            // Push Notification
-            $fcm = new FcmController();
-            $title = '';
-            $payload = json_encode(array("page" => "ProspectList", "requestData" => "1"));
-            $msgType = '';
-
-            $push = $fcm->sendPushNotification($list->fcmtoken, '', $payload);
-           // echo "<br /> Success Push : " . $list->leadsid;
         }
         //return response()->json(["Success" => "push Success"], 200);
     }
@@ -75,7 +79,7 @@ class CronController extends Controller
         $tanggal = date('Y-m-d H:i');
         $pushlist = PushList::select(DB::raw('push_list.id as pushid'), 'users.showroom', 'users.fcmtoken', 'push_list.userid', 'push_list.leadsid')
             ->leftJoin('users', 'users.id', 'push_list.userid')
-            ->where(DB::raw('DATE_FORMAT(push_list.tanggal,"%Y-%m-%d %H:%i"'),"<=", $tanggal);
+            ->where(DB::raw('DATE_FORMAT(push_list.tanggal,"%Y-%m-%d %H:%i"'), "<=", $tanggal);
         return $pushlist->get();
     }
 }
