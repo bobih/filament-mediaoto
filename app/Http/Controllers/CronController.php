@@ -24,11 +24,16 @@ class CronController extends Controller
         foreach ($pushList as $list) {
 
             //echo "<br />" . $list->pushid;
-
+            /*
             $insertProspek = $this->insertProspek($list->userid,$list->leadsid,$list->showroom);
             if(!$insertProspek->status() == 200){
-                return response()->json(["Error" => "Save Failed"], 401);
+                //return response()->json(["Error" => "Save Failed"], 401);
+
+
             }
+            */
+
+            echo "<br /> Success ID : ". $list->leadsid;
 
             /*
             // delete Prospek
