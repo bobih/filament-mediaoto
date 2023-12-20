@@ -73,7 +73,6 @@ class CronController extends Controller
         }
     }
 
-
     public function getPushList()
     {
         $tanggal = date('Y-m-d H:i');
@@ -83,4 +82,3 @@ class CronController extends Controller
         return $pushlist->get();
     }
 }
-
