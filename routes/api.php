@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CronController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,11 +28,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// For JWT Auth
 Route::group(['middleware' => [\App\Http\Middleware\JwtMiddleware::class]], function() {
 
-
-
 });
+
+Route::get("crond",  [CronController::class, 'pushData']);
 
 
 
