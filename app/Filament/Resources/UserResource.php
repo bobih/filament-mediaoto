@@ -172,8 +172,9 @@ class UserResource extends Resource
                    // ->default(50),
 
 
-                ProgressColumn::make('progress')
-                    ->progress(function ($record) {
+                ProgressColumn::make('quota')
+                ->label('progress')
+                    ->progress(function (User $record) {
                         $totalProspek = new Prospek();
                         $prospekinfo = $totalProspek::where('userid', '=', $record->id)->get();
                         $totalProspek = $prospekinfo->count();
