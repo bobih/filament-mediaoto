@@ -170,14 +170,16 @@ class UserResource extends Resource
                         $prospekinfo = $totalProspek::where('userid', '=', $record->id)->get();
                         $totalProspek = $prospekinfo->count();
 
-                        //return $record->quota;
-                        if ($prospekinfo->count() > 0 && $record->quota) {
+                        return $totalProspek;
+                        /*
+                        if ($totalProspek > 0 && $record->quota) {
 
                             return round(($totalProspek / $record->quota) * 100);
 
                             } else {
                             return 0;
                         }
+                        */
                     })->grow(true),
 
             ])
