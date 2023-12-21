@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Invoice extends Model
 {
@@ -13,12 +14,36 @@ class Invoice extends Model
 
     protected $table = 'invoice';
 
+    protected function model(): Attribute
+    {
+
+        return Attribute::make(
+
+            get: function ($value){
+                if($value){
+                    return explode(',', $value);
+                } else {
+                    return null;
+                }
+            },
+            set: function ($value){
+                if($value){
+                    return implode(',', $value);
+                } else {
+                    return null;
+                }
+            },
+
+
+        );
+    }
 
     protected $fillable = [
                 'id',
                 'userid',
                 'paketid',
                 'brand',
+                'model',
                 'status',
                 'tanggal',
                 'datadate',

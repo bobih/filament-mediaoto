@@ -18,8 +18,10 @@ class PushtempRelationManager extends RelationManager
 {
     protected static string $relationship = 'pushtemp';
 
-    protected static ?string $label = 'Waiting List';
-    protected static ?string $pluralLabel = 'Waiting List';
+    protected static ?string $title = 'Temporary List';
+
+    protected static ?string $label = 'Temporary List';
+    protected static ?string $pluralLabel = 'Temprary List';
 
     protected $listeners = ['refreshExampleRelationManager' => '$refresh'];
 
