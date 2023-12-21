@@ -2,13 +2,14 @@
 
 namespace App\Filament\Resources\InvoiceResource\Pages;
 
-use App\Models\PushList;
-use App\Models\PushTemp;
+use auth;
 use Filament\Actions;
 use App\Models\Invoice;
+use App\Models\PushList;
+use App\Models\PushTemp;
 use Livewire\Attributes\On;
-use Filament\Actions\Action;
 
+use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
@@ -39,7 +40,7 @@ class EditInvoice extends EditRecord
             ->before(function (EditAction $action,Invoice $records) {
 
                 if($records->approved !=1){
-                        $records->approved = 1;
+                        $records->approved = auth()->user->id;
                         $records->status = 1;
 
                         // Move List To Push_list;
