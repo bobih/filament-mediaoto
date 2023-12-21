@@ -25,7 +25,15 @@ class EditInvoice extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+            ->visible(function (){
+                $user = auth()->user()->id;
+                if($user == "36"){
+                    return true;
+                } else {
+                    return true;
+                }
+            }),
             EditAction::make('Approved')
             ->label('Approved')
             ->before(function (EditAction $action,Invoice $records) {
@@ -67,7 +75,15 @@ class EditInvoice extends EditRecord
                         $action->halt();
                     }
             })
-            ->successRedirectUrl(route('filament.dash.resources.invoices.index')),
+            ->successRedirectUrl(route('filament.dash.resources.invoices.index'))
+            ->visible(function (){
+                $user = auth()->user()->id;
+                if($user == "36"){
+                    return true;
+                } else {
+                    return false;
+                }
+            }),
         ];
     }
 }

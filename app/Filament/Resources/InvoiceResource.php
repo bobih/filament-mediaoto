@@ -91,7 +91,7 @@ class InvoiceResource extends Resource
                         Forms\Components\Actions::make([
 
                             Forms\Components\Actions\Action::make('Generate List')
-                                ->action(function (Forms\Get $get, Forms\Set $set) {
+                                ->action(function ( $action, Forms\Get $get, Forms\Set $set) {
                                     // Delete PushList
                                     if ($get('userid')) {
 
@@ -117,7 +117,7 @@ class InvoiceResource extends Resource
                                             $error = $e->getMessage();
                                             Notification::make()->danger()->title("Please Check User Data")->icon('heroicon-o-check')->send();
 
-                                            return null;
+                                           $action->cancel();
 
                                         }
 
@@ -135,6 +135,12 @@ class InvoiceResource extends Resource
                                         }
                                         $pushList->orderBy('create', 'desc');
                                         $pushList->take($quota);
+
+                                        $totalData = $pushList->get()->count();
+                                        if($totalData < $quota){
+                                            Notification::make()->danger()->title('Error : Not Enough Data ('.$totalData.')')->icon('heroicon-o-check')->send();
+                                            $action->cancel();
+                                        }
 
                                         // dd($pushList->toRawSql());
                                         // Save Temporary
