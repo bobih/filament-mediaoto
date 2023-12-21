@@ -178,7 +178,7 @@ class UserResource extends Resource
                         $prospekinfo = $totalProspek::where('userid', '=', $record->id)->get();
                         $totalProspek = $prospekinfo->count();
 
-                        return 50;
+                        return $totalProspek;
                         /*
                         if ($totalProspek > 0 && $record->quota) {
 
