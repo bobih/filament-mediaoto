@@ -180,7 +180,7 @@ class UserResource extends Resource
 
                         //return $totalProspek;
 
-                        if ($totalProspek > 0 && $record->quota) {
+                        if ($totalProspek > 0 && $record->quota <> '') {
 
                             return round(($totalProspek / $record->quota) * 100);
 
