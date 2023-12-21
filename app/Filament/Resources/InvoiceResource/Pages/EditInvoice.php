@@ -40,7 +40,7 @@ class EditInvoice extends EditRecord
             ->before(function (EditAction $action,Invoice $records) {
 
                 if($records->approved !=1){
-                        $records->approved = auth()->user->id;
+                        $records->approved = auth()->user()->id;
                         $records->status = 1;
 
                         // Move List To Push_list;
