@@ -14,20 +14,22 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Collection;
 use Filament\Forms\Components\Tabs;
-use Filament\Support\Enums\Alignment;
 
 
 //use App\Tables\Columns\ProgressColumn;
+
+
+
+use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\FontWeight;
+
 
 
 use App\Http\Controllers\FcmController;
 use Illuminate\Database\Eloquent\Builder;
-
-
-
-use RyanChandler\FilamentProgressColumn\ProgressColumn;
+use Filament\Resources\Pages\ListRecords\Tab;
 use App\Filament\Resources\UserResource\Pages;
+use RyanChandler\FilamentProgressColumn\ProgressColumn;
 use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
@@ -230,6 +232,8 @@ class UserResource extends Resource
                 */
             ]);
     }
+
+
 
     public static function getWidgets(): array
     {

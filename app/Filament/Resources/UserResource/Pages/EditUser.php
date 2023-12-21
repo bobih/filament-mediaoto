@@ -16,7 +16,7 @@ class EditUser extends EditRecord
             Actions\DeleteAction::make()
             ->visible(function (){
                 $user = auth()->user()->id;
-                if($user == "37"){
+                if($user == "36"){
                     return true;
                 } else {
                     return false;
