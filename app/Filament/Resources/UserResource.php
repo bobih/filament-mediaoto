@@ -167,7 +167,7 @@ class UserResource extends Resource
                 ProgressColumn::make('progress')
                     ->progress(function ($record) {
                         $totalProspek = new Prospek();
-                        $prospekinfo = $totalProspek::where('userid', '=', $record->id);
+                        $prospekinfo = $totalProspek::where('userid', '=', $record->id)->get();
                         if ($prospekinfo->count() > 0) {
                             return round(($prospekinfo->count() / $record->quota) * 100);
                         } else {

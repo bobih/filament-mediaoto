@@ -39,7 +39,7 @@ class EditInvoice extends EditRecord
             ->label('Approved')
             ->before(function (EditAction $action,Invoice $records) {
 
-                if($records->approved !=1){
+                if($records->status !=1){
                         $records->approved = auth()->user()->id;
                         $records->status = 1;
 
@@ -73,7 +73,7 @@ class EditInvoice extends EditRecord
                         ->send();
 
 
-                        $action->halt();
+                        $action->cancel();
                     }
             })
             ->successRedirectUrl(route('filament.dash.resources.invoices.index'))

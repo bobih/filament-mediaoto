@@ -40,17 +40,22 @@ class InvoiceResource extends Resource
         return $form
             ->schema([
 
+                Fieldset::make('Info')
+                ->schema([
 
-                Forms\Components\Select::make('userid')
-                    ->label('Nama')
-                    ->options(function (User $user) {
-                        $user = User::where('brand', '>', 0)
+                        Forms\Components\Select::make('userid')
+                            ->label('Nama')
+                            ->options(function (User $user) {
+                                $user = User::where('brand', '>', 0)
 
-                            ->whereNotIn('id', function ($q) {
-                                $q->select('userid')->from('invoice');
-                            })
-                            ->pluck('nama', 'id');
-                        return $user;
+                                    ->whereNotIn('id', function ($q) {
+                                        $q->select('userid')->from('invoice');
+                                    })
+                                    ->where('acctype','>',0)
+                                    ->pluck('nama', 'id');
+                                return $user;
+
+
                     })
                     //->relationship('users', 'nama')
                     ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
@@ -64,6 +69,8 @@ class InvoiceResource extends Resource
                     })
                     ->disabled(fn(string $operation): bool => $operation === 'edit'),
 
+
+                ]),
 
                 Fieldset::make('Settings')
                     ->schema([
@@ -212,9 +219,20 @@ class InvoiceResource extends Resource
                     ->label('Paket'),
                 Tables\Columns\TextColumn::make('createduser.nama')
                     ->label('Create'),
-                Tables\Columns\TextColumn::make('approveduser.nama')
-                    ->label('Approved'),
+                //Tables\Columns\TextColumn::make('approveduser.nama')
+                //    ->label('Approved'),
                 //
+                Tables\Columns\IconColumn::make('status')
+                ->icon(fn (string $state): string => match ($state) {
+                    '1' => 'heroicon-o-check-badge',
+                    '0' => 'heroicon-o-x-mark',
+                    default => 'heroicon-o-x-mark',
+                })
+                ->color(fn (string $state): string => match ($state) {
+                    '1' => 'success',
+                    '0' => 'gray',
+                    default => 'gray',
+                }),
             ])
             ->filters([
                 //

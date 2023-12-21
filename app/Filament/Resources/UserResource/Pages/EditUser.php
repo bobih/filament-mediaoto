@@ -13,7 +13,15 @@ class EditUser extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+            ->visible(function (){
+                $user = auth()->user()->id;
+                if($user == "37"){
+                    return true;
+                } else {
+                    return false;
+                }
+            }),
         ];
     }
     protected function getRedirectUrl(): string
