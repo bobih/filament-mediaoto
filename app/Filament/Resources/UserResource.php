@@ -15,16 +15,19 @@ use Filament\Resources\Resource;
 use Illuminate\Support\Collection;
 use Filament\Forms\Components\Tabs;
 use Filament\Support\Enums\Alignment;
-use Filament\Forms\Components\Section;
+
+
+//use App\Tables\Columns\ProgressColumn;
 use Filament\Support\Enums\FontWeight;
+
+
 use App\Http\Controllers\FcmController;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\Layout\Split;
-use Filament\Tables\Columns\Layout\Stack;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\UserResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+
+
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
+use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
@@ -164,6 +167,11 @@ class UserResource extends Resource
                     ->label('Paket')
                     ->grow(false)
                     ->sortable(),
+
+                   // ProgressColumn::make('progress')
+                   // ->default(50),
+
+
                 ProgressColumn::make('progress')
                     ->progress(function ($record) {
                         $totalProspek = new Prospek();
@@ -180,7 +188,9 @@ class UserResource extends Resource
                             return 0;
                         }
                         */
+
                     })->grow(true),
+
 
             ])
             ->filters([
