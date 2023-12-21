@@ -187,7 +187,6 @@ class InvoiceResource extends Resource
                         return auth()->user()->id;
                     }),
 
-
             ]);
     }
 
