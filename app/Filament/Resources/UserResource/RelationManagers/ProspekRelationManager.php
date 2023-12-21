@@ -38,7 +38,10 @@ class ProspekRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('leadusers.model')
                 ->label('Model'),
                 Tables\Columns\TextColumn::make('leadusers.variant')
-                ->label('Type'),
+                ->label('Type')
+                ->formatStateUsing(function (string $state): string {
+                    return html_entity_decode($state);
+                }),
 
                 Tables\Columns\TextColumn::make('created_at')
                 ->label('Tanggal'),

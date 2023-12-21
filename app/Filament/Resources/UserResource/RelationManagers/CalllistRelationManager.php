@@ -50,7 +50,10 @@ class CalllistRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('model')
                     ->label('Model'),
                 Tables\Columns\TextColumn::make('variant')
-                    ->label('Variant'),
+                    ->label('Variant')
+                    ->formatStateUsing(function (string $state): string {
+                        return html_entity_decode($state);
+                    }),
 
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('tanggal'),

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Models\Brand;
+use App\Models\Province;
 use Filament\Forms;
 use App\Models\City;
 use Filament\Tables;
@@ -38,7 +40,9 @@ class ShowroomResource extends Resource
                 ->required(),
                 Forms\Components\Select::make('brand')
                 ->label('Brand')
-                ->relationship('brands', 'brand')
+                ->options(fn(Get $get): Collection => Brand::query()
+                ->pluck("brand",'brand'))
+                //->relationship('brands', 'brand')
                 ->searchable()
                 ->preload()
                 ->required(),
@@ -48,24 +52,21 @@ class ShowroomResource extends Resource
 
                 Forms\Components\Select::make('province')
                 ->label('Provinsi')
-                ->relationship('province', 'name')
+                ->options(fn(Get $get): Collection => Province::query()
+                ->pluck("name",'name'))
+                //->relationship('province', 'name')
                 ->searchable()
-                ->live()
-                //->afterStateUpdated(fn(Set $set)=> $set('city',null))
-                ->preload(),
+                ->preload()
+                ->required(),
 
-            Forms\Components\Select::make('city')
+                Forms\Components\Select::make('city')
                 ->label('Kota')
                 ->options(fn(Get $get): Collection => City::query()
-                ->pluck("name",'id'))
-                //->options(fn(Get $get): Collection => City::query()
-                //->where('provinces_id',$get('province'))
-                //->pluck("name",'id'))
-                //->relationship('cities', 'name')
+                ->pluck("name",'name'))
+                //->relationship('city', 'name')
                 ->searchable()
-
-
-//
+                ->preload()
+                ->required(),
             ]);
     }
 

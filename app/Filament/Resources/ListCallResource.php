@@ -23,7 +23,7 @@ class ListCallResource extends Resource
 
     protected static ?string $navigationLabel = 'List Call';
     protected static ?string $slug = 'call-list';
-    //protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

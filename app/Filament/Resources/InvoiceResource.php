@@ -41,28 +41,28 @@ class InvoiceResource extends Resource
             ->schema([
 
 
-                        Forms\Components\Select::make('userid')
-                            ->label('Nama')
-                            ->options(function (User $user) {
-                                $user = User::where('brand', '>', 0)
+                Forms\Components\Select::make('userid')
+                    ->label('Nama')
+                    ->options(function (User $user) {
+                        $user = User::where('brand', '>', 0)
 
-                                    ->whereNotIn('id', function ($q) {
-                                        $q->select('userid')->from('invoice');
-                                    })
-                                    ->pluck('nama', 'id');
-                                return $user;
+                            ->whereNotIn('id', function ($q) {
+                                $q->select('userid')->from('invoice');
                             })
-                            //->relationship('users', 'nama')
-                            ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
-                            ->searchable()
-                            ->preload()
-                            ->live()
-                            ->afterStateUpdated(function (Set $set, $state) {
-                                $userModel = new User();
-                                $user = $userModel->where('id', $state)->first();
-                                $set('paketid', $user->acctype);
-                            })
-                            ->disabled(fn(string $operation): bool => $operation === 'edit'),
+                            ->pluck('nama', 'id');
+                        return $user;
+                    })
+                    //->relationship('users', 'nama')
+                    ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->afterStateUpdated(function (Set $set, $state) {
+                        $userModel = new User();
+                        $user = $userModel->where('id', $state)->first();
+                        $set('paketid', $user->acctype);
+                    })
+                    ->disabled(fn(string $operation): bool => $operation === 'edit'),
 
 
                 Fieldset::make('Settings')
@@ -81,121 +81,99 @@ class InvoiceResource extends Resource
                                 }
                             })->hidden(fn(string $operation): bool => $operation === 'create'),
 
-                            Forms\Components\DatePicker::make('datadate')
+                        Forms\Components\DatePicker::make('datadate')
                             ->label("Set Data Date")
                             ->default(now())
                             ->native(false)
                             ->format('Y-m-d')
                             ->hidden(fn(string $operation): bool => $operation === 'create'),
 
-                            Forms\Components\Actions::make([
+                        Forms\Components\Actions::make([
 
-                                Forms\Components\Actions\Action::make('Generate List')
-                                    ->action(function (Forms\Get $get, Forms\Set $set) {
-                                        // Delete PushList
-                                        if ($get('userid')) {
+                            Forms\Components\Actions\Action::make('Generate List')
+                                ->action(function (Forms\Get $get, Forms\Set $set) {
+                                    // Delete PushList
+                                    if ($get('userid')) {
 
 
-                                            $userid = $get('userid');
-                                            $datadate = $get('datadate');
-                                            $model = $get('model');
+                                        $userid = $get('userid');
+                                        $datadate = $get('datadate');
+                                        $model = $get('model');
 
-                                            //Get UserInfo
-                                            $userModel = new User();
-                                            $user = $userModel->where('id', $userid)->first();
+                                        //Get UserInfo
+                                        $userModel = new User();
+                                        $user = $userModel->where('id', $userid)->first();
 
-                                            $set('paketid', $user->acctype);
+                                        $set('paketid', $user->acctype);
 
-                                            $brand = $user->brand;
-                                            $paketModel = new Paket();
-                                            $paket = $paketModel->where('id', $user->acctype)->first();
+                                        $brand = $user->brand;
+                                        $paketModel = new Paket();
+                                        $paket = $paketModel->where('id', $user->acctype)->first();
 
-                                            try {
+                                        try {
 
-                                                $quota = $paket->quota;
-                                            } catch (ErrorException $e) {
-                                                $error = $e->getMessage();
-                                                Notification::make()->danger()->title("Please Check User Data")->icon('heroicon-o-check')->send();
+                                            $quota = $paket->quota;
+                                        } catch (ErrorException $e) {
+                                            $error = $e->getMessage();
+                                            Notification::make()->danger()->title("Please Check User Data")->icon('heroicon-o-check')->send();
 
-                                                return null;
+                                            return null;
 
-                                            }
-
-                                            // Delete
-                                            $templist = PushTemp::where('userid', '=', $userid)->delete();
-
-                                            //Generate List
-                                            $pushList = Leads::query()->where('brand', $brand)->whereNotIn('id', function ($q) use ($userid, $datadate) {
-                                                $q->select('leadsid')->from('prospek')->where('userid', $userid);
-                                            });
-                                            $pushList->whereDate('create', '<=', $datadate);
-                                            if ($model) {
-                                                //$idsArr = explode(',',$model);
-                                                $pushList->whereIn('model', $model);
-                                            }
-                                            $pushList->orderBy('create', 'desc');
-                                            $pushList->take($quota);
-
-                                            // dd($pushList->toRawSql());
-                                            // Save Temporary
-                                            foreach ($pushList->get() as $list) {
-                                                $pushTemp = new PushTemp();
-                                                $pushTemp->userid = $userid;
-                                                $pushTemp->leadsid = $list->id;
-                                                $pushTemp->save();
-                                            }
-                                            Notification::make()->success()->title('Generate Success')->icon('heroicon-o-check')->send();
                                         }
-                                    })->after(function ($livewire) {
-                                        // ... Your action code
-                                        $livewire->dispatch('refreshExampleRelationManager');
 
+                                        // Delete
+                                        $templist = PushTemp::where('userid', '=', $userid)->delete();
 
-                                    })->hidden(fn(string $operation): bool => $operation === 'create'),
-
-                                Forms\Components\Actions\Action::make('Reset')
-                                    ->action(function (Forms\Get $get, Forms\Set $set) {
-                                        if ($get('userid')) {
-                                            // Delete PushList
-                                            $userid = $get('userid');
-                                            $templist = PushTemp::where('userid', '=', $userid)->delete();
-
-                                            Notification::make()->success()->title('Success')->icon('heroicon-o-check')->send();
-                                            // $livewire->dispatch('refreshForm');
+                                        //Generate List
+                                        $pushList = Leads::query()->where('brand', $brand)->whereNotIn('id', function ($q) use ($userid, $datadate) {
+                                            $q->select('leadsid')->from('prospek')->where('userid', $userid);
+                                        });
+                                        $pushList->whereDate('create', '<=', $datadate);
+                                        if ($model) {
+                                            //$idsArr = explode(',',$model);
+                                            $pushList->whereIn('model', $model);
                                         }
-                                    })->after(function ($livewire) {
-                                        // ... Your action code
-                                        $livewire->dispatch('refreshExampleRelationManager');
+                                        $pushList->orderBy('create', 'desc');
+                                        $pushList->take($quota);
 
+                                        // dd($pushList->toRawSql());
+                                        // Save Temporary
+                                        foreach ($pushList->get() as $list) {
+                                            $pushTemp = new PushTemp();
+                                            $pushTemp->userid = $userid;
+                                            $pushTemp->leadsid = $list->id;
+                                            $pushTemp->save();
+                                        }
+                                        Notification::make()->success()->title('Generate Success')->icon('heroicon-o-check')->send();
+                                    }
+                                })->after(function ($livewire) {
+                                    $livewire->dispatch('refreshExampleRelationManager');
+                                })->hidden(fn(string $operation): bool => $operation === 'create'),
 
-                                    })->hidden(fn(string $operation): bool => $operation === 'create'),
-                            ]),
+                            Forms\Components\Actions\Action::make('Reset')
+                                ->action(function (Forms\Get $get, Forms\Set $set) {
+                                    if ($get('userid')) {
+                                        $userid = $get('userid');
+                                        $templist = PushTemp::where('userid', '=', $userid)->delete();
+
+                                        Notification::make()->success()->title('Success')->icon('heroicon-o-check')->send();
+                                    }
+                                })->after(function ($livewire) {
+                                    $livewire->dispatch('refreshExampleRelationManager');
+                                })->hidden(fn(string $operation): bool => $operation === 'create'),
+                        ]),
                     ])->columns(1)
-                    //->hidden(fn(string $operation): bool => $operation === 'create'),
-                    ->hidden(function($operation, $record) : bool{
-
-                            //$approval = $record->approved;
-
-
-                            if($operation === 'edit'){
-
-                                if( $record->approved == 1){
-                                    return true;
-                                } else {
-
-                                return false;
-                                }
-                            } else {
+                    ->hidden(function ($operation, $record): bool {
+                        if ($operation === 'edit') {
+                            if ($record->status == 1) {
                                 return true;
+                            } else {
+                                return false;
                             }
-
+                        } else {
+                            return true;
+                        }
                     }),
-
-
-
-
-
-
 
                 Forms\Components\Hidden::make('tanggal')
                     ->default(function (mixed $state) {
@@ -241,7 +219,8 @@ class InvoiceResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+
+                    //Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -259,13 +238,11 @@ class InvoiceResource extends Resource
 
     }
 
-    public static function getRelations( ): array
+    public static function getRelations(): array
     {
-
         return [
             PushtempRelationManager::class,
         ];
-
     }
 
 
