@@ -1,3 +1,5 @@
+@import '../../vendor/ryangjchandler/filament-progress-column/resources/dist/progress.css';
+
 @import '/vendor/filament/filament/resources/css/theme.css';
 
 @config 'tailwind.config.js';
