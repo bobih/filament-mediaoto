@@ -52,7 +52,8 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return asset('images/'.$this->image);
+       // return asset('images/'.$this->image);
+        return getenv('IMAGE_URL').'/images/'.$this->image;
     }
 
 
