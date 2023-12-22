@@ -35,6 +35,7 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('../../public_html/images'),
+            'url' => env('IMAGE_URL').'/images',
              'throw' => false,
         ],
 
