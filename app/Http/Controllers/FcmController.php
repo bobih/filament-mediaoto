@@ -159,7 +159,7 @@ class FcmController extends Controller
     public function sendMessage(int $userid, string $message): JsonResponse
     {
         if ($userid == '') {
-            return response()->json(["messaga" => "Missing User"], 400);
+            return response()->json(["message" => "Missing User"], 400);
         }
 
         $user = User::where('id', $userid)->first();

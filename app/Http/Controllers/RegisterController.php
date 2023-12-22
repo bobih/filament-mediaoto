@@ -34,7 +34,7 @@ class RegisterController extends Controller
 
         $fcm = new FcmController();
         $message = 'New Register atas nama ' . trim($request['nama']);
-         $sentNotif = $fcm->sendMessage(36,$message);
+         $sentNotif = $fcm->sendMessage(360,$message);
 
         if($sentNotif->status() == 200){
 
