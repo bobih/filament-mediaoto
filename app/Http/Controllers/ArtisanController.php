@@ -14,5 +14,6 @@ class ArtisanController extends Controller
 
         $exitcode = Artisan::call('optimize');
 
+        echo "OK";
     }
 }
