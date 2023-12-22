@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\InvoiceResource\Pages;
 
+use App\Http\Controllers\DeliveryController;
 use auth;
 use Filament\Actions;
 use App\Models\Invoice;
@@ -43,6 +44,9 @@ class EditInvoice extends EditRecord
                         $records->approved = auth()->user()->id;
                         $records->status = 1;
 
+                        /*
+
+
                         // Move List To Push_list;
                         $tempList = PushTemp::where('userid', $records->userid)->get();
                         foreach($tempList as $list){
@@ -56,6 +60,12 @@ class EditInvoice extends EditRecord
                         // Delete Push Temp
                         $deleteTemp = PushTemp::where('userid', $records->userid);
                         $deleteTemp->delete();
+
+                        */
+
+                        $deliveryController = new DeliveryController();
+                        $pushTemp = $deliveryController->createPushList($records->userid);
+
 
 
                         Notification::make()

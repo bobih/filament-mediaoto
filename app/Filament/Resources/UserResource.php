@@ -6,6 +6,7 @@ use Filament\Forms;
 use App\Models\City;
 use App\Models\User;
 use Filament\Tables;
+use App\Models\Paket;
 use App\Models\Prospek;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
@@ -13,18 +14,18 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Collection;
-use Filament\Forms\Components\Tabs;
 
 
 //use App\Tables\Columns\ProgressColumn;
 
 
 
+use Filament\Forms\Components\Tabs;
 use Filament\Support\Enums\Alignment;
+
+
+
 use Filament\Support\Enums\FontWeight;
-
-
-
 use App\Http\Controllers\FcmController;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Pages\ListRecords\Tab;
@@ -79,11 +80,19 @@ class UserResource extends Resource
                                     ->searchable()
                                     ->preload()
                                     ->required(),
+
                                 Forms\Components\Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
                                     ->preload()
-                                    ->required(),
+                                    ->live()
+                                    ->required()
+                                    ->afterStateUpdated(function (Set $set, $state) {
+                                       $paket = Paket::where('id',$state)->first();
+                                        $set('quota',$paket->quota);
+                                    }),
+
+                                    Forms\Components\hidden::make('quota'),
 
 
                             ])->columns(2),
