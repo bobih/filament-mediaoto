@@ -92,7 +92,7 @@ class UserResource extends Resource
                                         $set('quota',$paket->quota);
                                     }),
 
-                                    Forms\Components\hidden::make('quota'),
+                                    Forms\Components\Hidden::make('quota'),
 
 
                             ])->columns(2),
