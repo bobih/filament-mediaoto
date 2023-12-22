@@ -49,7 +49,7 @@ class UserResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->orderBy('id','desc');
+        return parent::getEloquentQuery()->orderBy('id', 'desc');
     }
     public static function form(Form $form): Form
     {
@@ -88,11 +88,11 @@ class UserResource extends Resource
                                     ->live()
                                     ->required()
                                     ->afterStateUpdated(function (Set $set, $state) {
-                                       $paket = Paket::where('id',$state)->first();
-                                        $set('quota',$paket->quota);
+                                        $paket = Paket::where('id', $state)->first();
+                                        $set('quota', $paket->quota);
                                     }),
 
-                                    Forms\Components\Hidden::make('quota'),
+                                Forms\Components\Hidden::make('quota'),
 
 
                             ])->columns(2),
@@ -115,17 +115,17 @@ class UserResource extends Resource
                                     ->relationship('province', 'name')
                                     ->searchable()
                                     ->live()
-                                    ->afterStateUpdated(fn(Set $set)=> $set('city_id',null))
+                                    ->afterStateUpdated(fn(Set $set) => $set('city_id', null))
                                     ->preload(),
 
                                 Forms\Components\Select::make('city_id')
                                     ->label('Kota')
                                     ->options(fn(Get $get): Collection => City::query()
-                                    ->where('provinces_id',$get('province_id'))
-                                    ->pluck("name",'id'))
+                                        ->where('provinces_id', $get('province_id'))
+                                        ->pluck("name", 'id'))
                                     //->relationship('cities', 'name')
                                     ->searchable()
-                                    //->preload(),
+                                //->preload(),
 
 
                             ])->columns(2),
@@ -159,7 +159,7 @@ class UserResource extends Resource
 
                     ->grow(false),
                 Tables\Columns\ImageColumn::make('image')
-                ->label('Avatar')
+                    ->label('Avatar')
                     ->circular()
                     ->alignment(Alignment::Center)
                     ->grow(false),
@@ -181,12 +181,12 @@ class UserResource extends Resource
                     ->grow(false)
                     ->sortable(),
 
-                   // ProgressColumn::make('progress')
-                   // ->default(50),
+                // ProgressColumn::make('progress')
+                // ->default(50),
 
 
                 ProgressColumn::make('quota')
-                ->label('progress')
+                    ->label('progress')
                     ->progress(function (User $record) {
                         $totalProspek = new Prospek();
                         $prospekinfo = $totalProspek::where('userid', '=', $record->id)->get();
@@ -199,8 +199,8 @@ class UserResource extends Resource
 
                             return round(($totalProspek / $record->quota) * 100);
 
-                            } else {
-                             return  0;
+                        } else {
+                            return 0;
                         }
 
 
@@ -213,11 +213,12 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
 
+
+                Tables\Actions\EditAction::make(),
 
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\ViewAction::make(),
                     Tables\Actions\Action::make('Notification')
                         ->icon('heroicon-o-bell-alert')
                         ->action(function (User $record) {
