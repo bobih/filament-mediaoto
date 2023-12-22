@@ -35,10 +35,10 @@ class LoginController extends Controller
 
         $credentials = request(['email', 'password']);
 
-        //if (! $token = auth()->attempt($credentials)) {
-        //    return response()->json(['error' => 'Unauthorized'], 401);
-       // }
-        $user = User::where('email',$request->email);// auth()->user();
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        $user = auth()->user();
         //$token = auth()->setTTL($this->getTtl())->attempt($credentials);
 
         $key = getenv('JWT_SECRET');
