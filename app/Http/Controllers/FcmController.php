@@ -156,14 +156,18 @@ class FcmController extends Controller
         }
     }
 
-    public function sendMessage(string $userid, string $message): JsonResponse
+    public function sendMessage(int $userid, string $message): JsonResponse
     {
         if ($userid == '') {
-            return response()->json(["message" => "Missing User"], 400);
+            return response()->json(["messaga" => "Missing User"], 400);
         }
 
         $user = User::where('id', $userid)->first();
         $userToken = $user->fcmtoken;
+
+        if (!$userToken) {
+            return response()->json(["message" => "User Not Registered"], 400);
+        }
 
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";

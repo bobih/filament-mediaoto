@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,8 +34,15 @@ class RegisterController extends Controller
 
         $fcm = new FcmController();
         $message = 'New Register atas nama ' . trim($request['nama']);
-        $sentNotif = $fcm->sendMessage('36',$message);
+         $sentNotif = $fcm->sendMessage(36,$message);
+
+        if($sentNotif->status() == 200){
 
         return response()->json(["message" => "Data Updated"], 200);
+        }else {
+            return response()->json(["message" => $sentNotif->getData()], 400);
+
+        }
+
     }
 }
