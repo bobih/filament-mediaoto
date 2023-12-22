@@ -125,7 +125,9 @@ class UserResource extends Resource
                         Tabs\Tab::make('Images')
                             ->schema([
                                 Forms\Components\FileUpload::make('image')
-                                    ->label('Image'),
+                                    ->label('Image')
+                                    ->enableOpen()
+                                    ->enableDownload(),
 
                                 Forms\Components\FileUpload::make('ktp')
                                     ->label('KTP'),

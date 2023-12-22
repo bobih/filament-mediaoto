@@ -161,7 +161,8 @@ class InvoiceResource extends Resource
                                     }
                                 })->after(function ($livewire) {
                                     $livewire->dispatch('refreshExampleRelationManager');
-                                })->hidden(fn(string $operation): bool => $operation === 'create'),
+                                })->hidden(fn(string $operation): bool => $operation === 'create')
+                                ->color('info'),
 
                             Forms\Components\Actions\Action::make('Reset')
                                 ->action(function (Forms\Get $get, Forms\Set $set) {
@@ -173,7 +174,8 @@ class InvoiceResource extends Resource
                                     }
                                 })->after(function ($livewire) {
                                     $livewire->dispatch('refreshExampleRelationManager');
-                                })->hidden(fn(string $operation): bool => $operation === 'create'),
+                                })->hidden(fn(string $operation): bool => $operation === 'create')
+                                ->color('info'),
                         ]),
                     ])->columns(1)
                     ->hidden(function ($operation, $record): bool {

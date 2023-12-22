@@ -11,8 +11,6 @@ class RegisterController extends Controller
 {
     public function registerUser(Request $request)
     {
-
-
         $validator = Validator::make($request->all(), [
             'nama' => 'required|min:4',
             'email' => 'required|email|unique:users',
@@ -30,6 +28,12 @@ class RegisterController extends Controller
             'fcmtoken' => trim($request['fcmtoken']),
             'password' => password_hash(trim($request['password']), PASSWORD_DEFAULT)
         ]);
+
+        // Sent Notif to admin
+
+        $fcm = new FcmController();
+        $message = 'New Register atas nama ' . trim($request['nama']);
+        $sentNotif = $fcm->sendMessage('36',$message);
 
         return response()->json(["message" => "Data Updated"], 200);
     }
