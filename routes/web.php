@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CronController;
+use App\Http\Controllers\ArtisanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get("/crond",  [CronController::class, 'pushData']);
+Route::get("/artopt",  [ArtisanController::class, 'artisanOptimize']);
