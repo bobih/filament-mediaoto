@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get("/crond",  [CronController::class, 'pushData']);
-Route::get("/artopt",  [ArtisanController::class, 'artisanOptimize']);
+Route::get("/debug/optimize",  [ArtisanController::class, 'artisanOptimize']);
