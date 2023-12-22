@@ -21,7 +21,9 @@ class RegisterController extends Controller
 
         //if validation fails
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            //return response()->json($validator->errors(), 422);
+           return  (new \Illuminate\Http\Response)->setStatusCode(422, 'Invalid data');
+
         }
         User::create([
             'email' => trim($request['email']),
