@@ -16,4 +16,12 @@ class ArtisanController extends Controller
 
         echo "OK";
     }
+
+    public function artisanClear(){
+
+        $exitcode = Artisan::call('config:clear');
+
+        echo "OK";
+    }
+
 }

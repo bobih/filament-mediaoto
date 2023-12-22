@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get("/crond",  [CronController::class, 'pushData']);
 Route::get("/debug/optimize",  [ArtisanController::class, 'artisanOptimize']);
+Route::get("/debug/clear",  [ArtisanController::class, 'artisanClear']);
