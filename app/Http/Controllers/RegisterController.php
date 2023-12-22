@@ -33,8 +33,9 @@ class RegisterController extends Controller
         // Sent Notif to admin
 
         $fcm = new FcmController();
-        $message = 'New Register atas nama ' . trim($request['nama']);
-         $sentNotif = $fcm->sendMessage(360,$message);
+        $title = 'User Register';
+        $message =  trim($request['nama']) . ' ('.trim($request['email']).')';
+         $sentNotif = $fcm->sendMessage(36,$title,$message);
 
         if($sentNotif->status() == 200){
 

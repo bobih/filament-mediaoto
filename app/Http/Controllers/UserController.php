@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppInfo;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +16,9 @@ class UserController extends Controller
     {
 
         $userid = $request['userid'];
+        $fcmtoken = $request['fcmtoken'];
+        $version = $request['version'];
+
         if (is_null($userid)) {
             return response()->json(["Error" => "User Not Found"], 401);
         }
@@ -32,11 +36,11 @@ class UserController extends Controller
             $data[$x]['phone'] = $rows->phone;
             $data[$x]['quota'] = $rows->quota; // $rows->phone'];
             $data[$x]['alamat'] = $rows->alamat;
-            $data[$x]['lokasi'] = $rows->lokasi;
-            $data[$x]['ktp'] = $rows->ktp;
-            $data[$x]['npwp'] = $rows->npwp;
+           // $data[$x]['lokasi'] = $rows->lokasi;
+            //$data[$x]['ktp'] = $rows->ktp;
+            //$data[$x]['npwp'] = $rows->npwp;
             $data[$x]['image'] = $rows->image;
-            $data[$x]['fcmtoken'] = $rows->fcmtoken;
+            //$data[$x]['fcmtoken'] = $fcmtoken;
             $data[$x]['register'] = $rows->created_at;
 
             $key = "bobihaja";// getenv('JWT_SECRET');
@@ -68,6 +72,20 @@ class UserController extends Controller
                 default:
                 $data[$x]['acctype'] =  'BRONZE';
             }
+
+            // Update user;
+            $updateUser = User::where('id',$rows->id)->first();
+            $updateUser->updated_at = now();
+            $updateUser->fcmtoken = $fcmtoken;
+            $updateUser->update();
+
+            // Update  Insert if not exist
+            $updateApp = AppInfo::updateOrInsert(
+                ['userid' => $rows->id],
+                ['version' => $version, 'fcmtoken' => $fcmtoken, 'updated_at' => now()]
+            );
+
+
             $x++;
         }
 

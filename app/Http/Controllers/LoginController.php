@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use \Firebase\JWT\JWT;
-use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Validator;
+use App\Models\AppInfo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class LoginController extends Controller
@@ -105,6 +106,7 @@ class LoginController extends Controller
     {
         $email = trim($request['email']);
         $fcmtoken = trim($request['fcmtoken']);
+        $version = trim($request['version']);
 
         if (is_null($email)) {
             $response = [
@@ -124,6 +126,14 @@ class LoginController extends Controller
         } else {
             try {
                 $user->update(['fcmtoken' => $fcmtoken]);
+
+                // Update App
+                $updateApp = AppInfo::updateOrInsert(
+                    ['userid' => $user->id],
+                    ['version' => $version, 'fcmtoken' => $fcmtoken, 'updated_at' => now()]
+                );
+
+
                 $response = [
                     'message' => 'Update Success!'
                 ];

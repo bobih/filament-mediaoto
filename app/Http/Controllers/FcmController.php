@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -156,25 +157,27 @@ class FcmController extends Controller
         }
     }
 
-    public function sendMessage(int $userid, string $message): JsonResponse
+    public function sendMessage(int $userid, string $title, string $message): JsonResponse
     {
         if ($userid == '') {
             return response()->json(["message" => "Missing User"], 400);
         }
 
-        $user = User::where('id', $userid)->first();
-        $userToken = $user->fcmtoken;
+        $user = AppInfo::where('userid', $userid)->first();
 
-        if (!$userToken) {
+
+        if (!$user) {
             return response()->json(["message" => "User Not Registered"], 400);
         }
+
+        $userToken = $user->fcmtoken;
 
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";
 
         $params = array(
 
-            "title" => 'Welcome to Mediaoto',
+            "title" => $title,
             "body" => $message,
             "icon" => '',
             "color" => '',
