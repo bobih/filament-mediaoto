@@ -20,7 +20,6 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '2c620c99f96a2b964346b45a4d1d1e64' => __DIR__ . '/..' . '/spatie/invade/src/functions.php',
         'e125f489d647ae664b0af7b573079de7' => __DIR__ . '/..' . '/filament/support/src/helpers.php',
-        'b69d5f1f95cd1ed438c038b6cbcc45b5' => __DIR__ . '/..' . '/filament/notifications/src/Testing/Autoload.php',
         '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
@@ -28,6 +27,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         '9261e07cd92c53dcc971c7c88c176c04' => __DIR__ . '/..' . '/danharrin/date-format-converter/src/helpers.php',
         '9720327d09ed9a4ba00c9b5071b71c7d' => __DIR__ . '/..' . '/danharrin/date-format-converter/src/standards.php',
         '2ad94ea6f6f6013119e9abcf4e302a08' => __DIR__ . '/..' . '/filament/forms/src/helpers.php',
+        'b69d5f1f95cd1ed438c038b6cbcc45b5' => __DIR__ . '/..' . '/filament/notifications/src/Testing/Autoload.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
@@ -218,6 +218,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
             'Dflydev\\DotAccessData\\' => 22,
+            'Devaslanphp\\FilamentAvatar\\' => 27,
             'DeepCopy\\' => 9,
             'Database\\Seeders\\' => 17,
             'Database\\Factories\\' => 19,
@@ -710,6 +711,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
+        'Devaslanphp\\FilamentAvatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -1094,6 +1099,11 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Devaslanphp\\FilamentAvatar\\Core\\FilamentUserAvatarProvider' => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src/Core/FilamentUserAvatarProvider.php',
+        'Devaslanphp\\FilamentAvatar\\Core\\GravatarProvider' => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src/Core/GravatarProvider.php',
+        'Devaslanphp\\FilamentAvatar\\Core\\HasAvatarUrl' => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src/Core/HasAvatarUrl.php',
+        'Devaslanphp\\FilamentAvatar\\Core\\UiAvatarsProvider' => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src/Core/UiAvatarsProvider.php',
+        'Devaslanphp\\FilamentAvatar\\FilamentAvatarProvider' => __DIR__ . '/..' . '/devaslanphp/filament-avatar/src/FilamentAvatarProvider.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',
