@@ -12,18 +12,34 @@ class RegisterController extends Controller
 {
     public function registerUser(Request $request)
     {
+        $rules = [
+            'nama' => 'required|min:4',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:4',
+          ];
+
+          $messages = [
+            'required'  => 'The :attribute field is required.',
+            'unique'    => ':attribute is already used',
+            'email'     => 'Invalid email'
+          ];
+
+          //$request->validate($rules,$messages);
+
+          /*
         $validator = Validator::make($request->all(), [
             'nama' => 'required|min:4',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:4',
             'confirm_password' => 'required|same:password'
         ]);
+        */
+
+        $validator = Validator::make($request->all(),$rules, $messages );
 
         //if validation fails
         if ($validator->fails()) {
-            //return response()->json($validator->errors(), 422);
-           return  (new \Illuminate\Http\Response)->setStatusCode(422, 'Invalid data');
-
+            return response()->json($validator->errors(), 422);
         }
         User::create([
             'email' => trim($request['email']),
