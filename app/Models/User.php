@@ -23,9 +23,32 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
 
     public function canAccessPanel(Panel $panel): bool
     {
+        $isEnable = false;
         // Bypass Auth
         //return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
-        return true;
+        switch($this->email){
+            case "bobby.khrisna@gmail.com":
+                $isEnable = false;
+            break;
+            case "laturiuw@gmail.com":
+                $isEnable = false;
+            break;
+            case "resty.agusti2023@gmail.com":
+                $isEnable = false;
+            break;
+            case "resty.agusti@gmail.com":
+                $isEnable = false;
+            break;
+            case "resty.agusti@gmail.com":
+                $isEnable = false;
+            break;
+            case "zusmaidar.az@gmail.com":
+                $isEnable = false;
+            break;
+            default:
+            $isEnable = false;
+        }
+        return $isEnable;
     }
 
     public function getFilamentName(): string
