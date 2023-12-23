@@ -28,22 +28,19 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
         //return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
         switch($this->email){
             case "bobby.khrisna@gmail.com":
-                $isEnable = false;
+                $isEnable = true;
             break;
             case "laturiuw@gmail.com":
-                $isEnable = false;
+                $isEnable = true;
             break;
             case "resty.agusti2023@gmail.com":
-                $isEnable = false;
+                $isEnable = true;
             break;
             case "resty.agusti@gmail.com":
-                $isEnable = false;
-            break;
-            case "resty.agusti@gmail.com":
-                $isEnable = false;
+                $isEnable = true;
             break;
             case "zusmaidar.az@gmail.com":
-                $isEnable = false;
+                $isEnable = true;
             break;
             default:
             $isEnable = false;
