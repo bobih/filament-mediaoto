@@ -259,7 +259,7 @@ class UserResource extends Resource
 
             // Get record $this->record
 
-        if (request()->route()?->getName() === 'filament.dash.resources.user-List.view') {
+
 
         return [
             RelationManagers\ProspekRelationManager::class,
@@ -269,9 +269,7 @@ class UserResource extends Resource
             RelationManagers\LostRelationManager::class,
 
         ];
-        } else {
-            return [];
-        }
+
 
 
     }
