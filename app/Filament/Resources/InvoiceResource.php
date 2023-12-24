@@ -215,15 +215,23 @@ class InvoiceResource extends Resource
 
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
-                Tables\Columns\TextColumn::make('tanggal')
-                    ->label('Tanggal'),
+
+                    Tables\Columns\ImageColumn::make('users.image')
+                    ->label('Avatar')
+                    ->circular()
+                    ->alignment(Alignment::Center)
+                    ->grow(false),
+
                 Tables\Columns\TextColumn::make('users.nama')
                     ->label('Nama'),
                 Tables\Columns\TextColumn::make('pakets.name')
                     ->label('Paket'),
                 Tables\Columns\TextColumn::make('createduser.nama')
                     ->label('Create'),
-                //Tables\Columns\TextColumn::make('approveduser.nama')
+                    Tables\Columns\TextColumn::make('tanggal')
+                    ->label('Tanggal'),
+
+                    //Tables\Columns\TextColumn::make('approveduser.nama')
                 //    ->label('Approved'),
                 //
                 Tables\Columns\IconColumn::make('status')
