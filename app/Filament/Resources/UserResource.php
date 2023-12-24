@@ -256,12 +256,24 @@ class UserResource extends Resource
 
     public static function getRelations(): array
     {
+
+            // Get record $this->record
+
+        if (request()->route()?->getName() === 'filament.dash.resources.user-List.view') {
+
         return [
             RelationManagers\ProspekRelationManager::class,
             RelationManagers\PushlistRelationManager::class,
             RelationManagers\CalllistRelationManager::class,
             RelationManagers\WhatsapplistRelationManager::class,
+            RelationManagers\LostRelationManager::class,
+
         ];
+        } else {
+            return [];
+        }
+
+
     }
 
     public static function getPages(): array
