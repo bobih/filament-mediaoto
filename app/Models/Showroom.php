@@ -12,7 +12,7 @@ class Showroom extends Model
 
     protected $table = 'showrooms';
 
-    public $timestamps = false;
+   // public $timestamps = false;
 
     protected $fillable = ['id',
     'city',
