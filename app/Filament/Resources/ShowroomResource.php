@@ -38,35 +38,37 @@ class ShowroomResource extends Resource
                 Forms\Components\TextInput::make('showroom')
                 ->label('Showroom')
                 ->required(),
+
                 Forms\Components\Select::make('brand')
                 ->label('Brand')
-                ->options(fn(Get $get): Collection => Brand::query()
-                ->pluck("brand",'brand'))
-                //->relationship('brands', 'brand')
+                ->relationship('brands', 'brand')
                 ->searchable()
                 ->preload()
                 ->required(),
+
                 Forms\Components\Textarea::make('alamat')
                 ->label('Alamat')
                 ->required(),
 
                 Forms\Components\Select::make('province')
                 ->label('Provinsi')
-                ->options(fn(Get $get): Collection => Province::query()
-                ->pluck("name",'name'))
-                //->relationship('province', 'name')
+                ->relationship('provinces', 'name')
                 ->searchable()
+                ->live()
+                ->afterStateUpdated(fn(Set $set) => $set('city', null))
                 ->preload()
                 ->required(),
 
-                Forms\Components\Select::make('city')
+            Forms\Components\Select::make('city')
                 ->label('Kota')
                 ->options(fn(Get $get): Collection => City::query()
-                ->pluck("name",'name'))
-                //->relationship('city', 'name')
+                    ->where('provinces_id', $get('province'))
+                    ->pluck("name", 'id'))
+                //->relationship('cities', 'name')
                 ->searchable()
-                ->preload()
                 ->required(),
+            //->preload(),
+
             ]);
     }
 
@@ -80,9 +82,9 @@ class ShowroomResource extends Resource
                 ->label('Showroom'),
                 //Tables\Columns\TextColumn::make('alamat')
                 //->label('Alamat'),
-                Tables\Columns\TextColumn::make('brand')
+                Tables\Columns\TextColumn::make('brands.brand')
                 ->label('Brand'),
-                Tables\Columns\TextColumn::make('city')
+                Tables\Columns\TextColumn::make('cities.name')
                 ->label('kota'),
             ])
             ->filters([

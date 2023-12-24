@@ -12,6 +12,8 @@ class Showroom extends Model
 
     protected $table = 'showrooms';
 
+    public $timestamps = false;
+
     protected $fillable = ['id',
     'city',
     'showroom',
@@ -21,6 +23,23 @@ class Showroom extends Model
     'created_at',
     'updated_at',];
 
+
+      public function cities(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: City::class,
+            ownerKey: 'id',
+            foreignKey:'city');
+    }
+
+    public function provinces() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Province::class,
+            foreignKey: 'province',
+            ownerKey: 'id'
+        );
+    }
 
     public function brands(): BelongsTo
     {
