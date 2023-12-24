@@ -219,6 +219,7 @@ class InvoiceResource extends Resource
                     Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
+                    ->defaultImageUrl(url('/images/blank.png'))
                     ->alignment(Alignment::Center)
                     ->grow(false),
 
