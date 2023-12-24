@@ -25,6 +25,7 @@ use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\InvoiceResource\Pages;
 use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
+use Illuminate\Support\Env;
 
 class InvoiceResource extends Resource
 {
@@ -219,7 +220,7 @@ class InvoiceResource extends Resource
                     Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
-                    ->defaultImageUrl(url('/images/blank.png'))
+                    ->defaultImageUrl(env('IMAGE_URL').'/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
 

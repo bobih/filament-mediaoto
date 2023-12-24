@@ -161,7 +161,7 @@ class UserResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Avatar')
                     ->circular()
-                    ->defaultImageUrl(url('/images/blank.png'))
+                    ->defaultImageUrl(env('IMAGE_URL').'/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
                 Tables\Columns\TextColumn::make('nama')->searchable()
