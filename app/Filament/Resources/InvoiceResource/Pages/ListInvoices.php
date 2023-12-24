@@ -29,14 +29,14 @@ class ListInvoices extends ListRecords
 
             "This Week" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('created_at', '>=', now()->subWeek());
-                    //->orderBy('users.id','desc');
+                    $data = Invoice::where('created_at', '>=', now()->subWeek())
+                    ->orderBy('id','desc');
                     return $data ;
                 }),
             "This month" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('created_at', '>=', now()->subMonth());
-                    //->orderBy('users.id','desc');
+                    $data = Invoice::where('created_at', '>=', now()->subMonth())
+                    ->orderBy('id','desc');
                     return $data ;
                 }),
             "All" => Tab::make(),
