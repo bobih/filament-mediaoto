@@ -21,7 +21,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar
 {
-    use HasFactory, Notifiable, HasRoles, HasPanelShield;
+    use HasFactory, Notifiable, HasRoles;
 
     // use HasApiTokens, HasFactory, Notifiable;
 
