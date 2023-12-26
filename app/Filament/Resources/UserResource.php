@@ -67,6 +67,12 @@ class UserResource extends Resource
                                     ->label('password')
                                     ->required(),
 
+                                    Forms\Components\Select::make('roles')
+                                    ->relationship('roles', 'name')
+                                    ->multiple()
+                                    ->preload()
+                                    ->searchable(),
+
                                 Forms\Components\TextInput::make('email')
                                     ->label('Email')
                                     ->email()
