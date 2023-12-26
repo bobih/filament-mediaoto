@@ -11,6 +11,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,7 +20,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar
 {
-   // use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
+
+    // use HasApiTokens, HasFactory, Notifiable;
 
     public function canAccessPanel(Panel $panel): bool
     {
