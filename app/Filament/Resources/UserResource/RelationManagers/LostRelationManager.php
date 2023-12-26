@@ -54,7 +54,7 @@ class LostRelationManager extends RelationManager
                 $return = '';
                 switch($record->lost){
                     case 1:
-                        $return = "Duplikat";
+                        $return = "Prospek Duplikat";
                     break;
                     case 2:
                         $return = "Bukan Potensial Buyer";
