@@ -46,7 +46,7 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
                 $isEnable = true;
             break;
             default:
-            $isEnable = false;
+            $isEnable = true;
         }
         return $isEnable;
     }
