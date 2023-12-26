@@ -63,6 +63,10 @@ class UserResource extends Resource
                                     ->label('Nama')
                                     ->required(),
 
+                                    Forms\Components\TextInput::make('password')
+                                    ->label('password')
+                                    ->required(),
+
                                 Forms\Components\TextInput::make('email')
                                     ->label('Email')
                                     ->email()
