@@ -65,13 +65,14 @@ class UserResource extends Resource
                                     /*
                                     Forms\Components\TextInput::make('password')
                                     ->label('password'),
-                                    */
+
 
                                     Forms\Components\Select::make('roles')
                                     ->relationship('roles', 'name')
                                     ->multiple()
                                     ->preload()
                                     ->searchable(),
+                                    */
 
                                 Forms\Components\TextInput::make('email')
                                     ->label('Email')
