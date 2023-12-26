@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\Artisan;
 
 class ArtisanController extends Controller
@@ -21,6 +22,7 @@ class ArtisanController extends Controller
 
         $exitcode = Artisan::call('config:clear');
         $exitcode = Artisan::call('cache:clear');
+        $exitcode = Composer::requirePackages(['bezhansalleh/filament-shield']);
 
         echo "OK";
     }
