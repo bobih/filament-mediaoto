@@ -64,8 +64,7 @@ class UserResource extends Resource
                                     ->required(),
 
                                     Forms\Components\TextInput::make('password')
-                                    ->label('password')
-                                    ->required(),
+                                    ->label('password'),
 
                                     Forms\Components\Select::make('roles')
                                     ->relationship('roles', 'name')
