@@ -23,8 +23,6 @@ class RoleResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
-
     protected static $permissionsCollection;
 
     public static function getPermissionPrefixes(): array
@@ -290,7 +288,6 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getNavigationIcon(): string
     {
         return __('filament-shield::filament-shield.nav.role.icon');
-        //return 'heroicon-o-shield-check';
     }
 
     public static function getNavigationSort(): ?int
