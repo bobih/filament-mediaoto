@@ -23,6 +23,7 @@ class ListInvoices extends ListRecords
             ExportAction::make()->exports([
                  ExcelExport::make()->withColumns([
                     Column::make('id')->heading('ID'),
+                    Column::make('pakets.paket_id')->heading('Paket ID'),
                     Column::make('pakets.name')->heading('Paket'),
                     Column::make('users.nama')->heading('Nama'),
                     Column::make('pakets.harga')->heading('Harga'),
