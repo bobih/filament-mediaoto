@@ -32,7 +32,7 @@ class EditUser extends EditRecord
     protected function getHeaderWidgets(): array
     {
         return [
-            UserResource\Widgets\ProspekInfoWidget::class,
+           // UserResource\Widgets\ProspekInfoWidget::class,
         ];
     }
 }

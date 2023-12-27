@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\InvoiceScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -53,6 +54,12 @@ class Invoice extends Model
                 'updated_at',
                 ];
 
+
+    protected static function booted()
+    {
+        //static::addGlobalScope(new InvoiceScope);
+    }
+
     public function users() : BelongsTo
     {
         return $this->belongsTo(
@@ -96,14 +103,13 @@ class Invoice extends Model
             localKey: 'userid');
     }
 
-    public function brands(): BelongsTo
+    public function brands() : BelongsTo
     {
         return $this->belongsTo(
             related: Brand::class,
-            ownerKey: 'id',
-            foreignKey: 'brand');
+            foreignKey: 'brand',
+            ownerKey: 'id'
+        );
     }
-
-
 
 }

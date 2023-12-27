@@ -21,7 +21,7 @@ class ListInvoices extends ListRecords
         return [
             Actions\CreateAction::make(),
             ExportAction::make()->exports([
-                 ExcelExport::make()->withColumns([
+                ExcelExport::make()->withColumns([
                     Column::make('id')->heading('ID'),
                     Column::make('pakets.paket_id')->heading('Paket ID'),
                     Column::make('pakets.name')->heading('Paket'),
@@ -31,15 +31,16 @@ class ListInvoices extends ListRecords
                     Column::make('createduser.nama')->heading('Created By'),
                     Column::make('approveduser.nama')->heading('Approved By'),
                     Column::make('status')->heading('Status')
-                    ->formatStateUsing(function ($state){
-                        if($state == 1){
-                            return 'Active';
-                        } else {
-                            return 'Pending';
-                        }
-                    }),
-    ])->withFilename('Invoice_'. date("Y-m-d") ),
+                        ->formatStateUsing(function ($state) {
+                            if ($state == 1) {
+                                return 'Active';
+                            } else {
+                                return 'Pending';
+                            }
+                        }),
+                ])->withFilename('Invoice_' . date("Y-m-d")),
             ])
+                ->color('info')
         ];
     }
 
@@ -52,15 +53,15 @@ class ListInvoices extends ListRecords
 
             "This Week" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('created_at', '>=', now()->subWeek())
-                    ->orderBy('id','desc');
-                    return $data ;
+                    $data = Invoice::where('invoice.created_at', '>=', now()->subWeek())
+                        ->orderBy('id', 'desc');
+                    return $data;
                 }),
             "This month" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('created_at', '>=', now()->subMonth())
-                    ->orderBy('id','desc');
-                    return $data ;
+                    $data = Invoice::where('invoice.created_at', '>=', now()->subMonth())
+                        ->orderBy('id', 'desc');
+                    return $data;
                 }),
             "All" => Tab::make(),
         ];

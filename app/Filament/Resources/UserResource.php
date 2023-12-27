@@ -268,7 +268,7 @@ class UserResource extends Resource
     public static function getWidgets(): array
     {
         return [
-            UserResource\Widgets\ProspekInfoWidget::class,
+           // UserResource\Widgets\ProspekInfoWidget::class,
         ];
     }
 

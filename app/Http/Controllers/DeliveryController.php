@@ -17,7 +17,7 @@ class DeliveryController extends Controller
     {
 
         if ($userid == '') {
-            return response()->json(["message" => "Data Updated"], 400);
+            return response()->json(["message" => "No Available User"], 400);
 
         }
 
@@ -41,6 +41,10 @@ class DeliveryController extends Controller
 
         // get Push Temp
         $tempList = PushTemp::where('userid', $userid)->get();
+
+        if(count($tempList) == 0){
+            return response()->json("Please Generate List", 400);
+        }
 
         $x = 0;
         foreach ($tempList as $list) {
