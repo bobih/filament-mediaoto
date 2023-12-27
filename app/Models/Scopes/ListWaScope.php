@@ -12,10 +12,7 @@ class ListWaScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        $builder->select(
-            DB::raw('leads.id as leadsid'),
-            'leads.name','leads.model','leads.variant', 'leads.brand', 'prospek.userid',
-            'list_wa.tanggal','list_wa.id','list_wa.created_at')
+        $builder->select('leads.brand', 'prospek.leadsid' , 'prospek.userid','list_wa.tanggal','list_wa.created_at','list_wa.id')
         ->from('list_wa')
         ->leftJoin('prospek','prospek.id','list_wa.leadsid')
         ->join('leads','leads.id' ,'prospek.leadsid');

@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources\InvoiceResource\Pages;
 
-use App\Filament\Resources\InvoiceResource;
-use App\Models\Invoice;
 use Filament\Actions;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Invoice;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\InvoiceResource;
 use Filament\Resources\Pages\ListRecords\Tab;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
 
 class ListInvoices extends ListRecords
 {
@@ -17,6 +20,25 @@ class ListInvoices extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            ExportAction::make()->exports([
+                 ExcelExport::make()->withColumns([
+                    Column::make('id')->heading('ID'),
+                    Column::make('pakets.name')->heading('Paket'),
+                    Column::make('users.nama')->heading('Nama'),
+                    Column::make('pakets.harga')->heading('Harga'),
+                    Column::make('created_at')->heading('Creation date'),
+                    Column::make('createduser.nama')->heading('Created By'),
+                    Column::make('approveduser.nama')->heading('Approved By'),
+                    Column::make('status')->heading('Status')
+                    ->formatStateUsing(function ($state){
+                        if($state == 1){
+                            return 'Active';
+                        } else {
+                            return 'Pending';
+                        }
+                    }),
+    ])->withFilename('Invoice_'. date("Y-m-d") ),
+            ])
         ];
     }
 

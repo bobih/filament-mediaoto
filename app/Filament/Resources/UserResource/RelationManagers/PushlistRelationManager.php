@@ -33,13 +33,19 @@ class PushlistRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
-                Tables\Columns\TextColumn::make('leadusers.model')
-                ->label('Model'),
-                Tables\Columns\TextColumn::make('leadusers.variant')
-                ->label('Type')
-                ->formatStateUsing(function (string $state): string {
-                    return html_entity_decode($state);
-                }),
+
+                   Tables\Columns\TextColumn::make('brands.brand')
+                    ->label('Brand'),
+                    Tables\Columns\TextColumn::make('leadusers.model')
+                    ->label('Model'),
+                    Tables\Columns\TextColumn::make('leadusers.variant')
+                    ->label('Type')
+                    ->formatStateUsing(function (string $state): string {
+                        return html_entity_decode($state);
+                     }),
+                     Tables\Columns\TextColumn::make('leadusers.city')
+                     ->label('Lokasi'),
+
                 Tables\Columns\TextColumn::make('tanggal')
                 ->label('Tanggal'),
             ])

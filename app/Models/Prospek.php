@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ProspekScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,20 +27,28 @@ class Prospek extends Model
                 ];
 
 
-                /*
-    public function users() : BelongsToMany
+
+
+    protected static function booted()
     {
-        return $this->belongsToMany(
-            related: User::class,
-        );
+        static::addGlobalScope(new ProspekScope);
     }
-    */
+
 
     public function users() : BelongsTo
     {
         return $this->belongsTo(
             related: User::class,
             foreignKey: 'userid',
+            ownerKey: 'id'
+        );
+    }
+
+    public function brands() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            foreignKey: 'brand',
             ownerKey: 'id'
         );
     }
