@@ -35,19 +35,17 @@ class InvoiceResource extends Resource
     protected static ?string $model = Invoice::class;
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $recordTitleAttribute = 'users.nama';
+    protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
     public static function form(Form $form): Form
     {
-        // $invoiceModel = $form->getModel();
-
         return $form
             ->schema([
 
                 Fieldset::make('Info')
-                ->schema([
+                    ->schema([
 
                         Forms\Components\Select::make('userid')
                             ->label('Nama')
@@ -57,26 +55,26 @@ class InvoiceResource extends Resource
                                     ->whereNotIn('id', function ($q) {
                                         $q->select('userid')->from('invoice');
                                     })
-                                    ->where('acctype','>',0)
+                                    ->where('acctype', '>', 0)
                                     ->pluck('nama', 'id');
                                 return $user;
 
 
-                    })
-                    //->relationship('users', 'nama')
-                    ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
-                    ->searchable()
-                    ->preload()
-                    ->live()
-                    ->afterStateUpdated(function (Set $set, $state) {
-                        $userModel = new User();
-                        $user = $userModel->where('id', $state)->first();
-                        $set('paketid', $user->acctype);
-                    })
-                    ->disabled(fn(string $operation): bool => $operation === 'edit'),
+                            })
+                            //->relationship('users', 'nama')
+                            ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
+                            ->searchable()
+                            ->preload()
+                            ->live()
+                            ->afterStateUpdated(function (Set $set, $state) {
+                                $userModel = new User();
+                                $user = $userModel->where('id', $state)->first();
+                                $set('paketid', $user->acctype);
+                            })
+                            ->disabled(fn(string $operation): bool => $operation === 'edit'),
 
 
-                ]),
+                    ]),
 
                 Fieldset::make('Settings')
                     ->schema([
@@ -104,7 +102,7 @@ class InvoiceResource extends Resource
                         Forms\Components\Actions::make([
 
                             Forms\Components\Actions\Action::make('Generate List')
-                                ->action(function ( $action, Forms\Get $get, Forms\Set $set) {
+                                ->action(function ($action, Forms\Get $get, Forms\Set $set) {
                                     // Delete PushList
                                     if ($get('userid')) {
 
@@ -130,7 +128,7 @@ class InvoiceResource extends Resource
                                             $error = $e->getMessage();
                                             Notification::make()->danger()->title("Please Check User Data")->icon('heroicon-o-check')->send();
 
-                                           $action->cancel();
+                                            $action->cancel();
 
                                         }
 
@@ -150,8 +148,8 @@ class InvoiceResource extends Resource
                                         $pushList->take($quota);
 
                                         $totalData = $pushList->get()->count();
-                                        if($totalData < $quota){
-                                            Notification::make()->danger()->title('Error : Not Enough Data ('.$totalData.')')->icon('heroicon-o-check')->send();
+                                        if ($totalData < $quota) {
+                                            Notification::make()->danger()->title('Error : Not Enough Data (' . $totalData . ')')->icon('heroicon-o-check')->send();
                                             $action->cancel();
                                         }
 
@@ -220,36 +218,41 @@ class InvoiceResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
 
-                    Tables\Columns\ImageColumn::make('users.image')
+                Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
-                    ->defaultImageUrl(env('IMAGE_URL').'/images/blank.png')
+                    ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
 
                 Tables\Columns\TextColumn::make('users.nama')
                     ->label('Nama'),
+
+                /*
+                Tables\Columns\TextColumn::make('brands.brand')
+                    ->label('Brand'),
+                */
                 Tables\Columns\TextColumn::make('pakets.name')
                     ->label('Paket'),
                 Tables\Columns\TextColumn::make('createduser.nama')
                     ->label('Create'),
-                    Tables\Columns\TextColumn::make('tanggal')
+                Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal'),
 
-                    //Tables\Columns\TextColumn::make('approveduser.nama')
+                //Tables\Columns\TextColumn::make('approveduser.nama')
                 //    ->label('Approved'),
                 //
                 Tables\Columns\IconColumn::make('status')
-                ->icon(fn (string $state): string => match ($state) {
-                    '1' => 'heroicon-o-check-badge',
-                    '0' => 'heroicon-o-x-mark',
-                    default => 'heroicon-o-x-mark',
-                })
-                ->color(fn (string $state): string => match ($state) {
-                    '1' => 'success',
-                    '0' => 'gray',
-                    default => 'gray',
-                }),
+                    ->icon(fn(string $state): string => match ($state) {
+                        '1' => 'heroicon-o-check-badge',
+                        '0' => 'heroicon-o-x-mark',
+                        default => 'heroicon-o-x-mark',
+                    })
+                    ->color(fn(string $state): string => match ($state) {
+                        '1' => 'success',
+                        '0' => 'gray',
+                        default => 'gray',
+                    }),
             ])
             ->filters([
                 //

@@ -38,36 +38,37 @@ class EditInvoice extends EditRecord
             }),
             EditAction::make('Approved')
             ->label('Approved')
+            ->color('info')
             ->before(function (EditAction $action,Invoice $records) {
-
+                 $isValid = true;
                 if($records->status !=1){
                         $records->approved = auth()->user()->id;
                         $records->status = 1;
 
-                        /*
-
-
-                        // Move List To Push_list;
-                        $tempList = PushTemp::where('userid', $records->userid)->get();
-                        foreach($tempList as $list){
-                            $pushModel = new PushList();
-                            $pushModel->userid = $list->userid;
-                            $pushModel->leadsid = $list->leadsid;
-                            $pushModel->tanggal = $list->tanggal;
-                            $pushModel->save();
-                        }
-
-                        // Delete Push Temp
-                        $deleteTemp = PushTemp::where('userid', $records->userid);
-                        $deleteTemp->delete();
-
-                        */
 
                         $deliveryController = new DeliveryController();
                         $pushTemp = $deliveryController->createPushList($records->userid);
+                        if($pushTemp->getStatusCode() <> 200){
+                            $isValid = false;
+                            Notification::make()
+                            ->danger()
+                            ->title('Warning')
+                            ->body($pushTemp->getContent())
+                            ->send();
+                            $action->cancel();
+                        }
 
-
-
+                    } else {
+                        $isValid = false;
+                        Notification::make()
+                        ->danger()
+                        ->title('Warning')
+                        ->body('User Already Approved')
+                        ->send();
+                        $action->cancel();
+                    }
+                    // Save if Valid
+                    if($isValid){
                         Notification::make()
                         ->success()
                         ->title('User updated')
@@ -75,15 +76,6 @@ class EditInvoice extends EditRecord
                         ->send();
 
                         $action->success();
-                    } else {
-                        Notification::make()
-                        ->danger()
-                        ->title('Warning')
-                        ->body('User Already Approved')
-                        ->send();
-
-
-                        $action->cancel();
                     }
             })
             ->successRedirectUrl(route('filament.dash.resources.invoices.index'))
