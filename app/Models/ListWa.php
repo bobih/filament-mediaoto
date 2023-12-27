@@ -19,20 +19,29 @@ class ListWa extends Model
     {
         static::addGlobalScope(new ListWaScope());
     }
+
     public function users() : BelongsTo
     {
         return $this->belongsTo(
             related: User::class,
             foreignKey: 'userid',
-            ownerKey: 'userid'
+            ownerKey: 'id'
         );
     }
 
     public function leadusers() : BelongsTo
     {
         return $this->belongsTo(
-            related: Prospek::class,
+            related: Leads::class,
             foreignKey: 'leadsid',
+            ownerKey: 'id'
+        );
+    }
+    public function brands() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            foreignKey: 'brand',
             ownerKey: 'id'
         );
     }

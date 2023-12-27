@@ -3,12 +3,17 @@
 namespace App\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use App\Models\Invoice;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\RelationManagers\RelationManager;
 
 class ProspekRelationManager extends RelationManager
 {
@@ -33,18 +38,33 @@ class ProspekRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('userid')
             ->columns([
-                Tables\Columns\TextColumn::make('leadusers.name')
+
+
+
+                 Tables\Columns\TextColumn::make('leadusers.name')
                 ->label('Prospek'),
-                Tables\Columns\TextColumn::make('leadusers.model')
-                ->label('Model'),
-                Tables\Columns\TextColumn::make('leadusers.variant')
-                ->label('Type')
-                ->formatStateUsing(function (string $state): string {
-                    return html_entity_decode($state);
-                }),
+
+                   Tables\Columns\TextColumn::make('brands.brand')
+                    ->label('Brand'),
+                    Tables\Columns\TextColumn::make('leadusers.model')
+                    ->label('Model'),
+                    Tables\Columns\TextColumn::make('leadusers.variant')
+                    ->label('Type')
+                    ->formatStateUsing(function (string $state): string {
+                        return html_entity_decode($state);
+                     }),
+                     Tables\Columns\TextColumn::make('leadusers.city')
+                     ->label('Lokasi'),
+
+
 
                 Tables\Columns\TextColumn::make('created_at')
                 ->label('Tanggal'),
+
+
+
+
+
 
             ])
             ->defaultSort('created_at','desc')

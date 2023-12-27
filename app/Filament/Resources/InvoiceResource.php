@@ -16,6 +16,7 @@ use Filament\Forms\Set;
 use App\Models\PushTemp;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Illuminate\Support\Env;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
@@ -23,9 +24,11 @@ use Filament\Support\Enums\Alignment;
 use Filament\Forms\Components\Fieldset;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use App\Filament\Resources\InvoiceResource\Pages;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
-use Illuminate\Support\Env;
 
 class InvoiceResource extends Resource
 {
@@ -254,9 +257,11 @@ class InvoiceResource extends Resource
             ->actions([
                 // Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    ExportBulkAction::make(),
 
                     //Tables\Actions\DeleteBulkAction::make(),
                 ]),

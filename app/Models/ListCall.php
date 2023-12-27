@@ -32,8 +32,16 @@ class ListCall extends Model
     public function leadusers() : BelongsTo
     {
         return $this->belongsTo(
-            related: Prospek::class,
+            related: Leads::class,
             foreignKey: 'leadsid',
+            ownerKey: 'id'
+        );
+    }
+    public function brands() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            foreignKey: 'brand',
             ownerKey: 'id'
         );
     }
