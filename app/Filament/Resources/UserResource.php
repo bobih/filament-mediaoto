@@ -92,9 +92,13 @@ class UserResource extends Resource
                                     ->preload()
                                     ->required(),
 
+
                                 Forms\Components\Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
+                                    ->getOptionLabelFromRecordUsing(function ($record){
+                                        return "{$record->name}";
+                                    })
                                     ->preload()
                                     ->live()
                                     ->required()
@@ -148,11 +152,13 @@ class UserResource extends Resource
                                     ->label('Image')
                                     ->enableOpen()
                                     ->enableDownload(),
+                                /*
 
                                 Forms\Components\FileUpload::make('ktp')
                                     ->label('KTP'),
                                 Forms\Components\FileUpload::make('npwp')
                                     ->label('NPWP'),
+                                */
                             ])->columns(2),
                     ])
                     ->columnSpanFull()

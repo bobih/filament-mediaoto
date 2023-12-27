@@ -16,6 +16,7 @@ class Paket extends Model
         'id',
         'paket_id',
         'quota',
+        'type',
         'name',
         'harga',
         'created_at',
