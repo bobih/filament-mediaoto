@@ -2,16 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PaketResource\Pages;
-use App\Filament\Resources\PaketResource\RelationManagers;
-use App\Models\Paket;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Paket;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Resource;
+use App\Filament\Resources\PaketResource\Pages;
 
 class PaketResource extends Resource
 {
@@ -32,8 +29,17 @@ class PaketResource extends Resource
 
                 Forms\Components\TextInput::make('paket_id')
                 ->label('Paket ID'),
+                Forms\Components\Select::make('type')
+                ->label('Type')
+                ->options([
+                    'Retail' => 'Retail',
+                    'Corporate' => 'Corporate',
+                    'Banner' => 'Banner',
+                ])
+                ->rules(['required']),
                 Forms\Components\TextInput::make('name')
-                ->label('Type'),
+                ->label('Name'),
+
                 Forms\Components\TextInput::make('quota')
                 ->label('Quota'),
                 Forms\Components\TextInput::make('harga')
@@ -49,6 +55,8 @@ class PaketResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('paket_id')
                 ->label('Paket ID'),
+                Tables\Columns\TextColumn::make('type')
+                ->label('Type'),
                 Tables\Columns\TextColumn::make('name')->searchable()
                 ->label('Nama'),
                 Tables\Columns\TextColumn::make('quota')
