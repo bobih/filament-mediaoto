@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Response;
 use App\Models\User;
 use App\Models\Prospek;
@@ -10,6 +10,8 @@ use App\Models\PushList;
 use App\Models\PushTemp;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Filament\Notifications\Notification;
+
 
 class DeliveryController extends Controller
 {
@@ -77,26 +79,34 @@ class DeliveryController extends Controller
         $arrException = [];
         $arruserid = [];
         // Get list User from showroom
-        $listUser = Prospek::select('userid')->where('showroom', $showroom)->get();
-        foreach ($listUser as $user) {
+        $listUser = DB::table('prospek')->select(DB::raw('distinct(userid)'));
+        $listUser->where('showroom', $showroom);
+        foreach ($listUser->get() as $user) {
             $arruserid[] = $user->userid;
         }
 
-        // Get exception from prospek
-        $listLeads = Prospek::select('leadsid')->whereIn('leadsid', $arruserid)->get();
-        if (count($listLeads) > 0) {
-            foreach ($listLeads as $lead) {
+        //Notification::make()->danger()->title('total User (' . count($arruserid) . ')')->icon('heroicon-o-check')->send();
+
+        $listLeads = DB::table('prospek')->select('leadsid');
+
+        $listUser->whereIn('leadsid', $arruserid);
+
+        if ($listLeads->count() > 0) {
+            foreach ($listLeads->get() as $lead) {
                 $arrException[] = $lead->leadsid;
             }
         }
 
-        $listPush = PushList::select('leadsid')->whereIn('userid', $arruserid)->get();
-        if (count($listPush) > 0) {
-            foreach ($listPush as $push) {
+        $listPush = DB::table('push_list')->select('leadsid')->whereIn('userid', $arruserid);
+        if ($listPush->count() > 0) {
+            foreach ($listPush->get() as $push) {
                 $arrException[] = $push->leadsid;
             }
         }
+
+
         return $arrException;
+
     }
 
 
