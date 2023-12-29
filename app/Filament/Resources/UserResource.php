@@ -92,7 +92,7 @@ class UserResource extends Resource
                                     ->preload()
                                     ->required(),
 
-
+                                /*
                                 Forms\Components\Select::make('acctype')
                                     ->label('Paket')
                                     ->relationship('pakets', 'name')
@@ -108,7 +108,7 @@ class UserResource extends Resource
                                     }),
 
                                 Forms\Components\Hidden::make('quota'),
-
+                                    */
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
