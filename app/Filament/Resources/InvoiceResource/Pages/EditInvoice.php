@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\InvoiceResource\Pages;
 
-use App\Http\Controllers\DeliveryController;
 use auth;
+use App\Models\User;
+use App\Models\Paket;
 use Filament\Actions;
 use App\Models\Invoice;
 use App\Models\PushList;
@@ -12,9 +13,11 @@ use Livewire\Attributes\On;
 
 use Filament\Actions\Action;
 use Filament\Actions\EditAction;
+use Illuminate\Support\Facades\DB;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use App\Filament\Resources\InvoiceResource;
+use App\Http\Controllers\DeliveryController;
 
 
 
@@ -44,11 +47,25 @@ class EditInvoice extends EditRecord
                 if($records->status !=1){
                         $records->approved = auth()->user()->id;
                         $records->status = 1;
+                        // update User Status
 
+                        // Get quota
+                        $listPaket = Paket::where('id',$records->paketid)->first();
+                        $quota = $listPaket->quota;
+
+
+
+
+                        $user = User::where('id', $records->userid)->first();
+                        $newquota = $user->quota + $quota;
+
+                        DB::table('users')
+                        ->where('id', $records->userid)
+                        ->update(['quota' => $newquota, 'acctype' => $records->paketid]);
 
                         $deliveryController = new DeliveryController();
                         $pushTemp = $deliveryController->createPushList($records->userid);
-                        if($pushTemp->getStatusCode() <> 200){
+                        if($pushTemp->getStatusCode() != 200){
                             $isValid = false;
                             Notification::make()
                             ->danger()

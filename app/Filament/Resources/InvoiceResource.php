@@ -56,7 +56,10 @@ class InvoiceResource extends Resource
                                     ->whereNotIn('id', function ($q) {
                                         $q->select('userid')->from('invoice');
                                     })
-                                    ->where('acctype', '>', 0)
+                                    //->where('acctype', '>', 0)
+                                    ->where('showroom', '>', 0)
+                                    ->where('showroom', '<>', '')
+
                                     ->pluck('nama', 'id');
                                 return $user;
 
@@ -73,6 +76,18 @@ class InvoiceResource extends Resource
                                 $set('paketid', $user->acctype);
                             })
                             ->disabled(fn(string $operation): bool => $operation === 'edit'),
+
+
+                                Forms\Components\Select::make('paketid')
+                                    ->label('Paket')
+                                    ->relationship('pakets', 'name')
+                                    ->preload()
+                                    ->required()
+                                    ->disabled(fn(string $operation): bool => $operation === 'edit'),
+
+                                /*
+                                Forms\Components\Hidden::make('quota'),
+                                    */
 
 
                     ]),
@@ -103,7 +118,7 @@ class InvoiceResource extends Resource
                         Forms\Components\Actions::make([
 
                             Forms\Components\Actions\Action::make('Generate List')
-                                ->action(function ($action, Forms\Get $get, Forms\Set $set) {
+                                ->action(function ($action, Forms\Get $get, Forms\Set $set,Invoice $records) {
                                     // Delete PushList
                                     if ($get('userid')) {
 
@@ -116,11 +131,11 @@ class InvoiceResource extends Resource
                                         $userModel = new User();
                                         $user = $userModel->where('id', $userid)->first();
 
-                                        $set('paketid', $user->acctype);
+                                        //$set('paketid', $user->acctype);
 
                                         $brand = $user->brand;
                                         $paketModel = new Paket();
-                                        $paket = $paketModel->where('id', $user->acctype)->first();
+                                        $paket = $paketModel->where('id', $records->paketid)->first();
 
                                         try {
 
