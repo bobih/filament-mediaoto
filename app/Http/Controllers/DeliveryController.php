@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Response;
 use App\Models\User;
+use App\Models\Prospek;
 use App\Models\PushList;
 use App\Models\PushTemp;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class DeliveryController extends Controller
         // get Push Temp
         $tempList = PushTemp::where('userid', $userid)->get();
 
-        if(count($tempList) == 0){
+        if (count($tempList) == 0) {
             return response()->json("Please Generate List", 400);
         }
 
@@ -67,6 +68,35 @@ class DeliveryController extends Controller
         $endTimestamp = strtotime($endTime);
         $randomTimestamp = mt_rand($startTimestamp, $endTimestamp);
         return date('Y-m-d H:i:s', $randomTimestamp);
+    }
+
+
+    public function getExceptionList($userid, $showroom): array
+    {
+
+        $arrException = [];
+        $arruserid = [];
+        // Get list User from showroom
+        $listUser = Prospek::select('userid')->where('showroom', $showroom)->get();
+        foreach ($listUser as $user) {
+            $arruserid[] = $user->userid;
+        }
+
+        // Get exception from prospek
+        $listLeads = Prospek::select('leadsid')->whereIn('leadsid', $arruserid)->get();
+        if (count($listLeads) > 0) {
+            foreach ($listLeads as $lead) {
+                $arrException[] = $lead->leadsid;
+            }
+        }
+
+        $listPush = PushList::select('leadsid')->whereIn('userid', $arruserid)->get();
+        if (count($listPush) > 0) {
+            foreach ($listPush as $push) {
+                $arrException[] = $push->leadsid;
+            }
+        }
+        return $arrException;
     }
 
 
