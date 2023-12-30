@@ -113,7 +113,19 @@ class UserResource extends Resource
                                         ->relationship('roles', 'name')
                                         ->multiple()
                                         ->preload()
-                                        ->searchable(),
+                                        ->searchable()
+                                        ->visible(function (User $user){
+
+                                           return $user->can('delete');
+                                            /*
+                                            $user = auth()->user()->id;
+                                            if($user == "36"){
+                                                return true;
+                                            } else {
+                                                return false;
+                                            }
+                                            */
+                                        }),
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
