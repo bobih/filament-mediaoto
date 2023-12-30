@@ -150,24 +150,30 @@ class InvoiceResource extends Resource
 
                                         // Delete
                                         $templist = PushTemp::where('userid', '=', $userid)->delete();
-                                        $pushList = Leads::query()->where('brand', $brand);
+                                        $pushList = Leads::select('id')->where('brand', $brand);
+
+
+                                        $pushList->whereDate('create', '<=', $datadate);
+
+
+
 
                                         // Get ExceptionList
                                         $deliveryController = new DeliveryController();
                                         $exceptionList = $deliveryController->getExceptionList($user->id,$user->showroom);
-
                                         if(count($exceptionList) > 0){
                                             $pushList->whereNotIn('id',$exceptionList);
                                         }
 
 
-                                        $pushList->whereDate('create', '<=', $datadate);
+
                                         if ($model) {
                                             //$idsArr = explode(',',$model);
                                             $pushList->whereIn('model', $model);
                                         }
                                         $pushList->orderBy('create', 'desc');
                                         $pushList->take($quota);
+                                        //dd($pushList->toRawSql());
 
                                         $totalData = $pushList->get()->count();
                                         if ($totalData < $quota) {

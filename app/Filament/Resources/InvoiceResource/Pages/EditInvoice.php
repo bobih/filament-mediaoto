@@ -97,8 +97,8 @@ class EditInvoice extends EditRecord
             })
             ->successRedirectUrl(route('filament.dash.resources.invoices.index'))
             ->visible(function (){
-                $user = auth()->user()->id;
-                if($user == "36"){
+                $userid = auth()->user()->id;
+                if($userid == "36" || $userid == "113"){
                     return true;
                 } else {
                     return false;
