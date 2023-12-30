@@ -109,6 +109,11 @@ class UserResource extends Resource
 
                                 Forms\Components\Hidden::make('quota'),
                                     */
+                                    Forms\Components\Select::make('roles')
+                                        ->relationship('roles', 'name')
+                                        ->multiple()
+                                        ->preload()
+                                        ->searchable(),
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
