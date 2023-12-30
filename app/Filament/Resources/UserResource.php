@@ -10,21 +10,23 @@ use App\Models\Paket;
 use App\Models\Prospek;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Livewire\Component;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Illuminate\Support\Collection;
 
 
 //use App\Tables\Columns\ProgressColumn;
 
 
 
+use Illuminate\Support\Collection;
 use Filament\Forms\Components\Tabs;
+
+
+use Illuminate\Support\Facades\Hash;
+
 use Filament\Support\Enums\Alignment;
-
-
-
 use Filament\Support\Enums\FontWeight;
 use App\Http\Controllers\FcmController;
 use Illuminate\Database\Eloquent\Builder;
@@ -62,17 +64,19 @@ class UserResource extends Resource
                                 Forms\Components\TextInput::make('nama')
                                     ->label('Nama')
                                     ->required(),
-                                    /*
-                                    Forms\Components\TextInput::make('password')
-                                    ->label('password'),
 
 
-                                    Forms\Components\Select::make('roles')
-                                    ->relationship('roles', 'name')
-                                    ->multiple()
-                                    ->preload()
-                                    ->searchable(),
-                                    */
+                                /*
+                                Forms\Components\TextInput::make('password')
+                                ->label('password'),
+
+
+                                Forms\Components\Select::make('roles')
+                                ->relationship('roles', 'name')
+                                ->multiple()
+                                ->preload()
+                                ->searchable(),
+                                */
 
                                 Forms\Components\TextInput::make('email')
                                     ->label('Email')
@@ -109,26 +113,31 @@ class UserResource extends Resource
 
                                 Forms\Components\Hidden::make('quota'),
                                     */
-                                    Forms\Components\Select::make('roles')
-                                        ->relationship('roles', 'name')
-                                        ->multiple()
-                                        ->preload()
-                                        ->searchable()
-                                        ->visible(function (User $user){
-
-                                          // return $user->is('delete');
-                                            /*
-                                            $user = auth()->user()->id;
-                                            if($user == "36"){
-                                                return true;
-                                            } else {
-                                                return false;
-                                            }
-                                            */
-
-                                            return auth()->user()->hasRole('Admin')  == 'Admin';
-
-                                        }),
+                                Forms\Components\Select::make('roles')
+                                    ->relationship('roles', 'name')
+                                    ->multiple()
+                                    ->preload()
+                                    ->searchable()
+                                    ->visible(function (User $user) {
+                                        $user = auth()->user()->id;
+                                        if ($user == "36") {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    }),
+                                Forms\Components\TextInput::make('password')
+                                    ->password()
+                                    ->maxLength(255)
+                                    ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                                    ->visible(function (User $user) {
+                                        $user = auth()->user()->id;
+                                        if ($user == "36") {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    }),
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
@@ -198,7 +207,7 @@ class UserResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Avatar')
                     ->circular()
-                    ->defaultImageUrl(env('IMAGE_URL').'/images/blank.png')
+                    ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
                 Tables\Columns\TextColumn::make('nama')->searchable()
@@ -288,14 +297,14 @@ class UserResource extends Resource
     public static function getWidgets(): array
     {
         return [
-           // UserResource\Widgets\ProspekInfoWidget::class,
+            // UserResource\Widgets\ProspekInfoWidget::class,
         ];
     }
 
     public static function getRelations(): array
     {
 
-            // Get record $this->record
+        // Get record $this->record
 
 
 
