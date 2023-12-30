@@ -35,6 +35,9 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
             case "bobby.khrisna@gmail.com":
                 $isEnable = true;
             break;
+            case "bobby.khrisna@gmail.com2":
+                $isEnable = true;
+            break;
             case "laturiuw@gmail.com":
                 $isEnable = true;
             break;
@@ -48,7 +51,7 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
                 $isEnable = true;
             break;
             default:
-            $isEnable = true;
+            $isEnable = false;
         }
         return $isEnable;
     }
