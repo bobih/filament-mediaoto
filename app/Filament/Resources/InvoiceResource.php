@@ -52,7 +52,6 @@ class InvoiceResource extends Resource
                             ->label('Nama')
                             ->options(function (User $user) {
                                 $user = User::where('brand', '>', 0)
-
                                     ->whereNotIn('id', function ($q) {
                                         $q->select('userid')->from('invoice');
                                     })
@@ -61,14 +60,11 @@ class InvoiceResource extends Resource
                                     ->where('showroom', '<>', '')
                                     ->where('brand', '<>', 99)
                                     ->where('id', '<>', 36)
-
                                     ->pluck('nama', 'id');
                                 return $user;
-
-
                             })
                             //->relationship('users', 'nama')
-                            ->getOptionLabelUsing(fn($value): ?string => User::find($value)?->nama)
+
                             ->searchable()
                             ->preload()
                             ->live()
@@ -294,7 +290,7 @@ class InvoiceResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    ExportBulkAction::make(),
+                   // ExportBulkAction::make(),
 
                     //Tables\Actions\DeleteBulkAction::make(),
                 ]),
