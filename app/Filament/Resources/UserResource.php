@@ -116,15 +116,15 @@ class UserResource extends Resource
                                         ->searchable()
                                         ->visible(function (User $user){
 
-                                           return $user->can('delete');
-                                            /*
+                                          // return $user->is('delete');
+
                                             $user = auth()->user()->id;
                                             if($user == "36"){
                                                 return true;
                                             } else {
                                                 return false;
                                             }
-                                            */
+
                                         }),
 
                             ])->columns(2),
