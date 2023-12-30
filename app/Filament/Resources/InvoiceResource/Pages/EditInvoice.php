@@ -31,26 +31,39 @@ class EditInvoice extends EditRecord
     {
         return [
             Actions\DeleteAction::make()
-            ->visible(function (){
-                $user = auth()->user()->id;
-                if($user == "36"){
-                    return true;
-                } else {
-                    return true;
-                }
-            }),
+                ->before(function (Invoice $records) {
+                    $userid = $records->userid;
+                    // Remove Temporary
+                    $templist = PushTemp::where('userid', '=', $userid)->delete();
+
+                })
+                ->visible(function (Invoice $records) {
+                    $userid = auth()->user()->id;
+                    if ($userid == "36") {
+                        return true;
+                    } else if ($userid == "113") {
+                        $approved = $records->status;
+                        if ($approved == 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                }),
             EditAction::make('Approved')
-            ->label('Approved')
-            ->color('info')
-            ->before(function (EditAction $action,Invoice $records) {
-                 $isValid = true;
-                if($records->status !=1){
+                ->label('Approved')
+                ->color('info')
+                ->before(function (EditAction $action, Invoice $records) {
+                    $isValid = true;
+                    if ($records->status != 1) {
                         $records->approved = auth()->user()->id;
                         $records->status = 1;
                         // update User Status
 
                         // Get quota
-                        $listPaket = Paket::where('id',$records->paketid)->first();
+                        $listPaket = Paket::where('id', $records->paketid)->first();
                         $quota = $listPaket->quota;
 
 
@@ -60,50 +73,81 @@ class EditInvoice extends EditRecord
                         $newquota = $user->quota + $quota;
 
                         DB::table('users')
-                        ->where('id', $records->userid)
-                        ->update(['quota' => $newquota, 'acctype' => $records->paketid]);
+                            ->where('id', $records->userid)
+                            ->update(['quota' => $newquota, 'acctype' => $records->paketid]);
 
                         $deliveryController = new DeliveryController();
                         $pushTemp = $deliveryController->createPushList($records->userid);
-                        if($pushTemp->getStatusCode() != 200){
+                        if ($pushTemp->getStatusCode() != 200) {
                             $isValid = false;
                             Notification::make()
-                            ->danger()
-                            ->title('Warning')
-                            ->body($pushTemp->getContent())
-                            ->send();
+                                ->danger()
+                                ->title('Warning')
+                                ->body($pushTemp->getContent())
+                                ->send();
                             $action->cancel();
                         }
 
                     } else {
                         $isValid = false;
                         Notification::make()
-                        ->danger()
-                        ->title('Warning')
-                        ->body('User Already Approved')
-                        ->send();
+                            ->danger()
+                            ->title('Warning')
+                            ->body('User Already Approved')
+                            ->send();
                         $action->cancel();
                     }
                     // Save if Valid
-                    if($isValid){
+                    if ($isValid) {
                         Notification::make()
-                        ->success()
-                        ->title('User updated')
-                        ->body('The user has been saved successfully.')
-                        ->send();
+                            ->success()
+                            ->title('User updated')
+                            ->body('The user has been saved successfully.')
+                            ->send();
 
                         $action->success();
                     }
-            })
-            ->successRedirectUrl(route('filament.dash.resources.invoices.index'))
-            ->visible(function (){
-                $userid = auth()->user()->id;
-                if($userid == "36" || $userid == "113"){
+                })
+                ->successRedirectUrl(route('filament.dash.resources.invoices.index'))
+                ->visible(function (Invoice $records) {
+                    $userid = auth()->user()->id;
+                    $isUser = false;
+                    if ($userid == "36") {
+                        return true;
+                    } else if ($userid == "113") {
+                        $approved = $records->status;
+                        if ($approved == 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+
+                }),
+        ];
+    }
+
+    protected function getSaveFormAction(): Action
+    {
+        return parent::getSaveFormAction()
+        ->visible(function (Invoice $records) {
+            $userid = auth()->user()->id;
+            $isUser = false;
+            if ($userid == "36") {
+                return true;
+            } else if ($userid == "113") {
+                $approved = $records->status;
+                if ($approved == 0) {
                     return true;
                 } else {
                     return false;
                 }
-            }),
-        ];
+            } else {
+                return false;
+            }
+
+        });
     }
 }
