@@ -117,13 +117,16 @@ class UserResource extends Resource
                                         ->visible(function (User $user){
 
                                           // return $user->is('delete');
-
+                                            /*
                                             $user = auth()->user()->id;
                                             if($user == "36"){
                                                 return true;
                                             } else {
                                                 return false;
                                             }
+                                            */
+
+                                            return auth()->user()->hasRole('Admin')  == 'Admin';
 
                                         }),
 
