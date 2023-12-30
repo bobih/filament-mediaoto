@@ -60,6 +60,7 @@ class InvoiceResource extends Resource
                                     ->where('showroom', '>', 0)
                                     ->where('showroom', '<>', '')
                                     ->where('brand', '<>', 99)
+                                    ->where('id', '<>', 36)
 
                                     ->pluck('nama', 'id');
                                 return $user;
