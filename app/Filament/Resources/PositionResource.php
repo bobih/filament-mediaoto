@@ -18,6 +18,7 @@ class PositionResource extends Resource
     protected static ?string $model = Position::class;
     protected static ?string $label = 'List Posisi';
     protected static ?string $pluralLabel = 'List Posisi';
+    protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'List Posisi';
 

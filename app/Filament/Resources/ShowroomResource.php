@@ -26,6 +26,7 @@ class ShowroomResource extends Resource
     protected static ?string $navigationGroup = 'Settings';
 
     protected static ?string $navigationLabel = 'List Showroom';
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $slug = 'showroom-List';
 
