@@ -8,28 +8,32 @@ use App\Models\User;
 use Filament\Tables;
 use App\Models\Paket;
 use App\Models\Prospek;
+use Components\Section;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use Livewire\Component;
+//use Livewire\Component;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Filament\Resources\Resource;
+use Filament\Infolists\Infolist;
+use Filament\Infolists\Components;
 
 
 //use App\Tables\Columns\ProgressColumn;
 
 
 
+use Filament\Resources\Resource;
 use Illuminate\Support\Collection;
+
+
 use Filament\Forms\Components\Tabs;
 
-
 use Illuminate\Support\Facades\Hash;
-
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\FontWeight;
 use App\Http\Controllers\FcmController;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Resources\Pages\ListRecords\Tab;
 use App\Filament\Resources\UserResource\Pages;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
@@ -261,13 +265,16 @@ class UserResource extends Resource
             ])
             ->actions([
 
-
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
 
+
+
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
+
                     Tables\Actions\Action::make('Notification')
                         ->icon('heroicon-o-bell-alert')
+
                         ->action(function (User $record) {
                             //$fcmtoken = 'dOAzRsgRS1G7My_jWZ7sqs:APA91bHsNlbsZ4QxzFDkEUJWTn714viqkON6C8jl1QEMuLI2VtenvMRwHfUaZNo0A4BYpX-feQisobv4NrlVqKoo9XC1BXxfRaQJ50ZF_2OvjfoDECx8uGyvton9K6reV3Tu4_LfWGQZ';// $record->fcmtoken;
                             $fcmtoken = $record->fcmtoken;
@@ -278,7 +285,14 @@ class UserResource extends Resource
                             $pushController = new FcmController();
                             $push = $pushController->sendWelcomeNotification($fcmtoken, $title, $payload, $message);
                         }),
-                ]),
+                ])->visible(function () : bool{
+                    $user = auth()->user()->id;
+                    if ($user == "36") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }),
 
 
 
@@ -290,6 +304,52 @@ class UserResource extends Resource
                 ]),
                 */
             ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+
+                Components\ImageEntry::make('image')
+                    ->hiddenLabel()
+                    ->circular()
+                    ->checkFileExistence(false)
+                    ->alignCenter(true)
+                    ->visible(function ($state): bool {
+                        if ($state == '' || is_array($state)) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    })
+                    ->grow(false),
+
+                Components\Section::make()
+                    ->schema([
+                        Components\Split::make([
+                            Components\Grid::make(2)
+                                ->schema([
+                                    //Components\TextEntry::make("Check Info"),
+                                    Components\TextEntry::make('nama')
+                                        ->label('Nama'),
+                                    Components\TextEntry::make('phone')
+                                        ->label('Phone'),
+                                    Components\TextEntry::make('email')
+                                        ->label('Email'),
+                                    Components\TextEntry::make('brands.brand')
+                                        ->label('Brand'),
+                                    Components\TextEntry::make('alamat')
+                                        ->label('Alamat'),
+                                    Components\TextEntry::make('showrooms.showroom')
+                                        ->label('Showroom'),
+
+                                ]), // Grid
+                        ]), // Split
+
+                ]),
+            ]);
+
     }
 
 
