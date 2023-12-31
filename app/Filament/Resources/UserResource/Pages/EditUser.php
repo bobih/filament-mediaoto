@@ -35,4 +35,8 @@ class EditUser extends EditRecord
            // UserResource\Widgets\ProspekInfoWidget::class,
         ];
     }
+    public function getRelationManagers(): array
+    {
+        return [];
+    }
 }

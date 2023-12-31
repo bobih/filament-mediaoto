@@ -18,6 +18,7 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use App\Filament\Resources\InvoiceResource;
 use App\Http\Controllers\DeliveryController;
+use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
 
 
 
@@ -133,6 +134,7 @@ class EditInvoice extends EditRecord
     {
         return parent::getSaveFormAction()
         ->visible(function (Invoice $records) {
+            /*
             $userid = auth()->user()->id;
             $isUser = false;
             if ($userid == "36") {
@@ -147,7 +149,17 @@ class EditInvoice extends EditRecord
             } else {
                 return false;
             }
+            */
+            return true;
 
         });
     }
+
+    private static function getRelations(): array
+    {
+        return [
+              PushtempRelationManager::class,
+        ];
+    }
+
 }

@@ -112,4 +112,13 @@ class Invoice extends Model
         );
     }
 
+    public function showrooms() : BelongsTo
+    {
+        return $this->belongsTo(
+            related: Brand::class,
+            foreignKey: 'showroom',
+            ownerKey: 'id'
+        );
+    }
+
 }

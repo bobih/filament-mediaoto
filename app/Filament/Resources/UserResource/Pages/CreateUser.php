@@ -15,4 +15,9 @@ class CreateUser extends CreateRecord
     {
         return route(name:'filament.dash.resources.user-List.index');
     }
+
+    protected function getRelationManagers(): array
+    {
+        return [];
+    }
 }

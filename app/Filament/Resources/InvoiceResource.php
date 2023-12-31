@@ -2,15 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use App\Http\Controllers\DeliveryController;
 use ErrorException;
-
 use Filament\Forms;
+
 use App\Models\User;
 use Filament\Tables;
 use App\Models\Brand;
-
 use App\Models\Leads;
+
 use App\Models\Paket;
 use App\Models\Invoice;
 use Filament\Forms\Set;
@@ -25,7 +24,9 @@ use Filament\Support\Enums\Alignment;
 use Filament\Forms\Components\Fieldset;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
+use App\Http\Controllers\DeliveryController;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Filament\Resources\InvoiceResource\Pages;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
@@ -36,7 +37,7 @@ class InvoiceResource extends Resource
     protected static ?string $model = Invoice::class;
     protected static ?int $navigationSort = 2;
 
-    //protected static ?string $recordTitleAttribute = 'nama';
+   // protected static ?string $recordTitleAttribute = 'nama';
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
@@ -47,6 +48,13 @@ class InvoiceResource extends Resource
 
                 Fieldset::make('Info')
                     ->schema([
+
+                        Forms\Components\Select::make('userid')
+                            ->label('Nama')
+                            ->relationship('users', 'nama')
+                            ->disabledOn('edit')
+                            ->visibleOn('edit'),
+
 
                         Forms\Components\Select::make('userid')
                             ->label('Nama')
@@ -63,7 +71,7 @@ class InvoiceResource extends Resource
                                     ->pluck('nama', 'id');
                                 return $user;
                             })
-                            //->relationship('users', 'nama')
+
 
                             ->searchable()
                             ->preload()
@@ -73,19 +81,19 @@ class InvoiceResource extends Resource
                                 $user = $userModel->where('id', $state)->first();
                                 $set('paketid', $user->acctype);
                             })
+                            ->visibleOn('create'),
+
+
+                        Forms\Components\Select::make('paketid')
+                            ->label('Paket')
+                            ->relationship('pakets', 'name')
+                            ->preload()
+                            ->required()
                             ->disabled(fn(string $operation): bool => $operation === 'edit'),
 
-
-                                Forms\Components\Select::make('paketid')
-                                    ->label('Paket')
-                                    ->relationship('pakets', 'name')
-                                    ->preload()
-                                    ->required()
-                                    ->disabled(fn(string $operation): bool => $operation === 'edit'),
-
-                                /*
-                                Forms\Components\Hidden::make('quota'),
-                                    */
+                        /*
+                        Forms\Components\Hidden::make('quota'),
+                        */
 
 
                     ]),
@@ -116,7 +124,7 @@ class InvoiceResource extends Resource
                         Forms\Components\Actions::make([
 
                             Forms\Components\Actions\Action::make('Generate List')
-                                ->action(function ($action, Forms\Get $get, Forms\Set $set,Invoice $records) {
+                                ->action(function ($action, Forms\Get $get, Forms\Set $set, Invoice $records) {
                                     // Delete PushList
                                     if ($get('userid')) {
 
@@ -158,9 +166,9 @@ class InvoiceResource extends Resource
 
                                         // Get ExceptionList
                                         $deliveryController = new DeliveryController();
-                                        $exceptionList = $deliveryController->getExceptionList($user->id,$user->showroom);
-                                        if(count($exceptionList) > 0){
-                                            $pushList->whereNotIn('id',$exceptionList);
+                                        $exceptionList = $deliveryController->getExceptionList($user->id, $user->showroom);
+                                        if (count($exceptionList) > 0) {
+                                            $pushList->whereNotIn('id', $exceptionList);
                                         }
 
 
@@ -180,7 +188,7 @@ class InvoiceResource extends Resource
                                         }
 
                                         // dd($pushList->toRawSql());
-                                        // Save Temporary
+// Save Temporary
                                         foreach ($pushList->get() as $list) {
                                             $pushTemp = new PushTemp();
                                             $pushTemp->userid = $userid;
@@ -256,7 +264,7 @@ class InvoiceResource extends Resource
 
                 /*
                 Tables\Columns\TextColumn::make('brands.brand')
-                    ->label('Brand'),
+                ->label('Brand'),
                 */
                 Tables\Columns\TextColumn::make('pakets.name')
                     ->label('Paket'),
@@ -266,8 +274,8 @@ class InvoiceResource extends Resource
                     ->label('Tanggal'),
 
                 //Tables\Columns\TextColumn::make('approveduser.nama')
-                //    ->label('Approved'),
-                //
+//    ->label('Approved'),
+//
                 Tables\Columns\IconColumn::make('status')
                     ->icon(fn(string $state): string => match ($state) {
                         '1' => 'heroicon-o-check-badge',
@@ -284,36 +292,99 @@ class InvoiceResource extends Resource
                 //
             ])
             ->actions([
-                // Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
+                    ->visible(function (): bool {
+                        return false;
+                    }),
+                Tables\Actions\EditAction::make()
+                    ->visible(function (Invoice $records): bool {
+                        if ($records->status == 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }),
 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                   // ExportBulkAction::make(),
+                    // ExportBulkAction::make(),
 
                     //Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
 
+
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist
             ->schema([
+
+                Components\ImageEntry::make('users.image')
+                    ->hiddenLabel()
+                    ->circular()
+                    ->checkFileExistence(false)
+                    ->alignCenter(true)
+                    ->visible(function ($state): bool {
+                        if ($state == '' || is_array($state)) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    })
+                    ->grow(false),
+
                 Components\Section::make()
                     ->schema([
-                        Components\TextEntry::make("Check Info"),
+                        Components\Split::make([
+                            Components\Grid::make(2)
+                                ->schema([
+                                    //Components\TextEntry::make("Check Info"),
+                                    Components\TextEntry::make('users.nama')
+                                        ->label('Nama'),
+                                    Components\TextEntry::make('users.phone')
+                                        ->label('Phone'),
+                                    Components\TextEntry::make('users.email')
+                                        ->label('Email'),
+                                    Components\TextEntry::make('users.brands.brand')
+                                        ->label('Brand'),
+                                    Components\TextEntry::make('users.alamat')
+                                        ->label('Alamat'),
+                                    Components\TextEntry::make('users.showrooms.showroom')
+                                        ->label('Showroom'),
 
-                    ]),
+                                ]), // Grid
+                        ]), // Split
+
+                ]),
+
+
+                Components\Section::make()
+                    ->schema([
+                        Components\Split::make([
+                            Components\Grid::make(2)
+                                ->schema([
+                                    Components\TextEntry::make('pakets.name')
+                                        ->label('Paket'),
+                                    Components\TextEntry::make('createduser.nama')
+                                        ->label('Created'),
+                                    Components\TextEntry::make('approveduser.nama')
+                                        ->label('Approved'),
+
+                                ]), // Grid
+                        ]), // Split
+
+                ]),// Section
             ]);
 
     }
 
+
     public static function getRelations(): array
     {
         return [
-            PushtempRelationManager::class,
+              PushtempRelationManager::class,
         ];
     }
 
@@ -325,7 +396,7 @@ class InvoiceResource extends Resource
             'index' => Pages\ListInvoices::route('/'),
             'create' => Pages\CreateInvoice::route('/create'),
             'edit' => Pages\EditInvoice::route('/{record}/edit'),
-            // 'view' => Pages\ViewInvoice::route('/{record}'),
+            'view' => Pages\ViewInvoice::route('/{record}'),
         ];
     }
 }
