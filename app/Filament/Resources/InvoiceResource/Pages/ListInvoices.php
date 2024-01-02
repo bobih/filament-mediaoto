@@ -48,22 +48,51 @@ class ListInvoices extends ListRecords
     public function getTabs(): array
     {
 
-        return [
-
-
-            "This Week" => Tab::make()
-                ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('invoice.created_at', '>=', now()->subWeek())
+        if(auth()->id() == 36 || auth()->id() == 113 || auth()->id() == 38 ){
+            return [
+                "This Week" => Tab::make()
+                    ->modifyQueryUsing(function (Builder $query) {
+                        $data = Invoice::where('invoice.created_at', '>=', now()->subWeek())
+                            ->orderBy('id', 'desc');
+                        return $data;
+                    }),
+                "This month" => Tab::make()
+                    ->modifyQueryUsing(function (Builder $query) {
+                        $data = Invoice::where('invoice.created_at', '>=', now()->subMonth())
                         ->orderBy('id', 'desc');
+
+                        return $data;
+                    }),
+                "All" => Tab::make()
+                ->modifyQueryUsing(function (Builder $query) {
+                    $data = Invoice::orderBy('id', 'desc');
                     return $data;
                 }),
-            "This month" => Tab::make()
-                ->modifyQueryUsing(function (Builder $query) {
-                    $data = Invoice::where('invoice.created_at', '>=', now()->subMonth())
+            ];
+        } else {
+            return [
+                "This Week" => Tab::make()
+                    ->modifyQueryUsing(function (Builder $query) {
+                        $data = Invoice::where('invoice.created_at', '>=', now()->subWeek())
+                            ->orderBy('id', 'desc')
+                            ->where('createdby',auth()->id());
+                        return $data;
+                    }),
+                "This month" => Tab::make()
+                    ->modifyQueryUsing(function (Builder $query) {
+                        $data = Invoice::where('invoice.created_at', '>=', now()->subMonth())
+                        ->where('createdby',auth()->id())
                         ->orderBy('id', 'desc');
+
+                        return $data;
+                    }),
+                "All" => Tab::make()
+                ->modifyQueryUsing(function (Builder $query) {
+                    $data = Invoice::where('createdby',auth()->id())
+                    ->orderBy('id', 'desc');
                     return $data;
                 }),
-            "All" => Tab::make(),
-        ];
+            ];
+        }
     }
 }

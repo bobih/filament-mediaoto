@@ -27,6 +27,10 @@ class EditInvoice extends EditRecord
     protected static string $resource = InvoiceResource::class;
 
 
+    protected function getRedirectUrl(): string
+    {
+        return route(name:'filament.dash.resources.invoices.index');
+    }
 
     protected function getHeaderActions(): array
     {
@@ -133,7 +137,8 @@ class EditInvoice extends EditRecord
     protected function getSaveFormAction(): Action
     {
         return parent::getSaveFormAction()
-        ->visible(function (Invoice $records) {
+        //->successRedirectUrl(route('filament.dash.resources.invoices.index'))
+        ->visible(function () {
             /*
             $userid = auth()->user()->id;
             $isUser = false;
@@ -154,6 +159,8 @@ class EditInvoice extends EditRecord
 
         });
     }
+
+
 
     private static function getRelations(): array
     {

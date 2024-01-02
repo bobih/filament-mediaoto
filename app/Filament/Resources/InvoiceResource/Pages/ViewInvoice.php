@@ -14,4 +14,18 @@ class ViewInvoice extends ViewRecord
     {
         return [];
     }
+
+    protected function getHeaderActions(): array
+    {
+        if(auth()->id() == 36){
+        return [
+            Actions\DeleteAction::make(),
+        ];
+     } else {
+        return [
+            //Actions\DeleteAction::make(),
+        ];
+    }
+
+    }
 }
