@@ -16,6 +16,13 @@ class CreateInvoice extends CreateRecord
         return [];
     }
 
+    protected function getRedirectUrl(): string
+    {
+        $resource = static::getResource();
+        return $resource::getUrl('edit', ['record' => $this->getRecord(), ...$this->getRedirectUrlParameters()]);
+
+    }
+
 
 }
 
