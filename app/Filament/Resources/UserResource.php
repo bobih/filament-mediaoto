@@ -279,7 +279,7 @@ class UserResource extends Resource
                             //$fcmtoken = 'dOAzRsgRS1G7My_jWZ7sqs:APA91bHsNlbsZ4QxzFDkEUJWTn714viqkON6C8jl1QEMuLI2VtenvMRwHfUaZNo0A4BYpX-feQisobv4NrlVqKoo9XC1BXxfRaQJ50ZF_2OvjfoDECx8uGyvton9K6reV3Tu4_LfWGQZ';// $record->fcmtoken;
                             $fcmtoken = $record->fcmtoken;
                             $title = '';
-                            $payload = 'userinfo';
+                            $payload = json_encode(array("page" => "home", "requestData" => "1"));
                             $message = '';
 
                             $pushController = new FcmController();
