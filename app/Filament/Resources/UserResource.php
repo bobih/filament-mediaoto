@@ -210,6 +210,7 @@ class UserResource extends Resource
                     ->grow(false),
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Avatar')
+                    ->disk('public')
                     ->circular()
                     ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
