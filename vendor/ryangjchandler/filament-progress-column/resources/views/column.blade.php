@@ -14,7 +14,7 @@ $poll = $getPoll();
 @endphp
 
 <div
-    class="w-full filament-tables-progress-column"
+    class="w-full filament-tables-progress-column " style="min-width: 180px;"
     @if($poll)
         wire:poll.{{ $poll }}
     @endif
