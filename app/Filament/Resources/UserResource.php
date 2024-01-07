@@ -206,7 +206,7 @@ class UserResource extends Resource
 
                     ->grow(false),
 
-                    /*
+
                     SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -220,9 +220,9 @@ class UserResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
-                    */
 
 
+                    /*
                     Tables\Columns\ImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -236,7 +236,7 @@ class UserResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
-
+                    */
 
                 Tables\Columns\TextColumn::make('nama')->searchable()
                     ->label('Nama')
