@@ -15,14 +15,14 @@ use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
-use Filament\Infolists\Components;
+use Filament\Resources\Resource;
 
 
 //use App\Tables\Columns\ProgressColumn;
 
 
 
-use Filament\Resources\Resource;
+use Filament\Infolists\Components;
 use Illuminate\Support\Collection;
 
 
@@ -38,6 +38,7 @@ use Filament\Resources\Pages\ListRecords\Tab;
 use App\Filament\Resources\UserResource\Pages;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
 use App\Filament\Resources\UserResource\RelationManagers;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class UserResource extends Resource
 {
@@ -210,6 +211,20 @@ class UserResource extends Resource
 
                     ->grow(false),
 
+                    Tables\Columns\SpatieMediaLibraryImageColumn::make('')
+                    ->label('Avatar')
+                    ->disk('public')
+                    ->circular()
+                    ->defaultImageUrl(function(User $record){
+                        if($record->image){
+                            return Url(env('IMAGE_URL') .'/images/'. $record->image);
+                        } else {
+                            return Url(env('IMAGE_URL') . '/images/blank.png');
+                        }
+                    })
+                    ->alignment(Alignment::Center)
+                    ->grow(false),
+                    /*
                     Tables\Columns\ImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -223,6 +238,7 @@ class UserResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
+                    */
 
                 Tables\Columns\TextColumn::make('nama')->searchable()
                     ->label('Nama')

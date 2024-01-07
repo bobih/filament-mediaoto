@@ -7,6 +7,8 @@ use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasName;
 use Illuminate\Support\Facades\Storage;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
@@ -19,10 +21,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar
+class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar, HasMedia
 {
     use HasFactory, Notifiable, HasRoles;
     use HasPanelShield;
+    use InteractsWithMedia;
 
     // use HasApiTokens, HasFactory, Notifiable;
 
