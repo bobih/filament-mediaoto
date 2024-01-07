@@ -247,7 +247,7 @@ class InvoiceResource extends Resource
                     ->label('ID'),
 
 
-                    Tables\Columns\SpatieMediaLibraryImageColumn::make('')
+                    SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
                     ->circular()
