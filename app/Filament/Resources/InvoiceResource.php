@@ -30,6 +30,7 @@ use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Filament\Resources\InvoiceResource\Pages;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
 
 class InvoiceResource extends Resource
@@ -252,13 +253,30 @@ class InvoiceResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
 
+
+                    Tables\Columns\SpatieMediaLibraryImageColumn::make('')
+                    ->label('Avatar')
+                    ->disk('public')
+                    ->circular()
+                    ->defaultImageUrl(function(Invoice $record){
+                        //dd($record);
+                        if($record->users->image){
+                            return Url(env('IMAGE_URL') .'/images/'. $record->users->image);
+                        } else {
+                            return Url(env('IMAGE_URL') . '/images/blank.png');
+                        }
+                    })
+                    ->alignment(Alignment::Center)
+                    ->grow(false),
+
+                /*
                 Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
                     ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
-
+                */
                 Tables\Columns\TextColumn::make('users.nama')
                     ->label('Nama'),
 
