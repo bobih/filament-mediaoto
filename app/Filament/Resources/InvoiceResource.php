@@ -246,7 +246,7 @@ class InvoiceResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
 
-                    /*
+
                     SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -261,16 +261,16 @@ class InvoiceResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
-                    */
 
 
+                    /*
                 Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
                     ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
-
+                    */
 
                 Tables\Columns\TextColumn::make('users.nama')
                     ->label('Nama'),
