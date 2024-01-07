@@ -8116,6 +8116,11 @@ var Component = class {
   }
   processEffects(effects) {
     trigger("effects", this, effects);
+    trigger("effect", {
+      component: this,
+      effects,
+      cleanup: (i) => this.addCleanup(i)
+    });
   }
   get children() {
     let meta = this.snapshot.memo;
@@ -8778,7 +8783,12 @@ function ignoreAttributes(subject, attributesToRemove) {
 // js/plugins/navigate/fetch.js
 function fetchHtml(destination, callback) {
   let uri = destination.pathname + destination.search;
-  fetch(uri).then((i) => i.text()).then((html) => {
+  let options = {};
+  trigger("navigate.request", {
+    url: uri,
+    options
+  });
+  fetch(uri, options).then((i) => i.text()).then((html) => {
     callback(html);
   });
 }
@@ -9268,7 +9278,7 @@ on("component.init", ({ component }) => {
     });
   }
 });
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   let scripts = effects.scripts;
   if (scripts) {
     Object.entries(scripts).forEach(([key, content]) => {
@@ -9382,7 +9392,7 @@ function base64toBlob(b64Data, contentType = "", sliceSize = 512) {
 
 // js/features/supportJsEvaluation.js
 var import_alpinejs10 = __toESM(require_module_cjs());
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   let js = effects.js;
   let xjs = effects.xjs;
   if (js) {
@@ -9427,8 +9437,7 @@ on("commit.pooling", ({ commits }) => {
 
 // js/features/supportQueryString.js
 var import_alpinejs11 = __toESM(require_module_cjs());
-on("component.init", ({ component, cleanup: cleanup2 }) => {
-  let effects = component.effects;
+on("effect", ({ component, effects, cleanup: cleanup2 }) => {
   let queryString = effects["url"];
   if (!queryString)
     return;
@@ -9482,7 +9491,7 @@ on("request", ({ options }) => {
     options.headers["X-Socket-ID"] = window.Echo.socketId();
   }
 });
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   let listeners2 = effects.listeners || [];
   listeners2.forEach((event) => {
     if (event.startsWith("echo")) {
@@ -9531,6 +9540,22 @@ on("effects", (component, effects) => {
   });
 });
 
+// js/features/supportIsolating.js
+var componentsThatAreIsolated = /* @__PURE__ */ new WeakSet();
+on("component.init", ({ component }) => {
+  let memo = component.snapshot.memo;
+  if (memo.isolate !== true)
+    return;
+  componentsThatAreIsolated.add(component);
+});
+on("commit.pooling", ({ commits }) => {
+  commits.forEach((commit) => {
+    if (!componentsThatAreIsolated.has(commit.component))
+      return;
+    commit.isolate = true;
+  });
+});
+
 // js/features/supportNavigate.js
 shouldHideProgressBar() && Alpine.navigate.disableProgressBar();
 document.addEventListener("alpine:navigated", (e) => {
@@ -9556,7 +9581,7 @@ function shouldHideProgressBar() {
 }
 
 // js/features/supportRedirects.js
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   if (!effects["redirect"])
     return;
   let url = effects["redirect"];
@@ -9634,7 +9659,7 @@ function isComponentRootEl(el) {
 }
 
 // js/features/supportMorphDom.js
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   let html = effects.html;
   if (!html)
     return;
@@ -9644,7 +9669,7 @@ on("effects", (component, effects) => {
 });
 
 // js/features/supportEvents.js
-on("effects", (component, effects) => {
+on("effect", ({ component, effects }) => {
   registerListeners(component, effects.listeners || []);
   dispatchEvents(component, effects.dispatches || []);
 });

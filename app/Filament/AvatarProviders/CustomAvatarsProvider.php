@@ -2,12 +2,12 @@
 
 namespace App\Filament\AvatarProviders;
 
-use Contracts\AvatarProvider;
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Filament\AvatarProviders\Contracts\AvatarProvider;
 
-class CustomAvatarsProvider implements Contracts\AvatarProvider
+class CustomAvatarsProvider implements AvatarProvider
 {
     public function get(Model | Authenticatable $record): string
     {

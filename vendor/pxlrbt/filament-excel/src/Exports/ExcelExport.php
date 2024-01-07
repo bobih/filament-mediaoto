@@ -144,10 +144,10 @@ class ExcelExport implements FromQuery, HasHeadings, HasMapping, ShouldAutoSize,
             $this->livewire->ownerRecord = $this->livewireOwnerRecord;
         }
 
-        if($this->isQueued) {
+        if ($this->isQueued) {
             return $this->livewire;
         }
-        
+
         $this->livewire->bootedInteractsWithTable();
 
         return $this->livewire;
@@ -264,7 +264,7 @@ class ExcelExport implements FromQuery, HasHeadings, HasMapping, ShouldAutoSize,
         $model = $this->getModelInstance();
 
         $query = $this->useTableQuery
-            ? invade($livewire)->getFilteredTableQuery()
+            ? $livewire->getFilteredSortedTableQuery()
             : $this->getModelClass()::query();
 
         if ($this->modifyQueryUsing) {
