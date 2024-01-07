@@ -24,17 +24,12 @@ use Filament\Resources\Resource;
 
 use Filament\Infolists\Components;
 use Illuminate\Support\Collection;
-
-
 use Filament\Forms\Components\Tabs;
-
 use Illuminate\Support\Facades\Hash;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\FontWeight;
 use App\Http\Controllers\FcmController;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Resources\Pages\ListRecords\Tab;
 use App\Filament\Resources\UserResource\Pages;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
 use App\Filament\Resources\UserResource\RelationManagers;
@@ -211,6 +206,7 @@ class UserResource extends Resource
 
                     ->grow(false),
 
+                    /*
                     SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -224,7 +220,9 @@ class UserResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
-                    /*
+                    */
+
+
                     Tables\Columns\ImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -238,7 +236,7 @@ class UserResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
-                    */
+
 
                 Tables\Columns\TextColumn::make('nama')->searchable()
                     ->label('Nama')

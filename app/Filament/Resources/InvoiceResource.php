@@ -7,7 +7,6 @@ use Filament\Forms;
 
 use App\Models\User;
 use Filament\Tables;
-use App\Models\Brand;
 use App\Models\Leads;
 
 use App\Models\Paket;
@@ -16,20 +15,14 @@ use Filament\Forms\Set;
 use App\Models\PushTemp;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Support\Env;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
 use Filament\Support\Enums\Alignment;
 use Filament\Forms\Components\Fieldset;
 use Filament\Notifications\Notification;
-use Illuminate\Database\Eloquent\Builder;
 use App\Http\Controllers\DeliveryController;
-use pxlrbt\FilamentExcel\Exports\ExcelExport;
-use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Filament\Resources\InvoiceResource\Pages;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use App\Filament\Resources\InvoiceResource\RelationManagers\PushtempRelationManager;
 
@@ -253,7 +246,7 @@ class InvoiceResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
 
-
+                    /*
                     SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
@@ -268,15 +261,17 @@ class InvoiceResource extends Resource
                     })
                     ->alignment(Alignment::Center)
                     ->grow(false),
+                    */
 
-                /*
+
                 Tables\Columns\ImageColumn::make('users.image')
                     ->label('Avatar')
                     ->circular()
                     ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
                     ->alignment(Alignment::Center)
                     ->grow(false),
-                */
+
+
                 Tables\Columns\TextColumn::make('users.nama')
                     ->label('Nama'),
 
