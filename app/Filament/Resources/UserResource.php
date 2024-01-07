@@ -53,6 +53,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->orderBy('id', 'desc');
@@ -208,13 +209,21 @@ class UserResource extends Resource
                     ->label('ID')
 
                     ->grow(false),
-                Tables\Columns\ImageColumn::make('image')
+
+                    Tables\Columns\ImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
                     ->circular()
-                    ->defaultImageUrl(env('IMAGE_URL') . '/images/blank.png')
+                    ->defaultImageUrl(function(User $record){
+                        if($record->image){
+                            return Url(env('IMAGE_URL') .'/images/'. $record->image);
+                        } else {
+                            return Url(env('IMAGE_URL') . '/images/blank.png');
+                        }
+                    })
                     ->alignment(Alignment::Center)
                     ->grow(false),
+
                 Tables\Columns\TextColumn::make('nama')->searchable()
                     ->label('Nama')
                     ->weight(FontWeight::Bold)
