@@ -211,7 +211,7 @@ class UserResource extends Resource
 
                     ->grow(false),
 
-                    Tables\Columns\SpatieMediaLibraryImageColumn::make('')
+                    SpatieMediaLibraryImageColumn::make('')
                     ->label('Avatar')
                     ->disk('public')
                     ->circular()
