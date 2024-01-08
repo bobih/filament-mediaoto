@@ -147,6 +147,15 @@ class UserResource extends Resource
                                 ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                                 ->dehydrated(fn ($state) => filled($state))
                                 ->required(fn (string $context): bool => $context === 'create')
+                                ->visible(function ($operation) {
+                                        if(auth()->user()->id === 36 ){
+                                            return true;
+                                        } else if($operation === 'create') {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                }),
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
