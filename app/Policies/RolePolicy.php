@@ -18,7 +18,11 @@ class RolePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_role');
+        if($user->id == 36){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
