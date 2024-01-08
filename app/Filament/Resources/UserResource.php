@@ -129,18 +129,24 @@ class UserResource extends Resource
                                             return false;
                                         }
                                     }),
+                                /*
                                 Forms\Components\TextInput::make('password')
                                     ->password()
                                     ->maxLength(255)
                                     ->dehydrateStateUsing(fn($state) => Hash::make($state))
-                                    ->visible(function (User $user) {
-                                        $user = auth()->user()->id;
-                                        if ($user == "36") {
+                                    ->visible(function (User $user, $operation) {
+                                        if($operation === 'create'){
                                             return true;
                                         } else {
                                             return false;
                                         }
                                     }),
+                                */
+                                Forms\Components\TextInput::make('password')
+                                ->password()
+                                ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                                ->dehydrated(fn ($state) => filled($state))
+                                ->required(fn (string $context): bool => $context === 'create')
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
