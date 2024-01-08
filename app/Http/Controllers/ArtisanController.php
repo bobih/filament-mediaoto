@@ -22,7 +22,7 @@ class ArtisanController extends Controller
 
         $exitcode = Artisan::call('config:clear');
         $exitcode = Artisan::call('cache:clear');
-        $exitcode = Composer::requirePackages(['bezhansalleh/filament-shield']);
+        //$exitcode = Composer::call;
 
         echo "OK";
     }
