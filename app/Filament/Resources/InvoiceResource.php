@@ -32,8 +32,15 @@ class InvoiceResource extends Resource
     protected static ?int $navigationSort = 2;
 
    // protected static ?string $recordTitleAttribute = 'nama';
+   //protected static ?string $navigationGroup = 'Invoices';
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+
+    /*
+    public static function viewAny(User $user): bool  {
+        return $user->can('viewAny');
+    }
+    */
 
     public static function form(Form $form): Form
     {
