@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class NewsPostController extends Controller
 {
-    //
+    public function index(){
+
+
+    }
 }

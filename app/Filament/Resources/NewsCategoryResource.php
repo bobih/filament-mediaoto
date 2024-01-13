@@ -27,9 +27,7 @@ class NewsCategoryResource extends Resource
 
     protected static ?string $navigationLabel = 'Category';
     protected static ?int $navigationSort = 2;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     public static function form(Form $form): Form
     {

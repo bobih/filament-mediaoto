@@ -26,7 +26,7 @@ class NewsPostResource extends Resource
 {
     protected static ?string $model = NewsPost::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     protected static ?string $navigationGroup = 'News';
     protected static ?string $modelLabel = 'Post';
@@ -34,7 +34,6 @@ class NewsPostResource extends Resource
 
     protected static ?string $navigationLabel = 'Post';
     protected static ?string $title = 'Post';
-
 
     public static function form(Form $form): Form
     {

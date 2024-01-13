@@ -9,4 +9,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateNewsPost extends CreateRecord
 {
     protected static string $resource = NewsPostResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return route(name:'filament.dash.resources.news-posts.index');
+    }
+
 }

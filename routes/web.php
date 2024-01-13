@@ -16,7 +16,8 @@ use App\Http\Controllers\ArtisanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('components.home.index');
 });
 
 Route::get("/crond",  [CronController::class, 'pushData']);

@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateNewsCategory extends CreateRecord
 {
     protected static string $resource = NewsCategoryResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return route(name:'filament.dash.resources.news-categories.index');
+    }
 }
