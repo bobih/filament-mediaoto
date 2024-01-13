@@ -4,23 +4,25 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Filament\Panel;
+use Spatie\Image\Manipulations;
 use Laravel\Sanctum\HasApiTokens;
-use Filament\Models\Contracts\HasName;
-use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Filament\Models\Contracts\HasName;
+use Laravel\Jetstream\HasProfilePhoto;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Storage;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
-use Spatie\Permission\Traits\HasRoles;
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject, HasName, FilamentUser, HasAvatar, HasMedia
@@ -28,6 +30,11 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
     use HasFactory, Notifiable, HasRoles;
     use HasPanelShield;
     use InteractsWithMedia;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     // use HasApiTokens, HasFactory, Notifiable;
 
@@ -92,6 +99,14 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
 
     protected $primaryKey = 'id';
 
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
     public function getFilamentAvatarUrl(): ?string
     {
        // return asset('images/'.$this->image);
@@ -99,15 +114,12 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
     }
 
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
 
     /**
      * The attributes that should be cast.
@@ -117,6 +129,15 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
     ];
 
 
@@ -220,3 +241,8 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
             localKey: 'id');
     }
 }
+
+
+
+
+
