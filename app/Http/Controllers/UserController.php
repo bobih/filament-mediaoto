@@ -23,7 +23,7 @@ class UserController extends Controller
             return response()->json(["Error" => "User Not Found"], 401);
         }
 
-        $query = DB::table('users')->where('id', $userid)->get();
+        $query = User::where('id', $userid)->first();
         $data = [];
         $x = 0;
         foreach ($query as $rows) {

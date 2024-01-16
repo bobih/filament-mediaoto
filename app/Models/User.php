@@ -82,6 +82,11 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
         return $this->getAttributeValue('nama');
     }
 
+    public function getNameAttribute()
+    {
+        return $this->getAttributeValue('nama');
+    }
+
 
     /**
      * The attributes that are mass assignable.

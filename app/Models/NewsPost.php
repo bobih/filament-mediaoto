@@ -22,10 +22,13 @@ class NewsPost extends Model implements HasMedia
 
     protected $fillable = [
         'id',
+        'article_id',
         'userid',
+        'source',
         'image',
         'title',
         'slug',
+        'description',
         'content',
         'published_at',
         'featured',

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CronController;
 use App\Http\Controllers\ArtisanController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,8 @@ use App\Http\Controllers\ArtisanController;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('components.home.index');
-});
+Route::get('/', HomeController::class)->name('home');
+Route::get("/getnews",  [NewsPostController::class, 'getNews']);
 
 Route::get("/crond",  [CronController::class, 'pushData']);
 Route::get("/debug/optimize",  [ArtisanController::class, 'artisanOptimize']);
