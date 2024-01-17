@@ -13,25 +13,25 @@ class NewsPostController extends Controller
 {
     public function index(){
 
-
+        return view('news.index');
     }
 
     public function getNews(Request $request){
-        /*
-        $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&size=5&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51');
+
+        $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51');
 
         if($response->status() != 200){
             echo "<pre>";
             print_r($response->json()['results']);
             echo "</pre>";
         } else {
-            $arrData = $response->json()['results'];
-            $this->saveData($arrData);
+           // $arrData = $this->getJsonData()['results'];
+           $arrData = $response->json()['results'];
+           $this->saveData($arrData);
         }
-        */
 
-        $arrData = $this->getJsonData()['results'];
-        $this->saveData($arrData);
+
+
     }
 
     private function saveData($arrData){

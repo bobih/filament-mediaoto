@@ -70,7 +70,15 @@ class NewsPostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id')
+                ->label('ID'),
+                Tables\Columns\TextColumn::make('source')
+                ->label('Source'),
+                Tables\Columns\TextColumn::make('title')
+                ->label('Title'),
+                Tables\Columns\TextColumn::make('published_at')
+                ->label('Tanggal'),
+
             ])
             ->filters([
                // Tables\Filters\TrashedFilter::make(),

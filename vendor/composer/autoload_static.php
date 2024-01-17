@@ -166,6 +166,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'L' => 
         array (
             'Livewire\\' => 9,
+            'LivewireUI\\Modal\\' => 17,
             'League\\Uri\\' => 11,
             'League\\MimeTypeDetection\\' => 25,
             'League\\Glide\\' => 13,
@@ -588,6 +589,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Livewire\\' => 
         array (
             0 => __DIR__ . '/..' . '/livewire/livewire/src',
+        ),
+        'LivewireUI\\Modal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wire-elements/modal/src',
         ),
         'League\\Uri\\' => 
         array (
@@ -1015,6 +1020,8 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Livewire\\ContactUs' => __DIR__ . '/../..' . '/app/Livewire/ContactUs.php',
+        'App\\Livewire\\News' => __DIR__ . '/../..' . '/app/Livewire/News.php',
         'App\\Models\\AppInfo' => __DIR__ . '/../..' . '/app/Models/AppInfo.php',
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
@@ -5734,6 +5741,11 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'League\\Uri\\UriTemplate\\TemplateCanNotBeExpanded' => __DIR__ . '/..' . '/league/uri/UriTemplate/TemplateCanNotBeExpanded.php',
         'League\\Uri\\UriTemplate\\VarSpecifier' => __DIR__ . '/..' . '/league/uri/UriTemplate/VarSpecifier.php',
         'League\\Uri\\UriTemplate\\VariableBag' => __DIR__ . '/..' . '/league/uri/UriTemplate/VariableBag.php',
+        'LivewireUI\\Modal\\Contracts\\ModalComponent' => __DIR__ . '/..' . '/wire-elements/modal/src/Contracts/ModalComponent.php',
+        'LivewireUI\\Modal\\LivewireModalServiceProvider' => __DIR__ . '/..' . '/wire-elements/modal/src/LivewireModalServiceProvider.php',
+        'LivewireUI\\Modal\\Modal' => __DIR__ . '/..' . '/wire-elements/modal/src/Modal.php',
+        'LivewireUI\\Modal\\ModalComponent' => __DIR__ . '/..' . '/wire-elements/modal/src/ModalComponent.php',
+        'LivewireUI\\Modal\\WireElementsModalUpgrade' => __DIR__ . '/..' . '/wire-elements/modal/src/WireElementsModalUpgrade.php',
         'Livewire\\Attribute' => __DIR__ . '/..' . '/livewire/livewire/src/Attribute.php',
         'Livewire\\Attributes\\Computed' => __DIR__ . '/..' . '/livewire/livewire/src/Attributes/Computed.php',
         'Livewire\\Attributes\\Isolate' => __DIR__ . '/..' . '/livewire/livewire/src/Attributes/Isolate.php',

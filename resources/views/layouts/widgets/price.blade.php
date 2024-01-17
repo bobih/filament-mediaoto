@@ -1,7 +1,8 @@
+<div id="price" class="-mt-20 mb-20"></div>
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Pricing Plan</h2>
+            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">Our Pricing Plan</h2>
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Here we focus on markets
                 where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
         </div>
@@ -13,7 +14,7 @@
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your
                     next project.</p>
                 <div class="flex justify-center items-baseline my-8">
-                    <span class="mr-2 text-3xl font-extrabold">Rp. 350.000</span>
+                    <span class="mr-2 text-3xl font-bold">Rp. 350.000</span>
 
                 </div>
                 <!-- List -->
@@ -39,10 +40,10 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <button
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
-                </a>
+                </button>
             </div>
             <!-- Pricing Card -->
             <div
@@ -52,7 +53,7 @@
                     your
                     next project.</p>
                 <div class="flex justify-center items-baseline my-8">
-                    <span class="mr-2 text-3xl font-extrabold">Rp. 500.000</span>
+                    <span class="mr-2 text-3xl font-bold">Rp. 500.000</span>
 
                 </div>
                 <!-- List -->
@@ -79,10 +80,10 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <button
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
-                </a>
+                </button>
             </div>
             <!-- Pricing Card -->
             <div
@@ -92,7 +93,7 @@
                     your
                     next project.</p>
                 <div class="flex justify-center items-baseline my-8">
-                    <span class="mr-2 text-3xl font-extrabold">Rp. 1.000.000</span>
+                    <span class="mr-2 text-3xl font-bold">Rp. 1.000.000</span>
 
                 </div>
                 <!-- List -->
@@ -119,10 +120,10 @@
                         <span>Premium support: <span class="font-semibold">6 Bulan</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <button
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
-                </a>
+                </button>
             </div>
 
         </div>

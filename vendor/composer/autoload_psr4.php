@@ -86,6 +86,7 @@ return array(
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
     'Livewire\\' => array($vendorDir . '/livewire/livewire/src'),
+    'LivewireUI\\Modal\\' => array($vendorDir . '/wire-elements/modal/src'),
     'League\\Uri\\' => array($vendorDir . '/league/uri', $vendorDir . '/league/uri-interfaces'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'League\\Glide\\' => array($vendorDir . '/league/glide/src'),

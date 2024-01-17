@@ -18,6 +18,7 @@ use App\Http\Controllers\NewsPostController;
 */
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/news', [NewsPostController::class,'index'])->name('news.index');
 Route::get("/getnews",  [NewsPostController::class, 'getNews']);
 
 Route::get("/crond",  [CronController::class, 'pushData']);

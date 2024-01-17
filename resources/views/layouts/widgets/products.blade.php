@@ -1,14 +1,15 @@
-<section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+<div id="products" class="-mt-20 mb-20"></div>
+<section  class="bg-white dark:bg-gray-900 ">
+    <div  class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
         <div class="max-w-screen-md mb-8 lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Products</h2>
+            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">Our Products</h2>
             <p class="text-gray-500 sm:text-xl dark:text-gray-400">Some of our products you can use on your business.</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
             <!-- Products -->
             <div>
                 <div
-                    class="flex justify-left items-center mb-4 w-75 h-75 rounded-full bg-primary-100 lg:h-75 lg:w-75 dark:bg-primary-900">
+                    class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                     <svg class="h-20 w-20 " height="150px" width="150px" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"
                         style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd">
                         <path style="opacity:.941" fill="#4c5b67"
@@ -36,7 +37,7 @@
             <!-- Products -->
             <div>
                 <div
-                    class="flex justify-left items-center mb-4 w-75 h-75 rounded-full bg-primary-100 lg:h-75 lg:w-75 dark:bg-primary-900">
+                    class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                     <svg class="h-20 w-20" height="150px" width="150px"  viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"
                         style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd">
                         <path style="opacity:.94" fill="#cfeee2"
@@ -102,7 +103,7 @@
             <!-- Products -->
             <div>
                     <div
-                        class="flex justify-left items-center mb-4 w-75 h-75 rounded-full bg-primary-100 lg:h-75 lg:w-75 dark:bg-primary-900">
+                        class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"
                             style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd">
                             <path style="opacity:.993" fill="#ebeef0"
@@ -131,7 +132,7 @@
                 <div>
 
                     <div
-                    class="flex justify-left items-center mb-4 w-75 h-75 rounded-full bg-primary-100 lg:h-75 lg:w-75 dark:bg-primary-900">
+                    class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
 
                             <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"
                                 style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd">
