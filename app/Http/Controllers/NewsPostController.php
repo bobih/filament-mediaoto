@@ -13,7 +13,10 @@ class NewsPostController extends Controller
 {
     public function index(){
 
-        return view('news.index');
+        $response = NewsPost::orderBy('published_at','desc')->take(5)->get();
+        return view('news.index',[
+            "posts" => $response
+        ]);
     }
 
     public function getNews(Request $request){
