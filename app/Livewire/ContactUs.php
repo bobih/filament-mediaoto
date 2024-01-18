@@ -33,6 +33,8 @@ class ContactUs extends Component
         Notification::make()
             ->title('Saved successfully')
             ->info()
+            ->duration(500000)
+            ->iconColor('success')
             ->send();
         $this->dispatch('succesSave');
     }
