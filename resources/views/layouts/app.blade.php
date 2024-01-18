@@ -13,10 +13,13 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Flowibte -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" /> -->
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php /* @vite(['resources/css/app.css', 'resources/js/app.js']) */ ?>
+    <?php /* @filamentStyles */ ?>
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
@@ -41,7 +44,32 @@
     @livewireScripts
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script> -->
 
+    @livewire('notifications')
+    @filamentScripts
 
+
+    <script>
+document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById('defaultModalButton').click();
+
+    // Get the dropdown button and content
+    const dropdownButton = document.getElementById('navbar-search');
+    const dropdownContent = document.getElementById('navbar-search');
+
+    // Attach a click event listener to the dropdown content
+    dropdownContent.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A') {
+            closeDropdown();
+        }
+    });
+
+    // Function to close the dropdown (replace with the actual method or event)
+    function closeDropdown() {
+        document.getElementById('btnlink').click();
+    }
+
+});
+    </script>
 </body>
 
 </html>
