@@ -3,7 +3,8 @@ import laravel, { refreshPaths } from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-        outDir: '../public_html/build'
+        outDir: '../public_html/build',
+        emptyOutDir: true,
       },
     plugins: [
         laravel({

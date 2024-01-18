@@ -10,7 +10,7 @@
             </button>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="/images/phone-mockup2.png" alt="mockup">
+            <img src="https://www.mediaoto.id/images/phone-mockup2.png" alt="mediaoto-apps">
         </div>
     </div>
 </section>

@@ -9,7 +9,7 @@
 
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
-                <img class="w-full rounded-lg brightness-50" src="https://picsum.photos/id/211/1200/600?blur=2"
+                <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_1.png"
                     alt="Michael Avatar">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
@@ -22,7 +22,7 @@
             </figure>
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
-                <img class="w-full rounded-lg brightness-50" src="https://picsum.photos/id/212/1200/600?blur=2"
+                <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_2.png"
                     alt="Michael Avatar">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
@@ -35,7 +35,7 @@
             </figure>
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
-                <img class="w-full rounded-lg brightness-50" src="https://picsum.photos/id/213/1200/600?blur=2"
+                <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_3.png"
                     alt="Michael Avatar">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
@@ -48,7 +48,7 @@
             </figure>
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
-                <img class="w-full rounded-lg brightness-50" src="https://picsum.photos/id/214/1200/600?blur=2"
+                <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_4.png"
                     alt="Michael Avatar">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">

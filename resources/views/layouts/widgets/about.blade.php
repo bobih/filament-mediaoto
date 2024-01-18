@@ -95,6 +95,8 @@
             </div>
         </div>
         <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+
+            <?php /*
             <p class="mb-4">Mediaoto adalah agensi layanan lengkap independen dan terintegrasi yang berspesialisasi
                 dalam pengembangan teknologi komunikasi
                 merek dan pembelian media untuk saluran digital dan konvensional dengan kinerja berbasis data, khususnya
@@ -110,7 +112,23 @@
                 dengan layanan profesional
                 dan terintegrasi.
             </p>
+            */ ?>
+            <p class="mb-4">Mediaoto is an independent, integrated full-service agency that specializes
+                in the development of communications technology
+                brand and media buying for digital and conventional channels with data-driven performance, in particular
+                for the automotive market
+                and property.</p>
+            <p class="mb-4">
+                Seeing the current market interest which really needs Leads to develop its business
+            </p>
 
+            <p class="mb-4">
+                We have a vision to become a pioneer agency providing large numbers of leads in
+                Indonesia, which can
+                providing the best solutions for business people, as well as increasing sales and brand awareness
+                with professional service
+                and integrated.
+            </p>
             <button type="button"
                 class="mt-8 text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
                 View Detail
