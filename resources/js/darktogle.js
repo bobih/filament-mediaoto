@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // Attach a click event listener to the dropdown content
     dropdownContent.addEventListener('click', function(event) {
-        console.log('hello World');
         if (event.target.tagName === 'A') {
             closeDropdown();
         }

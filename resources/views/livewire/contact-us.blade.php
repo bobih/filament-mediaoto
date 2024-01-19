@@ -66,7 +66,6 @@
                     </svg>
                     Loading...
                     </button>
-
             </form>
         </div>
     </div>
@@ -74,7 +73,6 @@
 @script
 <script>
    $wire.on('succesSave', () => {
-        console.log('Save Success');
         document.getElementById('btnclose').click();
     });
 </script>
