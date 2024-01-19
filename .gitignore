@@ -1,8 +1,5 @@
 /.phpunit.cache
 /node_modules
-/public/hot
-/public/images
-/public/storage
 /storage/*.key
 
 .env
@@ -17,17 +14,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-.../.editorconfig
-.../.env.example
-.../.gitattributes
-.../.gitignore
-.../artisan
-.../composer.json
-.../composer.lock
-.../package-lock.json
-.../package.json
-.../phpunit.xml
-.../postcss.config.js
-.../README.md
-.../tailwind.config.js
-.../vite.config.js
+

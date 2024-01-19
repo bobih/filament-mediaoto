@@ -74,12 +74,6 @@
 @script
 <script>
    $wire.on('succesSave', () => {
-
-   new Notification('1').title('Saved successfully')
-        .success()
-        .body('Changes to the **post** have been saved.')
-        .send()
-
         console.log('Save Success');
         document.getElementById('btnclose').click();
     });
