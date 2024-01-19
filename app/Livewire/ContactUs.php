@@ -29,14 +29,15 @@ class ContactUs extends Component
 
         $this->eventName = 'Hello World!!';
 
-
+        /*
         Notification::make()
             ->title('Saved successfully')
-            ->info()
-            ->duration(500000)
+            ->success()
             ->iconColor('success')
             ->send();
-        $this->dispatch('succesSave');
+        */
+
+       $this->dispatch('succesSave');
     }
 
 
