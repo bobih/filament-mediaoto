@@ -1,5 +1,5 @@
 <header>
-    <nav class="bg-white  border-gray-200 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
+    <nav class="bg-white  border-gray-200 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a wire:navigate href="{{ route('home') }}" class="flex items-center">
                 <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->

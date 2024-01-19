@@ -2,10 +2,11 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Rule;
+use App\Models\Contact;
 use Livewire\Component;
-use LivewireUI\Modal\ModalComponent;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Rule;
+use LivewireUI\Modal\ModalComponent;
 use Filament\Notifications\Notification;
 
 class ContactUs extends Component
@@ -22,9 +23,18 @@ class ContactUs extends Component
 
     public $eventName = '';
 
+    public $modalid = '';
+
     public function saveContact(){
         //dump('Hello World');
         $this->validate();
+
+        Contact::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'notes' => $this->note,
+        ]);
+
         $this->reset(['name','email','note']);
 
         $this->eventName = 'Hello World!!';
@@ -40,10 +50,13 @@ class ContactUs extends Component
        $this->dispatch('succesSave');
     }
 
-
+    public function changeUserId($modalid){
+        $this->modalid = $modalid;
+    }
 
     public function render()
     {
         return view('livewire.contact-us');
     }
+
 }

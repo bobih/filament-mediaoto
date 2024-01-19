@@ -1027,6 +1027,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
         'App\\Models\\City' => __DIR__ . '/../..' . '/app/Models/City.php',
+        'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\Invoice' => __DIR__ . '/../..' . '/app/Models/Invoice.php',
         'App\\Models\\Leads' => __DIR__ . '/../..' . '/app/Models/Leads.php',
         'App\\Models\\ListCall' => __DIR__ . '/../..' . '/app/Models/ListCall.php',

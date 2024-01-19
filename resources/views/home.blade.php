@@ -8,7 +8,7 @@
         @livewire('news', ['posts' => $posts]) */ ?>
         @include('layouts.widgets.news')
         @include('layouts.widgets.price')
-        <?php /* @include('layouts.widgets.contacts') */?>
+        <?php /* @include('layouts.widgets.contacts')  */?>
         @livewire('contact-us')
     @endsection
 

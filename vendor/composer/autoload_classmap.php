@@ -140,6 +140,7 @@ return array(
     'App\\Models\\Banner' => $baseDir . '/app/Models/Banner.php',
     'App\\Models\\Brand' => $baseDir . '/app/Models/Brand.php',
     'App\\Models\\City' => $baseDir . '/app/Models/City.php',
+    'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
     'App\\Models\\Invoice' => $baseDir . '/app/Models/Invoice.php',
     'App\\Models\\Leads' => $baseDir . '/app/Models/Leads.php',
     'App\\Models\\ListCall' => $baseDir . '/app/Models/ListCall.php',
