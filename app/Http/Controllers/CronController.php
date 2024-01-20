@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Invoice;
+use App\Models\Leads;
 use App\Models\Prospek;
 use App\Models\PushList;
 use Illuminate\Http\Request;
@@ -15,8 +18,73 @@ class CronController extends Controller
 
     public function pushData(Request $request)
     {
-
         Log::info('Push Controller....');
+
+        //get User
+        Log::info('Get Push List');
+        //$pushList = $this->getPushList();
+        $pushList[] = (object) array('userid' => 36);
+
+            foreach ($pushList as $list) {
+
+                // Get User Info
+                Log::info('Get UserInfo');
+                $user = User::where('id',$list->userid)->get();
+                // get Configuration
+                Log::info('Get Config from Invoice');
+                $invoice = Invoice::where('userid', $user->id)->get();
+
+                //get All leads
+                Log::info('Get All Leads');
+                $pushList = Leads::select('id')->where('brand', $user->brand);
+
+                //get exception
+                Log::info('Get Exception');
+                $deliveryController = new DeliveryController();
+                $exceptionList = $deliveryController->getExceptionList($user->id, $user->showroom);
+                if (count($exceptionList) > 0) {
+                    $pushList->whereNotIn('id', $exceptionList);
+                }
+
+                //Get Model fromConfig
+                Log::info('Get Model From Config');
+                if ($invoice->model) {
+                    //$idsArr = explode(',',$model);
+                    $pushList->whereIn('model', $invoice->model);
+                }
+                $pushList->orderBy('create', 'desc');
+                $pushList->take(1);
+
+                Log::info($pushList->name);
+
+                /*
+                //Insert Prospek
+                $insertProspek = $this->insertProspek($user->id, $pushList->id, $list->showroom);
+                if (!$insertProspek->status() == 200) {
+                    return response()->json(["Error" => "Save Failed"], 401);
+
+                }
+
+                // delete Prospek
+                $deleteList = $this->deletePushList($list->pushid);
+                if (!$deleteList->status() == 200) {
+                    return response()->json(["Error" => "Save Failed"], 401);
+                }
+
+                // Push Notification
+                $fcm = new FcmController();
+                $title = '';
+                $payload = json_encode(array("page" => "ProspectList", "requestData" => "1"));
+                $msgType = '';
+
+                $push = $fcm->sendPushNotification($list->fcmtoken, '', $payload);
+                */
+
+            }
+
+
+        //save leads
+        //remove from temp
 
     }
 
@@ -83,6 +151,7 @@ class CronController extends Controller
 
     public function getPushList()
     {
+
         $tanggal = date('Y-m-d H:i');
         $pushlist = PushList::select(DB::raw('push_list.id as pushid'), 'users.showroom', 'users.fcmtoken', 'push_list.userid', 'push_list.leadsid')
             ->leftJoin('users', 'users.id', 'push_list.userid')
