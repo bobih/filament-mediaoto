@@ -6,7 +6,5 @@
     display: none;
 }
 
-#modal-container {
-    vertical-align: middle !important;
- }
+.grecaptcha-badge { visibility: hidden; }
 
