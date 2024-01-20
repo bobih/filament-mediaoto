@@ -16,7 +16,7 @@ class CronController extends Controller
     public function pushData(Request $request)
     {
 
-        Log::info('Loading Home.');
+        Log::info('Push Controller....');
 
     }
 
