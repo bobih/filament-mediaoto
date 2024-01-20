@@ -48,8 +48,12 @@
     @livewire('notifications')
     @filamentScripts
 
+    <x-custom-modal >
+        @slot('body')
+           @livewire('contact-us')
+        @endslot
+    </x-custom-modal>
 
-    @livewire('wire-elements-modal')
     @livewireScripts
 
 </body>
