@@ -107,6 +107,7 @@ class ContactUs extends ModalComponent
 
         $this->eventName = 'Hello World!!';
         $this->dispatch('succesSave');
+        $this->dispatch('close-modal');
     }
 
     public function changeUserId($modalid)

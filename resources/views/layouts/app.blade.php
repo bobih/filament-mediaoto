@@ -23,9 +23,12 @@
     <?php /* @vite(['resources/css/app.css', 'resources/js/app.js']) */ ?>
     @filamentStyles
     @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+
 
     <!-- Styles -->
     @livewireStyles
@@ -40,11 +43,14 @@
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}
     </main>
-    @include('layouts.widgets.cookies')
+
+    <?php /* @include('layouts.widgets.cookies') */ ?>
+
     @include('layouts.widgets.footer')
 
 
     @stack('modals')
+    @stack('scripts')
 
     @livewire('notifications')
     @filamentScripts
@@ -56,6 +62,8 @@
     </x-custom-modal>
 
     @livewireScripts
+    @vite('resources/js/app.js')
+
 
 </body>
 
