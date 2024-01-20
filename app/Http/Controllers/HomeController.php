@@ -21,7 +21,7 @@ class HomeController extends Controller
         //dd($response);
         //$response = [];
 
-        Log::info('Loading Home.');
+        //Log::info('Loading Home.');
 
         return view('home',[
             "posts" => $response

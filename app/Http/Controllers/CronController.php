@@ -7,12 +7,20 @@ use App\Models\PushList;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\QueryException;
 
 class CronController extends Controller
 {
 
     public function pushData(Request $request)
+    {
+
+        Log::info('Loading Home.');
+
+    }
+
+    public function pushData2(Request $request)
     {
         $enableCrond = (bool) env('CROND', false);
 
