@@ -23,7 +23,7 @@ class CronController extends Controller
         //get User
         Log::info('Get Push List');
         //$pushList = $this->getPushList();
-        $pushList[] = (object) array('userid' => 36);
+        $pushList[] = (object) array('userid' => 117);
 
             foreach ($pushList as $list) {
 
