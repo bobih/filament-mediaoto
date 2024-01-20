@@ -40,8 +40,7 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <button data-modal-target="contactModal"
-                data-modal-toggle="contactModal"
+                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'silver' }})"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>
@@ -81,8 +80,7 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <button data-modal-target="contactModal"
-                data-modal-toggle="contactModal"
+                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'gold' }})"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>
@@ -122,8 +120,7 @@
                         <span>Premium support: <span class="font-semibold">6 Bulan</span></span>
                     </li>
                 </ul>
-                <button data-modal-target="contactModal"
-                data-modal-toggle="contactModal"
+                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'diamond' }})"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>

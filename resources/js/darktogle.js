@@ -52,7 +52,7 @@ themeToggleBtn.addEventListener('click', function () {
 
 // Navlink
 document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById('defaultModalButton').click();
+   // document.getElementById('defaultModalButton').click();
 
     // Get the dropdown button and content
     const dropdownButton = document.getElementById('navbar-search');

@@ -22,10 +22,13 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
+        "nyholm/psr7": "^1.8",
         "php-open-source-saver/jwt-auth": "^2.1",
         "psr/simple-cache": "2.0",
         "pxlrbt/filament-excel": "^2.2",
+        "railsware/mailtrap-php": "^1.7",
         "ryangjchandler/filament-progress-column": "^0.4.1",
+        "symfony/http-client": "^6.4",
         "tymon/jwt-auth": "^2.0",
         "wire-elements/modal": "^2.0"
     },

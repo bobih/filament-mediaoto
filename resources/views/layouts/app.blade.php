@@ -10,16 +10,18 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
+    <?php /*
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    */ ?>
 
     <!-- Flowibte -->
-    <?php // Required for Modal ?>
+    <?php /* // Required for Modal
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-
+     */ ?>
     <!-- Scripts -->
     <?php /* @vite(['resources/css/app.css', 'resources/js/app.js']) */ ?>
-     @filamentStyles
+    @filamentStyles
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
@@ -43,16 +45,13 @@
 
     @stack('modals')
 
-    @livewireScripts
-
     @livewire('notifications')
     @filamentScripts
-    <?php /* @livewire('wire-elements-modal') */ ?>
 
 
-    <script>
+    @livewire('wire-elements-modal')
+    @livewireScripts
 
-    </script>
 </body>
 
 </html>

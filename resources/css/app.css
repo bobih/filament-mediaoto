@@ -6,3 +6,7 @@
     display: none;
 }
 
+#modal-container {
+    vertical-align: middle !important;
+ }
+
