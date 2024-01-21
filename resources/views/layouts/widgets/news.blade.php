@@ -21,7 +21,7 @@
             class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="relative px-4 w-80 h-48 pb-1/4" style="
             min-width: 320px; " >
-                <a href="{{ route('news.show', $posts[$i]['slug'])}}">
+                <a wire:navigate href="{{ route('news.show', $posts[$i]['slug'])}}">
                     <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg" src="{{$posts[$i]['image']}}" alt="Michael Avatar">
                 </a>
             </div>
@@ -30,13 +30,13 @@
                     <span class="text-sm">{{ Str::upper($posts[$i]['source'])}} | {{$posts[$i]['published_at']    }}</span>
                 </div>
 
-                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300"><a
-                        href="{{ route('news.show', $posts[$i]['slug'])}}">{{$posts[$i]['title']}}</a></h2>
+                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
+                    <a wire:navigate href="{{ route('news.show', $posts[$i]['slug'])}}">{{$posts[$i]['title']}}</a></h2>
                 <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{$posts[$i]['description']}}</p>
 
             </div>
             <div class="px-5 text-center hidden lg:block">
-                <a href="{{ route('news.show', $posts[$i]['slug'])}}"
+                <a wire:navigate href="{{ route('news.show', $posts[$i]['slug'])}}"
                     class=" px-4 py-4 text-[#FF9119] border border-[#FF9119] hover:bg-[#FF9119] hover:text-white focus:ring-1 focus:outline-none focus:ring-[#FF9119] font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-[#FF9119] dark:text-[#FF9119] dark:hover:text-white  dark:hover:bg-[#FF9119]">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 10">

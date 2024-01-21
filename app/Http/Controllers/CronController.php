@@ -18,6 +18,9 @@ class CronController extends Controller
 
     public function pushData(Request $request)
     {
+    }
+    public function pushData_run(Request $request)
+    {
         Log::info('Push Controller....');
 
         //get User
@@ -28,6 +31,7 @@ class CronController extends Controller
             foreach ($pushList as $list) {
 
                 // Get User Info
+
 
                 $user = User::where('id',$list->userid)->first();
                 Log::info('Get UserInfo ' . $user->nama);
