@@ -23,16 +23,18 @@ class CronController extends Controller
         //get User
         Log::info('Get Push List');
         //$pushList = $this->getPushList();
-        $pushList[] = (object) array('userid' => 117);
+        $pushList[] = (object) array('userid' => 51);
 
             foreach ($pushList as $list) {
 
                 // Get User Info
-                Log::info('Get UserInfo');
-                $user = User::where('id',$list->userid)->get();
+
+                $user = User::where('id',$list->userid)->first();
+                Log::info('Get UserInfo ' . $user->nama);
+                echo  $user->nama;
                 // get Configuration
                 Log::info('Get Config from Invoice');
-                $invoice = Invoice::where('userid', $user->id)->get();
+                $invoice = Invoice::where('userid', $user->id)->first();
 
                 //get All leads
                 Log::info('Get All Leads');
@@ -48,14 +50,14 @@ class CronController extends Controller
 
                 //Get Model fromConfig
                 Log::info('Get Model From Config');
-                if ($invoice->model) {
+                if (isset($invoice->model)) {
                     //$idsArr = explode(',',$model);
                     $pushList->whereIn('model', $invoice->model);
                 }
                 $pushList->orderBy('create', 'desc');
-                $pushList->take(1);
+                $pushList->first();
 
-                Log::info($pushList->name);
+                Log::info($pushList->id);
 
                 /*
                 //Insert Prospek

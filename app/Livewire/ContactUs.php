@@ -96,7 +96,6 @@ class ContactUs extends ModalComponent
             ->warning()
             ->send();
         }
-
         */
 
         Notification::make()
@@ -104,6 +103,7 @@ class ContactUs extends ModalComponent
             ->success()
             ->iconColor('success')
             ->send();
+
 
         $this->eventName = 'Hello World!!';
         $this->dispatch('succesSave');

@@ -19,6 +19,15 @@ class NewsPostController extends Controller
         ]);
     }
 
+    public function show(NewsPost $news){
+
+        //$response = NewsPost::orderBy('published_at','desc')->take(1)->first();
+        return view('news.show',[
+            "post" => $news
+        ]);
+    }
+
+
     public function getNews(Request $request){
 
         $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51');

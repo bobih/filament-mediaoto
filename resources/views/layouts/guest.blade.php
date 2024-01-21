@@ -1,27 +1,67 @@
 <!DOCTYPE html>
-<html class='dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="application-name" content="{{ config('app.name') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Fonts -->
+    <?php /*
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    */
+    ?>
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body>
-        <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
-            {{ $slot }}
-        </div>
+    <!-- Flowibte -->
+    <?php /* // Required for Modal
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+     */
+    ?>
+    <!-- Scripts -->
+    <?php /* @vite(['resources/css/app.css', 'resources/js/app.js']) */ ?>
+    @filamentStyles
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
-        @livewireScripts
-    </body>
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+
+
+    <!-- Styles -->
+    @livewireStyles
+
+
+</head>
+
+<body class="font-sans antialiased dark:bg-gray-700">
+    <x-banner />
+
+    @yield('header')
+    @yield('homesection')
+    <main class="container mx-auto px-5 flex flex-grow">
+        {{ $slot }}
+    </main>
+
+    <?php /* @include('layouts.widgets.cookies') */ ?>
+
+    @include('layouts.widgets.footer')
+
+
+    @stack('modals')
+    @stack('scripts')
+
+    @livewire('notifications')
+    @filamentScripts
+    @livewireScripts
+
+
+
+</body>
+
 </html>

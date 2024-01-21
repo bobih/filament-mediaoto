@@ -13,32 +13,36 @@
     <?php /*
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    */ ?>
+    */
+    ?>
 
     <!-- Flowibte -->
     <?php /* // Required for Modal
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-     */ ?>
+     */
+    ?>
     <!-- Scripts -->
-    <?php /* @vite(['resources/css/app.css', 'resources/js/app.js']) */ ?>
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @filamentStyles
-    @vite('resources/css/app.css')
+
+
 
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script> -->
 
 
     <!-- Styles -->
     @livewireStyles
+
+
 </head>
 
 <body class="font-sans antialiased dark:bg-gray-700">
     <x-banner />
 
-    @include('layouts.widgets.header')
-
+    @yield('header')
     @yield('homesection')
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}
@@ -54,15 +58,8 @@
 
     @livewire('notifications')
     @filamentScripts
-
-    <x-custom-modal >
-        @slot('body')
-           @livewire('contact-us')
-        @endslot
-    </x-custom-modal>
-
     @livewireScripts
-    @vite('resources/js/app.js')
+
 
 
 </body>

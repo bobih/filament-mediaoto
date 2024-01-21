@@ -12,7 +12,7 @@ class HomeController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
 
        // $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&size=5&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51')['results'];
@@ -26,5 +26,11 @@ class HomeController extends Controller
         return view('home',[
             "posts" => $response
         ]);
+    }
+
+    public function policy(Request $request)
+    {
+        return view('policy');
+
     }
 }

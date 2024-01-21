@@ -1,7 +1,7 @@
 <header>
     <nav class="bg-white  border-gray-200 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a  href="{{ route('home') }}" class="flex items-center">
+            <a wire:navigate  href="{{ route('home') }}" class="flex items-center">
                 <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                 <x-application-logo />
                 <span
@@ -47,9 +47,22 @@
                         </svg>
                     </button>
                 </div>
+                <?php /*
                 <button id="btnlink" data-collapse-toggle="navbar-search" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-search" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                */ ?>
+
+                <button id="btnlink2"  type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                     aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 17 14">
@@ -75,7 +88,7 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800">
                     <li>
-                        <a href="#" rel="noopener" target="_self"
+                        <a wire:navigate  href="/#" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Home
                         </a>
@@ -93,7 +106,7 @@
                         </a>
                     </li>
                     <li>
-                        <a  href="/#news" rel="noopener" target="_self"
+                        <a wire:navigate href="/news" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             News
                         </a>

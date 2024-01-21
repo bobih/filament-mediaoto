@@ -12,10 +12,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="https://flowbite.com" class="hover:underline">Android</a>
+                            <a href="#" class="hover:underline">Android</a>
                         </li>
                         <li>
-                            <a href="https://tailwindcss.com/" class="hover:underline">IOS</a>
+                            <a href="#" class="hover:underline">IOS</a>
                         </li>
                     </ul>
                 </div>
@@ -36,10 +36,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                            <a wire:navigate href="/policy" class="hover:underline">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                            <a wire:navigate href="/policy" class="hover:underline">Terms &amp; Conditions</a>
                         </li>
                     </ul>
                 </div>

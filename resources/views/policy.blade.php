@@ -1,3 +1,4 @@
+<?php /*
 <x-guest-layout>
     <div class="pt-4 bg-gray-100 dark:bg-gray-900">
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
@@ -11,3 +12,19 @@
         </div>
     </div>
 </x-guest-layout>
+*/ ?>
+
+<x-app-layout>
+    @section('header')
+        @include('layouts.widgets.header')
+    @endsection
+    @section('homesection')
+        @include('layouts.widgets.policy')
+    @endsection
+    <x-custom-modal>
+        @slot('body')
+            @livewire('contact-us')
+        @endslot
+    </x-custom-modal>
+</x-app-layout>
+
