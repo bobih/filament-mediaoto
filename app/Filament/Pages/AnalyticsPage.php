@@ -14,11 +14,11 @@ class AnalyticsPage extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            //Widgets\PageViewsWidget::class,
-            //Widgets\VisitorsWidget::class,
-            //Widgets\ActiveUsersOneDayWidget::class,
+            Widgets\PageViewsWidget::class,
+            Widgets\VisitorsWidget::class,
+            Widgets\ActiveUsersOneDayWidget::class,
             Widgets\ActiveUsersSevenDayWidget::class,
-            //Widgets\ActiveUsersTwentyEightDayWidget::class,
+            Widgets\ActiveUsersTwentyEightDayWidget::class,
 
         ];
     }
@@ -27,12 +27,12 @@ class AnalyticsPage extends Page
 
     {
         return [
-           // Widgets\SessionsWidget::class,
-           // Widgets\SessionsDurationWidget::class,
-           // Widgets\SessionsByCountryWidget::class,
-           // Widgets\SessionsByDeviceWidget::class,
-           // Widgets\MostVisitedPagesWidget::class,
-           // Widgets\TopReferrersListWidget::class,
+            Widgets\SessionsWidget::class,
+            Widgets\SessionsDurationWidget::class,
+            Widgets\SessionsByCountryWidget::class,
+            Widgets\SessionsByDeviceWidget::class,
+            Widgets\MostVisitedPagesWidget::class,
+            Widgets\TopReferrersListWidget::class,
         ];
 
     }
