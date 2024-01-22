@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Spatie\MediaLibrary\HasMedia;
@@ -10,12 +11,14 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class NewsPost extends Model implements HasMedia
 {
     use HasFactory;
     //use SoftDeletes;
     use InteractsWithMedia;
+    use HasTags;
 
 
     protected $table = 'news_posts';
@@ -26,7 +29,7 @@ class NewsPost extends Model implements HasMedia
         'userid',
         'source',
         'image',
-        'title',
+        'name',
         'slug',
         'description',
         'content',
@@ -42,6 +45,7 @@ class NewsPost extends Model implements HasMedia
 
     ];
 
+
     public function author() : BelongsTo
     {
         return $this->belongsTo(
@@ -50,6 +54,7 @@ class NewsPost extends Model implements HasMedia
             ownerKey: 'id'
         );
     }
+
 
 
     public function scopePublished($query){

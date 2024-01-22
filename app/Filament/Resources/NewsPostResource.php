@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\RichEditor;
 use Filament\Tables;
 use Filament\Forms\Set;
 use App\Models\NewsPost;
@@ -12,15 +11,18 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Tables\Columns\SpatieTagsColumn;
+use Filament\Forms\Components\SpatieTagsInput;
 use App\Filament\Resources\NewsPostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\NewsPostResource\RelationManagers;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use App\Filament\Resources\NewsPostResource\RelationManagers;
 
 class NewsPostResource extends Resource
 {
@@ -41,7 +43,7 @@ class NewsPostResource extends Resource
             ->schema([
 
                 Section::make('Main')->schema([
-                    TextInput::make('title')->required()->maxLength(200)
+                    TextInput::make('name')->required()->maxLength(200)
                         ->live(debounce: 600)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             if ($operation === 'edit') {
@@ -50,6 +52,8 @@ class NewsPostResource extends Resource
                             $set('slug', Str::slug($state));
                         }),
                     TextInput::make('slug')->required()->unique(ignoreRecord: true),
+                    SpatieTagsInput::make('tags')
+                        ->type('categories'),
                     RichEditor::make('content')->required()->fileAttachmentsDirectory('posts/images')
                     ->columnSpanFull(),
                 ])->columns(1),
@@ -62,6 +66,7 @@ class NewsPostResource extends Resource
                     ->default(function (mixed $state) {
                         return auth()->user()->id;
                     }),
+
                 ])->columns(1)
 
             ]);
@@ -74,13 +79,17 @@ class NewsPostResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                 ->label('ID'),
 
+
+
                 Tables\Columns\ImageColumn::make('image')
                 ->label('image'),
+
+                SpatieTagsColumn::make('tags'),
 
                 //Tables\Columns\TextColumn::make('source')
                 //->label('Source'),
 
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('name')
                 ->label('NewTitle')
                 ->limit(30),
 

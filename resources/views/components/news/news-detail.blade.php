@@ -24,7 +24,7 @@
                             src="{{$post->image}}" alt="{{$post->slug}}">
 
                 </div>
-                <h1 class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{$post->title}}</h1>
+                <h1 class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{$post->name}}</h1>
             </header>
             <div class="dark:text-gray-400 mb-20">
 

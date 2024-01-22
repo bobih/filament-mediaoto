@@ -14,6 +14,7 @@ class NewsPostController extends Controller
     public function index(){
 
         $response = NewsPost::orderBy('published_at','desc')->take(5)->get();
+
         return view('news.index',[
             "posts" => $response
         ]);

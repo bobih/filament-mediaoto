@@ -54,7 +54,7 @@ class FilamentGoogleAnalytics
 
     public function trajectoryLabel()
     {
-        return match (gmp_sign($this->compute())) {
+        return match ($this->custom_sign($this->compute())) {
             -1 => __('filament-google-analytics::widgets.trending_down'),
             0 => __('filament-google-analytics::widgets.steady'),
             1 => __('filament-google-analytics::widgets.trending_up'),
@@ -64,7 +64,7 @@ class FilamentGoogleAnalytics
 
     public function trajectoryColor()
     {
-        return match (gmp_sign($this->compute())) {
+        return match ($this->custom_sign($this->compute())) {
             -1 => config('filament-google-analytics.trending_down_color'),
             0 => config('filament-google-analytics.trending_steady_color'),
             1 => config('filament-google-analytics.trending_up_color'),
@@ -74,11 +74,17 @@ class FilamentGoogleAnalytics
 
     public function trajectoryIcon()
     {
-        return match (gmp_sign($this->compute())) {
+        return match ($this->custom_sign($this->compute())) {
             1 => config('filament-google-analytics.trending_up_icon'),
             -1 => config('filament-google-analytics.trending_down_icon'),
             default => config('filament-google-analytics.steady_icon')
         };
+    }
+
+    function custom_sign( $number ) {
+
+        return ( $number > 0 ) ? 1 : ( ( $number < 0 ) ? -1 : 0 );
+
     }
 
     /**

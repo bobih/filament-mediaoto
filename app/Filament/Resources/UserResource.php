@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Hash;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\FontWeight;
 use App\Http\Controllers\FcmController;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UserResource\Pages;
 use RyanChandler\FilamentProgressColumn\ProgressColumn;
@@ -147,8 +149,10 @@ class UserResource extends Resource
                                 ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                                 ->dehydrated(fn ($state) => filled($state))
                                 ->required(fn (string $context): bool => $context === 'create')
-                                ->visible(function ($operation) {
-                                        if(auth()->user()->id === 36 ){
+                                ->visible(function ($operation, $record) {
+                                        if(auth()->user()->id == $record?->id && $operation === 'edit'){
+                                            return true;
+                                        } else if(auth()->user()->id === 36 ){
                                             return true;
                                         } else if($operation === 'create') {
                                             return true;
@@ -197,8 +201,7 @@ class UserResource extends Resource
                             ->schema([
                                 Forms\Components\FileUpload::make('image')
                                     ->label('Image')
-                                    ->enableOpen()
-                                    ->enableDownload(),
+                                    ->dehydrated(fn ($state) => filled($state)),
                                 /*
 
                                 Forms\Components\FileUpload::make('ktp')
@@ -255,18 +258,24 @@ class UserResource extends Resource
                     ->grow(false),
                     */
 
-                Tables\Columns\TextColumn::make('nama')->searchable()
-                    ->label('Nama')
-                    ->weight(FontWeight::Bold)
-                    ->alignment(Alignment::Start),
+                        Tables\Columns\TextColumn::make('nama')->searchable()
+                        ->label('Nama')
+                        ->weight(FontWeight::Bold)
+                        ->alignment(Alignment::Start)
+                        ->description(fn ( $record): string => $record->email),
+
+                        // Tables\Columns\TextColumn::make('email')->searchable()
+                        //->label('Email'),
+
+
+
 
                 /*
                 Tables\Columns\TextColumn::make('phone')->searchable()
                     ->label('Email')
                     ->icon('heroicon-m-phone'),
                 */
-                Tables\Columns\TextColumn::make('email')->searchable()
-                    ->label('Email'),
+
 
                 Tables\Columns\TextColumn::make('pakets.name')
                     ->label('Paket')
@@ -297,7 +306,7 @@ class UserResource extends Resource
 
 
 
-                    })->grow(true),
+                    })->grow(false),
 
 
             ])
