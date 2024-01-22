@@ -19,9 +19,9 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget;
 use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
 use App\Filament\Resources\UserResource\Widgets\UserOverviewWidget;
+
 
 class DashPanelProvider extends PanelProvider
 {
@@ -58,16 +58,13 @@ class DashPanelProvider extends PanelProvider
 
             ])
             ->pages([
-               // Pages\Dashboard::class,
                AnalyticsPage::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
 
-                UserOverviewWidget::class,
                 Widgets\AccountWidget::class,
-                PageViewsWidget::class,
-                VisitorsWidget::class,
+                UserOverviewWidget::class,
 
             ])
             ->middleware([

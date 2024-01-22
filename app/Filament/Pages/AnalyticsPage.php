@@ -14,17 +14,26 @@ class AnalyticsPage extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            Widgets\PageViewsWidget::class,
-            Widgets\VisitorsWidget::class,
-            Widgets\ActiveUsersOneDayWidget::class,
+            //Widgets\PageViewsWidget::class,
+            //Widgets\VisitorsWidget::class,
+            //Widgets\ActiveUsersOneDayWidget::class,
             Widgets\ActiveUsersSevenDayWidget::class,
-            Widgets\ActiveUsersTwentyEightDayWidget::class,
-            Widgets\SessionsWidget::class,
-            Widgets\SessionsDurationWidget::class,
-            Widgets\SessionsByCountryWidget::class,
-            Widgets\SessionsByDeviceWidget::class,
-            Widgets\MostVisitedPagesWidget::class,
-            Widgets\TopReferrersListWidget::class,
+            //Widgets\ActiveUsersTwentyEightDayWidget::class,
+
         ];
+    }
+
+    protected function getFooterWidgets(): array
+
+    {
+        return [
+           // Widgets\SessionsWidget::class,
+           // Widgets\SessionsDurationWidget::class,
+           // Widgets\SessionsByCountryWidget::class,
+           // Widgets\SessionsByDeviceWidget::class,
+           // Widgets\MostVisitedPagesWidget::class,
+           // Widgets\TopReferrersListWidget::class,
+        ];
+
     }
 }

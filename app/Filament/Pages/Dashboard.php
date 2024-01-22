@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Filament\Pages;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets;
 
 class Dashboard extends \Filament\Pages\Dashboard
 {
