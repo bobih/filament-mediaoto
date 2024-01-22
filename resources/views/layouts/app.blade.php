@@ -22,9 +22,9 @@
      */
     ?>
     <!-- Scripts -->
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @filamentStyles
 
+    @filamentStyles
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
