@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "mediaoto-b3ac5",
+  "private_key_id": "f3104894220ffc9a52a726474be69bb0707f0c24",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCtyHEh7frmYZGq\n7mNkRKGTFljSu9BRLolKScP1n6quIN7OhFv5uz1R0fUwUFOZON0yxwoUQGNhZ7qZ\nJCr3OiCfN9KYMLFUQdr3AaxDtYuh7TwwyNaciIXMaWM+XG2HpSjLyHlyTjoKg82A\n+Y7MWh28VwNZ6ebhGkad5L1rfCc7CKYJvUAU93mRXFL79cTLQb9tx1GhkSrmt9CW\n8Md+ao7+OZpqa5mqeR6KiWmUGsIwKBBoNpXTlJ3QyqGSNuro9ldo8/OMkQFJ8wT1\nTBOR75fY2/ueBRxbl/mrHsAlWrREtej6y808pr7LcfozTDYXRIaf7DMfSwNZW5rZ\nlUB0CUifAgMBAAECggEACp62MzGc5JlP0pdQ4Z7EFP4HnZE2sM9cOnr5i7gfMRb3\nJr219TP5Elf3WOV/xlxQQDsjpYstx5UUNSmdqpAV0EUUDJLlM1X28KNciKK+jr21\nsPGFE/nP22cRVo1FcEWqkZGFwnN/XochduFJVbmoGYtjvAnsPxNg/2MsJDZpG1VZ\nGH3qhrmuwW+yuqHxDrtC2Q+M+NOdZvXJ/mFld34tMocSWYXqO2BfPUWZJI9Zo+bM\nrisUdEMkFOAMG4Ns2XOYHiS9pOw0meW8gvMtBwDvSiUFb5znTKsqsDP75U/NoMEm\nAuMsUWhhy5N6L7+HCpVrCQRNspyUBHTQK7JZNRJ2cQKBgQDlw3G7z565Z7puVEbk\nYYlTGa5cMtbqBnit1Osub4YnCRbzkxtnLBniCjhcDME3B8hfF/UPGWzr5J9+YVxs\n5AX1lVwWKbYzAQqxS9VZjFEnw+B0oBE4oQ9lYaUmm/CzRjuDVylStDr87PEphq22\nJrhoG5v53MMSqvljrcrT2FiYJwKBgQDBoIymbVjpYiw0qW4U2S07aLfcq9yQWxa9\nwNir/FBzawz9m0Z/Pji3kfgMsAkOLYXxjiVclPq8uVgCrv9qNkHHqwNT+r0Mqgtk\njpLJ/ZFAZHqw8mzlWp+hr8SiuO0LP+H2anpzl6cwpTaee4v59LyYUh1ML4dz19CQ\nwSOI9jjeyQKBgHDO2dt9X4/mRtl+lWPyI4tic4IfD/fM/5lRjbq51OL7ioJCutSY\nCYk6vVssg/zx3EYcLByiviC/mjNhuBBakDZ4g8L57dPy8f4Enpad1wawHFcGdA4a\nvcVoAL8JF0/d7sBYnhhWFxQxfWKHFmj1b9rlm1o9MqXKvjFbldcXRMBHAoGAfGmq\nti1AmgUonlXXk7HQLIIm0bXkLSU6QYauMiQXlXHNkQ66h3v1eY5jMdPSnbeGfyV0\nwD5Btg3pjR/goeBm9+LcapOL8Z05YM1zaDJzqEpnw1ahveUy+PM1h9EHDtlnWawl\nLizdkpY1uDNuR5eHrt/kT1Wi1T5wlvJi4NhExnECgYB1qUEIp9/JWlSUzZFqKxko\ngxaa+OaS2+cdnymn051PiN3PMKvchevj+6C60l4n3zUHaInA1w6wuQw1w101jQv4\nshaPNRSkvxs7xuzJouXHTg/0bWSeLsau8fnUtEDKgNFraTjFrYwcOjVpJRZkPH7T\nLICYl9fQmDNzAhdNLUFOiQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "mediiaoto-web@mediaoto-b3ac5.iam.gserviceaccount.com",
+  "client_id": "101786485017094975960",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mediiaoto-web%40mediaoto-b3ac5.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
