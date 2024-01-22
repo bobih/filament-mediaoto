@@ -25,12 +25,21 @@
      @vite(['resources/css/app.css', 'resources/js/app.js'])
     @filamentStyles
 
+    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-Q7LP278P3T');
+    </script>
 
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script> -->
+   <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
 
 
     <!-- Styles -->

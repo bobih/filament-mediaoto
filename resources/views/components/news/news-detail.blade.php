@@ -28,7 +28,7 @@
             </header>
             <div class="dark:text-gray-400 mb-20">
 
-                {{$post->content}}
+                {!! $post->content !!}
             </div>
 
 

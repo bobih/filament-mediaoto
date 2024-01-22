@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class NewsPost extends Model implements HasMedia
 {
     use HasFactory;
-    use SoftDeletes;
+    //use SoftDeletes;
     use InteractsWithMedia;
 
 

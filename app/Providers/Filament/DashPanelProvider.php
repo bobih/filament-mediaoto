@@ -7,6 +7,7 @@ use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use App\Filament\Pages\AnalyticsPage;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -18,6 +19,8 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
 use App\Filament\Resources\UserResource\Widgets\UserOverviewWidget;
 
 class DashPanelProvider extends PanelProvider
@@ -56,12 +59,15 @@ class DashPanelProvider extends PanelProvider
             ])
             ->pages([
                // Pages\Dashboard::class,
+               AnalyticsPage::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
 
                 UserOverviewWidget::class,
                 Widgets\AccountWidget::class,
+                PageViewsWidget::class,
+                VisitorsWidget::class,
 
             ])
             ->middleware([

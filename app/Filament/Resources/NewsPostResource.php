@@ -41,7 +41,7 @@ class NewsPostResource extends Resource
             ->schema([
 
                 Section::make('Main')->schema([
-                    TextInput::make('title')->required()->maxLength(150)
+                    TextInput::make('title')->required()->maxLength(200)
                         ->live(debounce: 600)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             if ($operation === 'edit') {
@@ -52,16 +52,17 @@ class NewsPostResource extends Resource
                     TextInput::make('slug')->required()->unique(ignoreRecord: true),
                     RichEditor::make('content')->required()->fileAttachmentsDirectory('posts/images')
                     ->columnSpanFull(),
-                ])->columns(2),
+                ])->columns(1),
                 Section::make('Meta')->schema([
-                    FileUpload::make('image')->directory('posts/thumbnails')->columnSpanFull(),
+                    //FileUpload::make('image')->directory('posts/thumbnails')->columnSpanFull(),
+
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
                     Forms\Components\Hidden::make('userid')
                     ->default(function (mixed $state) {
                         return auth()->user()->id;
                     }),
-                ])->columns(2)
+                ])->columns(1)
 
             ]);
     }
@@ -72,10 +73,22 @@ class NewsPostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                 ->label('ID'),
-                Tables\Columns\TextColumn::make('source')
-                ->label('Source'),
+
+                Tables\Columns\ImageColumn::make('image')
+                ->label('image'),
+
+                //Tables\Columns\TextColumn::make('source')
+                //->label('Source'),
+
                 Tables\Columns\TextColumn::make('title')
-                ->label('Title'),
+                ->label('NewTitle')
+                ->limit(30),
+
+                Tables\Columns\TextColumn::make('')
+                ->label('Words')
+                ->default(function(NewsPost $record){
+                    return strlen(strip_tags($record->content));
+                }),
                 Tables\Columns\TextColumn::make('published_at')
                 ->label('Tanggal'),
 
@@ -85,10 +98,11 @@ class NewsPostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    //Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(),
                     //Tables\Actions\ForceDeleteBulkAction::make(),
                     //Tables\Actions\RestoreBulkAction::make(),
                 ]),
