@@ -17,8 +17,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
-        dd($analyticsData);
 
        // $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&size=5&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51')['results'];
         //dd($response);
