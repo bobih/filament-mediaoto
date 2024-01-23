@@ -56,7 +56,7 @@
     <div class="w-full max-w-screen-xl grid grid-cols-4 gap-4">
         <div class="pt-16 md:pt-4 md:col-span-3 col-span-4">
             <div id="posts" class=" px-3 lg:px-7 ms:py-6">
-                <div class="sm:block -mt-4 py-4 px-4 bg-white dark:bg-gray-900 top-20 start-0 z-50 w-full fixed md:hidden">
+                <div class="sm:block -mt-4 py-4 px-4 bg-white dark:bg-gray-900 top-20 start-0 z-30 w-full fixed md:hidden">
                     <?php /*                 <div class="sm:block py-4  bg-white dark:bg-gray-900 top-20 start-0 z-50 sticky md:hidden">
                         */ ?>
 
