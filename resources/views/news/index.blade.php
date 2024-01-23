@@ -4,7 +4,7 @@
     @endsection
     @section('homesection')
     <div id="news" class="-mt-20 mb-20"></div>
-       <x-news.news-list :posts="$posts" :latest="$latest" />
+       <x-news.news-list :posts="$posts" :categories="$categories" />
     @endsection
     <x-custom-modal >
         @slot('body')

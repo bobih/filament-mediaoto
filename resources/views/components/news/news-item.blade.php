@@ -1,4 +1,4 @@
-@props(['post'])
+@props(['post', 'categories'])
 <article
     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
@@ -17,6 +17,18 @@
         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
             <a wire:navigate href="{{ route('news.show', $post->slug)}}">{{$post->title}}</a></h2>
         <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{$post->description}}</p>
+       @if ( $category = $post->categories()->first())
+       @foreach ($post->categories as $category)
+       <x-news.news-badge
+           wire:navigate
+           href="{{route('news.index',['category'=>$category->slug])}}"
+           :category='$category'
+           bgColor="{{$category->bg_color}}"
+           textColor="{{$category->text_color}}" >
+           {{$category->title}}
+       </x-news.news-badge>
+   @endforeach
+       @endif
 
     </div>
     <div class="px-5 text-center hidden lg:block">

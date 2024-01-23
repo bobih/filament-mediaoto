@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsCategory;
 use App\Models\NewsPost;
 
 use Illuminate\Support\Str;
@@ -15,9 +16,13 @@ class NewsPostController extends Controller
 
         $response = NewsPost::inRandomOrder()->orderBy('published_at','desc')->take(5)->get();
         $latest = NewsPost::orderBy('published_at','desc')->take(3)->get();
+        $categories = NewsCategory::whereHas('posts', function($query){
+            $query->published();
+        })->take(10)->get();
         return view('news.index',[
             "posts" => $response,
             "latest" => $latest,
+            "categories" => $categories
         ]);
     }
 

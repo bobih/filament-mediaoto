@@ -22,5 +22,9 @@ class NewsCategory extends Model
         'updated_at',
     ];
 
+    public function posts(){
+       return $this->belongsToMany(NewsPost::class, 'news_category_post');
+    }
+
 
 }
