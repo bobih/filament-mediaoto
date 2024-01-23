@@ -13,16 +13,17 @@ class NewsPostController extends Controller
 {
     public function index(){
 
-        $response = NewsPost::orderBy('published_at','desc')->take(5)->get();
-        //dd($response);
+        $response = NewsPost::inRandomOrder()->orderBy('published_at','desc')->take(5)->get();
+        $latest = NewsPost::orderBy('published_at','desc')->take(3)->get();
         return view('news.index',[
-            "posts" => $response
+            "posts" => $response,
+            "latest" => $latest
         ]);
     }
 
     public function show(NewsPost $news){
 
-        $related = NewsPost::where('id', '<' ,$news->id )->take(3)->get();
+        $related = NewsPost::inRandomOrder()->take(3)->get();
         return view('news.show',[
             "post" => $news,
             "related" => $related

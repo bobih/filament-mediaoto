@@ -3,10 +3,7 @@
         @include('layouts.widgets.header')
     @endsection
     @section('homesection')
-
     <x-news.news-detail :post="$post" :related="$related" />
-
-
     @endsection
     <x-custom-modal >
         @slot('body')
