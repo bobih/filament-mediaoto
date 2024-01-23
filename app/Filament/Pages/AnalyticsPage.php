@@ -11,6 +11,13 @@ class AnalyticsPage extends Page
 
     protected static string $view = 'filament.pages.analytics-page';
 
+    protected static ?string $navigationGroup = 'SEO';
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $navigationLabel = 'Analytics';
+
+
+
     protected function getHeaderWidgets(): array
     {
         return [

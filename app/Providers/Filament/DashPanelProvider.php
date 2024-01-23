@@ -50,6 +50,7 @@ class DashPanelProvider extends PanelProvider
             ->navigationGroups([
                 'Users',
                 'Invoices',
+                'SEO',
                 'News',
                 'Settings',
 

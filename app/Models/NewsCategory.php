@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class NewsCategory extends Model
 {
@@ -20,4 +21,6 @@ class NewsCategory extends Model
         'created_at',
         'updated_at',
     ];
+
+
 }

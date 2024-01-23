@@ -14,7 +14,7 @@ class NewsPostController extends Controller
     public function index(){
 
         $response = NewsPost::orderBy('published_at','desc')->take(5)->get();
-
+        //dd($response);
         return view('news.index',[
             "posts" => $response
         ]);
@@ -22,9 +22,10 @@ class NewsPostController extends Controller
 
     public function show(NewsPost $news){
 
-        //$response = NewsPost::orderBy('published_at','desc')->take(1)->first();
+        $related = NewsPost::where('id', '<' ,$news->id )->take(3)->get();
         return view('news.show',[
-            "post" => $news
+            "post" => $news,
+            "related" => $related
         ]);
     }
 

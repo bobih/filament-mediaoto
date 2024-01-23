@@ -4,7 +4,7 @@
     @endsection
     @section('homesection')
 
-    <x-news.news-detail :post="$post" />
+    <x-news.news-detail :post="$post" :related="$related" />
 
 
     @endsection

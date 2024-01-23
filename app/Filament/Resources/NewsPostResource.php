@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
@@ -43,8 +44,7 @@ class NewsPostResource extends Resource
             ->schema([
 
                 Section::make('Main')->schema([
-                    TextInput::make('name')->required()->maxLength(200)
-                        ->live(debounce: 600)
+                    TextInput::make('title')->required()->maxLength(200)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             if ($operation === 'edit') {
                                 return;
@@ -52,9 +52,15 @@ class NewsPostResource extends Resource
                             $set('slug', Str::slug($state));
                         }),
                     TextInput::make('slug')->required()->unique(ignoreRecord: true),
-                    SpatieTagsInput::make('tags')
-                        ->type('categories'),
-                    RichEditor::make('content')->required()->fileAttachmentsDirectory('posts/images')
+
+                    Select::make('categories')
+                    ->multiple()
+                    ->relationship('categories', 'title'),
+
+                    //SpatieTagsInput::make('tags')
+                    //    ->type('categories'),
+
+                        RichEditor::make('content')->required()->fileAttachmentsDirectory('posts/images')
                     ->columnSpanFull(),
                 ])->columns(1),
                 Section::make('Meta')->schema([
@@ -84,13 +90,13 @@ class NewsPostResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                 ->label('image'),
 
-                SpatieTagsColumn::make('tags'),
+                //SpatieTagsColumn::make('tags'),
 
                 //Tables\Columns\TextColumn::make('source')
                 //->label('Source'),
 
-                Tables\Columns\TextColumn::make('name')
-                ->label('NewTitle')
+                Tables\Columns\TextColumn::make('title')
+                ->label('Title')
                 ->limit(30),
 
                 Tables\Columns\TextColumn::make('')
