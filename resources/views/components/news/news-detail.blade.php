@@ -12,7 +12,7 @@
                     class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
                     <header class="mb-4 lg:mb-6 not-format">
                         <div class="px-4 w-full h-auto pb-1/4">
-                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg" src="{{ $post->image }}"
+                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg" src="{{ $post->getThumbnailImage() }}"
                                 alt="{{ $post->slug }}">
                         </div>
                         <h1

@@ -7,12 +7,13 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class NewsPost extends Model implements HasMedia
 {
@@ -81,5 +82,16 @@ class NewsPost extends Model implements HasMedia
 
     public function getExcerpt(){
         return Str::limit(strip_tags($this->content), 150, '...');
+    }
+
+    public function getThumbnailImage(){
+        $isUrl = str_contains($this->image, 'http');
+    return ($isUrl)? $this->image : Storage::url($this->image);
+    }
+
+    public function scopeWithCategory($query, string $category){
+        $query->whereHas('categories', function($query) use ($category){
+            $query->where('slug', $category);
+        });
     }
 }

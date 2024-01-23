@@ -4,7 +4,7 @@
     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
         <a wire:navigate href="{{ route('news.show', $post->slug)}}">
             <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
-                src="{{$post->image}}" alt="{{$post->slug}}">
+                src="{{$post->getThumbnailImage()}}" alt="{{$post->slug}}">
         </a>
     </div>
     <div class="md:px-4 lg:px-8 w-full">

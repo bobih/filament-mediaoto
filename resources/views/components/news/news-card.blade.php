@@ -3,7 +3,7 @@
     <div class=" px-4 pb-4">
         <a wire:navigate href="{{ route('news.show', $post->slug)}}">
             <img class=" top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
-                src="{{$post->image}}" alt="{{$post->slug}}">
+                src="{{$post->getThumbnailImage()}}" alt="{{$post->slug}}">
         </a>
     </div>
     <div class="flex justify-between items-center mb-5 text-gray-500">

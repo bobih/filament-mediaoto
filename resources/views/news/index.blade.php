@@ -4,7 +4,7 @@
     @endsection
     @section('homesection')
     <div id="news" class="-mt-20 mb-20"></div>
-        @livewire('news-list')
+       <x-news.news-list :posts="$posts" :latest="$latest" />
     @endsection
     <x-custom-modal >
         @slot('body')

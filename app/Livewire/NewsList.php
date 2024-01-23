@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\NewsCategory;
 use Livewire\Component;
 use App\Models\NewsPost;
 use Livewire\Attributes\Url;
@@ -15,15 +16,17 @@ class NewsList extends Component
     #[Url]
     public $search='';
 
+    #[Url]
+    public $category = '';
+
     #[Computed()]
     public function posts(){
-        if(isset($this->search)){
-            $response = NewsPost::where('title', 'like', "%$this->search%")->orderBy('published_at','desc')->paginate(5);
-
-         } else {
-            $response = NewsPost::orderBy('published_at','desc')->paginate(5);
-
-         }
+        $response = NewsPost::where('title', 'like', "%{$this->search}%")
+                    ->orderBy('published_at','desc')
+                    ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                        $query->withCategory($this->category);
+                    })
+                    ->paginate(5);
 
        return $response;
     }

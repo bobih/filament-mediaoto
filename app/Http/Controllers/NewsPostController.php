@@ -17,7 +17,7 @@ class NewsPostController extends Controller
         $latest = NewsPost::orderBy('published_at','desc')->take(3)->get();
         return view('news.index',[
             "posts" => $response,
-            "latest" => $latest
+            "latest" => $latest,
         ]);
     }
 
