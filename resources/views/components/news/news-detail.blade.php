@@ -1,7 +1,7 @@
 @props(['post', 'related'])
 
 
-<div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-300 dark:bg-gray-900 px-4 md:px-8">
+<div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
     <div class="col-span-3">
         <main class="pt-20 antialiased">
 
@@ -9,7 +9,7 @@
             <div class="mt-10 flex justify-between px-4 mx-auto max-w-screen-xl ">
 
                 <article
-                    class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                    class="mx-auto w-full max-w-2xl dark:format-invert">
                     <header class="mb-4 lg:mb-6 not-format">
                         <div class="px-4 w-full h-auto pb-1/4">
                             <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg" src="{{ $post->getThumbnailImage() }}"
@@ -41,7 +41,7 @@
 
     <!-- right -->
     <div class="col-span-1 ">
-        <main class="sm:pt-20 pb-10 bg-gray-300 dark:bg-gray-900 antialiased">
+        <main class="sm:pt-20 pb-10 bg-gray-100 dark:bg-gray-900 antialiased">
             <div class="mt-10  max-w-screen-xl ">
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Related News
