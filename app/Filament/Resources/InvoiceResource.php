@@ -61,19 +61,25 @@ class InvoiceResource extends Resource
                             ->label('Nama')
                             ->options(function (User $user) {
                                 $user = User::where('brand', '>', 0)
-                                    ->whereNotIn('id', function ($q) {
-                                        $q->select('userid')->from('invoice');
-                                    })
+                                    //->whereNotIn('id', function ($q) {
+                                    //    $q->select('userid')->from('invoice');
+                                    //})
                                     //->where('acctype', '>', 0)
                                     ->where('showroom', '>', 0)
                                     ->where('showroom', '<>', '')
                                     ->where('brand', '<>', 99)
                                     ->where('id', '<>', 36)
-                                    ->pluck('nama', 'id');
-                                return $user;
+                                    ->get();
+                                    //->pluck('nama', 'id');
+
+                                    $return = [];
+                                foreach($user as $data){
+                                    $return[$data->id] = $data->nama . ' - ' . $data->email ;
+                                }
+                                //dd($return);
+
+                                return $return;
                             })
-
-
                             ->searchable()
                             ->preload()
                             ->live()

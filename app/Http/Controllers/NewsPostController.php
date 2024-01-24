@@ -14,8 +14,8 @@ class NewsPostController extends Controller
 {
     public function index(){
 
-        $response = NewsPost::inRandomOrder()->orderBy('published_at','desc')->take(5)->get();
-        $latest = NewsPost::orderBy('published_at','desc')->take(3)->get();
+        $response = NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+        $latest = NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
         $categories = NewsCategory::whereHas('posts', function($query){
             $query->published();
         })->take(10)->get();

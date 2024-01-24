@@ -20,7 +20,7 @@ class HomeController extends Controller
 
        // $response = Http::get('https://newsdata.io/api/1/news?country=id&category=technology,entertainment,education&size=5&apikey=pub_3644856b52db506d7f3ab3c51f9e2b20bde51')['results'];
         //dd($response);
-        $response = NewsPost::wherein('id',[4,21,39,51,70,73])->orderBy('published_at','desc')->take(5)->get();
+        $response = NewsPost::wherein('id',[4,21,39,51,70,73])->with('categories')->orderBy('published_at','desc')->take(5)->get();
         //dd($response);
         //$response = [];
 

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="News">
     @section('header')
         @include('layouts.widgets.header')
     @endsection

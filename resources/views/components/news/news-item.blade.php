@@ -18,7 +18,7 @@
             <a wire:navigate href="{{ route('news.show', $post->slug) }}">{{ $post->title }}</a>
         </h2>
         <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
-        @if ($category = $post->categories()->first())
+        @if ($category = $post->categories->first())
             @foreach ($post->categories as $category)
                 <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
                     :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">

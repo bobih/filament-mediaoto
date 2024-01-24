@@ -27,7 +27,7 @@
 
                         {!! $post->content !!}
                     </div>
-                    @if ($category = $post->categories()->first())
+                    @if ($category = $post->categories->first())
                     @foreach ($post->categories as $category)
                         <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
                             :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">

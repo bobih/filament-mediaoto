@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Home">
     @section('header')
         @include('layouts.widgets.header')
     @endsection
