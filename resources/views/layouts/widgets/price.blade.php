@@ -9,7 +9,7 @@
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
             <!-- Pricing Card -->
             <div
-                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-100 rounded-lg border border-gray-200 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-200 rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Silver</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your
                     next project.</p>
@@ -41,13 +41,13 @@
                     </li>
                 </ul>
                 <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'silver' }})"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>
             </div>
             <!-- Pricing Card -->
             <div
-                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-100 rounded-lg border border-gray-200  shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-200 rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Gold</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for
                     your
@@ -81,13 +81,13 @@
                     </li>
                 </ul>
                 <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'gold' }})"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>
             </div>
             <!-- Pricing Card -->
             <div
-                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-100 rounded-lg border border-gray-200  shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-200 rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Diamond</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for
                     your
@@ -121,7 +121,7 @@
                     </li>
                 </ul>
                 <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'diamond' }})"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </button>
             </div>

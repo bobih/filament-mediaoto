@@ -1,6 +1,6 @@
 @props(['post', 'categories'])
 <article
-    class="p-6 md:flex md:items-center bg-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    class="p-6 md:flex md:items-center bg-gray-200 rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
         <a wire:navigate href="{{ route('news.show', $post->slug) }}">
             <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
@@ -10,7 +10,7 @@
     <div class="md:px-4 lg:px-8 w-full">
         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
             <span class="text-sm">{{ $post->source }} |
-                {{ $post->published_at }}</span>
+                {{ $post->published_at->diffForHumans() }}</span>
             <span class="text-sm">{{ $post->getReadingTime() }} min read</span>
         </div>
 

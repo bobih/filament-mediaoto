@@ -7,20 +7,23 @@
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Get insight about News and Tips & Tricks.</p>
         </div>
 
+        <?php /*
+
         <div class="mx-auto p-5 bg-gray-200 dark:bg-gray-300/20 rounded-lg justify-center flex w-80 text-center  shadow-lg mb-10">
             <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700  shadow-lg" >News</button>
             <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tips & Tricks</button>
         </div>
+        */ ?>
 
         <!-- News Section -->
 
         <div class="grid gap-1 lg:grid-cols-1">
            @foreach ($posts as $post )
            <article
-           class="p-6 md:flex md:items-center bg-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+           class="p-6 md:flex md:items-center bg-gray-200 rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
            <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; " >
                <a wire:navigate href="{{ route('news.show', $post->slug)}}">
-                   <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg" src="{{$post->getThumbnailImage()}}" alt="Michael Avatar">
+                   <img class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg" src="{{$post->getThumbnailImage()}}" alt="Michael Avatar">
                </a>
            </div>
            <div class="md:px-4 lg:px-8 w-full">
@@ -31,8 +34,19 @@
                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
                    <a wire:navigate href="{{ route('news.show', $post->slug)}}">{{$post->title}}</a></h2>
                <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{$post->description}}</p>
-
+               @foreach ($post->categories as $category)
+               <x-news.news-badge
+                   wire:navigate
+                   href="{{route('news.index',['category'=>$category->slug])}}"
+                   :category='$category'
+                   bgColor="{{$category->bg_color}}"
+                   txtColor="{{$category->text_color}}" >
+                   {{$category->title}}
+               </x-news.news-badge>
+           @endforeach
            </div>
+
+           <!-- Arrow -->
            <div class="px-5 text-center hidden lg:block">
                <a wire:navigate href="{{ route('news.show', $post->slug)}}"
                    class=" px-4 py-4 text-[#FF9119] border border-[#FF9119] hover:bg-[#FF9119] hover:text-white focus:ring-1 focus:outline-none focus:ring-[#FF9119] font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-[#FF9119] dark:text-[#FF9119] dark:hover:text-white  dark:hover:bg-[#FF9119]">
