@@ -70,8 +70,8 @@ class NewsCategoryResource extends Resource
                 ->label('URL'),
                 //TextColumn::make('text_color'),
                 //TextColumn::make('bg_color'),
-                ColorColumn::make('text_color')
-                ->label('Text'),
+                //ColorColumn::make('text_color')
+                //->label('Text'),
                 ColorColumn::make('bg_color')
                 ->label('Background'),
 
