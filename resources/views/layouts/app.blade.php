@@ -36,6 +36,7 @@
         gtag('config', 'G-Q7LP278P3T');
     </script>
 
+<meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 

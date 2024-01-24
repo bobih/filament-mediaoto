@@ -2,9 +2,9 @@
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="{{ route('home') }}" class="flex items-center">
+                <a wire:navigate href="{{ route('home') }}" class="flex items-center">
                     <x-application-logo />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mediaoto</span>
+                    <span class="self-center text-xl font-semibold whitespace-nowrap text-gray-700 dark:text-gray-400">Mediaoto</span>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
