@@ -18,11 +18,7 @@ class RolePolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('view_any_shield::role');
     }
 
     /**
@@ -34,11 +30,7 @@ class RolePolicy
      */
     public function view(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('view_shield::role');
     }
 
     /**
@@ -49,11 +41,7 @@ class RolePolicy
      */
     public function create(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('create_shield::role');
     }
 
     /**
@@ -65,11 +53,7 @@ class RolePolicy
      */
     public function update(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('update_shield::role');
     }
 
     /**
@@ -81,11 +65,7 @@ class RolePolicy
      */
     public function delete(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('delete_shield::role');
     }
 
     /**
@@ -96,11 +76,7 @@ class RolePolicy
      */
     public function deleteAny(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('delete_any_shield::role');
     }
 
     /**
@@ -112,11 +88,7 @@ class RolePolicy
      */
     public function forceDelete(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ ForceDelete }}');
     }
 
     /**
@@ -127,11 +99,7 @@ class RolePolicy
      */
     public function forceDeleteAny(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ ForceDeleteAny }}');
     }
 
     /**
@@ -143,11 +111,7 @@ class RolePolicy
      */
     public function restore(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ Restore }}');
     }
 
     /**
@@ -158,11 +122,7 @@ class RolePolicy
      */
     public function restoreAny(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ RestoreAny }}');
     }
 
     /**
@@ -174,11 +134,7 @@ class RolePolicy
      */
     public function replicate(User $user, Role $role): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ Replicate }}');
     }
 
     /**
@@ -189,11 +145,7 @@ class RolePolicy
      */
     public function reorder(User $user): bool
     {
-        if($user->id == 36){
-            return true;
-        } else {
-            return false;
-        }
+        return $user->can('{{ Reorder }}');
     }
 
 }

@@ -297,6 +297,7 @@ return array(
     'BezhanSalleh\\FilamentShield\\FilamentShield' => $vendorDir . '/bezhansalleh/filament-shield/src/FilamentShield.php',
     'BezhanSalleh\\FilamentShield\\FilamentShieldPlugin' => $vendorDir . '/bezhansalleh/filament-shield/src/FilamentShieldPlugin.php',
     'BezhanSalleh\\FilamentShield\\FilamentShieldServiceProvider' => $vendorDir . '/bezhansalleh/filament-shield/src/FilamentShieldServiceProvider.php',
+    'BezhanSalleh\\FilamentShield\\Forms\\ShieldSelectAllToggle' => $vendorDir . '/bezhansalleh/filament-shield/src/Forms/ShieldSelectAllToggle.php',
     'BezhanSalleh\\FilamentShield\\Resources\\RoleResource' => $vendorDir . '/bezhansalleh/filament-shield/src/Resources/RoleResource.php',
     'BezhanSalleh\\FilamentShield\\Resources\\RoleResource\\Pages\\CreateRole' => $vendorDir . '/bezhansalleh/filament-shield/src/Resources/RoleResource/Pages/CreateRole.php',
     'BezhanSalleh\\FilamentShield\\Resources\\RoleResource\\Pages\\EditRole' => $vendorDir . '/bezhansalleh/filament-shield/src/Resources/RoleResource/Pages/EditRole.php',

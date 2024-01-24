@@ -1409,6 +1409,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'BezhanSalleh\\FilamentShield\\FilamentShield' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/FilamentShield.php',
         'BezhanSalleh\\FilamentShield\\FilamentShieldPlugin' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/FilamentShieldPlugin.php',
         'BezhanSalleh\\FilamentShield\\FilamentShieldServiceProvider' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/FilamentShieldServiceProvider.php',
+        'BezhanSalleh\\FilamentShield\\Forms\\ShieldSelectAllToggle' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Forms/ShieldSelectAllToggle.php',
         'BezhanSalleh\\FilamentShield\\Resources\\RoleResource' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Resources/RoleResource.php',
         'BezhanSalleh\\FilamentShield\\Resources\\RoleResource\\Pages\\CreateRole' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Resources/RoleResource/Pages/CreateRole.php',
         'BezhanSalleh\\FilamentShield\\Resources\\RoleResource\\Pages\\EditRole' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Resources/RoleResource/Pages/EditRole.php',
