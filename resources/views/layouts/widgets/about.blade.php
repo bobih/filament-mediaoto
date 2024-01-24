@@ -5,7 +5,7 @@
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-300/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
             <a href="#">
                 <div
-                    class="flex h-full  bg-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
+                    class="flex h-full  bg-gray-300 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
                         <button type="button"
                             class="text-[#FF9119]  font-medium rounded-full text-sm  text-center inline-flex items-center dark:border-[#FF9119] dark:text-[#FF9119] ">
@@ -27,7 +27,7 @@
 
             <a href="#">
                 <div
-                    class="flex  h-full bg-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
+                    class="flex  h-full bg-gray-300 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
                         <button type="button"
                             class="text-[#FF9119]  font-medium rounded-full text-sm  text-center inline-flex items-center dark:border-[#FF9119] dark:text-[#FF9119] ">

@@ -9,9 +9,9 @@
 
         <?php /*
 
-        <div class="mx-auto p-5 bg-gray-200 dark:bg-gray-300/20 rounded-lg justify-center flex w-80 text-center  shadow-lg mb-10">
-            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700  shadow-lg" >News</button>
-            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tips & Tricks</button>
+        <div class="mx-auto p-5 bg-white dark:bg-gray-300/20 rounded-lg justify-center flex w-80 text-center  shadow-lg mb-10">
+            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-white hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700  shadow-lg" >News</button>
+            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-white hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tips & Tricks</button>
         </div>
         */ ?>
 
@@ -20,7 +20,7 @@
         <div class="grid gap-1 lg:grid-cols-1">
            @foreach ($posts as $post )
            <article
-           class="p-6 md:flex md:items-center bg-gray-200 rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
+           class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
            <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; " >
                <a wire:navigate href="{{ route('news.show', $post->slug)}}">
                    <img class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg" src="{{$post->getThumbnailImage()}}" alt="Michael Avatar">

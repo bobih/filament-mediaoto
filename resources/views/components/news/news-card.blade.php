@@ -1,5 +1,5 @@
 @props(['post'])
-<article class="p-6 bg-gray-200 rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
+<article class="p-6 bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class=" px-4 pb-4">
         <a wire:navigate href="{{ route('news.show', $post->slug)}}">
             <img class=" top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
