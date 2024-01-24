@@ -1,7 +1,7 @@
 @props(['post', 'related'])
 
 
-<div class="grid grid-cols-1 sm:grid-cols-4 bg-white dark:bg-gray-900 px-4 md:px-8">
+<div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-300 dark:bg-gray-900 px-4 md:px-8">
     <div class="col-span-3">
         <main class="pt-20 antialiased">
 
@@ -41,7 +41,7 @@
 
     <!-- right -->
     <div class="col-span-1 ">
-        <main class="sm:pt-20 pb-10 bg-white dark:bg-gray-900 antialiased">
+        <main class="sm:pt-20 pb-10 bg-gray-300 dark:bg-gray-900 antialiased">
             <div class="mt-10  max-w-screen-xl ">
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Related News

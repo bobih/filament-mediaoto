@@ -1,9 +1,9 @@
 @props(['posts','categories'])
-<section class="pt-20  mx-auto md:px-5 flex flex-grow bg-white dark:bg-gray-900">
+<section class="pt-20  mx-auto md:px-5 flex flex-grow bg-gray-300 dark:bg-gray-900">
     <div class="w-full max-w-screen-xl grid grid-cols-4 gap-4">
         <div class="pt-16 md:pt-4 md:col-span-3 col-span-4">
-            <div id="posts" class=" px-3 lg:px-7 ms:py-6">
-                <div class="sm:block -mt-4 py-4 px-4 bg-white dark:bg-gray-900 top-20 start-0 z-30 w-full fixed md:hidden">
+            <div id="posts" class="mb-4 px-3 lg:px-7 ms:py-6">
+                <div class="sm:block -mt-4 py-4 px-4 bg-gray-300 dark:bg-gray-900 top-20 start-0 z-30 w-full fixed md:hidden">
                     <livewire:search-box />
                 </div>
                 <div class="grid grid-cols-1 gap-4 md:mb-10">
@@ -28,7 +28,7 @@
                             href="{{route('news.index',['category'=>$category->slug])}}"
                             :category='$category'
                             bgColor="{{$category->bg_color}}"
-                            textColor="{{$category->text_color}}" >
+                            txtColor="{{$category->text_color}}" >
                             {{$category->title}}
                         </x-news.news-badge>
                     @endforeach

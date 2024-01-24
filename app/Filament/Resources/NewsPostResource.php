@@ -50,9 +50,8 @@ class NewsPostResource extends Resource
                     TextArea::make('title')
                         ->required()
                         ->rows(3)
-                        ->maxLength(200)
+                        ->maxLength(250)
                         ->live(onBlur: true)
-                        ->maxLength(200)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             $set('slug', Str::slug($state));
                         }),
@@ -74,6 +73,12 @@ class NewsPostResource extends Resource
                     Forms\Components\Hidden::make('userid')
                         ->default(function (mixed $state) {
                             return auth()->user()->id;
+                        }),
+
+                    Forms\Components\Hidden::make('source')
+                        ->dehydrated(fn ($state) => filled($state))
+                        ->default(function (mixed $state) {
+                            return 'Mediaoto';
                         }),
                     //SpatieTagsInput::make('tags')
                     //    ->type('categories'),
@@ -97,8 +102,8 @@ class NewsPostResource extends Resource
                     TextArea::make('description')
                         ->label('Short description')
                         ->rows(4)
-                        ->minLength(2)
-                        ->maxLength(200)
+                        ->minLength(50)
+                        ->maxLength(250)
                         ->required(),
 
                     RichEditor::make('content')

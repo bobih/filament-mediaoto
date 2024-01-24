@@ -51,7 +51,10 @@ class NewsCategoryResource extends Resource
 
               //TextInput::make('text_color')->nullable(),
               //TextInput::make('bg_color')->nullable(),
+              ColorPicker::make('text_color')
+              ->label('Text Color'),
               ColorPicker::make('bg_color')
+              ->label('Background Color'),
 
             ]);
     }
@@ -67,8 +70,11 @@ class NewsCategoryResource extends Resource
                 ->label('URL'),
                 //TextColumn::make('text_color'),
                 //TextColumn::make('bg_color'),
+                ColorColumn::make('text_color')
+                ->label('Text'),
                 ColorColumn::make('bg_color')
-                ->label('Color'),
+                ->label('Background'),
+
             ])
             ->filters([
                 //

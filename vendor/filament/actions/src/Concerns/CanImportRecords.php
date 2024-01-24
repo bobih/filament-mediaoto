@@ -19,6 +19,7 @@ use Filament\Support\ChunkIterator;
 use Filament\Support\Facades\FilamentIcon;
 use Filament\Tables\Actions\Action as TableAction;
 use Filament\Tables\Actions\ImportAction as ImportTableAction;
+use Illuminate\Bus\PendingBatch;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Filesystem\AwsS3V3Adapter;
@@ -73,7 +74,7 @@ trait CanImportRecords
             FileUpload::make('file')
                 ->label(__('filament-actions::import.modal.form.file.label'))
                 ->placeholder(__('filament-actions::import.modal.form.file.placeholder'))
-                ->acceptedFileTypes(['text/csv', 'text/plain'])
+                ->acceptedFileTypes(['text/csv', 'text/x-csv', 'application/csv', 'application/x-csv', 'text/comma-separated-values', 'text/x-comma-separated-values', 'text/plain'])
                 ->afterStateUpdated(function (Forms\Set $set, ?TemporaryUploadedFile $state) use ($action) {
                     if (! $state instanceof TemporaryUploadedFile) {
                         return;
@@ -213,13 +214,26 @@ trait CanImportRecords
             $importJobs = collect($importChunks)
                 ->map(fn (array $importChunk): object => new ($job)(
                     $import,
-                    rows: $importChunk,
+                    rows: base64_encode(serialize($importChunk)),
                     columnMap: $data['columnMap'],
                     options: $options,
                 ));
 
+            $importer = $import->getImporter(
+                columnMap: $data['columnMap'],
+                options: $options,
+            );
+
             Bus::batch($importJobs->all())
                 ->allowFailures()
+                ->when(
+                    filled($jobQueue = $importer->getJobQueue()),
+                    fn (PendingBatch $batch) => $batch->onQueue($jobQueue),
+                )
+                ->when(
+                    filled($jobConnection = $importer->getJobConnection()),
+                    fn (PendingBatch $batch) => $batch->onConnection($jobConnection),
+                )
                 ->finally(function () use ($import) {
                     $import->touch('completed_at');
 
@@ -252,7 +266,8 @@ trait CanImportRecords
                                         'count' => format_number($failedRowsCount),
                                     ]))
                                     ->color('danger')
-                                    ->url(route('filament.imports.failed-rows.download', ['import' => $import])),
+                                    ->url(route('filament.imports.failed-rows.download', ['import' => $import], absolute: false), shouldOpenInNewTab: true)
+                                    ->markAsRead(),
                             ]),
                         )
                         ->sendToDatabase($import->user);

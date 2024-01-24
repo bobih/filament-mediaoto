@@ -1,5 +1,5 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
-<section class="pt-20 pb-10 bg-white dark:bg-gray-900 md:pb-12">
+<section class="pt-20 pb-10 bg-gray-300 dark:bg-gray-900 md:pb-12">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">Close more deals with single page contact management</h1>

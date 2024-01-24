@@ -1,6 +1,7 @@
 @php
     use Filament\Support\Facades\FilamentView;
 
+    $color = $getColor() ?? 'primary';
     $hasInlineLabel = $hasInlineLabel();
     $id = $getId();
     $isDisabled = $isDisabled();
@@ -61,7 +62,7 @@
                 @foreach ($getSuggestions() as $suggestion)
                     <template
                         x-bind:key="@js($suggestion)"
-                        x-if="! state.includes(@js($suggestion))"
+                        x-if="! (state?.includes(@js($suggestion)) ?? true)"
                     >
                         <option value="{{ $suggestion }}" />
                     </template>
@@ -92,6 +93,7 @@
                                 class="hidden"
                             >
                                 <x-filament::badge
+                                    :color="$color"
                                     :x-bind:x-sortable-item="$isReorderable ? 'index' : null"
                                     :x-sortable-handle="$isReorderable ? '' : null"
                                     @class([

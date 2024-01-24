@@ -1,4 +1,4 @@
-<footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
+<footer class="p-4 bg-gray-300 sm:p-6 dark:bg-gray-800">
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
@@ -12,10 +12,16 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Android</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=id.mediaoto.apps" class="hover:underline">Android</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">IOS</a>
+                            <?php /*
+                            <p class="hover:underline">IOS</p> */ ?>
+                            <a class="relative inline-flex items-start pt-3 text-sm ">
+                                IOS
+                                <span class="sr-only">Notifications</span>
+                                  <div class="absolute inline-flex items-center justify-center w-10 h-5 text-xs font-bold text-white bg-red-500 rounded-full -top-0.5 -end-10">soon</div>
+                            </a>
                         </li>
                     </ul>
                 </div>

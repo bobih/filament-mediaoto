@@ -68,14 +68,14 @@ trait HasState
      * @param  array<string, mixed>  $state
      * @return array<string, mixed>
      */
-    public function dehydrateState(array &$state = []): array
+    public function dehydrateState(array &$state = [], bool $isDehydrated = true): array
     {
         foreach ($this->getComponents() as $component) {
             if ($component->isHidden()) {
                 continue;
             }
 
-            $component->dehydrateState($state);
+            $component->dehydrateState($state, $isDehydrated);
         }
 
         return $state;
@@ -166,7 +166,7 @@ trait HasState
     /**
      * @param  array<string, mixed> | null  $state
      */
-    public function fill(?array $state = null, bool $andCallHydrationHooks = true): static
+    public function fill(?array $state = null, bool $andCallHydrationHooks = true, bool $andFillStateWithNull = true): static
     {
         $hydratedDefaultState = null;
 
@@ -186,7 +186,9 @@ trait HasState
 
         $this->hydrateState($hydratedDefaultState, $andCallHydrationHooks);
 
-        $this->fillStateWithNull();
+        if ($andFillStateWithNull) {
+            $this->fillStateWithNull();
+        }
 
         return $this;
     }

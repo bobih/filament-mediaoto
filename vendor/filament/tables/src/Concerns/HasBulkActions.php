@@ -34,7 +34,7 @@ trait HasBulkActions
      */
     public ?array $mountedTableBulkActionData = [];
 
-    protected EloquentCollection $cachedSelectedTableRecords;
+    protected EloquentCollection | Collection $cachedSelectedTableRecords;
 
     protected function configureTableBulkAction(BulkAction $action): void
     {
@@ -210,8 +210,7 @@ trait HasBulkActions
 
     public function unmountTableBulkAction(bool $shouldCloseModal = true): void
     {
-        $this->mountedTableBulkAction = null;
-        $this->selectedTableRecords = [];
+        $this->resetMountedTableBulkActionProperties();
 
         if ($shouldCloseModal) {
             $this->closeTableBulkActionModal();
@@ -332,7 +331,7 @@ trait HasBulkActions
         return $this->getFilteredTableQuery()->count();
     }
 
-    public function getSelectedTableRecords(): EloquentCollection
+    public function getSelectedTableRecords(bool $shouldFetchSelectedRecords = true): EloquentCollection | Collection
     {
         if (isset($this->cachedSelectedTableRecords)) {
             return $this->cachedSelectedTableRecords;
@@ -340,20 +339,27 @@ trait HasBulkActions
 
         $table = $this->getTable();
 
-        if (! ($table->getRelationship() instanceof BelongsToMany && $table->allowsDuplicates())) {
+        if (
+            $shouldFetchSelectedRecords ||
+            (! ($table->getRelationship() instanceof BelongsToMany && $table->allowsDuplicates()))
+        ) {
             $query = $table->getQuery()->whereKey($this->selectedTableRecords);
             $this->applySortingToTableQuery($query);
 
-            foreach ($this->getTable()->getColumns() as $column) {
-                $column->applyEagerLoading($query);
-                $column->applyRelationshipAggregates($query);
+            if ($shouldFetchSelectedRecords) {
+                foreach ($this->getTable()->getColumns() as $column) {
+                    $column->applyEagerLoading($query);
+                    $column->applyRelationshipAggregates($query);
+                }
             }
 
             if ($table->shouldDeselectAllRecordsWhenFiltered()) {
                 $this->filterTableQuery($query);
             }
 
-            return $this->cachedSelectedTableRecords = $query->get();
+            return $this->cachedSelectedTableRecords = $shouldFetchSelectedRecords ?
+                $query->get() :
+                $query->pluck($query->getModel()->getQualifiedKeyName());
         }
 
         /** @var BelongsToMany $relationship */

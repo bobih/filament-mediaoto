@@ -1,5 +1,5 @@
 <div id="news" class="-mt-20 mb-20"></div>
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-gray-300 dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
 
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
@@ -7,9 +7,9 @@
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Get insight about News and Tips & Tricks.</p>
         </div>
 
-        <div class="mx-auto p-5 bg-gray-200 dark:bg-white/20 rounded-lg justify-center flex w-80 text-center  shadow-lg mb-10">
-            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700  shadow-lg" >News</button>
-            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tips & Tricks</button>
+        <div class="mx-auto p-5 bg-gray-200 dark:bg-gray-300/20 rounded-lg justify-center flex w-80 text-center  shadow-lg mb-10">
+            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700  shadow-lg" >News</button>
+            <button type="button" class="w-40 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-300 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tips & Tricks</button>
         </div>
 
         <!-- News Section -->
@@ -17,7 +17,7 @@
         <div class="grid gap-1 lg:grid-cols-1">
            @foreach ($posts as $post )
            <article
-           class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+           class="p-6 md:flex md:items-center bg-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
            <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; " >
                <a wire:navigate href="{{ route('news.show', $post->slug)}}">
                    <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg" src="{{$post->getThumbnailImage()}}" alt="Michael Avatar">

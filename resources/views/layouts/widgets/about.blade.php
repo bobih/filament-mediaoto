@@ -2,7 +2,7 @@
 <section class=" bg-[#172554] dark:bg-gray-700">
     <div class=" w-full absolute ">
         <div
-            class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-white/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
+            class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-300/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
             <a href="#">
                 <div
                     class="flex h-full  bg-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">

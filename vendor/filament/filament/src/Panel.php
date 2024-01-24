@@ -10,6 +10,7 @@ use Filament\Support\Facades\FilamentView;
 
 class Panel extends Component
 {
+    use Panel\Concerns\HasAssets;
     use Panel\Concerns\HasAuth;
     use Panel\Concerns\HasAvatars;
     use Panel\Concerns\HasBrandLogo;
@@ -36,6 +37,7 @@ class Panel extends Component
     use Panel\Concerns\HasTheme;
     use Panel\Concerns\HasTopbar;
     use Panel\Concerns\HasTopNavigation;
+    use Panel\Concerns\HasUnsavedChangesAlerts;
     use Panel\Concerns\HasUserMenu;
 
     protected bool $isDefault = false;
@@ -61,10 +63,16 @@ class Panel extends Component
     {
         $this->registerLivewireComponents();
         $this->registerLivewirePersistentMiddleware();
+
+        if (app()->runningInConsole()) {
+            $this->registerAssets();
+        }
     }
 
     public function boot(): void
     {
+        $this->registerAssets();
+
         FilamentColor::register($this->getColors());
 
         FilamentIcon::register($this->getIcons());
