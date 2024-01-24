@@ -49,13 +49,16 @@ class NewsPostResource extends Resource
                 Section::make('Main')->schema([
                     TextArea::make('title')
                         ->required()
+                        ->rows(3)
+                        ->maxLength(200)
                         ->live(onBlur: true)
                         ->maxLength(200)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             $set('slug', Str::slug($state));
                         }),
                     TextArea::make('slug')
-                        ->required()
+                        ->label('URL')
+                        ->rows(3)
                         ->unique(ignoreRecord: true)
                         ->readOnly(),
 
@@ -93,10 +96,14 @@ class NewsPostResource extends Resource
 
                     TextArea::make('description')
                         ->label('Short description')
+                        ->rows(4)
+                        ->minLength(2)
+                        ->maxLength(200)
                         ->required(),
 
                     RichEditor::make('content')
                         ->required()
+                        ->minLength(2)
                         ->fileAttachmentsDirectory('posts/images')
                         ->columnSpanFull(),
 

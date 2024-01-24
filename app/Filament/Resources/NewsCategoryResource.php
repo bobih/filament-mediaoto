@@ -12,7 +12,9 @@ use App\Models\NewsCategory;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ColorColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\ColorPicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\NewsCategoryResource\Pages;
 use Filament\Tables\Columns\TextColumn\TextColumnSize;
@@ -34,16 +36,23 @@ class NewsCategoryResource extends Resource
         return $form
             ->schema([
               TextInput::make('title')->required()->maxLength(150)
-              ->live(debounce: 600)
+              ->live(onBlur: true)
               ->afterStateUpdated(function (string $operation, $state, Set $set){
                 if($operation === 'edit'){
                     return;
                 }
                 $set('slug', Str::slug($state));
               }),
-              TextInput::make('slug')->required()->unique(ignoreRecord:true),
-              TextInput::make('text_color')->nullable(),
-              TextInput::make('bg_color')->nullable(),
+              TextInput::make('slug')
+                ->label('URL')
+                ->required()
+                ->unique(ignoreRecord:true)
+                ->readOnly(),
+
+              //TextInput::make('text_color')->nullable(),
+              //TextInput::make('bg_color')->nullable(),
+              ColorPicker::make('bg_color')
+
             ]);
     }
 
@@ -52,10 +61,14 @@ class NewsCategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id'),
-                TextColumn::make('title'),
-                TextColumn::make('slug'),
-                TextColumn::make('text_color'),
-                TextColumn::make('bg_color'),
+                TextColumn::make('title')
+                ->label('Category'),
+                TextColumn::make('slug')
+                ->label('URL'),
+                //TextColumn::make('text_color'),
+                //TextColumn::make('bg_color'),
+                ColorColumn::make('bg_color')
+                ->label('Color'),
             ])
             ->filters([
                 //
