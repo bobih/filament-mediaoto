@@ -3,15 +3,15 @@
     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
         <a wire:navigate href="{{ route('news.show', $post->slug) }}">
-            <img class="absolute top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
+            <img class="absolute drop-shadow-lg top-0 left-0 right-0 bottom-0 h-full  w-full object-fit rounded-lg"
                 src="{{ $post->getThumbnailImage() }}" alt="{{ $post->slug }}">
         </a>
     </div>
     <div class="md:px-4 lg:px-8 w-full">
         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
-            <span class="text-sm">{{ $post->source }} |
+            <span class="text-sm">{{ Str::upper($post->source) }} |
                 {{ $post->published_at->diffForHumans() }}</span>
-            <span class="text-sm">{{ $post->getReadingTime() }} min read</span>
+            <span class="text-sm">{{ round($post->getReadingTime(),1) }} min read</span>
         </div>
 
         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
