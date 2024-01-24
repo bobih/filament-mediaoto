@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
@@ -31,7 +33,7 @@ class NewsPost extends Model implements HasMedia
         'userid',
         'source',
         'image',
-        'name',
+        'title',
         'slug',
         'description',
         'content',
@@ -41,6 +43,14 @@ class NewsPost extends Model implements HasMedia
         'updated_at',
     ];
 
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Manipulations::FIT_CROP, 300, 300)
+            ->nonQueued();
+    }
+
 
     protected $casts = [
         'published_at' => 'datetime',
@@ -48,7 +58,7 @@ class NewsPost extends Model implements HasMedia
     ];
 
 
-    public function author() : BelongsTo
+    public function author(): BelongsTo
     {
         return $this->belongsTo(
             related: User::class,
@@ -60,37 +70,44 @@ class NewsPost extends Model implements HasMedia
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(
-            NewsCategory::class,'news_category_post');
+            NewsCategory::class,
+            'news_category_post'
+        );
     }
 
-    public function scopePublished($query){
+    public function scopePublished($query)
+    {
 
-        $query->where('published_at','<=', Carbon::now());
+        $query->where('published_at', '<=', Carbon::now());
     }
 
 
-    public function scopeFeatured($query){
+    public function scopeFeatured($query)
+    {
 
         $query->where('featured', true);
-
     }
 
-    public function getReadingTime(){
+    public function getReadingTime()
+    {
         $mins = str_word_count($this->content) / 250;
-        return ($mins < 1) ? 1 : $mins ;
+        return ($mins < 1) ? 1 : $mins;
     }
 
-    public function getExcerpt(){
+    public function getExcerpt()
+    {
         return Str::limit(strip_tags($this->content), 150, '...');
     }
 
-    public function getThumbnailImage(){
+    public function getThumbnailImage()
+    {
         $isUrl = str_contains($this->image, 'http');
-    return ($isUrl)? $this->image : Storage::url($this->image);
+        return ($isUrl) ? $this->image : $this->getFirstMediaUrl();
     }
 
-    public function scopeWithCategory($query, string $category){
-        $query->whereHas('categories', function($query) use ($category){
+    public function scopeWithCategory($query, string $category)
+    {
+        $query->whereHas('categories', function ($query) use ($category) {
             $query->where('slug', $category);
         });
     }

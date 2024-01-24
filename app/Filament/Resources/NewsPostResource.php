@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -22,6 +23,7 @@ use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Forms\Components\SpatieTagsInput;
 use App\Filament\Resources\NewsPostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\NewsPostResource\RelationManagers;
 
@@ -38,40 +40,65 @@ class NewsPostResource extends Resource
     protected static ?string $navigationLabel = 'Post';
     protected static ?string $title = 'Post';
 
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
 
                 Section::make('Main')->schema([
-                    TextInput::make('title')->required()->maxLength(200)
+                    TextArea::make('title')
+                        ->required()
+                        ->live(onBlur: true)
+                        ->maxLength(200)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
-                            if ($operation === 'edit') {
-                                return;
-                            }
                             $set('slug', Str::slug($state));
                         }),
-                    TextInput::make('slug')->required()->unique(ignoreRecord: true),
+                    TextArea::make('slug')
+                        ->required()
+                        ->unique(ignoreRecord: true)
+                        ->readOnly(),
 
                     Select::make('categories')
-                    ->multiple()
-                    ->relationship('categories', 'title'),
+                        ->multiple()
+                        ->relationship('categories', 'title')
+                        ->required()
+                        ->preload(),
 
-                    //SpatieTagsInput::make('tags')
-                    //    ->type('categories'),
-
-                        RichEditor::make('content')->required()->fileAttachmentsDirectory('posts/images')
-                    ->columnSpanFull(),
-                ])->columns(1),
-                Section::make('Meta')->schema([
-                    //FileUpload::make('image')->directory('posts/thumbnails')->columnSpanFull(),
 
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
                     Forms\Components\Hidden::make('userid')
-                    ->default(function (mixed $state) {
-                        return auth()->user()->id;
-                    }),
+                        ->default(function (mixed $state) {
+                            return auth()->user()->id;
+                        }),
+                    //SpatieTagsInput::make('tags')
+                    //    ->type('categories'),
+
+
+                ])->columns(2),
+
+                Section::make('Meta')->schema([
+
+                    /*
+                    FileUpload::make('image')
+                        ->directory('posts/thumbnails')
+                        ->dehydrated(fn ($state) => filled($state))
+                        ->columnSpanFull(),
+                    */
+
+                    SpatieMediaLibraryFileUpload::make('image')
+                    ->responsiveImages()
+                    ->conversion('thumb'),
+
+                    TextArea::make('description')
+                        ->label('Short description')
+                        ->required(),
+
+                    RichEditor::make('content')
+                        ->required()
+                        ->fileAttachmentsDirectory('posts/images')
+                        ->columnSpanFull(),
 
                 ])->columns(1)
 
@@ -83,12 +110,17 @@ class NewsPostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->label('ID'),
+                    ->label('ID'),
 
 
 
                 Tables\Columns\ImageColumn::make('image')
-                ->label('image'),
+                    ->label('image')
+                    ->defaultImageUrl(function($record){
+                        return url($record->getThumbnailImage());
+                    }),
+
+                  //  SpatieMediaLibraryImageColumn::make('image'),
 
                 //SpatieTagsColumn::make('tags'),
 
@@ -96,20 +128,20 @@ class NewsPostResource extends Resource
                 //->label('Source'),
 
                 Tables\Columns\TextColumn::make('title')
-                ->label('Title')
-                ->limit(30),
+                    ->label('Title')
+                    ->limit(30),
 
                 Tables\Columns\TextColumn::make('')
-                ->label('Words')
-                ->default(function(NewsPost $record){
-                    return strlen(strip_tags($record->content));
-                }),
+                    ->label('Words')
+                    ->default(function (NewsPost $record) {
+                        return strlen(strip_tags($record->content));
+                    }),
                 Tables\Columns\TextColumn::make('published_at')
-                ->label('Tanggal'),
+                    ->label('Tanggal'),
 
             ])
             ->filters([
-               // Tables\Filters\TrashedFilter::make(),
+                // Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -142,9 +174,14 @@ class NewsPostResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
+        /*
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+            */
+
+
+        return parent::getEloquentQuery()->orderBy('id', 'desc');
     }
 }
