@@ -23,10 +23,20 @@
 
                         {!! $post->content !!}
                     </div>
+                    @if ($category = $post->categories()->first())
+                    @foreach ($post->categories as $category)
+                        <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
+                            :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
+                            {{ $category->title }}
+                        </x-news.news-badge>
+                    @endforeach
+                @endif
                     </section>
                 </article>
             </div>
         </main>
+        <?php /*
+        <!-- Author -->
         <address class="pt-10 md:pb-20 mx-auto w-full max-w-2xl">
             <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                 <img class="mr-4 w-16 h-16 rounded-full" src="https://www.mediaoto.id/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
@@ -37,6 +47,8 @@
                 </div>
             </div>
         </address>
+
+        */ ?>
     </div>
 
     <!-- right -->
