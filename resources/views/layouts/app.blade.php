@@ -9,16 +9,28 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ isset($title)? $title . ' - ' : ''  }} {{ config('app.name', '') }}</title>
+    <meta name="description" content="Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional" itemprop="description" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="googlebot-news" content="index, follow" />
+    <meta content="Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional" itemprop="headline" />
+    <meta name="keywords" content="berita hari ini, berita terkini, berita terbaru, info berita, peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, liputan khusus, Indonesia, Internasional" itemprop="keywords" />
 
-    <!-- Fonts -->
+    <link rel="canonical" href="https://www.detik.com" />
+    <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
+
+
     <?php /*
+    <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     */
     ?>
 
+<?php /*
     <!-- Flowibte -->
-    <?php /* // Required for Modal
+    // Required for Modal
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
      */
     ?>
@@ -48,30 +60,6 @@
     gtag('config', 'G-310Q1596DC');
     </script>
 
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
-      authDomain: "mediaoto-b3ac5.firebaseapp.com",
-      projectId: "mediaoto-b3ac5",
-      storageBucket: "mediaoto-b3ac5.appspot.com",
-      messagingSenderId: "676189219899",
-      appId: "1:676189219899:web:0deaa956dfaafb4eb0001e",
-      measurementId: "G-Q7LP278P3T"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
