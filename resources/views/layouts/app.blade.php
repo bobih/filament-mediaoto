@@ -105,7 +105,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
      crossorigin="anonymous"></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
 
