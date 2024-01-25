@@ -130,6 +130,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Spatie\\Image\\' => 13,
             'Spatie\\ImageOptimizer\\' => 22,
             'Spatie\\Ignition\\' => 16,
+            'Spatie\\GoogleTagManager\\' => 24,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\EloquentSortable\\' => 24,
             'Spatie\\Color\\' => 13,
@@ -546,6 +547,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\Ignition\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/ignition/src',
+        ),
+        'Spatie\\GoogleTagManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -10386,6 +10391,13 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\FlareClient\\Truncation\\TrimStringsStrategy' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Truncation/TrimStringsStrategy.php',
         'Spatie\\FlareClient\\Truncation\\TruncationStrategy' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Truncation/TruncationStrategy.php',
         'Spatie\\FlareClient\\View' => __DIR__ . '/..' . '/spatie/flare-client-php/src/View.php',
+        'Spatie\\GoogleTagManager\\DataLayer' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/DataLayer.php',
+        'Spatie\\GoogleTagManager\\Exceptions\\ApiKeyNotSetException' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/Exceptions/ApiKeyNotSetException.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManager' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManager.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerFacade' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerFacade.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerMiddleware' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerMiddleware.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerServiceProvider.php',
+        'Spatie\\GoogleTagManager\\ScriptViewCreator' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/ScriptViewCreator.php',
         'Spatie\\Ignition\\Config\\FileConfigManager' => __DIR__ . '/..' . '/spatie/ignition/src/Config/FileConfigManager.php',
         'Spatie\\Ignition\\Config\\IgnitionConfig' => __DIR__ . '/..' . '/spatie/ignition/src/Config/IgnitionConfig.php',
         'Spatie\\Ignition\\Contracts\\BaseSolution' => __DIR__ . '/..' . '/spatie/ignition/src/Contracts/BaseSolution.php',

@@ -25,6 +25,7 @@
     <link rel="canonical" href="https://www.mediaoto.id" />
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 
+    @include('googletagmanager::head')
 
     <?php /*
     <!-- Fonts -->
@@ -44,26 +45,60 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
+
+    <?php /*
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
     <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q7LP278P3T');
     </script>
-
-
+    */ ?>
 
 
     <!-- Google tag (gtag.js) -->
+    <?php /*
+    @assets
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-310Q1596DC"></script>
+    @endassets
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-310Q1596DC');
     </script>
+    */ ?>
 
 
     <!-- Google Tag Manager -->
+    <?php /*
     <script>
-
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KPMBPSR6');
     </script>
     <!-- End Google Tag Manager -->
+    */ ?>
 
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
@@ -82,10 +117,15 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-gray-700">
+    @include('googletagmanager::body')
+    <?php /*
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPMBPSR6" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    */ ?>
+
     <x-banner />
 
     @yield('header')

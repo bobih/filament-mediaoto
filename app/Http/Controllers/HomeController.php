@@ -1,16 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\NewsPost;
+
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Spatie\Analytics\Facades\Analytics;
+use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
+
+
 
 class HomeController extends Controller
 {
+
+
+
     /**
      * Handle the incoming request.
      */
@@ -26,6 +32,8 @@ class HomeController extends Controller
 
         //Log::info('Loading Home.');
 
+        GoogleTagManager::set('pageType', 'home');
+
         return view('home',[
             "posts" => $response
         ]);
@@ -33,6 +41,7 @@ class HomeController extends Controller
 
     public function policy(Request $request)
     {
+        GoogleTagManager::set('pageType', 'policy');
         return view('policy');
 
     }

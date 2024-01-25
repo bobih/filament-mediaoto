@@ -15,6 +15,7 @@ use LivewireUI\Modal\ModalComponent;
 use Filament\Support\Enums\Alignment;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\VerticalAlignment;
+use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 use Filament\Notifications\Livewire\Notifications;
 
 class ContactUs extends ModalComponent
@@ -83,6 +84,7 @@ class ContactUs extends ModalComponent
             'notes' => $this->note,
         ]);
 
+        GoogleTagManager::flash('formContact', 'success');
 
         $this->reset(['name', 'email','phone', 'note']);
 

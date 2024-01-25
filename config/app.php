@@ -179,6 +179,9 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         //Spatie\Tags\TagsServiceProvider::class,
+
+        Spatie\GoogleTagManager\GoogleTagManagerServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -194,6 +197,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
     ])->toArray(),
 
 ];

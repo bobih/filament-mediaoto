@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NewsCategory;
 use App\Models\NewsPost;
-
 use Illuminate\Support\Str;
+
+use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
 class NewsPostController extends Controller
 {
     public function index(){
+
+        GoogleTagManager::set('pageType', 'news');
 
         $response = NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
         $latest = NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
@@ -28,6 +31,7 @@ class NewsPostController extends Controller
 
     public function show(NewsPost $news){
 
+        GoogleTagManager::set('pageType', 'news-detail');
         $related = NewsPost::inRandomOrder()->take(3)->get();
         return view('news.show',[
             "post" => $news,

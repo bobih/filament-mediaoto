@@ -62,6 +62,7 @@ return array(
     'Spatie\\Image\\' => array($vendorDir . '/spatie/image/src'),
     'Spatie\\ImageOptimizer\\' => array($vendorDir . '/spatie/image-optimizer/src'),
     'Spatie\\Ignition\\' => array($vendorDir . '/spatie/ignition/src'),
+    'Spatie\\GoogleTagManager\\' => array($vendorDir . '/spatie/laravel-googletagmanager/src'),
     'Spatie\\FlareClient\\' => array($vendorDir . '/spatie/flare-client-php/src'),
     'Spatie\\EloquentSortable\\' => array($vendorDir . '/spatie/eloquent-sortable/src'),
     'Spatie\\Color\\' => array($vendorDir . '/spatie/color/src'),
