@@ -1,7 +1,7 @@
 <header>
     <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a wire:navigate  href="{{ route('home') }}" class="flex items-center">
+            <a wire:navigate href="{{ route('home') }}" class="flex items-center">
                 <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                 <x-application-logo />
                 <span
@@ -33,7 +33,8 @@
                         class="hidden md:block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search...">
                 </div>
-                */ ?>
+                */
+                ?>
                 <div class="md:px-5">
                     <button id="theme-toggle" type="button"
                         class="text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
@@ -60,11 +61,11 @@
                             d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                */ ?>
-
-                <button id="btnlink2"  type="button"
+                */
+                ?>
+                <button id="btnlink2" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                     aria-expanded="false">
+                    aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 17 14">
@@ -72,9 +73,9 @@
                             d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-
             </div>
-            <div class="items-center justify-between hidden z-50 w-full md:flex md:w-auto md:order-1" id="navbar-search">
+            <div class="items-center justify-between hidden z-50 w-full md:flex md:w-auto md:order-1"
+                id="navbar-search">
                 <?php /*
                 <div class="relative mt-3 md:hidden">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -88,23 +89,24 @@
                         class="md:hidden block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search...">
                 </div>
-                */ ?>
+                */
+                ?>
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-400 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800">
                     <li>
-                        <a wire:navigate  href="/#" rel="noopener" target="_self"
+                        <a wire:navigate href="/#" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a  href="/#aboutus" rel="noopener" target="_self"
+                        <a href="/#aboutus" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             About Us
                         </a>
                     </li>
                     <li>
-                        <a  href="/#products" rel="noopener" target="_self"
+                        <a href="/#products" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Products
                         </a>
@@ -121,11 +123,13 @@
                             Pricing
                         </a>
                     <li>
-                        <a href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')" class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact Us</a>
+                        <a href="javascript:void(0)" rel="noopener" target="_self" x-data
+                            x-on:click="$dispatch('open-modal')"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
+                            Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 </header>

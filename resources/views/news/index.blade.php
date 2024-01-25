@@ -1,4 +1,4 @@
-<x-app-layout title="News">
+<x-app-layout title="News" description="News - Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional">
     @section('header')
         @include('layouts.widgets.header')
     @endsection
