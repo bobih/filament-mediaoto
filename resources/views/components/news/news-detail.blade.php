@@ -23,18 +23,18 @@
                             class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
                             {{ $post->title }}</h1>
                     </header>
-                    <div class="dark:text-gray-400 md:mb-10">
+                    <div class="dark:text-gray-400 mb-10 md:mb-10">
 
                         {!! $post->content !!}
                     </div>
                     @if ($category = $post->categories->first())
-                    @foreach ($post->categories as $category)
-                        <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
-                            :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
-                            {{ $category->title }}
-                        </x-news.news-badge>
-                    @endforeach
-                @endif
+                        @foreach ($post->categories as $category)
+                            <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
+                                :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
+                                {{ $category->title }}
+                            </x-news.news-badge>
+                        @endforeach
+                    @endif
                     </section>
                 </article>
             </div>
@@ -68,6 +68,22 @@
                     @foreach ($related as $post )
                         <x-news.news-card :post="$post" />
                     @endforeach
+                </div>
+
+                <div id="mobileads" class="md:hidden">
+                    <div id="mobilegads" class="pt-10">
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
+                            crossorigin="anonymous"></script>
+                        <ins class="adsbygoogle"
+                            style="display:block; text-align:center;"
+                            data-ad-layout="in-article"
+                            data-ad-format="fluid"
+                            data-ad-client="ca-pub-1433601050494794"
+                            data-ad-slot="1216361206"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                 </div>
             </div>
         </main>
