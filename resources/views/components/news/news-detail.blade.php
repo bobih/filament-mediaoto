@@ -69,10 +69,7 @@
                         <x-news.news-card :post="$post" />
                     @endforeach
                 </div>
-
             </div>
         </main>
-
-
     </div>
 </div>

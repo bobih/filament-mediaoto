@@ -101,6 +101,13 @@ class UserResource extends Resource
                                     ->preload()
                                     ->required(),
 
+                                Forms\Components\Select::make('showroom')
+                                    ->label('Showroom')
+                                    ->relationship('showrooms', 'showroom')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required(),
+
                                 /*
                                 Forms\Components\Select::make('acctype')
                                     ->label('Paket')
@@ -167,12 +174,7 @@ class UserResource extends Resource
                                 Forms\Components\Textarea::make('alamat')
                                     ->label('Alamat'),
 
-                                Forms\Components\Select::make('showroom')
-                                    ->label('Showroom')
-                                    ->relationship('showrooms', 'showroom')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
+
 
 
 
