@@ -2,17 +2,20 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Validate;
-
 use App\Models\Contact;
+
 use Livewire\Component;
 use App\Mail\WelcomeMail;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use LivewireUI\Modal\ModalComponent;
+use Filament\Support\Enums\Alignment;
 use Filament\Notifications\Notification;
+use Filament\Support\Enums\VerticalAlignment;
+use Filament\Notifications\Livewire\Notifications;
 
 class ContactUs extends ModalComponent
 {
@@ -101,11 +104,15 @@ class ContactUs extends ModalComponent
             ->warning()
             ->send();
         }
-        */
 
+        We appreciate you contacting us/ [Your Company]. One of our colleagues will get back in touch with you soon!Have a great day!
+        */
+        //Notifications::alignment(Alignment::Center);
+        //Notifications::verticalAlignment(VerticalAlignment::Center);
         Notification::make()
-            ->title('Saved successfully')
+            ->title('We appreciate you contacting us')
             ->success()
+            ->body('Out Team will get back in touch with you soon! Have a great day!')
             ->iconColor('success')
             ->send();
 
