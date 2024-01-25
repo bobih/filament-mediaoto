@@ -52,8 +52,11 @@ class NewsCategoryResource extends Resource
               //TextInput::make('text_color')->nullable(),
               //TextInput::make('bg_color')->nullable(),
               ColorPicker::make('text_color')
+              ->required()
               ->label('Text Color'),
+
               ColorPicker::make('bg_color')
+              ->required()
               ->label('Background Color'),
 
             ]);

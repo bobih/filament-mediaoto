@@ -581,11 +581,8 @@
                         <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>
                                 Anda berhak setiap saat untuk meminta kami membatasi pemrosesan dan penggunaan data pribadi
-                                Anda. Permintaan tertulis Anda harus ditujukan kepada Pejabat Kepatuhan kami di
-                                <a
-                                    href="https://www.mediaoto.id/cdn-cgi/l/email-protection#fb9888d5989a89968e9f92bb92989a899a88929ad5989496"><span class="text-left"
-                                        class="__cf_email__"
-                                        data-cfemail="670414490406150a12030e270e04061506140e064904080a">[email&nbsp;protected]</span></a>
+                                Anda. Permintaan tertulis Anda harus ditujukan kepada Pejabat Kepatuhan kami di kolom Contact
+
                             </p>
                       </div>
                       </div>
