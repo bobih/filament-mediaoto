@@ -9,7 +9,7 @@
                 <div class="grid grid-cols-1 gap-4 md:mb-10">
                     <livewire:news-list />
                 </div>
-                <div id="gads-display" class="pt-10">
+                <div id="gads-display" class="pt-10 hidden md:block">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
                     <!-- Ads Display -->
@@ -45,7 +45,7 @@
                         </x-news.news-badge>
                     @endforeach
                 </div>
-                <div id="gads" class="pt-10">
+                <div id="gads" class="pt-10 hidden md:block">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
                     <ins class="adsbygoogle"
