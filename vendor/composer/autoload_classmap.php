@@ -9218,6 +9218,8 @@ return array(
     'Spatie\\Color\\Rgba' => $vendorDir . '/spatie/color/src/Rgba.php',
     'Spatie\\Color\\Validate' => $vendorDir . '/spatie/color/src/Validate.php',
     'Spatie\\Color\\Xyz' => $vendorDir . '/spatie/color/src/Xyz.php',
+    'Spatie\\CookieConsent\\CookieConsentMiddleware' => $vendorDir . '/spatie/laravel-cookie-consent/src/CookieConsentMiddleware.php',
+    'Spatie\\CookieConsent\\CookieConsentServiceProvider' => $vendorDir . '/spatie/laravel-cookie-consent/src/CookieConsentServiceProvider.php',
     'Spatie\\EloquentSortable\\EloquentSortableServiceProvider' => $vendorDir . '/spatie/eloquent-sortable/src/EloquentSortableServiceProvider.php',
     'Spatie\\EloquentSortable\\Sortable' => $vendorDir . '/spatie/eloquent-sortable/src/Sortable.php',
     'Spatie\\EloquentSortable\\SortableTrait' => $vendorDir . '/spatie/eloquent-sortable/src/SortableTrait.php',

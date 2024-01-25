@@ -133,6 +133,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Spatie\\GoogleTagManager\\' => 24,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\EloquentSortable\\' => 24,
+            'Spatie\\CookieConsent\\' => 21,
             'Spatie\\Color\\' => 13,
             'Spatie\\Backtrace\\' => 17,
             'Spatie\\Analytics\\' => 17,
@@ -559,6 +560,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\EloquentSortable\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/eloquent-sortable/src',
+        ),
+        'Spatie\\CookieConsent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src',
         ),
         'Spatie\\Color\\' => 
         array (
@@ -10346,6 +10351,8 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\Color\\Rgba' => __DIR__ . '/..' . '/spatie/color/src/Rgba.php',
         'Spatie\\Color\\Validate' => __DIR__ . '/..' . '/spatie/color/src/Validate.php',
         'Spatie\\Color\\Xyz' => __DIR__ . '/..' . '/spatie/color/src/Xyz.php',
+        'Spatie\\CookieConsent\\CookieConsentMiddleware' => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src/CookieConsentMiddleware.php',
+        'Spatie\\CookieConsent\\CookieConsentServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src/CookieConsentServiceProvider.php',
         'Spatie\\EloquentSortable\\EloquentSortableServiceProvider' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/EloquentSortableServiceProvider.php',
         'Spatie\\EloquentSortable\\Sortable' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/Sortable.php',
         'Spatie\\EloquentSortable\\SortableTrait' => __DIR__ . '/..' . '/spatie/eloquent-sortable/src/SortableTrait.php',

@@ -31,6 +31,7 @@
         "pxlrbt/filament-excel": "^2.2",
         "railsware/mailtrap-php": "^1.7",
         "ryangjchandler/filament-progress-column": "^0.4.1",
+        "spatie/laravel-cookie-consent": "^3.2",
         "spatie/laravel-googletagmanager": "^2.6",
         "spatie/laravel-medialibrary": "^10.0.0",
         "symfony/http-client": "^6.4",
