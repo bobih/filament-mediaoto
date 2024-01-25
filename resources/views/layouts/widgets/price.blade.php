@@ -7,11 +7,11 @@
                 where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <!-- Pricing Card -->
             <div
                 class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Silver</h3>
-                <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your
+                <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for
+                    your
                     next project.</p>
                 <div class="flex justify-center items-baseline my-8">
                     <span class="mr-2 text-3xl font-bold">Rp. 350.000</span>
@@ -40,10 +40,10 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'silver' }})"
+                <a href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
-                </button>
+                </a>
             </div>
             <!-- Pricing Card -->
             <div
@@ -59,7 +59,6 @@
                 <!-- List -->
                 <ul role="list" class="mb-8 space-y-4 text-left">
                     <li class="flex items-center space-x-3">
-                        <!-- Icon -->
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -68,9 +67,7 @@
                         </svg>
                         <span>70 Leads Membership</span>
                     </li>
-
                     <li class="flex items-center space-x-3">
-                        <!-- Icon -->
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -80,12 +77,11 @@
                         <span>Premium support: <span class="font-semibold">3 Bulan</span></span>
                     </li>
                 </ul>
-                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'gold' }})"
+                <a href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
-                </button>
+                </a>
             </div>
-            <!-- Pricing Card -->
             <div
                 class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Diamond</h3>
@@ -94,12 +90,9 @@
                     next project.</p>
                 <div class="flex justify-center items-baseline my-8">
                     <span class="mr-2 text-3xl font-bold">Rp. 1.000.000</span>
-
                 </div>
-                <!-- List -->
                 <ul role="list" class="mb-8 space-y-4 text-left">
                     <li class="flex items-center space-x-3">
-                        <!-- Icon -->
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -108,9 +101,7 @@
                         </svg>
                         <span>100 Leads Membership</span>
                     </li>
-
                     <li class="flex items-center space-x-3">
-                        <!-- Icon -->
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -120,12 +111,13 @@
                         <span>Premium support: <span class="font-semibold">6 Bulan</span></span>
                     </li>
                 </ul>
-                <button onclick="Livewire.dispatch('openModal', { component: 'contact-us',arguments: { menuevent: 'diamond' }})"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    Get Started
-                </button>
-            </div>
 
+                    <a href="javascript:void(0)" rel="noopener" target="_self" x-data={} x-on:click="$dispatch('open-modal')"
+                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                        Get Started
+                    </a>
+
+            </div>
         </div>
     </div>
 </section>

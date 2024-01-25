@@ -26,9 +26,13 @@ class ContactUs extends ModalComponent
     //#[Rule('required')]
     public $note = '';
 
+
+    public $phone = '';
+
     public $eventName = '';
 
     public $modalid = '';
+    public $pagename = '';
 
     public $captcha = 0;
 
@@ -72,11 +76,12 @@ class ContactUs extends ModalComponent
         Contact::create([
             'name' => $this->name,
             'email' => $this->email,
+            'phone' => $this->phone,
             'notes' => $this->note,
         ]);
 
 
-        $this->reset(['name', 'email', 'note']);
+        $this->reset(['name', 'email','phone', 'note']);
 
 
         // Sent Email
@@ -115,8 +120,17 @@ class ContactUs extends ModalComponent
         $this->modalid = $modalid;
     }
 
+
     public function render()
     {
         return view('livewire.contact-us');
     }
+
+    public function setPage(){
+        dd($this);
+    }
+
+
+
+
 }

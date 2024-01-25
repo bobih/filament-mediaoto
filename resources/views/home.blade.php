@@ -10,9 +10,11 @@
         @include('layouts.widgets.news')
         @include('layouts.widgets.price')
     @endsection
+
     <x-custom-modal>
         @slot('body')
             @livewire('contact-us')
         @endslot
     </x-custom-modal>
+
 </x-app-layout>
