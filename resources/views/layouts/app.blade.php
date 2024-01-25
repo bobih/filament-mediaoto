@@ -145,7 +145,7 @@
     @livewire('notifications')
     @filamentScripts
     @livewireScripts
-    @include('cookie-consent::index')
+    <?php /*@include('cookie-consent::index')*/ ?>
 
 
 </body>
