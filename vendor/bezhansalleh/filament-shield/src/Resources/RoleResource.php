@@ -304,7 +304,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     {
         $permissionsArray = static::getResourcePermissionOptions($entity);
 
-        return static::getCheckboxListFormComponent($entity['resource'], $permissionsArray);
+        return static::getCheckboxListFormComponent($entity['resource'], $permissionsArray, false);
     }
 
     public static function getTabFormComponentForPage(): Component
@@ -316,7 +316,7 @@ class RoleResource extends Resource implements HasShieldPermissions
             ->visible(fn (): bool => (bool) Utils::isPageEntityEnabled() && $count > 0)
             ->badge($count)
             ->schema([
-                static::getCheckboxListFormComponent('pages_tab', $options),
+                static::getCheckboxListFormComponent('pages_tab', $options)
             ]);
     }
 
@@ -329,7 +329,7 @@ class RoleResource extends Resource implements HasShieldPermissions
             ->visible(fn (): bool => (bool) Utils::isWidgetEntityEnabled() && $count > 0)
             ->badge($count)
             ->schema([
-                static::getCheckboxListFormComponent('widgets_tab', $options),
+                static::getCheckboxListFormComponent('widgets_tab', $options)
             ]);
     }
 
@@ -346,12 +346,12 @@ class RoleResource extends Resource implements HasShieldPermissions
             ]);
     }
 
-    public static function getCheckboxListFormComponent(string $name, array $options): Component
+    public static function getCheckboxListFormComponent(string $name, array $options, bool $searchable = true): Component
     {
         return Forms\Components\CheckboxList::make($name)
             ->label('')
             ->options(fn (): array => $options)
-            ->searchable()
+            ->searchable($searchable)
             ->afterStateHydrated(
                 fn (Component $component, string $operation, ?Model $record) => static::setPermissionStateForRecordPermissions(
                     component: $component,
