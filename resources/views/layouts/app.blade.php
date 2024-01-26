@@ -25,6 +25,16 @@
     <link rel="canonical" href="https://www.mediaoto.id" />
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 
+    <!-- Google tag (gtag.js B3ac5) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q7LP278P3T');
+    </script>
+
     @include('googletagmanager::head')
 
     <?php /*
