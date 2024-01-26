@@ -36,7 +36,6 @@
                 <div class="flex flex-wrap justify-start gap-4 mb-8">
                     @foreach ($categories as $category)
                         <x-news.news-badge
-                            wire:navigate
                             href="{{route('news.index',['category'=>$category->slug])}}"
                             :category='$category'
                             bgColor="{{$category->bg_color}}"
