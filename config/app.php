@@ -180,6 +180,7 @@ return [
         //Spatie\Tags\TagsServiceProvider::class,
 
         Spatie\GoogleTagManager\GoogleTagManagerServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
     ])->toArray(),
 
@@ -193,10 +194,15 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-
+    /*
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
     ])->toArray(),
-
+    */
+    'aliases' => Facade::defaultAliases()->merge([
+        // 'Example' => App\Facades\Example::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
+    ])->toArray(),
 ];
