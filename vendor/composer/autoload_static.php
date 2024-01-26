@@ -130,6 +130,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Spatie\\Image\\' => 13,
             'Spatie\\ImageOptimizer\\' => 22,
             'Spatie\\Ignition\\' => 16,
+            'Spatie\\GoogleTagManager\\' => 24,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\EloquentSortable\\' => 24,
             'Spatie\\Color\\' => 13,
@@ -546,6 +547,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\Ignition\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/ignition/src',
+        ),
+        'Spatie\\GoogleTagManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -966,9 +971,9 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         ),
         'Filament\\' => 
         array (
-            0 => __DIR__ . '/..' . '/filament/filament/src',
-            1 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
-            2 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
+            0 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
+            1 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
+            2 => __DIR__ . '/..' . '/filament/filament/src',
         ),
         'Faker\\' => 
         array (
@@ -1818,6 +1823,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Doctrine\\DBAL\\Driver\\OCI8\\Driver' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Driver.php',
         'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\ConnectionFailed' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/ConnectionFailed.php',
         'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\Error' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/Error.php',
+        'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\InvalidConfiguration' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/InvalidConfiguration.php',
         'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\NonTerminatedStringLiteral' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/NonTerminatedStringLiteral.php',
         'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\SequenceDoesNotExist' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/SequenceDoesNotExist.php',
         'Doctrine\\DBAL\\Driver\\OCI8\\Exception\\UnknownParameterIndex' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/OCI8/Exception/UnknownParameterIndex.php',
@@ -1943,6 +1949,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Doctrine\\DBAL\\Platforms\\MariaDb1027Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MariaDb1027Platform.php',
         'Doctrine\\DBAL\\Platforms\\MariaDb1043Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MariaDb1043Platform.php',
         'Doctrine\\DBAL\\Platforms\\MariaDb1052Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MariaDb1052Platform.php',
+        'Doctrine\\DBAL\\Platforms\\MariaDb1060Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MariaDb1060Platform.php',
         'Doctrine\\DBAL\\Platforms\\MySQL57Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL57Platform.php',
         'Doctrine\\DBAL\\Platforms\\MySQL80Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL80Platform.php',
         'Doctrine\\DBAL\\Platforms\\MySQLPlatform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQLPlatform.php',
@@ -1957,6 +1964,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Doctrine\\DBAL\\Platforms\\SQLServer2012Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SQLServer2012Platform.php',
         'Doctrine\\DBAL\\Platforms\\SQLServerPlatform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SQLServerPlatform.php',
         'Doctrine\\DBAL\\Platforms\\SQLServer\\Comparator' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SQLServer/Comparator.php',
+        'Doctrine\\DBAL\\Platforms\\SQLServer\\SQL\\Builder\\SQLServerSelectSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SQLServer/SQL/Builder/SQLServerSelectSQLBuilder.php',
         'Doctrine\\DBAL\\Platforms\\SQLite\\Comparator' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SQLite/Comparator.php',
         'Doctrine\\DBAL\\Platforms\\SqlitePlatform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/SqlitePlatform.php',
         'Doctrine\\DBAL\\Platforms\\TrimMode' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/TrimMode.php',
@@ -1970,11 +1978,17 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Doctrine\\DBAL\\Query' => __DIR__ . '/..' . '/doctrine/dbal/src/Query.php',
         'Doctrine\\DBAL\\Query\\Expression\\CompositeExpression' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/Expression/CompositeExpression.php',
         'Doctrine\\DBAL\\Query\\Expression\\ExpressionBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/Expression/ExpressionBuilder.php',
+        'Doctrine\\DBAL\\Query\\ForUpdate' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/ForUpdate.php',
+        'Doctrine\\DBAL\\Query\\ForUpdate\\ConflictResolutionMode' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/ForUpdate/ConflictResolutionMode.php',
+        'Doctrine\\DBAL\\Query\\Limit' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/Limit.php',
         'Doctrine\\DBAL\\Query\\QueryBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/QueryBuilder.php',
         'Doctrine\\DBAL\\Query\\QueryException' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/QueryException.php',
+        'Doctrine\\DBAL\\Query\\SelectQuery' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/SelectQuery.php',
         'Doctrine\\DBAL\\Result' => __DIR__ . '/..' . '/doctrine/dbal/src/Result.php',
         'Doctrine\\DBAL\\SQL\\Builder\\CreateSchemaObjectsSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/CreateSchemaObjectsSQLBuilder.php',
+        'Doctrine\\DBAL\\SQL\\Builder\\DefaultSelectSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/DefaultSelectSQLBuilder.php',
         'Doctrine\\DBAL\\SQL\\Builder\\DropSchemaObjectsSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/DropSchemaObjectsSQLBuilder.php',
+        'Doctrine\\DBAL\\SQL\\Builder\\SelectSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/SelectSQLBuilder.php',
         'Doctrine\\DBAL\\SQL\\Parser' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser.php',
         'Doctrine\\DBAL\\SQL\\Parser\\Exception' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser/Exception.php',
         'Doctrine\\DBAL\\SQL\\Parser\\Exception\\RegularExpressionError' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser/Exception/RegularExpressionError.php',
@@ -2952,6 +2966,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Filament\\Forms\\Components\\Concerns\\HasStep' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/HasStep.php',
         'Filament\\Forms\\Components\\Concerns\\HasToggleColors' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/HasToggleColors.php',
         'Filament\\Forms\\Components\\Concerns\\HasToggleIcons' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/HasToggleIcons.php',
+        'Filament\\Forms\\Components\\Concerns\\HasUploadingMessage' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/HasUploadingMessage.php',
         'Filament\\Forms\\Components\\Concerns\\InteractsWithToolbarButtons' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/InteractsWithToolbarButtons.php',
         'Filament\\Forms\\Components\\Concerns\\ListensToEvents' => __DIR__ . '/..' . '/filament/forms/src/Components/Concerns/ListensToEvents.php',
         'Filament\\Forms\\Components\\Contracts\\CanBeLengthConstrained' => __DIR__ . '/..' . '/filament/forms/src/Components/Contracts/CanBeLengthConstrained.php',
@@ -10386,6 +10401,13 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\FlareClient\\Truncation\\TrimStringsStrategy' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Truncation/TrimStringsStrategy.php',
         'Spatie\\FlareClient\\Truncation\\TruncationStrategy' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Truncation/TruncationStrategy.php',
         'Spatie\\FlareClient\\View' => __DIR__ . '/..' . '/spatie/flare-client-php/src/View.php',
+        'Spatie\\GoogleTagManager\\DataLayer' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/DataLayer.php',
+        'Spatie\\GoogleTagManager\\Exceptions\\ApiKeyNotSetException' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/Exceptions/ApiKeyNotSetException.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManager' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManager.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerFacade' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerFacade.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerMiddleware' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerMiddleware.php',
+        'Spatie\\GoogleTagManager\\GoogleTagManagerServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/GoogleTagManagerServiceProvider.php',
+        'Spatie\\GoogleTagManager\\ScriptViewCreator' => __DIR__ . '/..' . '/spatie/laravel-googletagmanager/src/ScriptViewCreator.php',
         'Spatie\\Ignition\\Config\\FileConfigManager' => __DIR__ . '/..' . '/spatie/ignition/src/Config/FileConfigManager.php',
         'Spatie\\Ignition\\Config\\IgnitionConfig' => __DIR__ . '/..' . '/spatie/ignition/src/Config/IgnitionConfig.php',
         'Spatie\\Ignition\\Contracts\\BaseSolution' => __DIR__ . '/..' . '/spatie/ignition/src/Contracts/BaseSolution.php',

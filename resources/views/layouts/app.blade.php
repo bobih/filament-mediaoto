@@ -10,21 +10,35 @@
 
     <title>{{ isset($title) ? $title . ' - ' : '' }} {{ config('app.name', '') }}</title>
     <meta name="description"
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="description" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="googlebot-news" content="index, follow" />
     <meta
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="headline" />
     <meta name="keywords"
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="keywords" />
 
     <link rel="canonical" href="https://www.mediaoto.id" />
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 
+    <!-- Google tag (gtag.js B3ac5) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q7LP278P3T');
+    </script>
+
+    @include('googletagmanager::head')
 
     <?php /*
     <!-- Fonts -->
@@ -40,9 +54,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
      */
     ?>
-    @filamentStyles
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Google tag (gtag.js) -->
+
+
+
+    <?php /*
+     <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
     <script>
@@ -55,10 +71,16 @@
 
         gtag('config', 'G-Q7LP278P3T');
     </script>
+    */
+    ?>
 
 
+
+    <?php /*
     <!-- Google tag (gtag.js) -->
+    @assets
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-310Q1596DC"></script>
+    @endassets
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -69,8 +91,12 @@
 
         gtag('config', 'G-310Q1596DC');
     </script>
+    */
+    ?>
 
 
+
+    <?php /*
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -89,13 +115,19 @@
         })(window, document, 'script', 'dataLayer', 'GTM-KPMBPSR6');
     </script>
     <!-- End Google Tag Manager -->
+    */
+    ?>
 
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
-    <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
+
+    @filamentStyles
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+   <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
 
@@ -107,10 +139,16 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-gray-700">
+    @include('googletagmanager::body')
+    <?php /*
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPMBPSR6" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    */
+    ?>
+
     <x-banner />
 
     @yield('header')
@@ -130,7 +168,6 @@
     @livewire('notifications')
     @filamentScripts
     @livewireScripts
-
 
 
 </body>

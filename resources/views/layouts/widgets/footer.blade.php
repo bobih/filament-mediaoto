@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a wire:navigate href="{{ route('home') }}" class="flex items-center">
+                <a href="{{ route('home') }}" class="flex items-center">
                     <x-application-logo />
                     <span class="self-center text-xl font-semibold whitespace-nowrap text-gray-700 dark:text-gray-400">Mediaoto</span>
                 </a>
@@ -53,7 +53,7 @@
         </div>
         <hr class="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a wire:navigate href="/#home"
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="/#home"
                     class="hover:underline">Mediaoto</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 space-x-10 sm:justify-center sm:mt-0">

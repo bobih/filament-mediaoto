@@ -9,7 +9,7 @@
                 <div class="grid grid-cols-1 gap-4 md:mb-10">
                     <livewire:news-list />
                 </div>
-                <div id="gads-display" class="pt-10">
+                <div id="gads-display" class="pt-10 hidden md:block" style="width:100%">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
                     <!-- Ads Display -->
@@ -35,8 +35,7 @@
                 </h2>
                 <div class="flex flex-wrap justify-start gap-4 mb-8">
                     @foreach ($categories as $category)
-                        <x-news.news-badge
-                            wire:navigate
+                        <x-news.news-badge wire:navigate
                             href="{{route('news.index',['category'=>$category->slug])}}"
                             :category='$category'
                             bgColor="{{$category->bg_color}}"
@@ -45,7 +44,7 @@
                         </x-news.news-badge>
                     @endforeach
                 </div>
-                <div id="gads" class="pt-10">
+                <div id="gads" class="pt-10 hidden md:block" style="width:100%">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
                     <ins class="adsbygoogle"

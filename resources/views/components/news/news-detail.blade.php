@@ -69,7 +69,7 @@
                         <x-news.news-card :post="$post" />
                     @endforeach
                 </div>
-
+                <?php /*
                 <div id="mobileads" class="md:hidden">
                     <div id="mobilegads" class="pt-10">
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
@@ -85,6 +85,7 @@
                         </script>
                     </div>
                 </div>
+                */?>
             </div>
         </main>
     </div>
