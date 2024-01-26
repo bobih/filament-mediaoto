@@ -3,6 +3,57 @@
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+
+            // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+                // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+
+        });
+    </script>
     <meta charset="utf-8">
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,16 +61,16 @@
 
     <title>{{ isset($title) ? $title . ' - ' : '' }} {{ config('app.name', '') }}</title>
     <meta name="description"
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="description" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="googlebot-news" content="index, follow" />
     <meta
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="headline" />
     <meta name="keywords"
-        content="{{ isset($description)?$description: 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional'}}"
+        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="keywords" />
 
     <link rel="canonical" href="https://www.mediaoto.id" />
@@ -28,11 +79,14 @@
     <!-- Google tag (gtag.js B3ac5) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'G-Q7LP278P3T');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q7LP278P3T');
     </script>
 
     @include('googletagmanager::head')
@@ -68,7 +122,8 @@
 
         gtag('config', 'G-Q7LP278P3T');
     </script>
-    */ ?>
+    */
+    ?>
 
 
 
@@ -87,7 +142,8 @@
 
         gtag('config', 'G-310Q1596DC');
     </script>
-    */ ?>
+    */
+    ?>
 
 
 
@@ -110,16 +166,17 @@
         })(window, document, 'script', 'dataLayer', 'GTM-KPMBPSR6');
     </script>
     <!-- End Google Tag Manager -->
-    */ ?>
+    */
+    ?>
 
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
 
-     @filamentStyles
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @filamentStyles
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
@@ -140,7 +197,8 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    */ ?>
+    */
+    ?>
 
     <x-banner />
 
