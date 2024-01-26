@@ -41,12 +41,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
      */
     ?>
-    @filamentStyles
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
+
+
 
     <?php /*
+     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -61,8 +61,9 @@
     */ ?>
 
 
-    <!-- Google tag (gtag.js) -->
+
     <?php /*
+    <!-- Google tag (gtag.js) -->
     @assets
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-310Q1596DC"></script>
     @endassets
@@ -79,8 +80,9 @@
     */ ?>
 
 
-    <!-- Google Tag Manager -->
+
     <?php /*
+    <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -104,6 +106,10 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
      crossorigin="anonymous"></script>
+
+
+     @filamentStyles
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
