@@ -69,14 +69,22 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
             case "resty.agusti@gmail.com":
                 $isEnable = true;
             break;
-            case "zusmaidar.az@gmail.com":
+            case "setiaoneandhy@gmail.com":
+                $isEnable = true;
+            break;
+            case "setiaoneandhy@gmails.com":
                 $isEnable = true;
             break;
             default:
             $isEnable = false;
         }
 
-        return true;
+        //Mediaoto Property
+        if($this->showroom == '1181'){
+            $isEnable = true;
+        }
+
+        return $isEnable;
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Set;
 use App\Models\NewsPost;
@@ -10,13 +11,18 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
+use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Select;
+use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
+
 use Filament\Forms\Components\Textarea;
+
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Tables\Columns\SpatieTagsColumn;
@@ -39,6 +45,19 @@ class NewsPostResource extends Resource
 
     protected static ?string $navigationLabel = 'Post';
     protected static ?string $title = 'Post';
+
+
+    protected static function goTo(string $link, string $title, ?string $tooltip)
+    {
+        return new HtmlString(Blade::render('filament::components.link', [
+            'color' => 'primary',
+            'tooltip' => $tooltip,
+            'href' => env("APP_URL").'/news/'. $link,
+            'target' => '_blank',
+            'slot' => $link,
+            'icon' => 'heroicon-o-arrow-top-right-on-square',
+        ]));
+    }
 
 
     public static function form(Form $form): Form
@@ -67,15 +86,19 @@ class NewsPostResource extends Resource
                         ->required()
                         ->preload(),
 
-                    SpatieTagsInput::make('tags'),
+                    SpatieTagsInput::make('tags')
+                    ->splitKeys(['Tab', ' ']),
 
+                    Select::make('userid')
+                    ->label('Author')
+                    ->default(function(){
+                        return 128;
+                    })
+                    ->native(false)
+                    ->options(User::whereIn('id',[128,129,130])->pluck('nama', 'id')),
 
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
-                    Forms\Components\Hidden::make('userid')
-                        ->default(function (mixed $state) {
-                            return auth()->user()->id;
-                        }),
 
                     Forms\Components\Hidden::make('source')
                         ->dehydrated(fn ($state) => filled($state))
@@ -143,13 +166,29 @@ class NewsPostResource extends Resource
 
                 Tables\Columns\TextColumn::make('title')
                     ->label('Title')
-                    ->limit(30),
+                    ->wrap(),
 
+
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Url')
+                    ->copyable()
+                    ->copyMessage('URL address copied')
+                    ->copyMessageDuration(1500)
+                    ->wrap()
+                    ->formatStateUsing(
+                        fn (string $state) => self::goTo($state,$state, 'See External Resource'),
+                    ),
+
+
+
+
+                /*
                 Tables\Columns\TextColumn::make('')
                     ->label('Words')
                     ->default(function (NewsPost $record) {
                         return strlen(strip_tags($record->content));
                     }),
+                */
                 Tables\Columns\TextColumn::make('published_at')
                     ->label('Tanggal'),
 
