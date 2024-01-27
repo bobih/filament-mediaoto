@@ -11,14 +11,15 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use App\Models\NewsCategory;
+use Illuminate\Support\Carbon;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
+
 use Illuminate\Support\Facades\Blade;
 
 use Filament\Forms\Components\Section;
-
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -99,7 +100,8 @@ class NewsPostResource extends Resource
                     ->native(false)
                     ->options(User::whereIn('id',[128,129,130])->pluck('nama', 'id')),
 
-                    DateTimePicker::make('published_at')->nullable(),
+                    DateTimePicker::make('published_at')->nullable()
+                    ->default(Carbon::now()),
                     Checkbox::make('featured'),
                     Toggle::make('active')
                     ->label('Active')
