@@ -50,6 +50,18 @@ class NewsPost extends Model implements HasMedia
             ->addMediaConversion('preview')
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
+
+            $this
+            ->addMediaConversion('thumb')
+            ->width(300);
+
+            $this
+            ->addMediaConversion('mobile')
+            ->width(320);
+
+            $this
+            ->addMediaConversion('desktop')
+            ->width(640);
     }
 
 
@@ -103,7 +115,12 @@ class NewsPost extends Model implements HasMedia
     public function getThumbnailImage()
     {
         $isUrl = str_contains($this->image, 'http');
-        return ($isUrl) ? $this->image : $this->getFirstMediaUrl();
+        if($isUrl){
+            $urlLocation = $this->image;
+         } else {
+            $urlLocation = $this->getFirstMediaUrl();
+        }
+        return  $urlLocation;
     }
 
     public function scopeWithCategory($query, string $category)
