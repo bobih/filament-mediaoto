@@ -14,11 +14,12 @@ use App\Models\NewsCategory;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Illuminate\Support\Facades\Blade;
+
 use Filament\Forms\Components\Section;
 
 use Filament\Forms\Components\Checkbox;
-
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
@@ -100,6 +101,9 @@ class NewsPostResource extends Resource
 
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
+                    Toggle::make('active')
+                    ->label('Active')
+                    ->default(1),
 
                     Forms\Components\Hidden::make('source')
                         ->dehydrated(fn ($state) => filled($state))
@@ -160,12 +164,6 @@ class NewsPostResource extends Resource
                         return url($record->getThumbnailImage());
                     }),
 
-                  //  SpatieMediaLibraryImageColumn::make('image'),
-
-                //SpatieTagsColumn::make('tags'),
-
-                //Tables\Columns\TextColumn::make('source')
-                //->label('Source'),
 
                 Tables\Columns\TextColumn::make('title')
                     ->label('Title')
@@ -186,13 +184,9 @@ class NewsPostResource extends Resource
 
 
 
-                /*
-                Tables\Columns\TextColumn::make('')
-                    ->label('Words')
-                    ->default(function (NewsPost $record) {
-                        return strlen(strip_tags($record->content));
-                    }),
-                */
+                Tables\Columns\ToggleColumn::make('active')
+                ->label('Active'),
+
                 Tables\Columns\TextColumn::make('published_at')
                     ->label('Tanggal'),
 

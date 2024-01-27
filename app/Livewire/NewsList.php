@@ -34,6 +34,7 @@ class NewsList extends Component
 
         $response = NewsPost::where('title', 'like', "%{$this->search}%")
                     ->with('categories')
+                    ->published()
                     ->orderBy('published_at','desc')
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
                         $query->withCategory($this->category);
@@ -66,7 +67,7 @@ class NewsList extends Component
 
     #[Computed()]
     public function latest(){
-        return  NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(2)->get();
+        return  NewsPost::inRandomOrder()->published()->with('categories')->orderBy('published_at','desc')->take(2)->get();
     }
 
     #[On('search')]

@@ -88,10 +88,15 @@ class NewsPost extends Model implements HasMedia
         );
     }
 
+    public function scopeActive($query)
+    {
+        $query->where('active', '=', 1);
+    }
+
     public function scopePublished($query)
     {
 
-        $query->where('published_at', '<=', Carbon::now());
+        $query->where('published_at', '<=', Carbon::now())->where('active','=',1);
     }
 
 
