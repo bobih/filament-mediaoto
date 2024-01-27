@@ -10,15 +10,16 @@ use App\Models\NewsPost;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use App\Models\NewsCategory;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Select;
 use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Section;
+
 use Filament\Forms\Components\Checkbox;
 
 use Filament\Forms\Components\Textarea;
-
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -145,6 +146,8 @@ class NewsPostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->searchable()
+            ->searchDebounce('750ms')
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
@@ -166,6 +169,7 @@ class NewsPostResource extends Resource
 
                 Tables\Columns\TextColumn::make('title')
                     ->label('Title')
+                    ->searchable()
                     ->wrap(),
 
 
@@ -195,6 +199,19 @@ class NewsPostResource extends Resource
             ])
             ->filters([
                 // Tables\Filters\TrashedFilter::make(),
+                SelectFilter::make('Category')
+              ->options(function(){
+                    $categories = NewsCategory::all();
+                    foreach($categories as $category){
+                        $arrData[$category->title] = $category->title;
+                    }
+                return $arrData;
+                })
+              ->query(function (Builder $query, array $data): Builder {
+                   return $query->when($data['value'], function (Builder $query, $data): Builder {
+                     return $query->withCategory($data);
+                    });
+                }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
