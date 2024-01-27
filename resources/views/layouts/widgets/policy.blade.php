@@ -1,7 +1,7 @@
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="py-8  px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <h2 class="mb-4 pt-20 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Kebijakan Privasi
-        </h2>
+        <h1 class="mb-4 pt-20 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Kebijakan Privasi
+        </h1>
         <div id="accordion-collapse" data-accordion="collapse" class="text-gray-500 dark:text-gray-400">
             <div class="grid">
 

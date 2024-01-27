@@ -30,9 +30,9 @@
             </div>
 
             <div id="recommended-topics-box">
-                <h2 class="mb-8 mt-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h1 class="mb-8 mt-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Recommended Topics :
-                </h2>
+                </h1>
                 <div class="flex flex-wrap justify-start gap-4 mb-8">
                     @foreach ($categories as $category)
                         <x-news.news-badge wire:navigate
