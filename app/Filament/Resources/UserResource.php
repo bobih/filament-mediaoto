@@ -151,12 +151,7 @@ class UserResource extends Resource
                                         }
                                     }),
                                 */
-                                Forms\Components\TextInput::make('password')
-                                ->password()
-                                ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
 
-
-                                /*
                                 Forms\Components\TextInput::make('password')
                                 ->password()
                                 ->dehydrateStateUsing(fn ($state) => Hash::make($state))
@@ -173,7 +168,6 @@ class UserResource extends Resource
                                             return false;
                                         }
                                 }),
-                                */
 
                             ])->columns(2),
                         Tabs\Tab::make('Lokasi')
