@@ -127,7 +127,7 @@
     @filamentStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-   <script src="https://cdn.tailwindcss.com"></script>
+   <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
 

@@ -971,9 +971,9 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         ),
         'Filament\\' => 
         array (
-            0 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
-            1 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
-            2 => __DIR__ . '/..' . '/filament/filament/src',
+            0 => __DIR__ . '/..' . '/filament/filament/src',
+            1 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
+            2 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
         ),
         'Faker\\' => 
         array (

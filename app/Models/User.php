@@ -47,6 +47,7 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
             ->nonQueued();
     }
 
+
     public function canAccessPanel(Panel $panel): bool
     {
         $isEnable = false;
@@ -74,8 +75,11 @@ class User extends Authenticatable implements JWTSubject, HasName, FilamentUser,
             default:
             $isEnable = false;
         }
-        return $isEnable;
+
+        return true;
     }
+
+
 
     public function getFilamentName(): string
     {

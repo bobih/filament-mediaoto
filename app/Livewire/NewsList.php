@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use Spatie\Tags\HasTags;
+use Spatie\Tags\Tag;
 use Livewire\Component;
 use App\Models\NewsPost;
 use Jenssegers\Agent\Agent;
@@ -20,6 +22,10 @@ class NewsList extends Component
     #[Url]
     public $category = '';
 
+
+    #[Url]
+    public $tag = '';
+
     #[Computed()]
     public function posts(){
 
@@ -31,7 +37,13 @@ class NewsList extends Component
                     ->orderBy('published_at','desc')
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
                         $query->withCategory($this->category);
+                    })
+                    ->when(NewsPost::withAllTags([$this->tag],'categories')->first(), function($query){
+                        $query->withAllTags([$this->tag],'categories');
                     });
+                    //$response = NewsPost::withAllTags(['google'],'categories')->get();
+
+                    //dd($response);
 
 
 

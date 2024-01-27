@@ -67,6 +67,8 @@ class NewsPostResource extends Resource
                         ->required()
                         ->preload(),
 
+                    SpatieTagsInput::make('tags'),
+
 
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
@@ -80,7 +82,7 @@ class NewsPostResource extends Resource
                         ->default(function (mixed $state) {
                             return 'Mediaoto';
                         }),
-                    //SpatieTagsInput::make('tags')
+
                     //    ->type('categories'),
 
 

@@ -8,6 +8,7 @@ use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use App\Filament\Pages\AnalyticsPage;
+use App\Filament\Pages\Auth\EditProfile;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -33,6 +34,7 @@ class DashPanelProvider extends PanelProvider
             ->path('dash')
             ->spa()
             ->login()
+            ->profile(EditProfile::class)
             ->darkMode(true)
             ->brandName('Mediaoto')
             //->brandLogo(asset('images/white_logo.png'))

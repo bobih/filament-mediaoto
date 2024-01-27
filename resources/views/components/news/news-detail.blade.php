@@ -29,12 +29,19 @@
                     </div>
                     @if ($category = $post->categories->first())
                         @foreach ($post->categories as $category)
-                            <x-news.news-badge wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
+                            <x-news.news-badge  href="{{ route('news.index', ['category' => $category->slug]) }}"
                                 :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
                                 {{ $category->title }}
                             </x-news.news-badge>
                         @endforeach
                     @endif
+                    <div class="pt-4">
+                        @foreach ($post->tags as $tag)
+                            <x-news.news-tag wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
+                                name="{{ $tag->name }}" slug="{{ $tag->slug }}">
+                            </x-news.news-tag>
+                        @endforeach
+                    </div>
                     </section>
                 </article>
             </div>

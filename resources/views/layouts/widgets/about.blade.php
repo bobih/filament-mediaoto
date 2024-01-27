@@ -74,7 +74,7 @@
                         </g>
                     </svg>
                 </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/mediaoto.id"  class="hover:text-gray-300">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCkfb6D6xVY6cKMlgHKQ7xZQ"  class="hover:text-gray-300">
                     <svg class="mx-10 w-10 h-10 fill-current" width="24px" height="24px" id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="-143 145 512 512" xml:space="preserve">
