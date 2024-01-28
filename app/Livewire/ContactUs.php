@@ -89,6 +89,7 @@ class ContactUs extends ModalComponent
         GoogleTagManager::flash('formContact', 'success');
 
         $this->reset(['name', 'email','phone', 'note']);
+        $this->isChecked = false;
 
 
         // Sent Email
