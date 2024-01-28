@@ -19,8 +19,7 @@
 
 
     @if (isset($post))
-<link rel="canonical" href="{{ route('news.show', $post->slug) }}" />
-    <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
     <meta property="og:site_name" content="Mediaoto" />
     <meta property="og:title" content="{{$post->title}}" />
     <meta property="og:image" content="{{ $post->getThumbnailImage() }}" />
@@ -29,13 +28,11 @@
     <meta property="og:image:type" content="{{$post->getImageInfo()->mime_type}}" />
     <meta property="og:image:width" content="{{$post->getImageInfo()->width}}" />
     <meta property="og:image:height" content="{{$post->getImageInfo()->height}}" />
-    @else
-<link rel="canonical" href="{{ url()->current() }}" />
     @endif
 
 
     <title>{{ isset($title) ? $title . ' - ' : '' }} {{ config('app.name', '') }}</title>
-
+    <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="description"
         content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
         itemprop="description" />
