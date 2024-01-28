@@ -8,16 +8,16 @@
 
             <div class="mt-10 flex justify-between px-4 mx-auto max-w-screen-xl ">
 
-                <article
-                    class="mx-auto w-full max-w-2xl dark:format-invert">
+                <article class="mx-auto w-full max-w-2xl dark:format-invert">
                     <header class="mb-4 lg:mb-6 not-format">
                         <div class="px-4 w-full h-auto pb-1/4">
-                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg" src="{{ $post->getThumbnailImage() }}"
-                                alt="{{ $post->slug }}">
+                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg"
+                                src="{{ $post->getThumbnailImage() }}" alt="{{ $post->slug }}">
 
                         </div>
                         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
-                            <span class="text-sm">{{ Str::upper($post->source)}} | {{$post->published_at->diffForHumans()}}</span>
+                            <span class="text-sm">{{ Str::upper($post->source) }} |
+                                {{ $post->published_at->diffForHumans() }}</span>
                         </div>
                         <h1
                             class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
@@ -29,8 +29,9 @@
                     </div>
                     @if ($category = $post->categories->first())
                         @foreach ($post->categories as $category)
-                            <x-news.news-badge  href="{{ route('news.index', ['category' => $category->slug]) }}"
-                                :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
+                            <x-news.news-badge href="{{ route('news.index', ['category' => $category->slug]) }}"
+                                :category='$category' bgColor="{{ $category->bg_color }}"
+                                txtColor="{{ $category->text_color }}">
                                 {{ $category->title }}
                             </x-news.news-badge>
                         @endforeach
@@ -59,7 +60,8 @@
             </div>
         </address>
 
-        */ ?>
+        */
+        ?>
     </div>
 
     <!-- right -->
@@ -72,7 +74,7 @@
 
                 <div class="grid gap-8 lg:grid-cols-1">
 
-                    @foreach ($related as $post )
+                    @foreach ($related as $post)
                         <x-news.news-card :post="$post" />
                     @endforeach
                 </div>
@@ -92,7 +94,8 @@
                         </script>
                     </div>
                 </div>
-                */?>
+                */
+                ?>
             </div>
         </main>
     </div>

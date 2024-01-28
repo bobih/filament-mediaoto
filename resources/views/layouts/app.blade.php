@@ -37,8 +37,6 @@
     <meta name="twitter:description" content="{{$post->description}}">
     <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
     <title>{{ $post->title }}</title>
-
-
     @else
     <meta property="og:site_name" content="Mediaoto" />
     <meta property="og:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto" />
@@ -56,9 +54,7 @@
     <meta name="twitter:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
     <title>{{ isset($title) ? $title . ' -  Get insight about Mediaoto' : 'Get insight about Mediaoto' }}</title>
-
     @endif
-
 
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="description"
@@ -77,9 +73,23 @@
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 
     <?php /****** Schema Org ***** */?>
-
     @if (isset($post))
-<script type="application/ld+json">
+
+    <script type='application/ld+json'>
+    {
+        "@context" : "https://schema.org",
+        "@type" : "Organization",
+        "name" : "Mediaoto",
+        "url" : "https://www.mediaoto.id/",
+        "sameAs" : [
+            "https://www.facebook.com/mediaoto.id/",
+            "https://www.twitter.com/mediaoto/",
+            "https://www.instagram.com/mediaoto.id/"
+        ],
+        "logo": "https://www.mediaoto.id/images/black_logo.png"
+    }
+    </script>
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -91,39 +101,55 @@
     }
     </script>
     <script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "NewsArticle",
-			"mainEntityOfPage": {
-				"@type": "WebPage",
-				"@id": "{{ route('news.show', $post->slug) }}"
-			},
-			"headline": "{{$post->title}}",
-			"image": {
-				"@type": "ImageObject",
-			    "url": "{{ $post->getThumbnailImage() }}"
-            },
-			"datePublished": "{{$post->published_at}}",
-			"dateModified": "{{$post->published_at}}",
-			"author": {
-				"@type": "Person",
-				"name": "{{$post->author->nama}}"
-			},
-			"publisher": {
-				"@type": "Organization",
-				"name": "Mediaoto",
-				"logo": {
-					"@type": "ImageObject",
-					"url": "https://www.mediaoto.id/images/black_logo.png"
-				}
-			},
-			"description": "{{$post->description}}"
-		}
-    	</script>
-    @endif
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ route('news.show', $post->slug) }}"
+        },
+        "headline": "{{$post->title}}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ $post->getThumbnailImage() }}"
+        },
+        "datePublished": "{{$post->published_at}}",
+        "dateModified": "{{$post->published_at}}",
+        "author": {
+            "@type": "Person",
+            "name": "{{$post->author->nama}}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mediaoto",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.mediaoto.id/images/black_logo.png"
+            }
+        },
+        "description": "{{$post->description}}"
+    }
+    </script>
+        @else
+<script type='application/ld+json'>
+    {
+        "@context" : "https://schema.org",
+        "@type" : "Organization",
+        "name" : "Mediaoto",
+        "url" : "https://www.mediaoto.id/",
+        "sameAs" : [
+            "https://www.facebook.com/mediaoto.id/",
+            "https://www.twitter.com/mediaoto/",
+            "https://www.instagram.com/mediaoto.id/"
+        ],
+        "logo": "https://www.mediaoto.id/images/black_logo.png"
+    }
+    </script>
+        @endif
 
     <!-- Google tag (gtag.js B3ac5) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -136,7 +162,6 @@
     </script>
 
     @include('googletagmanager::head')
-
     <?php /*
     <!-- Fonts -->
 
@@ -144,16 +169,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     */
     ?>
-
     <?php /*
     <!-- Flowibte -->
     // Required for Modal
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
      */
     ?>
-
-
-
     <?php /*
      <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
@@ -170,9 +191,6 @@
     </script>
     */
     ?>
-
-
-
     <?php /*
     <!-- Google tag (gtag.js) -->
     @assets
@@ -190,9 +208,6 @@
     </script>
     */
     ?>
-
-
-
     <?php /*
     <!-- Google Tag Manager -->
     <script>
@@ -219,20 +234,13 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
         crossorigin="anonymous"></script>
-
-
     @filamentStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
    <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-
-
-    <!-- Styles -->
+    <?php /*** <!-- Styles --> **/ ?>
     @livewireStyles
-
-
 </head>
 
 <body class="font-sans antialiased dark:bg-gray-700">
