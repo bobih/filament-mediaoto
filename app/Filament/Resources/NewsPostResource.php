@@ -52,6 +52,8 @@ class NewsPostResource extends Resource
     protected static ?string $navigationLabel = 'Post';
     protected static ?string $title = 'Post';
 
+    protected static ?int $titleCounter = 0;
+    protected static ?int $descriptionCounter = 0;
 
     protected static function goTo(string $link, string $title, ?string $tooltip)
     {
@@ -73,12 +75,24 @@ class NewsPostResource extends Resource
 
                 Section::make('Main')->schema([
                     TextArea::make('title')
+                        ->label('Title')
+                        ->hint(function(){
+                           $total = self::$titleCounter;
+                            if($total > 60){
+                                $string =  '<span class="text-danger-600 dark:text-danger-400">'. self::$titleCounter .'/60</span>' ;
+                            } else {
+                                $string = self::$titleCounter . "/60";
+                            }
+                            /* class="text-danger-600 dark:text-danger-400 font-medium" */
+                            return new HtmlString($string);
+                        })
                         ->required()
                         ->rows(3)
                         ->maxLength(250)
                         ->live(onBlur: true)
                         ->afterStateUpdated(function (string $operation, $state, Set $set) {
                             $set('slug', Str::slug($state));
+                            self::$titleCounter = strlen($state);
                         }),
                     TextArea::make('slug')
                         ->label('URL')
@@ -136,6 +150,20 @@ class NewsPostResource extends Resource
 
                     TextArea::make('description')
                         ->label('Short description')
+                        ->hint(function(){
+                            $total = self::$descriptionCounter;
+                             if($total > 160){
+                                 $string =  '<span class="text-danger-600 dark:text-danger-400">'. self::$descriptionCounter .'/160</span>' ;
+                             } else {
+                                 $string = self::$descriptionCounter . "/160";
+                             }
+                             /* class="text-danger-600 dark:text-danger-400 font-medium" */
+                             return new HtmlString($string);
+                         })
+                         ->live(onBlur: true)
+                        ->afterStateUpdated(function (string $operation, $state, Set $set) {
+                            self::$descriptionCounter = strlen($state);
+                        })
                         ->rows(4)
                         ->minLength(50)
                         ->maxLength(250)

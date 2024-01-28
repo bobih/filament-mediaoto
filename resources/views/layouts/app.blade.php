@@ -36,22 +36,39 @@
     <meta name="twitter:description" content="{{$post->description}}">
     <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
 
+    @else
+    <meta property="og:site_name" content="Mediaoto" />
+    <meta property="og:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto" />
+    <meta property="og:image" content="https://www.mediaoto.id/images/home_openGraph.png" />
+    <meta property="og:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <?php /* Twitter */ ?>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="mediaoto.id">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto">
+    <meta name="twitter:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}">
+    <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
+
     @endif
 
 
-    <title>{{ isset($title) ? $title . ' - ' : '' }} {{ config('app.name', '') }}</title>
+    <title>{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto</title>
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="description"
-        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
+        content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
         itemprop="description" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="googlebot-news" content="index, follow" />
     <meta
-        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
+        content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
         itemprop="headline" />
     <meta name="keywords"
-        content="{{ isset($description) ? $description : 'Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional' }}"
+        content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
         itemprop="keywords" />
 
 
