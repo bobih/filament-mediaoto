@@ -139,7 +139,7 @@ class NewsPost extends Model implements HasMedia
         $isUrl = str_contains($this->image, 'http');
         if($isUrl){
             $width = '600';
-            $height = '600';
+            $height = '300';
             $mime = "image/jpeg";
          } else {
             $imageInstance = ImageFactory::load($this->getFirstMediaPath());
