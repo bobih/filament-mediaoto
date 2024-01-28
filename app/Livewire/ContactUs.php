@@ -30,6 +30,8 @@ class ContactUs extends ModalComponent
     //#[Rule('required')]
     public $note = '';
 
+    public $isChecked = false;
+
 
     public $phone = '';
 

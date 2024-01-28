@@ -47,6 +47,24 @@
         </div>
     </div>
 
+    <div class="flex items-center mb-4 text-sm text-gray-900 dark:text-gray-400">
+        <input wire:model="isChecked" wire:click="$toggle('isChecked')" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="default-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-400">By submitting this form, you confirm that you have read and agree to our <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/policy" target="_blank" rel="noopener noreferrer">Privacy Statement</a>.</label>
+    </div>
+
+    <button type="submit"
+
+    class="{{!$isChecked == true ?'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800' : 'g-recaptcha text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' }}"
+    @if(!$isChecked)
+    disabled
+    @else
+    data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback='handle'
+    @endif
+    >
+        <span> Submit</span>
+    </button>
+
+    <?php /*
     <button wire:loading.remove type="submit" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback='handle'
         class="g-recaptcha text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
         <span> Submit</span>
@@ -59,6 +77,7 @@
         </svg>
         Loading...
     </button>
+    */ ?>
 </form>
 
 <script>
