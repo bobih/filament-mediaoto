@@ -16,7 +16,7 @@
                     <span class=" text-white text-xl ">01</span>
                 </div>
                 <figcaption class="bottom-5 absolute px-8 text-lg text-white ">
-                    <h1 class="text-2xl text-[#FF9119]">Performance & Optimization</h1>
+                    <h2 class="text-2xl text-[#FF9119]">Performance & Optimization</h2>
                     <p class="text-base pr-20">Membantu menggerakan aktifitas periklanan digital klien</p>
                 </figcaption>
             </figure>
@@ -29,7 +29,7 @@
                     <span class=" text-white text-xl ">02</span>
                 </div>
                 <figcaption class="bottom-5 absolute px-8 text-lg text-white">
-                    <h1 class="text-2xl text-[#FF9119]">Media Buying Agency</h1>
+                    <h2 class="text-2xl text-[#FF9119]">Media Buying Agency</h2>
                     <p class="text-base pr-20">Konsultasi, Perencanaan Media, Pengoptimalan dan Pelaporan</p>
                 </figcaption>
             </figure>
@@ -42,7 +42,7 @@
                     <span class=" text-white text-xl ">03</span>
                 </div>
                 <figcaption class="bottom-5 absolute px-8 text-lg text-white">
-                    <h1 class="text-2xl text-[#FF9119]">Placement</h1>
+                    <h2 class="text-2xl text-[#FF9119]">Placement</h2>
                     <p class="text-base pr-20">Menjalankan strategi periklanan digital klien</p>
                 </figcaption>
             </figure>
@@ -55,7 +55,7 @@
                     <span class=" text-white text-xl ">04</span>
                 </div>
                 <figcaption class="bottom-5   absolute px-8 text-lg text-white">
-                    <h1 class="text-2xl text-[#FF9119]">Rich Media Banner Placement</h1>
+                    <h2 class="text-2xl text-[#FF9119]">Rich Media Banner Placement</h2>
                     <p class="text-base pr-20">Memungkinkan anda membuat iklan yang lebih menarik untuk menarik
                         perhatian Audiens Anda</p>
                 </figcaption>

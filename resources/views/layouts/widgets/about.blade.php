@@ -18,7 +18,7 @@
                         </button>
                     </div>
                     <div class="text-start">
-                        <h1 class="text-lg">Our Automotive Info</h1>
+                        <h2 class="text-lg">Our Automotive Info</h2>
                         <p class="dark:text-gray-400 text-sm">Get ads about the best automotive</p>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         </button>
                     </div>
                     <div class="text-start">
-                        <h1 class="text-lg">Our Property Info</h1>
+                        <h2 class="text-lg">Our Property Info</h2>
                         <p class="dark:text-gray-400 text-sm">Get ads about the best property</p>
                     </div>
                 </div>
