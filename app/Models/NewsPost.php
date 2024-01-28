@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Facades\Storage;
+
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\Support\ImageFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -126,6 +127,37 @@ class NewsPost extends Model implements HasMedia
             $urlLocation = $this->getFirstMediaUrl();
         }
         return  $urlLocation;
+    }
+
+    public function getImageType(){
+        $is_mime = isset($this->getFirstMedia()->mime_type);
+
+        return ($is_mime)? $this->getFirstMedia()->mime_type : "image/jpeg";
+    }
+
+    public function getImageInfo(){
+        $isUrl = str_contains($this->image, 'http');
+        if($isUrl){
+            $width = '600';
+            $height = '600';
+            $mime = "image/jpeg";
+         } else {
+            $imageInstance = ImageFactory::load($this->getFirstMediaPath());
+            $width =  $imageInstance->getWidth();
+            $height =  $imageInstance->getHeight();
+            if(isset($this->getFirstMedia()->mime_type)){
+                $mime = $this->getFirstMedia()->mime_type;
+            } else {
+                $mime = "image/jpeg";
+            }
+
+        }
+        $arrobject = (object) [
+            "height" => $height,
+            "width" => $width,
+            "mime_type" => $mime
+        ];
+        return $arrobject;
     }
 
     public function scopeWithCategory($query, string $category)
