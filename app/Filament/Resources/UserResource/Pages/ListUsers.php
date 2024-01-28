@@ -9,7 +9,7 @@ use App\Models\Prospek;
 use App\Filament\Resources\UserResource;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Resources\Pages\ListRecords\Tab;
+use Filament\Resources\Components\Tab;
 
 
 class ListUsers extends ListRecords

@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources\NewsPostResource\Pages;
 
-use App\Filament\Resources\NewsPostResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
+use App\Models\NewsPost;
 use pxlrbt\FilamentExcel\Columns\Column;
+use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\NewsPostResource;
+use Filament\Resources\Components\Tab;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use Illuminate\Database\Eloquent\Builder;
 
 class ListNewsPosts extends ListRecords
 {
@@ -45,6 +48,20 @@ class ListNewsPosts extends ListRecords
                 ])->withFilename('Site_News_' . date("Y-m-d")),
             ])
                 ->color('info')
+        ];
+    }
+
+
+    public function getTabs(): array
+    {
+
+        return [
+            "active" => Tab::make('Active')
+                ->modifyQueryUsing(function ($query) {
+                    $query->active();
+                    return $query->active(); ;
+                }),
+            "all" => Tab::make('All'),
         ];
     }
 }
