@@ -69,6 +69,7 @@
     <meta name="keywords"
         content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
         itemprop="keywords" />
+    <meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 
