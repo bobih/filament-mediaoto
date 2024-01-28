@@ -28,6 +28,14 @@
     <meta property="og:image:type" content="{{$post->getImageInfo()->mime_type}}" />
     <meta property="og:image:width" content="{{$post->getImageInfo()->width}}" />
     <meta property="og:image:height" content="{{$post->getImageInfo()->height}}" />
+    <?php /* Twitter */ ?>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="mediaoto.id">
+    <meta property="twitter:url" content="{{ route('news.show', $post->slug) }}">
+    <meta name="twitter:title" content="{{$post->title}}">
+    <meta name="twitter:description" content="{{$post->description}}">
+    <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
+
     @endif
 
 
