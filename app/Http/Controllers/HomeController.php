@@ -35,9 +35,9 @@ class HomeController extends Controller
 
 
         if($agent->isMobile()){
-            $response = NewsPost::where('featured',1)->published()->with('categories')->orderBy('published_at','desc')->take(1)->get();
+            $response = NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
         } else {
-            $response = NewsPost::where('featured',1)->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            $response = NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
         }
 
         //$response = NewsPost::wherein('id',[4,21,39,51,70,73])->with('categories')->orderBy('published_at','desc')->take(5)->get();
