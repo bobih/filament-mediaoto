@@ -14,11 +14,14 @@ use App\Models\NewsCategory;
 use Illuminate\Support\Carbon;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
+use Filament\Tables\Filters\Filter;
+use Filament\Support\Enums\MaxWidth;
+
 use Filament\Forms\Components\Select;
+
 use Filament\Forms\Components\Toggle;
 
 use Illuminate\Support\Facades\Blade;
-
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
@@ -194,21 +197,35 @@ class NewsPostResource extends Resource
 
             ])
             ->filters([
-                // Tables\Filters\TrashedFilter::make(),
+
+
+
                 SelectFilter::make('Category')
-              ->options(function(){
-                    $categories = NewsCategory::all();
-                    foreach($categories as $category){
-                        $arrData[$category->title] = $category->title;
-                    }
-                return $arrData;
-                })
-              ->query(function (Builder $query, array $data): Builder {
-                   return $query->when($data['value'], function (Builder $query, $data): Builder {
-                     return $query->withCategory($data);
-                    });
-                }),
+                ->options(function(){
+                        $categories = NewsCategory::all();
+                        foreach($categories as $category){
+                            $arrData[$category->title] = $category->title;
+                        }
+                    return $arrData;
+                    })
+                ->query(function (Builder $query, array $data): Builder {
+                    return $query->when($data['value'], function (Builder $query, $data): Builder {
+                        return $query->withCategory($data);
+                        });
+                    }),
+
+                SelectFilter::make('userid')
+                ->label('Author')
+                ->options(User::whereIn('id',[128,129,130])->pluck('nama', 'id')),
+
+                Filter::make('Active')
+                ->toggle()
+                ->query(fn (Builder $query): Builder => $query->where('active', true)),
+
             ])
+            ->filtersFormColumns(2)
+            ->filtersFormWidth(MaxWidth::Medium)
+
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),

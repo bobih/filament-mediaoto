@@ -4,13 +4,14 @@ namespace App\Filament\Resources\NewsPostResource\Pages;
 
 use Filament\Actions;
 use App\Models\NewsPost;
+use Illuminate\Support\Carbon;
+use Filament\Resources\Components\Tab;
 use pxlrbt\FilamentExcel\Columns\Column;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\NewsPostResource;
-use Filament\Resources\Components\Tab;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
-use Illuminate\Database\Eloquent\Builder;
 
 class ListNewsPosts extends ListRecords
 {
@@ -56,10 +57,9 @@ class ListNewsPosts extends ListRecords
     {
 
         return [
-            "active" => Tab::make('Active')
-                ->modifyQueryUsing(function ($query) {
-                    $query->active();
-                    return $query->active(); ;
+            "thisWeek" => Tab::make('This Week')
+                ->modifyQueryUsing(function (Builder $query) {
+                    return $query->where('published_at', '>=', Carbon::now()->startOfWeek());
                 }),
             "all" => Tab::make('All'),
         ];
