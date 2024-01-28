@@ -74,8 +74,53 @@
         content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
         itemprop="keywords" />
 
-
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
+
+    <?php /****** Schema Org ***** */?>
+
+    @if (isset($post))
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "headline": "{{$post->title}}",
+        "url": "{{ route('news.show', $post->slug) }}",
+        "datePublished": "{{$post->published_at}}",
+        "image": "{{ $post->getThumbnailImage() }}",
+        "thumbnailUrl": "{{ $post->getThumbnailImage() }}"
+    }
+    </script>
+    <script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "NewsArticle",
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "{{ route('news.show', $post->slug) }}"
+			},
+			"headline": "{{$post->title}}",
+			"image": {
+				"@type": "ImageObject",
+			    "url": "{{ $post->getThumbnailImage() }}"
+            },
+			"datePublished": "{{$post->published_at}}",
+			"dateModified": "{{$post->published_at}}",
+			"author": {
+				"@type": "Person",
+				"name": "{{$post->author->nama}}"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "Mediaoto",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://www.mediaoto.id/images/black_logo.png"
+				}
+			},
+			"description": "{{$post->description}}"
+		}
+    	</script>
+    @endif
 
     <!-- Google tag (gtag.js B3ac5) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
