@@ -1,4 +1,4 @@
-<x-app-layout title="Kebijakan Privasi" description="Privacy - Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional">
+<x-app-layout title="Kebijakan Privasi" description="Privacy - We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people">
     @section('header')
         @include('layouts.widgets.header')
     @endsection
