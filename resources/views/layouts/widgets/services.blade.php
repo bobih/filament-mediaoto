@@ -10,7 +10,7 @@
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_1.png"
-                    alt="Michael Avatar">
+                    alt="Performance Optimization" title="Performance Optimization">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
                     <span class=" text-white text-xl ">01</span>
@@ -23,7 +23,7 @@
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_2.png"
-                    alt="Michael Avatar">
+                    alt="Media Buying Agency" title="Media Buying Agency">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
                     <span class=" text-white text-xl ">02</span>
@@ -36,7 +36,7 @@
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_3.png"
-                    alt="Michael Avatar">
+                    alt="Placement" title="Placement">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
                     <span class=" text-white text-xl ">03</span>
@@ -49,7 +49,7 @@
 
             <figure class="mb-10 md:mb-0 relative shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_4.png"
-                    alt="Michael Avatar">
+                    alt="Rich Media Banner Placement" title="Rich Media Banner Placement">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
                     <span class=" text-white text-xl ">04</span>
