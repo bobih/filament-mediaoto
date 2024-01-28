@@ -36,6 +36,8 @@
     <meta name="twitter:title" content="{{$post->title}}">
     <meta name="twitter:description" content="{{$post->description}}">
     <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
+    <title>{{ $post->title }}</title>
+
 
     @else
     <meta property="og:site_name" content="Mediaoto" />
@@ -53,11 +55,11 @@
     <meta name="twitter:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto">
     <meta name="twitter:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
+    <title>{{ isset($title) ? $title . ' -  Get insight about Mediaoto' : 'Get insight about Mediaoto' }}</title>
 
     @endif
 
 
-    <title>{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto</title>
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="description"
         content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}"
