@@ -62,7 +62,7 @@ class NewsPost extends Model implements HasMedia
 
             $this
             ->addMediaConversion('desktop')
-            ->width(640);
+            ->width(1200);
     }
 
 
