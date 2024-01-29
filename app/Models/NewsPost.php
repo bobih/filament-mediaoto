@@ -107,6 +107,12 @@ class NewsPost extends Model implements HasMedia
         $query->where('featured', true);
     }
 
+    public function scopeSitemap($query)
+    {
+
+        $query->published();
+    }
+
     public function getReadingTime()
     {
         $mins = str_word_count($this->content) / 250;
