@@ -46,6 +46,6 @@ class CreateNewsPost extends CreateRecord
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             );
         });
-        $postsitmap->writeToFile(storage_path('../../public_html/sitemap.xml'));
+        $postsitmap->writeToFile(public_path('../../public_html/sitemap.xml'));
     }
 }
