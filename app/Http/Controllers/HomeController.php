@@ -59,4 +59,11 @@ class HomeController extends Controller
         return view('policy');
 
     }
+
+    public function privacy(Request $request)
+    {
+        GoogleTagManager::set('pageType', 'privacy');
+        return view('policy');
+
+    }
 }

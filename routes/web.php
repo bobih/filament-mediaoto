@@ -19,6 +19,7 @@ use App\Http\Controllers\NewsPostController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/policy', [HomeController::class,'policy'])->name('policy');
+Route::get('/privacy', [HomeController::class,'privacy'])->name('privacy');
 Route::get('/news', [NewsPostController::class,'index'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsPostController::class,'show'])->name('news.show');
 
