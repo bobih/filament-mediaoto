@@ -13,7 +13,7 @@ class ArtisanController extends Controller
         $exitcode = Artisan::call('config:clear');
         $exitcode = Artisan::call('route:clear');
 
-        $exitcode = Artisan::call('optimize');
+        $exitcode = Artisan::call('optimize:clear');
 
         echo "OK";
     }
