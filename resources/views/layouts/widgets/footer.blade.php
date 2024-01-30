@@ -20,7 +20,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.twitter.com/mediaoto"
+                    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mediaotoid"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path
