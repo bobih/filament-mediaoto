@@ -47,10 +47,11 @@
                         </svg>
                     </a> */ ?>
                 </div>
-                <a href="{{ route('home') }}" class="pt-4 flex items-center">
+
+                <a href="{{ route('home') }}" class="pt-4 flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                     <x-application-logo />
                     <span
-                        class="self-center text-xl font-semibold whitespace-nowrap text-gray-700 dark:text-gray-400">Mediaoto</span>
+                        class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
