@@ -3,18 +3,8 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <div class="flex my-4 space-x-10 items-center sm:justify-center sm:mt-0">
-                    <span class="text-gray-500 " >Follow Us</span>
+                    <span class="text-gray-500 ">Follow Us</span>
 
-                    <?php /*
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/mediaoto.id"
-                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    */ ?>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -39,7 +29,23 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </a>
-
+                    <a target="_blank" rel="noopener noreferrer" href="#"
+                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 50 50" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M41,4h-32c-2.757,0 -5,2.243 -5,5v32c0,2.757 2.243,5 5,5h32c2.757,0 5,-2.243 5,-5v-32c0,-2.757 -2.243,-5 -5,-5zM37.006,22.323c-0.227,0.021 -0.457,0.035 -0.69,0.035c-2.623,0 -4.928,-1.349 -6.269,-3.388c0,5.349 0,11.435 0,11.537c0,4.709 -3.818,8.527 -8.527,8.527c-4.709,0 -8.527,-3.818 -8.527,-8.527c0,-4.709 3.818,-8.527 8.527,-8.527c0.178,0 0.352,0.016 0.527,0.027v4.202c-0.175,-0.021 -0.347,-0.053 -0.527,-0.053c-2.404,0 -4.352,1.948 -4.352,4.352c0,2.404 1.948,4.352 4.352,4.352c2.404,0 4.527,-1.894 4.527,-4.298c0,-0.095 0.042,-19.594 0.042,-19.594h4.016c0.378,3.591 3.277,6.425 6.901,6.685z"
+                                clip-rule="evenodd">
+                        </svg>
+                    </a>
+                    <?php /*
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/mediaoto.id"
+                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a> */ ?>
                 </div>
                 <a href="{{ route('home') }}" class="pt-4 flex items-center">
                     <x-application-logo />
