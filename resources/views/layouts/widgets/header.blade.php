@@ -1,11 +1,11 @@
 <header>
     <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="{{ route('home') }}" class="flex items-center">
+            <a href="{{ route('home') }}" class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                 <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                 <x-application-logo />
                 <span
-                    class="self-center text-xl font-semibold whitespace-nowrap text-gray-700 dark:text-gray-400">Mediaoto</span>
+                    class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
             </a>
             <div class="flex md:order-2">
                 <?php /*
