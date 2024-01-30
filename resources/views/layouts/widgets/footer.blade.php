@@ -4,6 +4,8 @@
             <div class="mb-6 md:mb-0">
                 <div class="flex my-4 space-x-10 items-center sm:justify-center sm:mt-0">
                     <span class="text-gray-500 " >Follow Us</span>
+
+                    <?php /*
                     <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/mediaoto.id"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -12,6 +14,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </a>
+                    */ ?>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
