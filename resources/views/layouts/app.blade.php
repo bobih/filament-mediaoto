@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="Mediaoto" />
     <meta property="og:title" content="{{$post->title}}" />
     <meta property="og:image" content="{{ $post->getThumbnailImage() }}" />
-    <meta property="og:description" content="{{$post->description}}" />
+    <meta property="og:description" content="{{$post->getExcerpt()}}" />
     <meta property="og:url" content="{{ route('news.show', $post->slug) }}" />
     <meta property="og:image:type" content="{{$post->getImageInfo()->mime_type}}" />
     <meta property="og:image:width" content="{{$post->getImageInfo()->width}}" />
@@ -34,7 +34,7 @@
     <meta property="twitter:domain" content="mediaoto.id">
     <meta property="twitter:url" content="{{ route('news.show', $post->slug) }}">
     <meta name="twitter:title" content="{{$post->title}}">
-    <meta name="twitter:description" content="{{$post->description}}">
+    <meta name="twitter:description" content="{{$post->getExcerpt()}}">
     <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
     <title>{{ $post->title }}</title>
     @else

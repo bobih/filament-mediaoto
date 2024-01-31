@@ -35,7 +35,7 @@ class CreateNewsPost extends CreateRecord
             Url::create("/news")
                 ->setLastModificationDate(Carbon::create('2024-01-25T01:43:17+00:00'))
                 ->setPriority(0.9)
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
         );
 
         NewsPost::get()->each(function (NewsPost $post) use ($postsitmap) {

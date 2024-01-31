@@ -1,4 +1,4 @@
-<x-app-layout :post='$post' :title='$post->title' :description='$post->description'>
+<x-app-layout :post='$post' :title='$post->title' :description='$post->getExcerpt()'>
     @section('header')
         @include('layouts.widgets.header')
     @endsection

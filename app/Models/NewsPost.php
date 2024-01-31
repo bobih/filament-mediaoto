@@ -121,7 +121,7 @@ class NewsPost extends Model implements HasMedia
 
     public function getExcerpt()
     {
-        return Str::limit(strip_tags($this->content), 150, '...');
+        return Str::limit(strip_tags($this->description), 150, '...');
     }
 
     public function getThumbnailImage()
