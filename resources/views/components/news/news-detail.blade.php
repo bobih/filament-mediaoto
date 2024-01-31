@@ -4,10 +4,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
     <div class="col-span-3">
         <main class="pt-20 antialiased">
-
-
             <div class="mt-4 flex justify-between px-4 mx-auto max-w-screen-xl ">
-
                 <article class="mx-auto pb-10 w-full max-w-2xl dark:format-invert">
                     @if ($post->author->id != 36)
                     <!-- Author -->
@@ -29,7 +26,6 @@
                         <div class="w-full h-auto pb-1/4">
                             <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg"
                                 src="{{ $post->getThumbnailImage() }}" alt="{{ $post->slug }}">
-
                         </div>
                         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
                             <span class="text-sm">{{ Str::upper($post->source) }} |
@@ -60,16 +56,10 @@
                         @endforeach
                     </div>
                     </section>
-
                 </article>
             </div>
-
-
         </main>
-
-
     </div>
-
     <!-- right -->
     <div class="col-span-1 ">
         <main class="sm:pt-20 pb-10 bg-gray-100 dark:bg-gray-900 antialiased">
@@ -77,9 +67,7 @@
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Related News
                 </h2>
-
                 <div class="grid gap-8 lg:grid-cols-1">
-
                     @foreach ($related as $post)
                         <x-news.news-card :post="$post" />
                     @endforeach

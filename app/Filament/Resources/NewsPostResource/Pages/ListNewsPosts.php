@@ -80,7 +80,7 @@ class ListNewsPosts extends ListRecords
                             Url::create("/news/{$post->slug}")
                                 ->setPriority(0.9)
                                 ->setLastModificationDate(Carbon::create($post->updated_at))
-                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                         );
                     });
                     //$postsitmap->writeToFile(public_path('sitemap.xml'));
