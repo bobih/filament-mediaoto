@@ -14,17 +14,19 @@
         <a href="{{ route('news.show', $post->slug) }}">{{ $post->title }}</a>
     </h2>
     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
-    <div class="flex justify-end items-center">
+    <div class="flex justify-between items-center">
 
-        <?php /*
+        @if ($post->author->id != 36)
+
         <div class="flex items-center space-x-4">
             <img class="w-7 h-7 rounded-full" src="https://www.mediaoto.id/images/{{$post->author->image}}" alt="{{$post->author->nama}}" />
             <span class="font-medium dark:text-white">
                 {{$post->author->nama}}
             </span>
         </div>
-        */
-        ?>
+        @endif
+
+
 
 
 
