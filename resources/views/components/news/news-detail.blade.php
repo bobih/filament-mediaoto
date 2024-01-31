@@ -6,11 +6,27 @@
         <main class="pt-20 antialiased">
 
 
-            <div class="mt-10 flex justify-between px-4 mx-auto max-w-screen-xl ">
+            <div class="mt-4 flex justify-between px-4 mx-auto max-w-screen-xl ">
 
-                <article class="mx-auto w-full max-w-2xl dark:format-invert">
+                <article class="mx-auto pb-10 w-full max-w-2xl dark:format-invert">
+                    @if ($post->author->id != 36)
+                    <!-- Author -->
+                    <address class="pb-10 md:pb-10 ">
+                        <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                            <img class="mr-4 w-16 h-16 rounded-full" src="https://www.mediaoto.id/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
+                            <div>
+                                <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{$post->author->nama}}</a>
+                                <p class="text-base text-gray-500 dark:text-gray-400">Content Creative Mediaoto</p>
+                                <?php /*
+                                <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="{{ $post->published_at }}" title="{{ $post->published_at }}">{{ $post->published_at }}</time></p>
+                                */ ?>
+                            </div>
+                        </div>
+                    </address>
+                    @endif
+
                     <header class="mb-4 lg:mb-6 not-format">
-                        <div class="px-4 w-full h-auto pb-1/4">
+                        <div class="w-full h-auto pb-1/4">
                             <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg"
                                 src="{{ $post->getThumbnailImage() }}" alt="{{ $post->slug }}">
 
@@ -45,22 +61,6 @@
                     </div>
                     </section>
 
-                    @if ($post->author->id != 36)
-
-            <!-- Author -->
-            <address class="pt-10 md:pb-20 ">
-                <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                    <img class="mr-4 w-16 h-16 rounded-full" src="https://www.mediaoto.id/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
-                    <div>
-                        <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{$post->author->nama}}</a>
-                        <p class="text-base text-gray-500 dark:text-gray-400">Content Creative Mediaoto</p>
-                        <?php /*
-                        <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="{{ $post->published_at }}" title="{{ $post->published_at }}">{{ $post->published_at }}</time></p>
-                        */ ?>
-                    </div>
-                </div>
-            </address>
-            @endif
                 </article>
             </div>
 
