@@ -32,7 +32,7 @@
 
                 </div>
                 <h3 class="mb-2 text-xl font-bold dark:text-white">Membership Leads</h3>
-                <p class="text-gray-500 dark:text-gray-400">Paket retail membership silver & gold durasi 3 bulan</p>
+                <p class="text-gray-500 dark:text-gray-400">Retail Membership Packages: Silver and Gold, each with a duration of 3 months</p>
             </div>
             <!-- Products -->
             <div>
@@ -97,8 +97,7 @@
                     </svg>
                 </div>
                 <h3 class="mb-2 text-xl font-bold dark:text-white">Corporate Leads</h3>
-                <p class="text-gray-500 dark:text-gray-400">Pendistribusian Leads secara corporate yang di dukung apps
-                    juga report bulanan dan result akhir program.</p>
+                <p class="text-gray-500 dark:text-gray-400">Efficient corporate lead distribution supported by user-friendly apps, complemented by monthly reports and conclusive program results.</p>
             </div>
             <!-- Products -->
             <div>
@@ -125,8 +124,7 @@
                         </svg>
                     </div>
                     <h3 class="mb-2 text-xl font-bold dark:text-white">Cost per SPK</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Pendistribusian Leads secara corporate yang di
-                        targetkan dengan jumlah besaran SPK.</p>
+                    <p class="text-gray-500 dark:text-gray-400">Strategic corporate lead distribution aligning with targeted objectives and corresponding work order amounts.</p>
                 </div>
                 <!-- Products -->
                 <div>
@@ -194,9 +192,8 @@
                                     d="M69.5 110.5h4c2.638.742 3.971 2.575 4 5.5-1.042 5.023-4.042 6.69-9 5-3.335-2.679-3.835-5.845-1.5-9.5.67-.752 1.504-1.086 2.5-1Z" />
                             </svg>
                         </div>
-                        <h3 class="mb-2 text-xl font-bold dark:text-white">Verifikasi Leads</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Pendistribusian Leads yang sudah melewati proses
-                            verifikasi untuk mengerucutkan kebutuhan dari pelaku bisnis.</p>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">Enhancing lead verification processes</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Distribution of verified leads to refine and address the specific needs of business professionals.</p>
                     </div>
 
                 </div>

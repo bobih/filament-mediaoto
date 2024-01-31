@@ -148,22 +148,15 @@
                 dan terintegrasi.
             </p>
             */ ?>
-            <p class="mb-4">Mediaoto is an independent, integrated full-service agency that specializes
-                in the development of communications technology
-                brand and media buying for digital and conventional channels with data-driven performance, in particular
-                for the automotive market
-                and property.</p>
+            <p class="mb-4">Mediaoto stands as an independent, integrated full-service agency, specializing in the development of communications technology brands and strategic media buying across digital and conventional channels. Our expertise lies in data-driven performance, with a particular focus on delivering impactful solutions for the automotive market and property sector.</p>
             <p class="mb-4">
-                Seeing the current market interest which really needs Leads to develop its business
+                Acknowledging the current market's pressing need for leads to drive business growth, we aim to emerge as a trailblazing agency in Indonesia.
+            </p>
+            <p class="mb-4">
+                Our dedication revolves around providing a significant influx of high-quality leads. Committed to delivering optimal solutions, we strive to enhance sales and elevate brand awareness through a blend of professional and integrated services.
             </p>
 
-            <p class="mb-4">
-                We have a vision to become a pioneer agency providing large numbers of leads in
-                Indonesia, which can
-                providing the best solutions for business people, as well as increasing sales and brand awareness
-                with professional service
-                and integrated.
-            </p>
+
             <?php /*
             <button type="button"
                 class="mt-8 text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2">
