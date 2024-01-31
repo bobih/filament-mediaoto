@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a title="aboutus" href="/#aboutus" rel="noopener" target="_self"
+                        <a title="about-us" href="/#aboutus" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             About Us
                         </a>
@@ -125,7 +125,7 @@
                             Pricing
                         </a>
                     <li>
-                        <a title="contactus" href="javascript:void(0)" rel="noopener" target="_self" x-data
+                        <a title="contact-us" href="javascript:void(0)" rel="noopener" target="_self" x-data
                             x-on:click="$dispatch('open-modal')"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
                             Us</a>
