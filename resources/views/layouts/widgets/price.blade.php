@@ -40,7 +40,7 @@
                         <span>Premium support: <span class="font-semibold">3 Month</span></span>
                     </li>
                 </ul>
-                <a href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
+                <a title="silver" title="closebtn" href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </a>
@@ -77,7 +77,7 @@
                         <span>Premium support: <span class="font-semibold">3 Month</span></span>
                     </li>
                 </ul>
-                <a href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
+                <a  title="gold" href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
                     class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Get Started
                 </a>
@@ -112,7 +112,7 @@
                     </li>
                 </ul>
 
-                    <a href="javascript:void(0)" rel="noopener" target="_self" x-data={} x-on:click="$dispatch('open-modal')"
+                    <a title="diamond" title="submit"  href="javascript:void(0)" rel="noopener" target="_self" x-data={} x-on:click="$dispatch('open-modal')"
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         Get Started
                     </a>

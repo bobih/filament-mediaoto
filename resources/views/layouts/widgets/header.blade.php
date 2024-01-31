@@ -1,7 +1,7 @@
 <header>
     <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="{{ route('home') }}" class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
+            <a title="home" href="{{ route('home') }}" class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                 <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                 <x-application-logo />
                 <span
@@ -96,36 +96,36 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-400 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800">
                     <li>
-                        <a  href="/#" rel="noopener" target="_self"
+                        <a  title="home" href="/#" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="/#aboutus" rel="noopener" target="_self"
+                        <a title="aboutus" href="/#aboutus" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             About Us
                         </a>
                     </li>
                     <li>
-                        <a href="/#products" rel="noopener" target="_self"
+                        <a title="products" href="/#products" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Products
                         </a>
                     </li>
                     <li>
-                        <a href="/news" rel="noopener" target="_self"
+                        <a title="news" href="/news" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             News
                         </a>
                     </li>
                     <li>
-                        <a href="/#price" rel="noopener" target="_self"
+                        <a title="price" href="/#price" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             Pricing
                         </a>
                     <li>
-                        <a href="javascript:void(0)" rel="noopener" target="_self" x-data
+                        <a title="contactus" href="javascript:void(0)" rel="noopener" target="_self" x-data
                             x-on:click="$dispatch('open-modal')"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
                             Us</a>

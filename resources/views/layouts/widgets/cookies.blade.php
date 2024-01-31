@@ -3,7 +3,7 @@
     <div class="text-center md:text-start">
         <p class="px-4 text-gray-500 dark:text-gray-300">
             We use our own cookies as well as third-party cookies on our websites to enhance your experience, analyze our
-            traffic, and for security and marketing. Select "Accept" to allow them to be used. Read our <a href="#"
+            traffic, and for security and marketing. Select "Accept" to allow them to be used. Read our <a title="policy" href="/policy"
                 class="">Cookie
                 Policy</a>.
         </p>

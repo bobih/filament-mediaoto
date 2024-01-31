@@ -3,7 +3,7 @@
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
-            <a href="#">
+
                 <div
                     class="flex h-full  bg-gray-100 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
@@ -22,10 +22,10 @@
                         <p class="dark:text-gray-400 text-sm">Get ads about the best automotive</p>
                     </div>
                 </div>
-            </a>
 
 
-            <a href="#">
+
+
                 <div
                     class="flex  h-full bg-gray-100 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
@@ -44,7 +44,7 @@
                         <p class="dark:text-gray-400 text-sm">Get ads about the best property</p>
                     </div>
                 </div>
-            </a>
+
         </div>
     </div>
 
@@ -58,7 +58,7 @@
 
 
 
-                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id" class="hover:text-gray-300">
+                <a target="_blank" title="instagramuri" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id" class="hover:text-gray-300">
                     <svg class="w-10 h-10 fill-current" width="24px" height="24px" id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="-143 145 512 512" xml:space="preserve">
@@ -74,7 +74,7 @@
                         </g>
                     </svg>
                 </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCkfb6D6xVY6cKMlgHKQ7xZQ"  class="hover:text-gray-300">
+                <a target="_blank" title="youtueuri" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCkfb6D6xVY6cKMlgHKQ7xZQ"  class="hover:text-gray-300">
                     <svg class="mx-10 w-10 h-10 fill-current" width="24px" height="24px" id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="-143 145 512 512" xml:space="preserve">
@@ -87,7 +87,7 @@
                     </svg>
                 </a>
 
-                <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@mediaoto.id" class="hover:text-gray-300">
+                <a target="_blank" title="tiktokuri" rel="noopener noreferrer" href="https://www.tiktok.com/@mediaoto.id" class="hover:text-gray-300">
                     <svg class="w-12 h-12 fill-current" width="24px" height="24px" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
