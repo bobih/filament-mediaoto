@@ -37,7 +37,7 @@
                     </header>
                     <div class="dark:text-gray-400 mb-10 md:mb-10">
 
-                        {!! $post->content !!}
+                        {!! $post->getFullContent() !!}
                     </div>
                     @if ($category = $post->categories->first())
                         @foreach ($post->categories as $category)

@@ -124,6 +124,16 @@ class NewsPost extends Model implements HasMedia
         return Str::limit(strip_tags($this->description), 150, '...');
     }
 
+    public function getFullContent(){
+        $arrPic = [
+            "<img alt='01-{$this->title}' title='01-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
+            "<img alt='02-{$this->title}' title='02-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
+            "<img alt='03-{$this->title}' title='03-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
+        ];
+        //return Str::replaceMatches('<img', $this->content,"<img title='piic01'");
+        return Str::replaceArray('<img', $arrPic, $this->content);
+    }
+
     public function getThumbnailImage()
     {
         $isUrl = str_contains($this->image, 'http');
