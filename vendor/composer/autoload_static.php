@@ -9,8 +9,8 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
@@ -1001,9 +1001,9 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         ),
         'Filament\\' => 
         array (
-            0 => __DIR__ . '/..' . '/filament/filament/src',
-            1 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
-            2 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
+            0 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
+            1 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
+            2 => __DIR__ . '/..' . '/filament/filament/src',
         ),
         'Faker\\' => 
         array (
@@ -1176,6 +1176,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Actions\\Fortify\\UpdateUserPassword' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserPassword.php',
         'App\\Actions\\Fortify\\UpdateUserProfileInformation' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserProfileInformation.php',
         'App\\Actions\\Jetstream\\DeleteUser' => __DIR__ . '/../..' . '/app/Actions/Jetstream/DeleteUser.php',
+        'App\\Console\\Commands\\GenerateSitemap' => __DIR__ . '/../..' . '/app/Console/Commands/GenerateSitemap.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Filament\\AvatarProviders\\CustomAvatarsProvider' => __DIR__ . '/../..' . '/app/Filament/AvatarProviders/CustomAvatarsProvider.php',
@@ -5456,6 +5457,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Illuminate\\Foundation\\Console\\ScopeMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/ScopeMakeCommand.php',
         'Illuminate\\Foundation\\Console\\ServeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php',
         'Illuminate\\Foundation\\Console\\StorageLinkCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/StorageLinkCommand.php',
+        'Illuminate\\Foundation\\Console\\StorageUnlinkCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/StorageUnlinkCommand.php',
         'Illuminate\\Foundation\\Console\\StubPublishCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/StubPublishCommand.php',
         'Illuminate\\Foundation\\Console\\TestMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/TestMakeCommand.php',
         'Illuminate\\Foundation\\Console\\UpCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/UpCommand.php',

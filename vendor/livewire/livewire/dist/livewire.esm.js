@@ -9009,7 +9009,7 @@ function history2(Alpine21) {
 function track(name, initialSeedValue, alwaysShow = false) {
   let { has, get, set, remove } = queryStringUtils();
   let url = new URL(window.location.href);
-  let isInitiallyPresentInUrl = has(url, name) && get(url, name) === initialSeedValue;
+  let isInitiallyPresentInUrl = has(url, name);
   let initialValue = isInitiallyPresentInUrl ? get(url, name) : initialSeedValue;
   let initialValueMemo = JSON.stringify(initialValue);
   let hasReturnedToInitialValue = (newValue) => JSON.stringify(newValue) === initialValueMemo;
@@ -9598,8 +9598,10 @@ on("effect", ({ component, effects }) => {
         event_name
       ] = event_parts;
       if (["channel", "private", "encryptedPrivate"].includes(channel_type)) {
-        window.Echo[channel_type](channel).listen(event_name, (e) => {
-          dispatchSelf(component, event, [e]);
+        let handler = (e) => dispatchSelf(component, event, [e]);
+        window.Echo[channel_type](channel).listen(event_name, handler);
+        component.addCleanup(() => {
+          window.Echo[channel_type](channel).stopListening(event_name, handler);
         });
       } else if (channel_type == "presence") {
         if (["here", "joining", "leaving"].includes(event_name)) {
@@ -9607,8 +9609,10 @@ on("effect", ({ component, effects }) => {
             dispatchSelf(component, event, [e]);
           });
         } else {
-          window.Echo.join(channel).listen(event_name, (e) => {
-            dispatchSelf(component, event, [e]);
+          let handler = (e) => dispatchSelf(component, event, [e]);
+          window.Echo.join(channel).listen(event_name, handler);
+          component.addCleanup(() => {
+            window.Echo[channel_type](channel).stopListening(event_name, handler);
           });
         }
       } else if (channel_type == "notification") {
