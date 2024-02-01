@@ -53,7 +53,7 @@
     <meta name="twitter:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto">
     <meta name="twitter:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
-    <title>{{ isset($title) ? $title . ' -  Get insight about Mediaoto' : 'Get insight about Mediaoto' }}</title>
+    <title>{{ isset($title) ? $title . ' -  Close more deals with single page leads management' : 'Close more deals with single page leads management' }}</title>
     @endif
 
     <link rel="canonical" href="{{ url()->current() }}" />
