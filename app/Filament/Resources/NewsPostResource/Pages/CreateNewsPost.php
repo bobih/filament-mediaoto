@@ -7,6 +7,7 @@ use App\Models\NewsPost;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\CreateRecord;
@@ -49,6 +50,19 @@ class CreateNewsPost extends CreateRecord
         });
         $postsitmap->writeToFile(storage_path('../../public_html/sitemap.xml'));
 
+        // Sent HTTP Request to bing
+        $urldata = array();
+        foreach ($postsitmap->getTags() as $data) {
+            $urldata[] = "https://www.mediaoto.id" . $data->url;
+        }
+
+        $data = array(
+            "siteUrl" => "https://www.mediaoto.id",
+            "urlList" => $urldata,
+        );
+
+        $uri = "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey?​&apikey=785ea63711724a6385084bf587218e3e";
+        $response = Http::withBody(json_encode($data), 'application/json')->post($uri);
         // Clear Cache
 
         Cache::forget('mobileCache');
@@ -56,7 +70,5 @@ class CreateNewsPost extends CreateRecord
         Cache::forget('newsResponse');
         Cache::forget('newsLatest');
         Cache::forget('newscategories');
-
-
     }
 }

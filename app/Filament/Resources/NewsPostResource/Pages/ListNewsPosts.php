@@ -8,6 +8,7 @@ use Spatie\Sitemap\Sitemap;
 use Filament\Actions\Action;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Components\Tab;
@@ -62,6 +63,9 @@ class ListNewsPosts extends ListRecords
                 })
                 ->action(function(){
 
+                    $bingSite = array();
+
+
                     $postsitmap = Sitemap::create();
                     $postsitmap->add(
                         Url::create("/")
@@ -83,18 +87,29 @@ class ListNewsPosts extends ListRecords
                                 ->setLastModificationDate(Carbon::create($post->updated_at))
                                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                         );
-                    });
-                    //$postsitmap->writeToFile(public_path('sitemap.xml'));
 
-                    $postsitmap->writeToFile(storage_path('../../public_html/sitemap.xml'));
+                    });
+                    $postsitmap->writeToFile(public_path('sitemap.xml'));
+
+                    // Sent HTTP Request to bing
+                     $urldata = array();
+                     foreach($postsitmap->getTags() as $data ){
+                        $urldata[] = "https://www.mediaoto.id" . $data->url;
+                     }
+
+                     $data = array(
+                        "siteUrl" => "https://www.mediaoto.id",
+                        "urlList" => $urldata,
+                     );
+
+                    $uri = "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey?​&apikey=785ea63711724a6385084bf587218e3e";
+                    $response = Http::withBody(json_encode($data), 'application/json')->post($uri);
 
                     Cache::forget('mobileCache');
                     Cache::forget('homeDesktopCache');
                     Cache::forget('newsResponse');
                     Cache::forget('newsLatest');
                     Cache::forget('newscategories');
-
-
                     return true;
                 }),
         ];
