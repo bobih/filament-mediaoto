@@ -52,7 +52,7 @@
                     @endif
                     <div class="pt-8 flex">
                         @foreach ($post->tags as $tag)
-                            <x-news.news-tag wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
+                            <x-news.news-tag  title="{{$tag->slug}}"  alt="{{$tag->slug}}" wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
                                 name="{{ $tag->name }}" slug="{{ $tag->slug }}">
                             </x-news.news-tag>
                         @endforeach
