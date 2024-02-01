@@ -37,7 +37,7 @@
                 ?>
                 <div class="md:px-5 flex-1w-12 md:w-20">
 
-                        <button id="theme-toggle" type="button"
+                        <button id="theme-toggle" title="Toggle Theme" aria-label="btn-theme-toggle" type="button"
                             class="text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                             <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
