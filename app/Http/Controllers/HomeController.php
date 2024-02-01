@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\NewsPost;
-
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 use Spatie\Analytics\Facades\Analytics;
 use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
@@ -33,11 +34,19 @@ class HomeController extends Controller
         $agent = new Agent();
 
 
+        $homeMobileCache = Cache::remember('mobileCache', Carbon::now()->addHours(1), function () {
+            return NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+        });
+
+        $homeDesktopCache = Cache::remember('homeDesktopCache', Carbon::now()->addHours(1), function () {
+            return NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+        });
+
 
         if($agent->isMobile()){
-            $response = NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            $response = $homeMobileCache;
         } else {
-            $response = NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            $response = $homeDesktopCache;
         }
 
         //$response = NewsPost::wherein('id',[4,21,39,51,70,73])->with('categories')->orderBy('published_at','desc')->take(5)->get();

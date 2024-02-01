@@ -7,7 +7,9 @@ use Illuminate\Support\Str;
 
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
@@ -17,25 +19,44 @@ class NewsPostController extends Controller
 
         GoogleTagManager::set('pageType', 'news');
 
-        $response = NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
-        $latest = NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
-        $categories = NewsCategory::whereHas('posts', function($query){
-            $query->published();
-        })->take(10)->get();
+        $newsResponse = Cache::remember('newsResponse', Carbon::now()->addMinutes(30), function () {
+            return NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+        });
+
+        $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
+            return NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
+        });
+
+        $newscategories = Cache::remember('newscategories', Carbon::now()->addMinutes(30), function () {
+            return NewsCategory::whereHas('posts', function($query){
+                $query->published();
+            })->take(10)->get();
+        });
+
+
         return view('news.index',[
-            "posts" => $response,
-            "latest" => $latest,
-            "categories" => $categories
+            "posts" => $newsResponse,
+            "latest" => $newsLatest,
+            "categories" => $newscategories
         ]);
     }
 
     public function show(NewsPost $news){
 
         GoogleTagManager::set('pageType', 'news-detail');
-        $related = NewsPost::inRandomOrder()->take(3)->get();
+
+        $newsRelated = Cache::remember('newsRelated', Carbon::now()->addMinutes(30), function () {
+            return NewsPost::inRandomOrder()->take(3)->get();
+        });
+
+        $newsid = Cache::remember('news-'.$news->id, Carbon::now()->addMinutes(30), function () use ($news) {
+            return $news;
+        });
+
+
         return view('news.show',[
-            "post" => $news,
-            "related" => $related
+            "post" => $newsid,
+            "related" => $newsRelated
         ]);
     }
 
