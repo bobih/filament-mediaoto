@@ -20,11 +20,11 @@ class NewsPostController extends Controller
         GoogleTagManager::set('pageType', 'news');
 
         $newsResponse = Cache::remember('newsResponse', Carbon::now()->addHours(1), function () {
-            return NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            return NewsPost::inRandomOrder()->with('categories','media','tags','author')->orderBy('published_at','desc')->take(5)->get();
         });
 
         $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
-            return NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
+            return NewsPost::orderBy('published_at','desc')->with('categories','media','tags','author')->take(3)->get();
         });
 
         $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
@@ -46,7 +46,7 @@ class NewsPostController extends Controller
         GoogleTagManager::set('pageType', 'news-detail');
 
         $newsRelated = Cache::remember('newsRelated', Carbon::now()->addMinutes(30), function () {
-            return NewsPost::inRandomOrder()->take(3)->get();
+            return NewsPost::inRandomOrder()->with('categories','media','tags','author')->take(3)->get();
         });
 
         $newsid = Cache::remember('news-'.$news->id, Carbon::now()->addMinutes(30), function () use ($news) {

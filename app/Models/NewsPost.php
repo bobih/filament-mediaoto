@@ -131,17 +131,23 @@ class NewsPost extends Model implements HasMedia
             "<img alt='03-{$this->title}' title='03-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
         ];
         //return Str::replaceMatches('<img', $this->content,"<img title='piic01'");
-        return Str::replaceArray('<img', $arrPic, $this->content);
+        if(str_contains($this->content,'<img' )){
+            return Str::replaceArray('<img', $arrPic, $this->content);
+        } else {
+            return $this->content;
+        }
     }
 
     public function getThumbnailImage()
     {
-        $isUrl = str_contains($this->image, 'http');
-        if($isUrl){
-            $urlLocation = $this->image;
-         } else {
-            $urlLocation = $this->getFirstMediaUrl();
-        }
+
+        // $isUrl = str_contains($this->image, 'http');
+        //    if($isUrl){
+        //        $urlLocation = $this->image;
+        //    } else {
+                $urlLocation = $this->getFirstMediaUrl();
+        //    }
+
         return  $urlLocation;
     }
 
@@ -152,15 +158,12 @@ class NewsPost extends Model implements HasMedia
     }
 
     public function getImageInfo(){
-        $isUrl = str_contains($this->image, 'http');
-        if($isUrl){
-            $width = '600';
-            $height = '300';
-            $mime = "image/jpeg";
-         } else {
-            $imageInstance = ImageFactory::load($this->getFirstMediaPath());
+       // $isUrl = str_contains($this->image, 'http');
+
+
 
             try{
+                $imageInstance = ImageFactory::load($this->getFirstMediaPath());
                 $width =  $imageInstance->getWidth();
                 $height =  $imageInstance->getHeight();
                 if(isset($this->getFirstMedia()->mime_type)){
@@ -174,7 +177,7 @@ class NewsPost extends Model implements HasMedia
                 $mime = "image/jpeg";
             }
 
-        }
+
         $arrobject = (object) [
             "height" => $height,
             "width" => $width,

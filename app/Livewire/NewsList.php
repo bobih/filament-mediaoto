@@ -31,9 +31,8 @@ class NewsList extends Component
 
         $agent = new Agent();
 
-
         $response = NewsPost::where('title', 'like', "%{$this->search}%")
-                    ->with('categories')
+                    ->with('categories','media','tags','author')
                     ->published()
                     ->orderBy('published_at','desc')
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){

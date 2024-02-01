@@ -35,11 +35,11 @@ class HomeController extends Controller
 
 
         $homeMobileCache = Cache::remember('mobileCache', Carbon::now()->addHours(1), function () {
-            return NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            return NewsPost::featured()->published()->with('categories','media','tags','author')->orderBy('published_at','desc')->take(5)->get();
         });
 
         $homeDesktopCache = Cache::remember('homeDesktopCache', Carbon::now()->addHours(1), function () {
-            return NewsPost::featured()->published()->with('categories')->orderBy('published_at','desc')->take(5)->get();
+            return NewsPost::featured()->published()->with('categories','media','tags','author')->orderBy('published_at','desc')->take(5)->get();
         });
 
 
