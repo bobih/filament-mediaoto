@@ -45,9 +45,11 @@ class NewsPostController extends Controller
 
         GoogleTagManager::set('pageType', 'news-detail');
 
-        $newsRelated = Cache::remember('newsRelated', Carbon::now()->addMinutes(30), function () {
-            return NewsPost::inRandomOrder()->with('categories','media','tags','author')->take(3)->get();
+        $newsRelated = Cache::remember('newsRelated', Carbon::now()->addMinutes(30), function () use ($news) {
+            return NewsPost::whereNotIn('id',[$news->id])->inRandomOrder()->with('categories','media','tags','author')->take(3)->get();
         });
+
+        $newsRelated =  NewsPost::whereNotIn('id',[$news->id])->inRandomOrder()->with('categories','media','tags','author')->take(3)->get();
 
         $newsid = Cache::remember('news-'.$news->id, Carbon::now()->addMinutes(30), function () use ($news) {
             return $news;
@@ -55,7 +57,7 @@ class NewsPostController extends Controller
 
 
         return view('news.show',[
-            "post" => $newsid,
+            "post" => $news,
             "related" => $newsRelated
         ]);
     }
