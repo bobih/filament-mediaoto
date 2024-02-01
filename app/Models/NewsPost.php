@@ -141,12 +141,12 @@ class NewsPost extends Model implements HasMedia
     public function getThumbnailImage()
     {
 
-        // $isUrl = str_contains($this->image, 'http');
-        //    if($isUrl){
-        //        $urlLocation = $this->image;
-        //    } else {
+         $isUrl = str_contains($this->image, 'http');
+            if($isUrl){
+                $urlLocation = $this->image;
+            } else {
                 $urlLocation = $this->getFirstMediaUrl();
-        //    }
+            }
 
         return  $urlLocation;
     }
