@@ -159,6 +159,8 @@ class NewsPost extends Model implements HasMedia
             $mime = "image/jpeg";
          } else {
             $imageInstance = ImageFactory::load($this->getFirstMediaPath());
+
+            if($imageInstance != null){
             $width =  $imageInstance->getWidth();
             $height =  $imageInstance->getHeight();
             if(isset($this->getFirstMedia()->mime_type)){
@@ -166,6 +168,11 @@ class NewsPost extends Model implements HasMedia
             } else {
                 $mime = "image/jpeg";
             }
+        } else {
+            $width = '600';
+            $height = '300';
+            $mime = "image/jpeg";
+        }
 
         }
         $arrobject = (object) [
