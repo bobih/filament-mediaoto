@@ -160,7 +160,7 @@ class NewsPost extends Model implements HasMedia
          } else {
             $imageInstance = ImageFactory::load($this->getFirstMediaPath());
 
-            if($imageInstance->getWidth()){
+            if($imageInstance){
                 $width =  $imageInstance->getWidth();
                 $height =  $imageInstance->getHeight();
                 if(isset($this->getFirstMedia()->mime_type)){
