@@ -40,15 +40,17 @@
                         {!! $post->getFullContent() !!}
                     </div>
                     @if ($category = $post->categories->first())
+                    <div class="flex gap-2">
                         @foreach ($post->categories as $category)
-                            <x-news.news-badge href="{{ route('news.index', ['category' => $category->slug]) }}"
+                            <x-news.news-badge  title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
                                 :category='$category' bgColor="{{ $category->bg_color }}"
                                 txtColor="{{ $category->text_color }}">
                                 {{ $category->title }}
                             </x-news.news-badge>
                         @endforeach
+                    </div>
                     @endif
-                    <div class="pt-4">
+                    <div class="pt-8 flex">
                         @foreach ($post->tags as $tag)
                             <x-news.news-tag wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
                                 name="{{ $tag->name }}" slug="{{ $tag->slug }}">
@@ -61,7 +63,7 @@
         </main>
     </div>
     <!-- right -->
-    <div class="col-span-1 ">
+    <div class="col-span-1 hidden md:block col-span-4 md:col-span-1 sticky md:top-0 h-[2000px]">
         <main class="sm:pt-20 pb-10 bg-gray-100 dark:bg-gray-900 antialiased">
             <div class="mt-10  max-w-screen-xl ">
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
