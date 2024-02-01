@@ -39,7 +39,7 @@
     <title>{{ $post->title }}</title>
     @else
     <meta property="og:site_name" content="Mediaoto" />
-    <meta property="og:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto" />
+    <meta property="og:title" content="{{ isset($title) ? $title . ' - ' : '' }} Close more deals with single page leads management" />
     <meta property="og:image" content="https://www.mediaoto.id/images/home_openGraph.png" />
     <meta property="og:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}" />
     <meta property="og:url" content="{{ url()->current() }}" />
@@ -50,7 +50,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="mediaoto.id">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="{{ isset($title) ? $title . ' - ' : '' }} Get insight about Mediaoto">
+    <meta name="twitter:title" content="{{ isset($title) ? $title . ' - ' : '' }} Close more deals with single page leads management">
     <meta name="twitter:description" content="{{ isset($description) ? $description : 'We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people' }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
     <title>{{ isset($title) ? $title . ' -  Close more deals with single page leads management' : 'Close more deals with single page leads management' }}</title>
