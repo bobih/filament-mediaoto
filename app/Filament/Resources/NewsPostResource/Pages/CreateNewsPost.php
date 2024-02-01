@@ -8,6 +8,7 @@ use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
 use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\NewsPostResource;
 
@@ -47,5 +48,15 @@ class CreateNewsPost extends CreateRecord
             );
         });
         $postsitmap->writeToFile(storage_path('../../public_html/sitemap.xml'));
+
+        // Clear Cache
+
+        Cache::forget('mobileCache');
+        Cache::forget('homeDesktopCache');
+        Cache::forget('newsResponse');
+        Cache::forget('newsLatest');
+        Cache::forget('newscategories');
+
+
     }
 }

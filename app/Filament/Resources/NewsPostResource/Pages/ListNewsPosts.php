@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
 use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Components\Tab;
 use pxlrbt\FilamentExcel\Columns\Column;
 use App\Console\Commands\GenerateSitemap;
@@ -86,6 +87,13 @@ class ListNewsPosts extends ListRecords
                     //$postsitmap->writeToFile(public_path('sitemap.xml'));
 
                     $postsitmap->writeToFile(storage_path('../../public_html/sitemap.xml'));
+
+                    Cache::forget('mobileCache');
+                    Cache::forget('homeDesktopCache');
+                    Cache::forget('newsResponse');
+                    Cache::forget('newsLatest');
+                    Cache::forget('newscategories');
+
 
                     return true;
                 }),

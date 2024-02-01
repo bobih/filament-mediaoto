@@ -19,7 +19,7 @@ class NewsPostController extends Controller
 
         GoogleTagManager::set('pageType', 'news');
 
-        $newsResponse = Cache::remember('newsResponse', Carbon::now()->addMinutes(30), function () {
+        $newsResponse = Cache::remember('newsResponse', Carbon::now()->addHours(1), function () {
             return NewsPost::inRandomOrder()->with('categories')->orderBy('published_at','desc')->take(5)->get();
         });
 
@@ -27,7 +27,7 @@ class NewsPostController extends Controller
             return NewsPost::orderBy('published_at','desc')->with('categories')->take(3)->get();
         });
 
-        $newscategories = Cache::remember('newscategories', Carbon::now()->addMinutes(30), function () {
+        $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
             return NewsCategory::whereHas('posts', function($query){
                 $query->published();
             })->take(10)->get();
