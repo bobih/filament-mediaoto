@@ -1,7 +1,7 @@
 /.phpunit.cache
 /node_modules
 /storage/*.key
-
+/storage/app/analytics/*
 .env
 .env.backup
 .env.production
