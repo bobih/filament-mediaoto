@@ -9,6 +9,7 @@
                 <div class="grid grid-cols-1 gap-4 md:mb-10">
                     <livewire:news-list />
                 </div>
+                <?php /*
                 <div id="gads-display" class="pt-10 hidden md:block" style="width:100%">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
@@ -21,6 +22,7 @@
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
+                */ ?>
             </div>
         </div>
         <div id="side-bar"
@@ -44,6 +46,8 @@
                         </x-news.news-badge>
                     @endforeach
                 </div>
+
+                <?php /*
                 <div id="gads" class="pt-10 hidden md:block" style="width:100%">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
                         crossorigin="anonymous"></script>
@@ -57,6 +61,8 @@
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
+
+                */ ?>
             </div>
         </div>
     </div>

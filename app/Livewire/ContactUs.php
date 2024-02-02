@@ -70,6 +70,7 @@ class ContactUs extends ModalComponent
             Notification::make()
                 ->title('Failed, please try again later')
                 ->warning()
+                ->persistent()
                 ->send();
         }
     }

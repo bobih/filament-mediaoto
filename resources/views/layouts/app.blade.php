@@ -213,11 +213,13 @@
     */
     ?>
 
+    <?php /*
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
         crossorigin="anonymous"></script>
-   <?php /* @filamentStyles */ ?>
+    */ ?>
+    <?php /* @filamentStyles */ ?>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
