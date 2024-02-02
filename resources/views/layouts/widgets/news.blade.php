@@ -3,8 +3,10 @@
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900 dark:text-white">Gain valuable insights on news, tips, and tricks, and more
+            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900 dark:text-white">
+                {{__('home.news.infotag')}}
             </h2>
+            <p class="text-gray-500 sm:text-xl dark:text-gray-400"> {{__('home.news.titletag')}}</p>
         </div>
         <?php /*
 

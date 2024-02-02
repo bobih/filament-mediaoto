@@ -2,8 +2,8 @@
 <section  class="bg-gray-100 dark:bg-gray-900 ">
     <div  class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
         <div class="max-w-screen-md mb-8 lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">Our Products</h2>
-            <p class="text-gray-500 sm:text-xl dark:text-gray-400">Some of our products you can use on your business.</p>
+            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">{{__('home.products.infotag')}}</h2>
+            <p class="text-gray-500 sm:text-xl dark:text-gray-400">{{__('home.products.titletag')}}</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
             <!-- Products -->
@@ -31,8 +31,8 @@
                     </svg>
 
                 </div>
-                <h3 class="mb-2 text-xl font-bold dark:text-white">Membership Leads</h3>
-                <p class="text-gray-500 dark:text-gray-400">Retail Membership Packages: Silver and Gold, each with a duration of 3 months</p>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">{{__('home.products.product1tag')}}</h3>
+                <p class="text-gray-500 dark:text-gray-400">{{__('home.products.product1desc')}}</p>
             </div>
             <!-- Products -->
             <div>
@@ -96,8 +96,8 @@
                             d="M86.5 125.5c-14 1.333-28 1.333-42 0a2.427 2.427 0 0 1 .5-2c13.931.659 27.765 1.325 41.5 2Z" />
                     </svg>
                 </div>
-                <h3 class="mb-2 text-xl font-bold dark:text-white">Corporate Leads</h3>
-                <p class="text-gray-500 dark:text-gray-400">Efficient corporate lead distribution supported by user-friendly apps, complemented by monthly reports and conclusive program results.</p>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">{{__('home.products.product2tag')}}</h3>
+                <p class="text-gray-500 dark:text-gray-400">{{__('home.products.product2desc')}}</p>
             </div>
             <!-- Products -->
             <div>
@@ -123,8 +123,8 @@
                                 d="M55.5 59.5c2.065.017 4.065.35 6 1 .405 5.69 2.405 6.357 6 2 2.198.375 4.198 1.042 6 2-3.973 7.545-9.473 8.878-16.5 4-2.292-2.804-2.792-5.804-1.5-9Z" />
                         </svg>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Cost per SPK</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Strategic corporate lead distribution aligning with targeted objectives and corresponding work order amounts.</p>
+                    <h3 class="mb-2 text-xl font-bold dark:text-white">{{__('home.products.product3tag')}}</h3>
+                <p class="text-gray-500 dark:text-gray-400">{{__('home.products.product3desc')}}</p>
                 </div>
                 <!-- Products -->
                 <div>
@@ -192,8 +192,8 @@
                                     d="M69.5 110.5h4c2.638.742 3.971 2.575 4 5.5-1.042 5.023-4.042 6.69-9 5-3.335-2.679-3.835-5.845-1.5-9.5.67-.752 1.504-1.086 2.5-1Z" />
                             </svg>
                         </div>
-                        <h3 class="mb-2 text-xl font-bold dark:text-white">Enhancing lead verification processes</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Distribution of verified leads to refine and address the specific needs of business professionals.</p>
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">{{__('home.products.product4tag')}}</h3>
+                        <p class="text-gray-500 dark:text-gray-400">{{__('home.products.product4desc')}}</p>
                     </div>
 
                 </div>

@@ -23,6 +23,8 @@ Route::get('/privacy', [HomeController::class,'privacy'])->name('privacy');
 Route::get('/news', [NewsPostController::class,'index'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsPostController::class,'show'])->name('news.show');
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
 Route::get("/getnews",  [NewsPostController::class, 'getNews']);
 
 Route::get("/crond",  [CronController::class, 'pushData']);

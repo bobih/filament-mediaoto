@@ -8,35 +8,47 @@
                     class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
             </a>
             <div class="flex md:order-2">
-                <?php /*
-                <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
-                    aria-expanded="false"
-                    class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                    <span class="sr-only">Search</span>
-                </button>
 
-                <div class="relative hidden md:block">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                        <span class="sr-only">Search icon</span>
-                    </div>
-                    <input type="text" id="search-navbar"
-                        class="hidden md:block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search...">
-                </div>
-                */
-                ?>
-                <div class="md:px-5 flex-1w-12 md:w-20">
 
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-500 dark:text-gray-400  text-sm px-2 py-2.5 text-center inline-flex items-center " type="button">
+                        <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}} px-2 md:px-4"></span>
+                        <div class="hidden sm:block">
+                        {{ Config::get('languages')[App::getLocale()]['display'] }}
+                        </div>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    @foreach (Config::get('languages') as $lang => $language)
+                                        @if ($lang != App::getLocale())
+                                            <li>
+                                            <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('lang.switch', $lang) }}">
+                                                <span class="flag-icon flag-icon-{{$language['flag-icon']}} px-4"></span>
+                                                {{$language['display']}}
+                                            </a>
+                                        </li>
+                                            @endif
+                                    @endforeach
+
+                        </div>
+
+                        <!-- Dropdown menu -->
+                        <?php /*
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Config::get('languages')[App::getLocale()] }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                            @endif
+                        @endforeach
+                        </div>
+
+                        */ ?>
+                        <div class="md:px-5 flex w-10">
+                        <?php /***************** Theme Toggle *************** */ ?>
                         <button id="theme-toggle" title="Toggle Theme" aria-label="btn-theme-toggle" type="button"
                             class="text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                             <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
@@ -50,7 +62,6 @@
                                     fill-rule="evenodd" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-
                 </div>
                 <?php /*
                 <button id="btnlink" data-collapse-toggle="navbar-search" type="button"
@@ -98,37 +109,38 @@
                     <li>
                         <a  title="home" href="/#" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            Home
+                            {{__('home.nav.home')}}
                         </a>
                     </li>
                     <li>
                         <a title="about-us" href="/#aboutus" rel="noopener" target="_self"
                             class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            About Us
+                            {{__('home.nav.about')}}
                         </a>
                     </li>
                     <li>
                         <a title="products" href="/#products" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            Products
+                            {{__('home.nav.products')}}
                         </a>
                     </li>
                     <li>
                         <a title="news" href="/news" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            News
+                            {{__('home.nav.news')}}
                         </a>
                     </li>
                     <li>
                         <a title="price" href="/#price" rel="noopener" target="_self"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            Pricing
+                            {{__('home.nav.price')}}
                         </a>
                     <li>
                         <a title="contact-us" href="javascript:void(0)" rel="noopener" target="_self" x-data
                             x-on:click="$dispatch('open-modal')"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
-                            Us</a>
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                            {{__('home.nav.contact')}}
+                        </a>
                     </li>
                 </ul>
             </div>

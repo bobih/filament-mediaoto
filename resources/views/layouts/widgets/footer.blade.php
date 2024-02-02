@@ -3,7 +3,7 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <div class="flex my-4 space-x-10 items-center sm:justify-center sm:mt-0">
-                    <span class="text-gray-500 ">Follow Us</span>
+                    <span class="text-gray-500 ">{{__('home.footer.followus')}}</span>
 
                     <a target="_blank" title="instagram" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -95,10 +95,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a title="privacy" href="/policy" class="hover:underline">Privacy Policy</a>
+                            <a title="privacy" href="/policy" class="hover:underline">{{__('home.footer.privacy')}}</a>
                         </li>
                         <li>
-                            <a title="policy" href="/policy" class="hover:underline">Terms &amp; Conditions</a>
+                            <a title="policy" href="/policy" class="hover:underline">{{__('home.footer.terms')}}</a>
                         </li>
                     </ul>
                 </div>

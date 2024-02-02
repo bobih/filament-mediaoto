@@ -3,7 +3,6 @@
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
-
                 <div
                     class="flex h-full  bg-gray-100 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
@@ -18,14 +17,10 @@
                         </button>
                     </div>
                     <div class="text-start">
-                        <h2 class="text-lg">Our Automotive Info</h2>
-                        <p class="dark:text-gray-400 text-sm">Get ads about the best automotive</p>
+                        <h2 class="text-lg">{{__('home.aboutus.info1tag')}}</h2>
+                        <p class="dark:text-gray-400 text-sm">{{__('home.aboutus.info1desc')}}</p>
                     </div>
                 </div>
-
-
-
-
                 <div
                     class="flex  h-full bg-gray-100 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
@@ -40,20 +35,18 @@
                         </button>
                     </div>
                     <div class="text-start">
-                        <h2 class="text-lg">Our Property Info</h2>
-                        <p class="dark:text-gray-400 text-sm">Get ads about the best property</p>
+                        <h2 class="text-lg">{{__('home.aboutus.info2tag')}}</h2>
+                        <p class="dark:text-gray-400 text-sm">{{__('home.aboutus.info2desc')}}</p>
                     </div>
                 </div>
-
         </div>
     </div>
 
     <div class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
-            <p class="mb-4">About Us</p>
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">SOME INFORMATION ABOUT
-                OUR COMPANY</h2>
+            <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
+            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">{{__('home.aboutus.infotag')}}</h2>
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
@@ -130,31 +123,9 @@
             </div>
         </div>
         <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
-
-            <?php /*
-            <p class="mb-4">Mediaoto adalah agensi layanan lengkap independen dan terintegrasi yang berspesialisasi
-                dalam pengembangan teknologi komunikasi
-                merek dan pembelian media untuk saluran digital dan konvensional dengan kinerja berbasis data, khususnya
-                untuk pasar otomotif
-                dan properti.</p>
-            <p class="mb-4">Melihat minat pasar saat ini yang sangat membutuhkan Leads untuk mengembangkan bisnisnya
-
-            </p>
-
-            <p class="mb-4">Kami memiliki visi untuk menjadi pionir agensi penyedia lead dalam jumlah besar di
-                Indonesia, yang dapat
-                memberikan solusi terbaik bagi para pelaku bisnis, serta meningkatkan penjualan dan brand awareness
-                dengan layanan profesional
-                dan terintegrasi.
-            </p>
-            */ ?>
-            <p class="mb-4">Mediaoto stands as an independent, integrated full-service agency, specializing in the development of communications technology brands and strategic media buying across digital and conventional channels. Our expertise lies in data-driven performance, with a particular focus on delivering impactful solutions for the automotive market and property sector.</p>
-            <p class="mb-4">
-                Acknowledging the current market's pressing need for leads to drive business growth, we aim to emerge as a trailblazing agency in Indonesia.
-            </p>
-            <p class="mb-4">
-                Our dedication revolves around providing a significant influx of high-quality leads. Committed to delivering optimal solutions, we strive to enhance sales and elevate brand awareness through a blend of professional and integrated services.
-            </p>
+            <p class="mb-4">{{__('home.aboutus.content1')}}</p>
+            <p class="mb-4">{{__('home.aboutus.content2')}}</p>
+            <p class="mb-4">{{__('home.aboutus.content3')}}</p>
 
 
             <?php /*
