@@ -10,7 +10,7 @@
             <div class="flex gap-2 md:order-2">
 
 
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-500 dark:text-gray-400  text-sm px-2 py-2.5 text-center inline-flex items-center text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 text-sm" type="button">
+                    <button title="{{ Config::get('languages')[App::getLocale()]['display'] }}" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-500 dark:text-gray-400  text-sm px-2 py-2.5 text-center inline-flex items-center text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 text-sm" type="button">
                         <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}} px-2 md:px-4"></span>
                         <div class="hidden">
                         {{ Config::get('languages')[App::getLocale()]['display'] }}
