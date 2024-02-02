@@ -9,7 +9,7 @@
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name *</label>
                 <input wire:model="name" type="text" name="name" id="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Type name">
+                    placeholder="{{__('home.contact.place_name')}}">
                 @error('name')
                     <span class="text-red-500  text-xs">{{ $message }}</span>
                 @enderror
@@ -19,7 +19,7 @@
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email *</label>
             <input wire:model="email" autocomplete="on" type="email" name="email" id="email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type Email">
+                placeholder="{{__('home.contact.place_email')}}">
             @error('email')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
             @enderror
@@ -29,7 +29,7 @@
             <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
             <input wire:model="phone" autocomplete="on" type="text" name="phone" id="phone"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type phone number">
+                placeholder="{{__('home.contact.place_phone')}}">
             @error('phone')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
             @enderror
@@ -37,10 +37,10 @@
 
         <div class="sm:col-span-2">
             <label for="note"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('home.contact.notes')}}</label>
             <textarea wire:model="note" id="note" rows="4"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Write note here"></textarea>
+                placeholder="{{__('home.contact.place_notes')}}"></textarea>
             @error('note')
                 <span class="text-red-500  text-xs">{{ $message }}</span>
             @enderror
@@ -49,7 +49,9 @@
 
     <div class="flex items-center mb-4 text-sm text-gray-900 dark:text-gray-400">
         <input wire:model="isChecked" wire:click="$toggle('isChecked')" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-400">By submitting this form, you confirm that you have read and agree to our <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/policy" target="_blank" rel="noopener noreferrer">Privacy Statement</a>.</label>
+        <label for="default-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-400">{{__('home.contact.terms')}} <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/policy" target="_blank" rel="noopener noreferrer">
+            {{__('home.contact.privacy')}}
+        </a>.</label>
     </div>
 
     <button wire:loading.remove type="submit"

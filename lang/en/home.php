@@ -80,8 +80,17 @@ return [
         "download"    => "Download",
         "privacy"     => "Privacy Policy",
         "terms"       => "Terms & Conditions ",
+    ],
 
-
+    "contact" => [
+        "title"         => "Contact Us",
+        "terms"         => "By submitting this form, you confirm that you have read and agree to our ",
+        "privacy"       => "Privacy Statement",
+        "notes"         => "Notes",
+        "place_name"    => "Type Name",
+        "place_email"   => "Type Email",
+        "place_phone"   => "Type Phone Number",
+        "place_notes"   => "Type Notes",
     ],
 
 ];

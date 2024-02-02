@@ -84,6 +84,20 @@ return [
         "terms"       => "Syarat & Ketentuan",
     ],
 
+    "contact" => [
+        "title"         => "Hubungi Kami",
+        "terms"         => "Dengan mengirimkan formulir ini, Anda telah membaca dan menyetujui",
+        "privacy"       => "Kebijakan Pribadi",
+        "notes"         => "Catatan",
+        "place_name"    => "Isi Nama",
+        "place_email"   => "Isi Email",
+        "place_phone"   => "Isi Telpon",
+        "place_notes"   => "Isi Catatan",
+
+    ],
+
+
+
 
 
 ];
