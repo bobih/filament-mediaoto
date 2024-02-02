@@ -28,6 +28,7 @@ class DashPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        app()->setLocale('en');
         return $panel
             ->default()
             ->id('dash')
