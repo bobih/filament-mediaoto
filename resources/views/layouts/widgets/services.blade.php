@@ -64,40 +64,40 @@
 
 
         <div class="md:hidden md:grid md:grid-cols-2 md:gap-1">
-            <figure class="mb-10 md:mb-0 shadow-xl">
+            <figure class="mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_1.webp"
                     alt="Performance Optimization" title="Performance Optimization">
-                <figcaption class="my-4 text-lg text-white ">
+                <figcaption class="px-4 my-4 text-lg pb-4">
                     <h2 class="text-2xl text-[#FF9119]">{{__('home.services.service1tag')}}</h2>
-                    <p class="text-base pr-20">{{__('home.services.service1desc')}}</p>
+                    <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-base pr-20">{{__('home.services.service1desc')}}</p>
                 </figcaption>
             </figure>
 
 
-            <figure class="mb-10 md:mb-0  shadow-xl">
+            <figure class="mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_2.webp"
                     alt="Media Buying Agency" title="Media Buying Agency">
-                    <figcaption class="my-4 text-lg text-white ">
+                    <figcaption class="px-4 my-4 text-lg pb-4">
                     <h2 class="text-2xl text-[#FF9119]">{{__('home.services.service2tag')}}</h2>
-                    <p class="text-base pr-20">{{__('home.services.service2desc')}}</p>
+                    <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-base pr-20">{{__('home.services.service2desc')}}</p>
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0  shadow-xl">
+            <figure class="mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_3.webp"
                     alt="Placement" title="Placement">
-                    <figcaption class="my-4 text-lg text-white ">
+                    <figcaption class="px-4 my-4 text-lg pb-4">
                     <h2 class="text-2xl text-[#FF9119]">{{__('home.services.service3tag')}}</h2>
-                    <p class="text-base pr-20">{{__('home.services.service3desc')}}</p>
+                    <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-base pr-20">{{__('home.services.service3desc')}}</p>
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0  shadow-xl">
+            <figure class="mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                 <img class="w-full rounded-lg shadow-xl brightness-80" src="https://www.mediaoto.id/images/services_4.webp"
                     alt="Rich Media Banner Placement" title="Rich Media Banner Placement">
-                    <figcaption class="my-4 text-lg text-white ">
+                    <figcaption class="px-4 my-4 text-lg pb-4">
                     <h2 class="text-2xl text-[#FF9119]">{{__('home.services.service4tag')}}</h2>
-                    <p class="text-base pr-20">{{__('home.services.service4desc')}}</p>
+                    <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-base pr-20">{{__('home.services.service4desc')}}</p>
                 </figcaption>
             </figure>
         </div>
