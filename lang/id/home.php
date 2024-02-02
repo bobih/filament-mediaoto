@@ -12,7 +12,7 @@ return [
     ],
 
     "banner" => [
-        "infotag"       => "\"Close The Deal\" <br /> ga pake ribet!",
+        "infotag"       => "\"Close the Deal\" <br /> ga pake ribet!",
         "content1"      => "Lacak tahapan dan pencapaian transaksi Anda.
                             Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami.",
     ],
