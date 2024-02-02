@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://filament.mediaoto.id'),
+    'url' => env('APP_URL', 'https://www.mediaoto.id'),
 
     'asset_url' => env('ASSET_URL'),
 
