@@ -37,14 +37,14 @@ return [
     "services" => [
         "infotag"       => "Layanan",
         "titletag"      => "Kenali layanan terbaik kami",
-        "service1tag"   => "Performance & Optimization",
-        "service1desc"  => "Membantu menggerakan aktifitas periklanan digital klien",
-        "service2tag"   => "Media Buying Agency",
-        "service2desc"  => "Konsultasi, Perencanaan Media, Pengoptimalan dan Pelaporan",
-        "service3tag"   => "Placement",
-        "service3desc"  => "Menjalankan strategi periklanan digital klien",
-        "service4tag"   => "Rich Media Banner Placement",
-        "service4desc"  => "Memungkinkan anda membuat iklan yang lebih menarik untuk menarik perhatian Audiens Anda",
+        "service1tag"   => "Optimisasi Iklan",
+        "service1desc"  => "Manfaatkan analisis data untuk mengoptimalkan kampanye berdasarkan data kinerja.",
+        "service2tag"   => "Pelaporan dan Komunikasi",
+        "service2desc"  => "Memberikan laporan rutin tren kinerja, dan wawasan yang dapat ditindaklanjuti.",
+        "service3tag"   => "Optimasi Konten",
+        "service3desc"  => "Membantu dalam membuat konten visual yang menarik dan mengoptimalkan materi iklan di berbagai platform.",
+        "service4tag"   => "Manajemen Anggaran",
+        "service4desc"  => "Bantu klien mengoptimalkan pengeluaran mereka untuk mencapai hasil terbaik sesuai batasan anggaran mereka.",
     ],
 
     "products" => [

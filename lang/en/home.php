@@ -35,14 +35,15 @@ return [
     "services" => [
         "infotag"       => "Our Services",
         "titletag"      => "Get to know our best services",
-        "service1tag"   => "Performance & Optimization",
-        "service1desc"  => "Membantu menggerakan aktifitas periklanan digital klien",
-        "service2tag"   => "Media Buying Agency",
-        "service2desc"  => "Konsultasi, Perencanaan Media, Pengoptimalan dan Pelaporan",
-        "service3tag"   => "Placement",
-        "service3desc"  => "Menjalankan strategi periklanan digital klien",
-        "service4tag"   => "Rich Media Banner Placement",
-        "service4desc"  => "Memungkinkan anda membuat iklan yang lebih menarik untuk menarik perhatian Audiens Anda",
+        "service1tag"   => "Conversion Tracking and Optimization",
+        "service1desc"  => "Implement robust conversion tracking to measure the success of advertising efforts.",
+        "service2tag"   => "Regular Reporting and Communication",
+        "service2desc"  => "Provide regular reports that highlight key metrics, performance trends, and actionable insights",
+        "service3tag"   => "Content Optimization",
+        "service3desc"  => "Optimize creatives for different platforms and ensure that they align with the client's brand messaging",
+        "service4tag"   => "Budget Management",
+        "service4desc"  => "Help clients optimize their spending to achieve the best possible results within their budget constraints",
+
     ],
 
     "products" => [
