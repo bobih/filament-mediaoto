@@ -3,14 +3,7 @@
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    </script>
+    <script type="text/javascript">"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
 
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="true"/>
@@ -74,7 +67,7 @@
     <?php /****** Schema Org ***** */?>
     @if (isset($post))
 
-    <script type='application/ld+json'>
+<script type='application/ld+json'>
     {
         "@context" : "https://schema.org",
         "@type" : "Organization",
@@ -149,16 +142,7 @@
     <!-- Google tag (gtag.js B3ac5) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-Q7LP278P3T');
-    </script>
+    <script type="text/javascript">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q7LP278P3T");</script>
 
     @include('googletagmanager::head')
     <?php /*
@@ -233,7 +217,7 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
         crossorigin="anonymous"></script>
-    @filamentStyles
+   <?php /* @filamentStyles */ ?>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
