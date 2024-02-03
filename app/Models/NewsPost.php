@@ -144,13 +144,25 @@ class NewsPost extends Model implements HasMedia
             "<img alt='03-{$this->title}' title='03-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
         ];
         //return Str::replaceMatches('<img', $this->content,"<img title='piic01'");
+
+
+
         if(str_contains($this->content,'<img' )){
             return Str::replaceArray('<img', $arrPic, $this->content);
         } else {
             return $this->content;
         }
-        */
-        return $this->content;
+         */
+
+         if(str_contains($this->content,'<img' )){
+            return str_replace("<img","<img class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",$this->content);
+        } else {
+            return $this->content;
+         }
+
+
+
+
     }
 
     public function getThumbnailImage()
