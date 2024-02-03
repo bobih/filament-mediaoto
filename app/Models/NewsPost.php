@@ -190,7 +190,8 @@ class NewsPost extends Model implements HasMedia
             if ($this->media[0]->hasGeneratedConversion('webpthumb')) {
                 $urlLocation = $this->media[0]->getUrl('webpthumb');
             } else {
-                $urlLocation = $this->media[0]->getUrl('desktop');
+
+                $urlLocation = $this->media[0]->getUrl();
             }
         }
         return  $urlLocation;
