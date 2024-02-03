@@ -121,7 +121,7 @@
                             {{__('home.nav.price')}}
                         </a>
                     <li>
-                        <button title="contact-us"  x-data data-modal-toggle="navbar-search"
+                        <button title="contact-us"  x-data
                             x-on:click="$dispatch('open-modal');document.getElementById('btnlink2').click();"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             {{__('home.nav.contact')}}
