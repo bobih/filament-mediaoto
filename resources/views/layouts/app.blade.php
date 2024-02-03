@@ -220,10 +220,16 @@
         crossorigin="anonymous"></script>
     */ ?>
     <?php /* @filamentStyles */ ?>
+
+
+
+
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
 
-    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script>
     <?php /*** <!-- Styles --> **/ ?>
     @livewireStyles
 </head>
@@ -256,7 +262,9 @@
     @stack('scripts')
 
     @livewire('notifications')
-    @filamentScripts
+    <?php /* @filamentScripts */ ?>
+    <script>
+        window.filamentData = []    </script>
     @livewireScripts
 
 
