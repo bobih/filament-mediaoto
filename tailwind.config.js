@@ -15,6 +15,7 @@ export default {
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './vendor/wire-elements/modal/resources/views/*.blade.php',
+        "./node_modules/flowbite/**/*.js"
     ],
     darkMode: 'class',
     theme: {
