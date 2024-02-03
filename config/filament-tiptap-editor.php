@@ -89,8 +89,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'disable_floating_menus' => true,
-    'disable_bubble_menus' => true,
+    'disable_floating_menus' => false,
+    'disable_bubble_menus' => false,
     'disable_toolbar_menus' => false,
 
     'bubble_menu_tools' => ['bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'link'],
