@@ -23,7 +23,7 @@
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
                         <a title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
-                            <img class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
+                            <img loading="lazy" class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
                                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
                         </a>

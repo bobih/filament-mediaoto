@@ -155,7 +155,7 @@ class NewsPost extends Model implements HasMedia
          */
 
          if(str_contains($this->content,'<img' )){
-            return str_replace("<img","<img class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",$this->content);
+            return str_replace("<img","<img loading='lazy' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",$this->content);
         } else {
             return $this->content;
          }
@@ -202,7 +202,6 @@ class NewsPost extends Model implements HasMedia
             if ($this->media[0]->hasGeneratedConversion('webpthumb')) {
                 $urlLocation = $this->media[0]->getUrl('webpthumb');
             } else {
-
                 $urlLocation = $this->media[0]->getUrl();
             }
         }
