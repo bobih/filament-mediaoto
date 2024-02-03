@@ -54,17 +54,29 @@ class NewsPost extends Model implements HasMedia
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
 
-            $this
+        $this
             ->addMediaConversion('thumb')
             ->width(300);
 
-            $this
+        $this
             ->addMediaConversion('mobile')
             ->width(320);
 
-            $this
+        $this
             ->addMediaConversion('desktop')
             ->width(1200);
+
+        $this
+            ->addMediaConversion('desktop')
+            ->width(1200);
+
+        $this->addMediaConversion('webp')
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(1200);
+
+        $this->addMediaConversion('webpthumb')
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(600);
     }
 
 
@@ -99,7 +111,7 @@ class NewsPost extends Model implements HasMedia
     public function scopePublished($query)
     {
 
-        $query->where('published_at', '<=', Carbon::now())->where('active','=',1);
+        $query->where('published_at', '<=', Carbon::now())->where('active', '=', 1);
     }
 
 
@@ -126,7 +138,8 @@ class NewsPost extends Model implements HasMedia
         return Str::limit(strip_tags($this->description), 150, '...');
     }
 
-    public function getFullContent(){
+    public function getFullContent()
+    {
 
         /*
         $arrPic = [
@@ -147,41 +160,74 @@ class NewsPost extends Model implements HasMedia
     public function getThumbnailImage()
     {
 
-         $isUrl = str_contains($this->image, 'http');
-            if($isUrl){
-                $urlLocation = $this->image;
-            } else {
-                $urlLocation = $this->getFirstMediaUrl();
-            }
+        $isUrl = str_contains($this->image, 'http');
+        if ($isUrl) {
+            $urlLocation = $this->image;
+        } else {
+            $urlLocation = $this->getFirstMediaUrl();
+        }
 
         return  $urlLocation;
     }
 
-    public function getImageType(){
-        $is_mime = isset($this->getFirstMedia()->mime_type);
-
-        return ($is_mime)? $this->getFirstMedia()->mime_type : "image/jpeg";
+    public function getWebp()
+    {
+        $isUrl = str_contains($this->image, 'http');
+        if ($isUrl) {
+            $urlLocation = $this->image;
+        } else {
+            if ($this->media[0]->hasGeneratedConversion('webp')) {
+                $urlLocation = $this->media[0]->getUrl('webp');
+            } else {
+                $urlLocation = $this->media[0]->getUrl('desktop');
+            }
+        }
+        return  $urlLocation;
     }
 
-    public function getImageInfo(){
-       // $isUrl = str_contains($this->image, 'http');
+    public function getWebpthumb()
+    {
+        $isUrl = str_contains($this->image, 'http');
+        if ($isUrl) {
+            $urlLocation = $this->image;
+        } else {
+            if ($this->media[0]->hasGeneratedConversion('webpthumb')) {
+                $urlLocation = $this->media[0]->getUrl('webpthumb');
+            } else {
+                $urlLocation = $this->media[0]->getUrl('desktop');
+            }
+        }
+        return  $urlLocation;
+    }
+
+
+    public function getImageType()
+    {
+        $is_mime = isset($this->getFirstMedia()->mime_type);
+
+        return ($is_mime) ? $this->getFirstMedia()->mime_type : "image/jpeg";
+    }
+
+    public function getImageInfo()
+    {
+        // $isUrl = str_contains($this->image, 'http');
 
 
 
-            try{
-                $imageInstance = ImageFactory::load($this->getFirstMediaPath());
-                $width =  $imageInstance->getWidth();
-                $height =  $imageInstance->getHeight();
-                if(isset($this->getFirstMedia()->mime_type)){
-                    $mime = $this->getFirstMedia()->mime_type;
-                } else {
-                    $mime = "image/jpeg";
-                    }
-            } catch(\Exception $e) {
-                $width = '600';
-                $height = '300';
+        try {
+            $imageInstance = ImageFactory::load($this->getFirstMediaPath());
+            $width =  $imageInstance->getWidth();
+            $height =  $imageInstance->getHeight();
+            if (isset($this->getFirstMedia()->mime_type)) {
+                $mime = $this->getFirstMedia()->mime_type;
+            } else {
                 $mime = "image/jpeg";
             }
+        } catch (\Exception $e) {
+            $width = '600';
+            $height = '300';
+            $mime = "image/jpeg";
+        }
 
 
         $arrobject = (object) [

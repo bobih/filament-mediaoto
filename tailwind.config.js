@@ -70,7 +70,6 @@ export default {
         forms,
         typography,
         require('flowbite/plugin'),
-        require('flowbite-typography'),
     ],
 
 };

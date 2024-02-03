@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Mediaoto" />
     <meta property="og:title" content="{{$post->title}}" />
-    <meta property="og:image" content="{{ $post->getThumbnailImage() }}" />
+    <meta property="og:image" content="{{ $post->getWebpthumb() }}" />
     <meta property="og:description" content="{{$post->getExcerpt()}}" />
     <meta property="og:url" content="{{ route('news.show', $post->slug) }}" />
     <meta property="og:image:type" content="{{$post->getImageInfo()->mime_type}}" />
@@ -28,7 +28,7 @@
     <meta property="twitter:url" content="{{ route('news.show', $post->slug) }}">
     <meta name="twitter:title" content="{{$post->title}}">
     <meta name="twitter:description" content="{{$post->getExcerpt()}}">
-    <meta name="twitter:image" content="{{ $post->getThumbnailImage() }}">
+    <meta name="twitter:image" content="{{ $post->getWebpthumb() }}">
     <title>{{ $post->title }}</title>
     @else
     <meta property="og:site_name" content="Mediaoto" />

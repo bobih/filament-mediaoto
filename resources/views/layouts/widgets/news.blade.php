@@ -24,7 +24,7 @@
                     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
                         <a title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
                             <img class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
-                                src="{{ $post->getThumbnailImage() }}" alt="{{ $post->title }}"
+                                src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
                         </a>
                     </div>
