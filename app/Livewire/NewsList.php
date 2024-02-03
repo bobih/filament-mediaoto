@@ -38,8 +38,8 @@ class NewsList extends Component
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
                         $query->withCategory($this->category);
                     })
-                    ->when(NewsPost::withAllTags([$this->tag],'categories')->first(), function($query){
-                        $query->withAllTags([$this->tag],'categories');
+                    ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                        $query->withAllTags([$this->tag]);
                     });
                     //$response = NewsPost::withAllTags(['google'],'categories')->get();
 
