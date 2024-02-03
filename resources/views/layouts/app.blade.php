@@ -88,8 +88,8 @@
         "headline": "{{$post->title}}",
         "url": "{{ route('news.show', $post->slug) }}",
         "datePublished": "{{$post->published_at}}",
-        "image": "{{ $post->getThumbnailImage() }}",
-        "thumbnailUrl": "{{ $post->getThumbnailImage() }}"
+        "image": "{{ $post->getWebpthumb() }}",
+        "thumbnailUrl": "{{ $post->getWebpthumb() }}"
     }
     </script>
     <script type="application/ld+json">
@@ -103,7 +103,7 @@
         "headline": "{{$post->title}}",
         "image": {
             "@type": "ImageObject",
-            "url": "{{ $post->getThumbnailImage() }}"
+            "url": "{{ $post->getWebpthumb() }}"
         },
         "datePublished": "{{$post->published_at}}",
         "dateModified": "{{$post->published_at}}",

@@ -58,13 +58,13 @@
                             <?php /*
                             <p class="hover:underline">IOS</p> */
                             ?>
-                            <a title="ios" class="relative inline-flex items-start pt-3 text-sm ">
+                            <div class="relative inline-flex items-start pt-3 text-sm ">
                                 IOS
                                 <span class="sr-only">Notifications</span>
                                 <div
                                     class="absolute inline-flex items-center justify-center w-10 h-5 text-xs  text-gray-600 border border-gray-400 dark:text-gray-400 rounded-full -top-0.5 -end-10">
                                     soon</div>
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </div>

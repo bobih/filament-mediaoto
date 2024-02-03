@@ -37,10 +37,10 @@
                                 <span>Premium support: <span class="font-semibold">3 Month</span></span>
                             </li>
                         </ul>
-                        <a title="silver" title="closebtn" href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
+                        <button title="silver" x-data x-on:click="$dispatch('open-modal')"
                             class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                             {{__('home.nav.getStarted')}}
-                        </a>
+                        </button>
                     </div>
                     <!-- Pricing Card -->
                     <div
@@ -73,10 +73,10 @@
                                 <span>Premium support: <span class="font-semibold">3 Month</span></span>
                             </li>
                         </ul>
-                        <a  title="gold" href="javascript:void(0)" rel="noopener" target="_self" x-data x-on:click="$dispatch('open-modal')"
+                        <button  title="gold" x-data x-on:click="$dispatch('open-modal')"
                             class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                             {{__('home.nav.getStarted')}}
-                        </a>
+                        </button>
                     </div>
                     <div
                         class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
@@ -107,10 +107,10 @@
                             </li>
                         </ul>
 
-                            <a title="diamond" title="submit"  href="javascript:void(0)" rel="noopener" target="_self" x-data={} x-on:click="$dispatch('open-modal')"
+                            <button title="diamond" title="submit" x-data={} x-on:click="$dispatch('open-modal')"
                                 class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                                 {{__('home.nav.getStarted')}}
-                            </a>
+                            </button>
 
                     </div>
                 </div>
