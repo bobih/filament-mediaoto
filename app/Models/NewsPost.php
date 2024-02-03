@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Filament\Forms\Components\Concerns\HasFileAttachments;
 
 class NewsPost extends Model implements HasMedia
 {
@@ -25,6 +26,7 @@ class NewsPost extends Model implements HasMedia
     //use SoftDeletes;
     use InteractsWithMedia;
     use HasTags;
+    use HasFileAttachments;
 
 
     protected $table = 'news_posts';
@@ -125,6 +127,8 @@ class NewsPost extends Model implements HasMedia
     }
 
     public function getFullContent(){
+
+        /*
         $arrPic = [
             "<img alt='01-{$this->title}' title='01-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
             "<img alt='02-{$this->title}' title='02-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
@@ -136,6 +140,8 @@ class NewsPost extends Model implements HasMedia
         } else {
             return $this->content;
         }
+        */
+        return $this->content;
     }
 
     public function getThumbnailImage()

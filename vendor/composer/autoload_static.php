@@ -45,9 +45,11 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'ebb446bb6d02e998480945fbbb73dc64' => __DIR__ . '/..' . '/filament/filament/src/helpers.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
+        'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
+        '096c2d3bc2fc8bdd430b86b9391cf287' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
@@ -78,6 +80,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             'Tymon\\JWTAuth\\' => 14,
             'Tree\\' => 5,
+            'Tiptap\\' => 7,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
             'Termwind\\' => 9,
@@ -125,6 +128,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Spatie\\TemporaryDirectory\\' => 26,
             'Spatie\\Tags\\' => 12,
             'Spatie\\Sitemap\\' => 15,
+            'Spatie\\ShikiPhp\\' => 16,
             'Spatie\\Robots\\' => 14,
             'Spatie\\Permission\\' => 18,
             'Spatie\\MediaLibrary\\' => 20,
@@ -183,6 +187,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Mohamedsabil83\\FilamentFormsTinyeditor\\' => 39,
             'Mockery\\' => 8,
             'Matrix\\' => 7,
             'Masterminds\\' => 12,
@@ -277,6 +282,9 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'Filament\\Forms\\' => 15,
             'Filament\\Actions\\' => 17,
             'Filament\\' => 9,
+            'FilamentTiptapEditor\\Tests\\Database\\Factories\\' => 46,
+            'FilamentTiptapEditor\\Tests\\' => 27,
+            'FilamentTiptapEditor\\' => 21,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -357,6 +365,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Tree\\' => 
         array (
             0 => __DIR__ . '/..' . '/nicmart/tree/src',
+        ),
+        'Tiptap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -534,6 +546,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-sitemap/src',
         ),
+        'Spatie\\ShikiPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/shiki-php/src',
+        ),
         'Spatie\\Robots\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/robots-txt/src',
@@ -706,6 +722,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Mohamedsabil83\\FilamentFormsTinyeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mohamedsabil83/filament-forms-tinyeditor/src',
         ),
         'Mockery\\' => 
         array (
@@ -1001,9 +1021,21 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         ),
         'Filament\\' => 
         array (
-            0 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
-            1 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
-            2 => __DIR__ . '/..' . '/filament/filament/src',
+            0 => __DIR__ . '/..' . '/filament/filament/src',
+            1 => __DIR__ . '/..' . '/filament/spatie-laravel-media-library-plugin/src',
+            2 => __DIR__ . '/..' . '/filament/spatie-laravel-tags-plugin/src',
+        ),
+        'FilamentTiptapEditor\\Tests\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/tests/database/factories',
+        ),
+        'FilamentTiptapEditor\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/tests/src',
+        ),
+        'FilamentTiptapEditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src',
         ),
         'Faker\\' => 
         array (
@@ -1149,6 +1181,14 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
     public static $prefixesPsr0 = array (
         'H' => 
         array (
+            'Highlight\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/scrivo/highlight.php',
+            ),
+            'HighlightUtilities\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/scrivo/highlight.php',
+            ),
             'HTMLPurifier' => 
             array (
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
@@ -1277,6 +1317,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Http\\Controllers\\DeliveryController' => __DIR__ . '/../..' . '/app/Http/Controllers/DeliveryController.php',
         'App\\Http\\Controllers\\FcmController' => __DIR__ . '/../..' . '/app/Http/Controllers/FcmController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/LanguageController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\NewsPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/NewsPostController.php',
         'App\\Http\\Controllers\\PaketController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaketController.php',
@@ -1287,6 +1328,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\JwtMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/JwtMiddleware.php',
+        'App\\Http\\Middleware\\Language' => __DIR__ . '/../..' . '/app/Http/Middleware/Language.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -2795,6 +2837,49 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
+        'FilamentTiptapEditor\\Actions\\GridBuilderAction' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Actions/GridBuilderAction.php',
+        'FilamentTiptapEditor\\Actions\\LinkAction' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Actions/LinkAction.php',
+        'FilamentTiptapEditor\\Actions\\MediaAction' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Actions/MediaAction.php',
+        'FilamentTiptapEditor\\Actions\\OEmbedAction' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Actions/OEmbedAction.php',
+        'FilamentTiptapEditor\\Actions\\SourceAction' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Actions/SourceAction.php',
+        'FilamentTiptapEditor\\Blocks\\VideoBlock' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Blocks/VideoBlock.php',
+        'FilamentTiptapEditor\\Commands\\MakeBlockCommand' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Commands/MakeBlockCommand.php',
+        'FilamentTiptapEditor\\Concerns\\CanStoreOutput' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Concerns/CanStoreOutput.php',
+        'FilamentTiptapEditor\\Concerns\\HasCustomActions' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Concerns/HasCustomActions.php',
+        'FilamentTiptapEditor\\Concerns\\InteractsWithMedia' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Concerns/InteractsWithMedia.php',
+        'FilamentTiptapEditor\\Concerns\\InteractsWithMenus' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Concerns/InteractsWithMenus.php',
+        'FilamentTiptapEditor\\Enums\\TiptapOutput' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Enums/TiptapOutput.php',
+        'FilamentTiptapEditor\\Extensions\\Extensions\\ClassExtension' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Extensions/ClassExtension.php',
+        'FilamentTiptapEditor\\Extensions\\Extensions\\Color' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Extensions/Color.php',
+        'FilamentTiptapEditor\\Extensions\\Extensions\\IdExtension' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Extensions/IdExtension.php',
+        'FilamentTiptapEditor\\Extensions\\Extensions\\StyleExtension' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Extensions/StyleExtension.php',
+        'FilamentTiptapEditor\\Extensions\\Extensions\\TextAlign' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Extensions/TextAlign.php',
+        'FilamentTiptapEditor\\Extensions\\Marks\\Link' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Marks/Link.php',
+        'FilamentTiptapEditor\\Extensions\\Marks\\Small' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Marks/Small.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\CheckedList' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/CheckedList.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Details' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Details.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\DetailsContent' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/DetailsContent.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\DetailsSummary' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/DetailsSummary.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Grid' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Grid.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\GridBuilder' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/GridBuilder.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\GridBuilderColumn' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/GridBuilderColumn.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\GridColumn' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/GridColumn.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Hurdle' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Hurdle.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Image' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Image.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Lead' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Lead.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\ListItem' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/ListItem.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\MergeTag' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/MergeTag.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Paragraph' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Paragraph.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\TiptapBlock' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/TiptapBlock.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Video' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Video.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\Vimeo' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/Vimeo.php',
+        'FilamentTiptapEditor\\Extensions\\Nodes\\YouTube' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Extensions/Nodes/YouTube.php',
+        'FilamentTiptapEditor\\Facades\\TiptapConverter' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/Facades/TiptapConverter.php',
+        'FilamentTiptapEditor\\FilamentTiptapEditorServiceProvider' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/FilamentTiptapEditorServiceProvider.php',
+        'FilamentTiptapEditor\\TiptapBlock' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/TiptapBlock.php',
+        'FilamentTiptapEditor\\TiptapConverter' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/TiptapConverter.php',
+        'FilamentTiptapEditor\\TiptapEditor' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/TiptapEditor.php',
+        'FilamentTiptapEditor\\TiptapFaker' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/TiptapFaker.php',
         'Filament\\Actions\\Action' => __DIR__ . '/..' . '/filament/actions/src/Action.php',
         'Filament\\Actions\\ActionGroup' => __DIR__ . '/..' . '/filament/actions/src/ActionGroup.php',
         'Filament\\Actions\\ActionsServiceProvider' => __DIR__ . '/..' . '/filament/actions/src/ActionsServiceProvider.php',
@@ -4684,6 +4769,17 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Highlight\\Autoloader' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Autoloader.php',
+        'Highlight\\HighlightResult' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/HighlightResult.php',
+        'Highlight\\Highlighter' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Highlighter.php',
+        'Highlight\\JsonRef' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/JsonRef.php',
+        'Highlight\\Language' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Language.php',
+        'Highlight\\Mode' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Mode.php',
+        'Highlight\\ModeDeprecations' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/ModeDeprecations.php',
+        'Highlight\\RegEx' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegEx.php',
+        'Highlight\\RegExMatch' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExMatch.php',
+        'Highlight\\RegExUtils' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExUtils.php',
+        'Highlight\\Terminators' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Terminators.php',
         'Http\\Client\\Common\\BatchClient' => __DIR__ . '/..' . '/php-http/client-common/src/BatchClient.php',
         'Http\\Client\\Common\\BatchClientInterface' => __DIR__ . '/..' . '/php-http/client-common/src/BatchClientInterface.php',
         'Http\\Client\\Common\\BatchResult' => __DIR__ . '/..' . '/php-http/client-common/src/BatchResult.php',
@@ -7546,6 +7642,8 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Mockery\\Undefined' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Undefined.php',
         'Mockery\\VerificationDirector' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationDirector.php',
         'Mockery\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
+        'Mohamedsabil83\\FilamentFormsTinyeditor\\Components\\TinyEditor' => __DIR__ . '/..' . '/mohamedsabil83/filament-forms-tinyeditor/src/Components/TinyEditor.php',
+        'Mohamedsabil83\\FilamentFormsTinyeditor\\FilamentFormsTinyeditorServiceProvider' => __DIR__ . '/..' . '/mohamedsabil83/filament-forms-tinyeditor/src/FilamentFormsTinyeditorServiceProvider.php',
         'Monolog\\Attribute\\AsMonologProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php',
         'Monolog\\Attribute\\WithMonologChannel' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
@@ -10728,6 +10826,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Spatie\\Robots\\RobotsHeaders' => __DIR__ . '/..' . '/spatie/robots-txt/src/RobotsHeaders.php',
         'Spatie\\Robots\\RobotsMeta' => __DIR__ . '/..' . '/spatie/robots-txt/src/RobotsMeta.php',
         'Spatie\\Robots\\RobotsTxt' => __DIR__ . '/..' . '/spatie/robots-txt/src/RobotsTxt.php',
+        'Spatie\\ShikiPhp\\Shiki' => __DIR__ . '/..' . '/spatie/shiki-php/src/Shiki.php',
         'Spatie\\Sitemap\\Contracts\\Sitemapable' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Contracts/Sitemapable.php',
         'Spatie\\Sitemap\\Crawler\\Observer' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Crawler/Observer.php',
         'Spatie\\Sitemap\\Crawler\\Profile' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Crawler/Profile.php',
@@ -11986,6 +12085,51 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'Tiptap\\Core\\DOMParser' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/DOMParser.php',
+        'Tiptap\\Core\\DOMSerializer' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/DOMSerializer.php',
+        'Tiptap\\Core\\Extension' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/Extension.php',
+        'Tiptap\\Core\\JSONSerializer' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/JSONSerializer.php',
+        'Tiptap\\Core\\Mark' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/Mark.php',
+        'Tiptap\\Core\\Node' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/Node.php',
+        'Tiptap\\Core\\Schema' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/Schema.php',
+        'Tiptap\\Core\\TextSerializer' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Core/TextSerializer.php',
+        'Tiptap\\Editor' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Editor.php',
+        'Tiptap\\Extensions\\StarterKit' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Extensions/StarterKit.php',
+        'Tiptap\\Extensions\\TextAlign' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Extensions/TextAlign.php',
+        'Tiptap\\Marks\\Bold' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Bold.php',
+        'Tiptap\\Marks\\Code' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Code.php',
+        'Tiptap\\Marks\\Highlight' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Highlight.php',
+        'Tiptap\\Marks\\Italic' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Italic.php',
+        'Tiptap\\Marks\\Link' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Link.php',
+        'Tiptap\\Marks\\Strike' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Strike.php',
+        'Tiptap\\Marks\\Subscript' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Subscript.php',
+        'Tiptap\\Marks\\Superscript' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Superscript.php',
+        'Tiptap\\Marks\\TextStyle' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/TextStyle.php',
+        'Tiptap\\Marks\\Underline' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Marks/Underline.php',
+        'Tiptap\\Nodes\\Blockquote' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Blockquote.php',
+        'Tiptap\\Nodes\\BulletList' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/BulletList.php',
+        'Tiptap\\Nodes\\CodeBlock' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/CodeBlock.php',
+        'Tiptap\\Nodes\\CodeBlockHighlight' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/CodeBlockHighlight.php',
+        'Tiptap\\Nodes\\CodeBlockShiki' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/CodeBlockShiki.php',
+        'Tiptap\\Nodes\\Document' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Document.php',
+        'Tiptap\\Nodes\\HardBreak' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/HardBreak.php',
+        'Tiptap\\Nodes\\Heading' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Heading.php',
+        'Tiptap\\Nodes\\HorizontalRule' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/HorizontalRule.php',
+        'Tiptap\\Nodes\\Image' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Image.php',
+        'Tiptap\\Nodes\\ListItem' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/ListItem.php',
+        'Tiptap\\Nodes\\Mention' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Mention.php',
+        'Tiptap\\Nodes\\OrderedList' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/OrderedList.php',
+        'Tiptap\\Nodes\\Paragraph' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Paragraph.php',
+        'Tiptap\\Nodes\\Table' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Table.php',
+        'Tiptap\\Nodes\\TableCell' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/TableCell.php',
+        'Tiptap\\Nodes\\TableHeader' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/TableHeader.php',
+        'Tiptap\\Nodes\\TableRow' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/TableRow.php',
+        'Tiptap\\Nodes\\TaskItem' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/TaskItem.php',
+        'Tiptap\\Nodes\\TaskList' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/TaskList.php',
+        'Tiptap\\Nodes\\Text' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Nodes/Text.php',
+        'Tiptap\\Utils\\HTML' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Utils/HTML.php',
+        'Tiptap\\Utils\\InlineStyle' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Utils/InlineStyle.php',
+        'Tiptap\\Utils\\Minify' => __DIR__ . '/..' . '/ueberdosis/tiptap-php/src/Utils/Minify.php',
         'Tree\\Builder\\NodeBuilder' => __DIR__ . '/..' . '/nicmart/tree/src/Builder/NodeBuilder.php',
         'Tree\\Builder\\NodeBuilderInterface' => __DIR__ . '/..' . '/nicmart/tree/src/Builder/NodeBuilderInterface.php',
         'Tree\\Node\\Node' => __DIR__ . '/..' . '/nicmart/tree/src/Node/Node.php',

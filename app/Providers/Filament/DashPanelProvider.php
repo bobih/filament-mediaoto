@@ -38,6 +38,7 @@ class DashPanelProvider extends PanelProvider
             ->profile(EditProfile::class)
             ->darkMode(true)
             ->brandName('Mediaoto')
+           // ->viteTheme('resources/css/filament/dash/theme.css')
             //->brandLogo(asset('images/white_logo.png'))
             ->favicon(asset('favicon.ico'))
             ->colors([

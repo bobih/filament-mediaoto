@@ -1,8 +1,9 @@
-@import '../../vendor/ryangjchandler/filament-progress-column/resources/dist/progress.css';
+@import 'F:\filament.mediaoto\vendor/ryangjchandler/filament-progress-column/resources/dist/progress.css';
 
-@import '/vendor/filament/filament/resources/css/theme.css';
+@import 'F:\filament.mediaoto\vendor/awcodes/filament-tiptap-editor/resources/css/plugin.css';
 
-@config 'tailwind.config.js';
+
+
 
 
 .progress-bar {

@@ -23,6 +23,7 @@ use Filament\Forms\Components\Toggle;
 
 use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Section;
+use FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -38,6 +39,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\NewsPostResource\RelationManagers;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class NewsPostResource extends Resource
 {
@@ -169,12 +171,23 @@ class NewsPostResource extends Resource
                         ->maxLength(250)
                         ->required(),
 
+                    /*
                     RichEditor::make('content')
                         ->required()
                         ->minLength(2)
                         ->fileAttachmentsDirectory('posts/images')
                         ->columnSpanFull(),
+                    */
+                    /*
+                    TinyEditor::make('content')
+                    ->toolbarSticky(true)
+                    ->fileAttachmentsDirectory('posts'),
+                    */
+                    TiptapEditor::make('content')
+                    ->disk('public')
+                    ->directory('posts'),
 
+                    
                 ])->columns(1)
 
             ]);
