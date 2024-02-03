@@ -1,4 +1,4 @@
-<x-app-layout title="Kebijakan Privasi" description="Privacy - We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people">
+<x-app-layout title="Kebijakan Privasi | Mediaoto" description="Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti">
     @section('header')
         @include('layouts.widgets.header')
     @endsection

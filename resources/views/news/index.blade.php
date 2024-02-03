@@ -1,4 +1,4 @@
-<x-app-layout title="News" description="News - We have a vision to become a pioneer agency providing large numbers of leads in Indonesia, which can providing the best solutions for business people">
+<x-app-layout title="Berita Otomotif dan berita rumah Terbaru  | mediaoto.id" description="Mediaoto.id menampilkan semua berita terbaru dari otomotif, properti. mobil dan rumah di jual,update dan harga terbaru yang akan datang">
     @section('header')
         @include('layouts.widgets.header')
     @endsection
