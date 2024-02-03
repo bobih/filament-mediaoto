@@ -23,7 +23,7 @@
                                     @foreach (Config::get('languages') as $lang => $language)
                                         @if ($lang != App::getLocale())
                                             <li>
-                                            <a title="{{$language['display']}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('lang.switch', $lang) }}">
+                                            <a wire:navigate title="{{$language['display']}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('lang.switch', $lang) }}">
                                                 <span class="flag-icon flag-icon-{{$language['flag-icon']}} px-4"></span>
                                                 {{$language['display']}}
                                             </a>
