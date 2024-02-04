@@ -1,4 +1,4 @@
-<x-app-layout title="Close more deals with single page leads management">
+<x-app-layout title="{{__('home.title')}}" description="{{__('home.desc')}}">
     @section('header')
         @include('layouts.widgets.header')
     @endsection

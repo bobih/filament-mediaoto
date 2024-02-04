@@ -32,9 +32,9 @@
     <title>{{ $post->title }}</title>
     @else
     <meta property="og:site_name" content="Mediaoto" />
-    <meta property="og:title" content="{{ isset($title) ? $title  : 'Close more deals with single page leads management' }}" />
+    <meta property="og:title" content="{{ $title }}" />
     <meta property="og:image" content="https://www.mediaoto.id/images/home_openGraph.png" />
-    <meta property="og:description" content="{{ isset($description) ? $description : 'Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti' }}" />
+    <meta property="og:description" content="{{ $description}}" />
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
@@ -43,24 +43,24 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="mediaoto.id">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="{{ isset($title) ? $title  : 'Close more deals with single page leads management' }} ">
-    <meta name="twitter:description" content="{{ isset($description) ? $description : 'Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti' }}">
+    <meta name="twitter:title" content="{{ $title }} ">
+    <meta name="twitter:description" content="{{ $description  }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
-    <title>{{ isset($title) ? $title  : 'Close more deals with single page leads management' }}</title>
+    <title>{{ $title }}</title>
     @endif
 
     <link rel="canonical" href="{{ url()->current() }}" />
     <meta name="description"
-        content="{{ isset($description) ? $description : 'Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti' }}"
+        content="{{ $description }}"
         itemprop="description" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="googlebot-news" content="index, follow" />
     <meta
-        content="{{ isset($description) ? $description : 'Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti' }}"
+        content="{{ $description }}"
         itemprop="headline" />
     <meta name="keywords"
-        content="{{ isset($description) ? $description : 'Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti' }}"
+        content="{{ $description }}"
         itemprop="keywords" />
     <link type="image/x-icon" rel="shortcut icon" href="https://www.mediaoto.id/favicon.ico?v=2024012509223">
 

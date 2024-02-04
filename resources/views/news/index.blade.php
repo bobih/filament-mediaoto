@@ -1,4 +1,4 @@
-<x-app-layout title="Berita Otomotif dan berita rumah Terbaru  | mediaoto.id" description="Mediaoto.id menampilkan semua berita terbaru dari otomotif, properti. mobil dan rumah di jual,update dan harga terbaru yang akan datang">
+<x-app-layout title="{{__('news.title')}}" description="{{__('news.description')}}">
     @section('header')
         @include('layouts.widgets.header')
     @endsection

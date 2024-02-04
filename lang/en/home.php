@@ -1,6 +1,8 @@
 <?php
 
 return [
+    "title" => "Close more deals with single page leads management - Mediaoto",
+    "desc"  => "Mediaoto is an independent and integrated full-service agency specifically for the automotive and property markets",
     "nav" => [
         "home"          => "Home",
         "about"         => "About Us",

@@ -1,4 +1,4 @@
-<x-app-layout title="Kebijakan Privasi | Mediaoto" description="Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti">
+<x-app-layout title="{{__('privacy.title')}}" description="{{__('privacy.description')}}">
     @section('header')
         @include('layouts.widgets.header')
     @endsection
