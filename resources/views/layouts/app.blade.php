@@ -87,7 +87,7 @@
         "@type": "WebPage",
         "headline": "{{$post->title}}",
         "url": "{{ route('news.show', $post->slug) }}",
-        "datePublished": "{{$post->published_at}}",
+        "datePublished": "{{ Carbon\Carbon::parse($post->published_at)->toIso8601String() }}",
         "image": "{{ $post->getWebpthumb() }}",
         "thumbnailUrl": "{{ $post->getWebpthumb() }}"
     }
@@ -105,11 +105,12 @@
             "@type": "ImageObject",
             "url": "{{ $post->getWebpthumb() }}"
         },
-        "datePublished": "{{$post->published_at}}",
-        "dateModified": "{{$post->published_at}}",
+        "datePublished": "{{ Carbon\Carbon::parse($post->published_at)->toIso8601String() }}",
+        "dateModified": "{{ Carbon\Carbon::parse($post->updated_at)->toIso8601String() }}",
         "author": {
             "@type": "Person",
-            "name": "{{$post->author->nama}}"
+            "name": "{{$post->author->nama}}",
+            "url": "https://www.mediaoto.id"
         },
         "publisher": {
             "@type": "Organization",
