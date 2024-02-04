@@ -35,21 +35,21 @@
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:image" content="https://www.mediaoto.id/images/home_openGraph.png" />
     <meta property="og:description" content="{{ $description}}" />
-    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:url" content="https://www.mediaoto.id{{ (request()->path() == '/')? '': "/". request()->path() }}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <?php /* Twitter */ ?>
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="mediaoto.id">
-    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:url" content="https://www.mediaoto.id{{ (request()->path() == '/')? '': "/". request()->path() }}">
     <meta name="twitter:title" content="{{ $title }} ">
     <meta name="twitter:description" content="{{ $description  }}">
     <meta name="twitter:image" content="https://www.mediaoto.id/images/home_openGraph.png">
     <title>{{ $title }}</title>
     @endif
 
-    <link rel="canonical" href="{{ url()->current() }}" />
+    <link rel="canonical" href="https://www.mediaoto.id{{ (request()->path() == '/')? '': "/". request()->path() }}" />
     <meta name="description"
         content="{{ $description }}"
         itemprop="description" />
