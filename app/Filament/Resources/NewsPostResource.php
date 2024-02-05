@@ -194,9 +194,6 @@ class NewsPostResource extends Resource
                     */
                     TiptapEditor::make('content')
                     ->disk('public')
-                    ->mediaAction(function($action){
-
-                    })
                     ->directory('posts')
                     ->extraInputAttributes(['style' => 'min-height: 24rem;']),
 
