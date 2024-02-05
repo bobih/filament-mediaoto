@@ -52,7 +52,7 @@ return [
         "infotag"       => "Our Products",
         "titletag"      => "Some of our products you can use on your business.",
         "product1tag"   => "Membership Leads",
-        "product1desc"  => "Retail Membership Packages: Silver and Gold, each with a duration of 3 months",
+        "product1desc"  => "Retail Membership Packages: Silver and Gold with a duration of 3 month, and Diamond 6 month",
         "product2tag"   => "Corporate Leads",
         "product2desc"  => "Efficient corporate lead distribution supported by user-friendly apps, complemented by monthly reports and conclusive program results.",
         "product3tag"   => "Cost per SPK",

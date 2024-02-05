@@ -53,7 +53,7 @@ return [
         "infotag"       => "Produk",
         "titletag"      => "Beberapa produk kami dapat Anda gunakan pada bisnis Anda",
         "product1tag"   => "Membership Leads",
-        "product1desc"  => "Paket retail membership silver & gold durasi 3 bulan",
+        "product1desc"  => "Paket keanggotaan Ritel: Silver dan Gold dengan durasi 3 bulan dan Diamond 6 bulan",
         "product2tag"   => "Corporate Leads",
         "product2desc"  => "Pendistribusian Leads secara corporate yang di dukung apps juga report bulanan dan result akhir program",
         "product3tag"   => "Cost per SPK",
