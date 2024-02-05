@@ -297,7 +297,6 @@
         window.filamentData = []    </script>
     @livewireScripts
 
-
 </body>
 
 </html>

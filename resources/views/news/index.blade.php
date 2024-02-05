@@ -1,6 +1,7 @@
 <x-app-layout title="{{__('news.title')}}" description="{{__('news.description')}}">
     @section('header')
-        @include('layouts.widgets.header')
+    <?php /*  @include('layouts.widgets.header') */ ?>
+    <livewire:top-nav />
     @endsection
     @section('homesection')
     <div id="news" class="-mt-20 mb-20"></div>

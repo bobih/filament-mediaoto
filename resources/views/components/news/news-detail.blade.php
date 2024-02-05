@@ -42,7 +42,7 @@
                     @if ($category = $post->categories->first())
                     <div class="flex flex-wrap gap-2">
                         @foreach ($post->categories as $category)
-                            <x-news.news-badge  title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
+                            <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
                                 :category='$category' bgColor="{{ $category->bg_color }}"
                                 txtColor="{{ $category->text_color }}">
                                 {{ $category->title }}
@@ -52,7 +52,7 @@
                     @endif
                     <div class="pt-8 flex flex-wrap">
                         @foreach ($post->tags as $tag)
-                            <x-news.news-tag  title="{{$tag->slug}}"  alt="{{$tag->slug}}" wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
+                            <x-news.news-tag wire:navigate title="{{$tag->slug}}"  alt="{{$tag->slug}}" wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
                                 name="{{ $tag->name }}" slug="{{ $tag->slug }}">
                             </x-news.news-tag>
                         @endforeach

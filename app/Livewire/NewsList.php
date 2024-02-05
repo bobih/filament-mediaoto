@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Livewire;
-
-use Spatie\Tags\HasTags;
-use Spatie\Tags\Tag;
 use Livewire\Component;
 use App\Models\NewsPost;
 use Jenssegers\Agent\Agent;
@@ -71,6 +68,7 @@ class NewsList extends Component
 
     #[On('search')]
     public function updateSearch($search){
+        $this->reset('search','category','tag');
         $this->search = $search;
     }
 

@@ -1,6 +1,7 @@
 <x-app-layout :post='$post' :title='$post->title' :description='$post->getExcerpt()'>
     @section('header')
-        @include('layouts.widgets.header')
+    <?php /*  @include('layouts.widgets.header') */ ?>
+    <livewire:top-nav />
     @endsection
     @section('homesection')
     <x-news.news-detail :post="$post" :related="$related" />

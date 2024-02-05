@@ -11,6 +11,7 @@ class SearchBox extends Component
 
     public function updatedSearch($search){
         //$this->search = $search;
+
         $this->dispatch('search',search: $this->search);
     }
 

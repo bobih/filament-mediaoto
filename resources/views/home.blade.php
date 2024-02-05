@@ -1,6 +1,8 @@
 <x-app-layout title="{{__('home.title')}}" description="{{__('home.desc')}}">
     @section('header')
-        @include('layouts.widgets.header')
+      <?php /*  @include('layouts.widgets.header') */ ?>
+      <livewire:top-nav />
+
     @endsection
     @section('homesection')
         @include('layouts.widgets.banner')
