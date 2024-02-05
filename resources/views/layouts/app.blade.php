@@ -93,6 +93,8 @@
         }
         </script>
 
+    <?php /*
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -104,6 +106,8 @@
         "thumbnailUrl": "{{ $post->getWebpthumb() }}"
     }
     </script>
+
+    */ ?>
 
     <script type="application/ld+json">
     {
