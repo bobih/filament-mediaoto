@@ -27,7 +27,7 @@
 
         </div>
         <div class="mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://www.mediaoto.id/images/phone-mockup2.webp" alt="mediaoto-apps" title="mediaoto-apps">
+            <img class="" src="https://www.mediaoto.id/images/phone-mockup2.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
     </div>
 </section>

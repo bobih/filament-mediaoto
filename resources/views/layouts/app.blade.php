@@ -67,20 +67,32 @@
     <?php /****** Schema Org ***** */?>
     @if (isset($post))
 
-<script type='application/ld+json'>
-    {
-        "@context" : "https://schema.org",
-        "@type" : "Organization",
-        "name" : "Mediaoto",
-        "url" : "https://www.mediaoto.id/",
-        "sameAs" : [
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "image": "https://www.mediaoto.id/images/home_openGraph.png",
+          "url": "https://www.mediaoto.id/",
+          "sameAs": [
             "https://www.facebook.com/mediaoto.id/",
             "https://www.twitter.com/mediaoto/",
             "https://www.instagram.com/mediaoto.id/"
-        ],
-        "logo": "https://www.mediaoto.id/images/black_logo.png"
-    }
-    </script>
+          ],
+          "logo": "https://www.mediaoto.id/images/black_logo.png",
+          "name": "Mediaoto",
+          "description": "Mediaoto is an independent and integrated full-service agency specifically for the automotive and property markets",
+          "email": "support@mediaoto.id.com",
+          "telephone": "+62813-1137-2266",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jakarta Selatan",
+            "addressLocality": "Jakarta",
+            "addressCountry": "ID",
+            "postalCode": "12910"
+          }
+        }
+        </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -92,6 +104,7 @@
         "thumbnailUrl": "{{ $post->getWebpthumb() }}"
     }
     </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -124,20 +137,31 @@
     }
     </script>
         @else
-<script type='application/ld+json'>
-    {
-        "@context" : "https://schema.org",
-        "@type" : "Organization",
-        "name" : "Mediaoto",
-        "url" : "https://www.mediaoto.id/",
-        "sameAs" : [
-            "https://www.facebook.com/mediaoto.id/",
-            "https://www.twitter.com/mediaoto/",
-            "https://www.instagram.com/mediaoto.id/"
-        ],
-        "logo": "https://www.mediaoto.id/images/black_logo.png"
-    }
-    </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "image": "https://www.mediaoto.id/images/home_openGraph.png",
+              "url": "https://www.mediaoto.id/",
+              "sameAs": [
+                "https://www.facebook.com/mediaoto.id/",
+                "https://www.twitter.com/mediaoto/",
+                "https://www.instagram.com/mediaoto.id/"
+              ],
+              "logo": "https://www.mediaoto.id/images/black_logo.png",
+              "name": "Mediaoto",
+              "description": "Mediaoto is an independent and integrated full-service agency specifically for the automotive and property markets",
+              "email": "support@mediaoto.id.com",
+              "telephone": "+62813-1137-2266",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jakarta Selatan",
+                "addressLocality": "Jakarta",
+                "addressCountry": "ID",
+                "postalCode": "12910"
+              }
+            }
+            </script>
         @endif
 
     <!-- Google tag (gtag.js B3ac5) -->
@@ -227,8 +251,9 @@
 
 
 
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
+
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script>
     <?php /*** <!-- Styles --> **/ ?>
