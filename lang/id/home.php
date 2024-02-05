@@ -17,6 +17,7 @@ return [
         "infotag"       => "\"Close the Deal\" <br /> ga pake ribet!",
         "content1"      => "Lacak tahapan dan pencapaian transaksi Anda.
                             Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami.",
+        "button1"       => "Hubungi kami",
     ],
 
     "aboutus" => [

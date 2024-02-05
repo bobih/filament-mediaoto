@@ -17,7 +17,8 @@ return [
         "infotag"       => "Close more deals with single page leads management",
         "content1"      => "Track the stages and milestones of your deals to maintain a streamlined sales process.
                             Enjoy one-click calling, efficient appointment scheduling, and seamless lead follow-up",
-        ],
+        "button1"       => "Contact Us",
+    ],
 
     "aboutus" => [
         "aboutus"       => "About Us",

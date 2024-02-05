@@ -67,7 +67,7 @@
         <main class="sm:pt-20 pb-10 bg-gray-100 dark:bg-gray-900 antialiased">
             <div class="mt-10  max-w-screen-xl ">
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Related News
+                    {{__('news.related_news')}}
                 </h2>
                 <div class="grid gap-8 lg:grid-cols-1">
                     @foreach ($related as $post)
