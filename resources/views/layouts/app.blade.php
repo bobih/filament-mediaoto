@@ -80,7 +80,7 @@
           ],
           "logo": "https://www.mediaoto.id/images/black_logo.png",
           "name": "Mediaoto",
-          "description": "Mediaoto is an independent and integrated full-service agency specifically for the automotive and property markets",
+          "description": "{{__('home.desc')}}",
           "email": "support@mediaoto.id.com",
           "telephone": "+62813-1137-2266",
           "address": {
@@ -154,7 +154,7 @@
               ],
               "logo": "https://www.mediaoto.id/images/black_logo.png",
               "name": "Mediaoto",
-              "description": "Mediaoto is an independent and integrated full-service agency specifically for the automotive and property markets",
+              "description": "{{__('home.desc')}}",
               "email": "support@mediaoto.id.com",
               "telephone": "+62813-1137-2266",
               "address": {
