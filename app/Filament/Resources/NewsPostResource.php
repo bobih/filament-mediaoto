@@ -6,6 +6,9 @@ use Filament\Forms;
 use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Set;
+use FilamentTiptapEditor\Actions\MediaAction as MyAction;
+use FilamentTiptapEditor\Concerns\HasCustomActions;
+use Tiptap\Nodes\Image;
 use App\Models\NewsPost;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
@@ -15,22 +18,24 @@ use Illuminate\Support\Carbon;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
 use Filament\Tables\Filters\Filter;
+
 use Filament\Support\Enums\MaxWidth;
 
 use Filament\Forms\Components\Select;
 
 use Filament\Forms\Components\Toggle;
-
 use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Section;
 use FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
+use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\BaseFileUpload;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Forms\Components\SpatieTagsInput;
@@ -39,10 +44,14 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\NewsPostResource\RelationManagers;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class NewsPostResource extends Resource
 {
+
+    use HasCustomActions;
+
     protected static ?string $model = NewsPost::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
@@ -185,6 +194,9 @@ class NewsPostResource extends Resource
                     */
                     TiptapEditor::make('content')
                     ->disk('public')
+                    ->mediaAction(function($action){
+
+                    })
                     ->directory('posts')
                     ->extraInputAttributes(['style' => 'min-height: 24rem;']),
 
@@ -309,4 +321,6 @@ class NewsPostResource extends Resource
 
         return parent::getEloquentQuery()->orderBy('id', 'desc');
     }
+
+
 }

@@ -37,7 +37,7 @@
                     </header>
                     <div class="dark:text-gray-400 mb-10 md:mb-10">
 
-                        {!! $post->getFullContent() !!}
+                        {!!  tiptap_converter()->asHTML($post->getFullContent()) !!}
                     </div>
                     @if ($category = $post->categories->first())
                     <div class="flex flex-wrap gap-2">

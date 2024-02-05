@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+
+use Spatie\Image\Image;
 use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Spatie\Image\Manipulations;
+
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\Support\ImageFactory;
@@ -67,13 +69,29 @@ class NewsPost extends Model implements HasMedia
             ->width(1200);
 
         $this->addMediaConversion('webp')
+            ->watermark(public_path('watermark4.png'))
+            ->watermarkOpacity(15)
+            ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+            ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+            ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+            ->watermarkPadding(15)
+            ->sharpen(10)
             ->format(Manipulations::FORMAT_WEBP)
             ->width(1200);
 
         $this->addMediaConversion('webpthumb')
-            ->format(Manipulations::FORMAT_WEBP)
-            ->width(600);
+            ->watermark(public_path('watermark4.png'))
+            ->watermarkOpacity(15)
+            ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+            ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+            ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+            ->watermarkPadding(15)
+            ->sharpen(10)
+                ->format(Manipulations::FORMAT_WEBP)
+                ->width(600);
     }
+
+
 
 
     protected $casts = [
