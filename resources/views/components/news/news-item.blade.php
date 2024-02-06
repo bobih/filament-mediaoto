@@ -19,7 +19,7 @@
             <a wire:navigate title="{{ $post->title }}"  href="{{ route('news.show', $post->slug) }}"
                 class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
         </h2>
-        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
+        <p class="mb-5 mt-4 md:mb-10 text-justify dark:text-gray-400">{{ $post->description }}</p>
         @if ($category = $post->categories->first())
         <div class="flex flex-wrap gap-2">
             @foreach ($post->categories as $category)
