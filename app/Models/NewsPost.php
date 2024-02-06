@@ -153,6 +153,11 @@ class NewsPost extends Model implements HasMedia
         return Str::limit(strip_tags($this->description), 150, '...');
     }
 
+    public function getExcerptTitle()
+    {
+        return Str::limit(strip_tags($this->title), 55, '...');
+    }
+
     public function getFullContent(): string
     {
         $content = $this->content;

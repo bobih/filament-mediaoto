@@ -15,7 +15,7 @@
     @if (isset($post))
 <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Mediaoto" />
-    <meta property="og:title" content="{{$post->title}}" />
+    <meta property="og:title" content="{{$post->getExcerptTitle()}} | Mediaoto.id" />
     <meta property="og:image" content="{{ $post->getWebpthumb() }}" />
     <meta property="og:description" content="{{$post->getExcerpt()}}" />
     <meta property="og:url" content="{{ route('news.show', $post->slug) }}" />
@@ -26,10 +26,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="mediaoto.id">
     <meta property="twitter:url" content="{{ route('news.show', $post->slug) }}">
-    <meta name="twitter:title" content="{{$post->title}}">
+    <meta name="twitter:title" content="{{$post->getExcerptTitle()}} | Mediaoto.id">
     <meta name="twitter:description" content="{{$post->getExcerpt()}}">
     <meta name="twitter:image" content="{{ $post->getWebpthumb() }}">
-    <title>{{ $post->title }}</title>
+    <title>{{$post->getExcerptTitle()}} | Mediaoto.id</title>
     @else
     <meta property="og:site_name" content="Mediaoto" />
     <meta property="og:title" content="{{ $title }}" />
