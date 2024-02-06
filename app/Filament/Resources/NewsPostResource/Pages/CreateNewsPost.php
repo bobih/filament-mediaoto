@@ -38,7 +38,7 @@ class CreateNewsPost extends CreateRecord
 
     protected function afterCreate(): void
     {
-        if (env('APP_ENV','local') == 'prodction') {
+        if (env('APP_ENV', 'local') == 'prodction') {
             // Generate Sitemap
             $postsitmap = Sitemap::create();
             $postsitmap->add(
@@ -88,27 +88,28 @@ class CreateNewsPost extends CreateRecord
     }
 
 
-    public function convertImage($content){
+    public function convertImage($content)
+    {
         $dom = new Dom;
         $dom->loadStr($content);
         $listImages = $dom->find('img');
 
-        foreach ($listImages as $list){
-          $filePath = resource_path() . '/../../public_html/'.$list->getAttribute('src');// . $filename;
-          $folderpath = resource_path() . '/../../public_html/images/posts/';
+        foreach ($listImages as $list) {
+            $filePath = resource_path() . '/../../public_html/' . $list->getAttribute('src'); // . $filename;
+            $folderpath = resource_path() . '/../../public_html/images/posts/';
 
-          $uploadimage = File::get($filePath);
+            $uploadimage = File::get($filePath);
 
 
-        if(File::exists($filePath)) {
-            //dd("OK");
-           $type = File::mimeType($filePath);
-           $name = File::name($filePath);
-           $extention = File::extension($filePath);
-           //dd($name);
-           if(!File::exists($folderpath.$name.".webp")){
-                $image = Image::load($filePath);
-                $image->watermark(public_path('watermark4.png'))
+            if (File::exists($filePath)) {
+                //dd("OK");
+                $type = File::mimeType($filePath);
+                $name = File::name($filePath);
+                $extention = File::extension($filePath);
+                //dd($name);
+                if (!File::exists($folderpath . $name . ".webp")) {
+                    $image = Image::load($filePath);
+                    $image->watermark(public_path('watermark4.png'))
                         ->watermarkOpacity(20)
                         ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
                         ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
@@ -118,15 +119,41 @@ class CreateNewsPost extends CreateRecord
                         ->format(Manipulations::FORMAT_WEBP)
                         ->width(600)
                         ->save($folderpath . $name . '.webp');
+                }
 
-            }
-
-                $list->setAttribute('src', '/images/posts/'.$name . '.webp');
+                $list->setAttribute('src', '/images/posts/' . $name . '.webp');
                 $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
-
             } else {
                 $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
+            }
+        }
 
+        $listHeader = $dom->find('div');
+        foreach ($listHeader as $list) {
+
+            $currentAttr = $list->getAttribute('class');
+            if ($currentAttr) {
+                if (str_contains('pt-2 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white', $currentAttr)) {
+                    // Do Not Change
+                } else {
+                    $list->setAttribute('class', $currentAttr . ' pt-2 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white');
+                }
+            } else {
+                $list->setAttribute('class', $currentAttr . ' pt-2 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white');
+            }
+        }
+
+        $listPaging = $dom->find('p');
+        foreach ($listPaging as $list) {
+            $currentAttr = $list->getAttribute('class');
+            if ($currentAttr) {
+                if (str_contains('mb-4', $currentAttr)) {
+                    // Do Not Change
+                } else {
+                    $list->setAttribute('class', 'mb-4');
+                }
+            } else {
+                $list->setAttribute('class', 'mb-4');
             }
         }
 
