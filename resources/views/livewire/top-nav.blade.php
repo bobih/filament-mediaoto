@@ -1,7 +1,5 @@
 <div>
     @include('layouts.widgets.header')
-
-
     @if (session()->has('scroll'))
         @script
             <script>

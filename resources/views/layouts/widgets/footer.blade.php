@@ -39,11 +39,29 @@
                     </a>
                 </div>
 
+                @if (Request::segment(1) == '')
+                <a title="footerlogo" href="/#home" rel="noopener" target="_self"
+                    class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
+                    <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
+                    <x-application-logo />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
+                </a>
+                @else
+                    <a wire:navigate title="footerlogo" href="/" rel="noopener" target="_self"
+                    class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
+                    <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
+                    <x-application-logo />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
+                    </a>
+                @endif
+
+                <?php /*
                 <a title="home" href="{{ route('home') }}" class="pt-4 flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                     <x-application-logo />
                     <span
                         class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
                 </a>
+                */ ?>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>

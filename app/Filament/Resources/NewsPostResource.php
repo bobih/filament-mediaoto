@@ -6,8 +6,6 @@ use Filament\Forms;
 use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Set;
-use FilamentTiptapEditor\Actions\MediaAction as MyAction;
-use FilamentTiptapEditor\Concerns\HasCustomActions;
 use Tiptap\Nodes\Image;
 use App\Models\NewsPost;
 use Filament\Forms\Form;
@@ -17,13 +15,14 @@ use App\Models\NewsCategory;
 use Illuminate\Support\Carbon;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\Grid;
 use Filament\Tables\Filters\Filter;
-
 use Filament\Support\Enums\MaxWidth;
 
 use Filament\Forms\Components\Select;
 
 use Filament\Forms\Components\Toggle;
+
 use Illuminate\Support\Facades\Blade;
 use Filament\Forms\Components\Section;
 use FilamentTiptapEditor\TiptapEditor;
@@ -40,7 +39,9 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Forms\Components\SpatieTagsInput;
 use App\Filament\Resources\NewsPostResource\Pages;
+use FilamentTiptapEditor\Concerns\HasCustomActions;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use FilamentTiptapEditor\Actions\MediaAction as MyAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\NewsPostResource\RelationManagers;
@@ -130,10 +131,25 @@ class NewsPostResource extends Resource
 
                     DateTimePicker::make('published_at')->nullable()
                     ->default(Carbon::now()),
-                    Checkbox::make('featured'),
+
+                    Grid::make(3)
+                    ->schema([
+                        Checkbox::make('featured'),
+                        Checkbox::make('active')
+                        ->label('active')
+                        ->default(1),
+                        Checkbox::make('watermark')
+                    ->label('Watermark')
+                    ->default(1),    // ...
+
+                    ]),
+
+
+                    /*
                     Toggle::make('active')
                     ->label('Active')
                     ->default(1),
+                    */
 
                     Forms\Components\Hidden::make('source')
                         ->dehydrated(fn ($state) => filled($state))

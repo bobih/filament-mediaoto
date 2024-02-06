@@ -40,6 +40,7 @@ class NewsPost extends Model implements HasMedia
         'userid',
         'source',
         'image',
+        'watermark',
         'title',
         'slug',
         'description',
@@ -88,8 +89,18 @@ class NewsPost extends Model implements HasMedia
             ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
             ->watermarkPadding(15)
             ->sharpen(10)
-                ->format(Manipulations::FORMAT_WEBP)
-                ->width(600);
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(600);
+
+        $this->addMediaConversion('webpnomark')
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(1200);
+
+        $this->addMediaConversion('webpthumbnomark')
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(600);
     }
 
 
@@ -212,7 +223,11 @@ class NewsPost extends Model implements HasMedia
             $urlLocation = $this->image;
         } else {
             if ($this->media[0]->hasGeneratedConversion('webp')) {
+                if($this->watermark == 1){
                 $urlLocation = $this->media[0]->getUrl('webp');
+                } else {
+                    $urlLocation = $this->media[0]->getUrl('webpnomark');
+                }
             } else {
                 $urlLocation = $this->media[0]->getUrl('desktop');
             }
@@ -227,7 +242,11 @@ class NewsPost extends Model implements HasMedia
             $urlLocation = $this->image;
         } else {
             if ($this->media[0]->hasGeneratedConversion('webpthumb')) {
+                if($this->watermark == 1){
                 $urlLocation = $this->media[0]->getUrl('webpthumb');
+                } else {
+                    $urlLocation = $this->media[0]->getUrl('webpthumbnomark');
+                }
             } else {
                 $urlLocation = $this->media[0]->getUrl();
             }
