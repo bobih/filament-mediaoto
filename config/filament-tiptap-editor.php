@@ -30,7 +30,7 @@ return [
     'profiles' => [
         'default' => [
             'heading', 'bullet-list', 'ordered-list', 'checked-list', 'blockquote',  '|',
-            'bold', 'italic','underline', '|', 'align-left', 'align-center', 'align-justify', 'align-right', '|',
+            'bold', 'italic','underline','lead', 'small', '|', 'align-left', 'align-center', 'align-justify', 'align-right', '|',
             'link', 'media', 'oembed', '|', 'code', 'code-block', 'source', 'blocks',
         ],
         'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
@@ -71,7 +71,7 @@ return [
     | See https://filamentphp.com/docs/3.x/panels/installation#file-upload
     |
     */
-    'accepted_file_types' => ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml', 'application/pdf'],
+    'accepted_file_types' => ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/svg+xml', 'application/pdf'],
     'disk' => 'public',
     'directory' => 'posts',
     'visibility' => 'public',
@@ -93,7 +93,7 @@ return [
     'disable_bubble_menus' => false,
     'disable_toolbar_menus' => false,
 
-    'bubble_menu_tools' => ['bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'link'],
+    'bubble_menu_tools' => ['undo', 'redo','align-justify','bold', 'italic', 'underline','lead', 'small', 'link'],
     'floating_menu_tools' => ['media', 'grid-builder', 'details', 'table', 'oembed', 'code-block', 'blocks'],
 
     /*
