@@ -168,12 +168,17 @@
             </script>
         @endif
 
-    <!-- Google tag (gtag.js B3ac5) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+    @if (env('APP_ENV','local') == "production")
 
-    <script type="text/javascript">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q7LP278P3T");</script>
 
-    @include('googletagmanager::head')
+        <!-- Google tag (gtag.js B3ac5) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
+
+        <script type="text/javascript">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q7LP278P3T");</script>
+
+        @include('googletagmanager::head')
+
+    @endif
     <?php /*
     <!-- Fonts -->
 
@@ -265,7 +270,9 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-gray-700">
+    @if (env('APP_ENV','local') == "production")
     @include('googletagmanager::body')
+    @endif
     <?php /*
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPMBPSR6" height="0" width="0"

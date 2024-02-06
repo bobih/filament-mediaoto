@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use PHPHtmlParser\Dom;
 use Spatie\Image\Image;
 use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Spatie\Image\Manipulations;
 
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -81,7 +82,7 @@ class NewsPost extends Model implements HasMedia
 
         $this->addMediaConversion('webpthumb')
             ->watermark(public_path('watermark4.png'))
-            ->watermarkOpacity(15)
+            ->watermarkOpacity(20)
             ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
             ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
             ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
@@ -154,23 +155,16 @@ class NewsPost extends Model implements HasMedia
 
     public function getFullContent(): string
     {
-
-        /*
-        $arrPic = [
-            "<img alt='01-{$this->title}' title='01-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-            "<img alt='02-{$this->title}' title='02-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-            "<img alt='03-{$this->title}' title='03-{$this->title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-        ];
-        //return Str::replaceMatches('<img', $this->content,"<img title='piic01'");
-        */
-
         $content = $this->content;
+        /*
         if (str_contains($content, '<img')) {
             $content = str_replace("<img", "<img loading='lazy' class='my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ", $this->content);
         }
+        */
         if (str_contains($content, 'src="/images')) {
             $content =  str_replace('src="/images', 'src="' . env('IMAGE_URL', 'https://www.mediaoto.id') . '/images', $content);
         }
+
         return $content;
     }
 

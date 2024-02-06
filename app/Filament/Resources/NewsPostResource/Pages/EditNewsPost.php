@@ -3,10 +3,14 @@
 namespace App\Filament\Resources\NewsPostResource\Pages;
 
 use Filament\Actions;
+use PHPHtmlParser\Dom;
+use Spatie\Image\Image;
 use App\Models\NewsPost;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
+use Spatie\Image\Manipulations;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
@@ -25,10 +29,22 @@ class EditNewsPost extends EditRecord
         ];
     }
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $content = $this->convertImage($data['content']);
+        $data['content'] = $content;
+        return $data;
+    }
+
     protected function afterSave(): void
     {
 
-        if (env('APP_ENV','local') != 'local') {
+        if (env('APP_ENV','local') == 'production') {
             // Generate Sitemap
             $postsitmap = Sitemap::create();
             $postsitmap->add(
@@ -75,5 +91,51 @@ class EditNewsPost extends EditRecord
         Cache::forget('newsResponse');
         Cache::forget('newsLatest');
         Cache::forget('newscategories');
+    }
+
+    public function convertImage($content){
+        $dom = new Dom;
+        $dom->loadStr($content);
+        $listImages = $dom->find('img');
+
+        foreach ($listImages as $list){
+          $filePath = resource_path() . '/../../public_html/'.$list->getAttribute('src');// . $filename;
+          $folderpath = resource_path() . '/../../public_html/images/posts/';
+
+          $uploadimage = File::get($filePath);
+
+
+        if(File::exists($filePath)) {
+            //dd("OK");
+           $type = File::mimeType($filePath);
+           $name = File::name($filePath);
+           $extention = File::extension($filePath);
+           //dd($name);
+           if(!File::exists($folderpath.$name.".webp")){
+                $image = Image::load($filePath);
+                $image->watermark(public_path('watermark4.png'))
+                        ->watermarkOpacity(20)
+                        ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+                        ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+                        ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+                        ->watermarkPadding(15)
+                        ->sharpen(10)
+                        ->format(Manipulations::FORMAT_WEBP)
+                        ->width(600)
+                        ->save($folderpath . $name . '.webp');
+
+            }
+
+                $list->setAttribute('src', '/images/posts/'.$name . '.webp');
+                $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
+
+            } else {
+                $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
+
+            }
+        }
+
+        $content = $dom;
+        return $content;
     }
 }

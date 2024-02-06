@@ -3,16 +3,21 @@
 namespace App\Filament\Resources\NewsPostResource\Pages;
 
 use Filament\Actions;
+use PHPHtmlParser\Dom;
+use Spatie\Image\Image;
 use App\Models\NewsPost;
 use Illuminate\Support\Str;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Carbon;
+use Spatie\Image\Manipulations;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\NewsPostResource;
+
 
 class CreateNewsPost extends CreateRecord
 {
@@ -25,34 +30,15 @@ class CreateNewsPost extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $content =  $data['content'];
-        $title   = $data['title'];
-        $arrPic = [
-            "<img alt='01-{$title}' title='01-{$title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-            "<img alt='02-{$title}' title='02-{$title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-            "<img alt='03-{$title}' title='03-{$title}' class='mt-4 h-auto w-full object-fit drop-shadow-xl rounded-lg' ",
-        ];
-        //return Str::replaceMatches('<img', $this->content,"<img title='piic01'");
-        if (str_contains($content, '<img')) {
-            $content = Str::replaceArray('<img', $arrPic, $content);
-        }
 
-        if (str_contains($content, 'src="../')) {
-            $content = str_replace('src="../', 'src="' . env('IMAGE_URL') . '/', $content);
-        }
-
-        //$data['content'] = $content;
-
-
-
+        $content = $this->convertImage($data['content']);
+        $data['content'] = $content;
         return $data;
     }
 
     protected function afterCreate(): void
     {
-
-
-        if (env('APP_ENV','local') != 'local') {
+        if (env('APP_ENV','local') == 'prodction') {
             // Generate Sitemap
             $postsitmap = Sitemap::create();
             $postsitmap->add(
@@ -99,5 +85,52 @@ class CreateNewsPost extends CreateRecord
         Cache::forget('newsResponse');
         Cache::forget('newsLatest');
         Cache::forget('newscategories');
+    }
+
+
+    public function convertImage($content){
+        $dom = new Dom;
+        $dom->loadStr($content);
+        $listImages = $dom->find('img');
+
+        foreach ($listImages as $list){
+          $filePath = resource_path() . '/../../public_html/'.$list->getAttribute('src');// . $filename;
+          $folderpath = resource_path() . '/../../public_html/images/posts/';
+
+          $uploadimage = File::get($filePath);
+
+
+        if(File::exists($filePath)) {
+            //dd("OK");
+           $type = File::mimeType($filePath);
+           $name = File::name($filePath);
+           $extention = File::extension($filePath);
+           //dd($name);
+           if(!File::exists($folderpath.$name.".webp")){
+                $image = Image::load($filePath);
+                $image->watermark(public_path('watermark4.png'))
+                        ->watermarkOpacity(20)
+                        ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+                        ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+                        ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+                        ->watermarkPadding(15)
+                        ->sharpen(10)
+                        ->format(Manipulations::FORMAT_WEBP)
+                        ->width(600)
+                        ->save($folderpath . $name . '.webp');
+
+            }
+
+                $list->setAttribute('src', '/images/posts/'.$name . '.webp');
+                $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
+
+            } else {
+                $list->setAttribute('class', 'my-4 h-auto w-full object-fit drop-shadow-xl rounded-lg');
+
+            }
+        }
+
+        $content = $dom;
+        return $content;
     }
 }

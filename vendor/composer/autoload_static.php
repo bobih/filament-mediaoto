@@ -173,6 +173,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'PhpOffice\\PhpSpreadsheet\\' => 25,
             'ParagonIE\\ConstantTime\\' => 23,
             'PHPOpenSourceSaver\\JWTAuth\\' => 27,
+            'PHPHtmlParser\\' => 14,
         ),
         'O' => 
         array (
@@ -703,6 +704,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             0 => __DIR__ . '/..' . '/php-open-source-saver/jwt-auth/src',
         ),
+        'PHPHtmlParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser',
+        ),
         'OpenSpout\\' => 
         array (
             0 => __DIR__ . '/..' . '/openspout/openspout/src',
@@ -1179,6 +1184,13 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
     );
 
     public static $prefixesPsr0 = array (
+        's' => 
+        array (
+            'stringEncode' => 
+            array (
+                0 => __DIR__ . '/..' . '/paquettg/string-encode/src',
+            ),
+        ),
         'H' => 
         array (
             'Highlight\\' => 
@@ -8040,6 +8052,33 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'OpenSpout\\Writer\\XLSX\\Options\\PaperSize' => __DIR__ . '/..' . '/openspout/openspout/src/Writer/XLSX/Options/PaperSize.php',
         'OpenSpout\\Writer\\XLSX\\Writer' => __DIR__ . '/..' . '/openspout/openspout/src/Writer/XLSX/Writer.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
+        'PHPHtmlParser\\Content' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Content.php',
+        'PHPHtmlParser\\Curl' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Curl.php',
+        'PHPHtmlParser\\CurlInterface' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/CurlInterface.php',
+        'PHPHtmlParser\\Dom' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom.php',
+        'PHPHtmlParser\\Dom\\AbstractNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/AbstractNode.php',
+        'PHPHtmlParser\\Dom\\ArrayNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/ArrayNode.php',
+        'PHPHtmlParser\\Dom\\Collection' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/Collection.php',
+        'PHPHtmlParser\\Dom\\HtmlNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/HtmlNode.php',
+        'PHPHtmlParser\\Dom\\InnerNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/InnerNode.php',
+        'PHPHtmlParser\\Dom\\LeafNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/LeafNode.php',
+        'PHPHtmlParser\\Dom\\Tag' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/Tag.php',
+        'PHPHtmlParser\\Dom\\TextNode' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Dom/TextNode.php',
+        'PHPHtmlParser\\Exceptions\\ChildNotFoundException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/ChildNotFoundException.php',
+        'PHPHtmlParser\\Exceptions\\CircularException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/CircularException.php',
+        'PHPHtmlParser\\Exceptions\\CurlException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/CurlException.php',
+        'PHPHtmlParser\\Exceptions\\EmptyCollectionException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/EmptyCollectionException.php',
+        'PHPHtmlParser\\Exceptions\\LogicalException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/LogicalException.php',
+        'PHPHtmlParser\\Exceptions\\NotLoadedException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/NotLoadedException.php',
+        'PHPHtmlParser\\Exceptions\\ParentNotFoundException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/ParentNotFoundException.php',
+        'PHPHtmlParser\\Exceptions\\StrictException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/StrictException.php',
+        'PHPHtmlParser\\Exceptions\\UnknownChildTypeException' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Exceptions/UnknownChildTypeException.php',
+        'PHPHtmlParser\\Finder' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Finder.php',
+        'PHPHtmlParser\\Options' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Options.php',
+        'PHPHtmlParser\\Selector\\Parser' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Selector/Parser.php',
+        'PHPHtmlParser\\Selector\\ParserInterface' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Selector/ParserInterface.php',
+        'PHPHtmlParser\\Selector\\Selector' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/Selector/Selector.php',
+        'PHPHtmlParser\\StaticDom' => __DIR__ . '/..' . '/seyyedam7/laravel-html-parser/src/PHPHtmlParser/StaticDom.php',
         'PHPOpenSourceSaver\\JWTAuth\\Blacklist' => __DIR__ . '/..' . '/php-open-source-saver/jwt-auth/src/Blacklist.php',
         'PHPOpenSourceSaver\\JWTAuth\\Claims\\Audience' => __DIR__ . '/..' . '/php-open-source-saver/jwt-auth/src/Claims/Audience.php',
         'PHPOpenSourceSaver\\JWTAuth\\Claims\\Claim' => __DIR__ . '/..' . '/php-open-source-saver/jwt-auth/src/Claims/Claim.php',
@@ -12285,6 +12324,8 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'pxlrbt\\FilamentExcel\\FilamentExcelServiceProvider' => __DIR__ . '/..' . '/pxlrbt/filament-excel/src/FilamentExcelServiceProvider.php',
         'pxlrbt\\FilamentExcel\\Interactions\\AskForFilename' => __DIR__ . '/..' . '/pxlrbt/filament-excel/src/Interactions/AskForFilename.php',
         'pxlrbt\\FilamentExcel\\Interactions\\AskForWriterType' => __DIR__ . '/..' . '/pxlrbt/filament-excel/src/Interactions/AskForWriterType.php',
+        'stringEncode\\Encode' => __DIR__ . '/..' . '/paquettg/string-encode/src/stringEncode/Encode.php',
+        'stringEncode\\Exception' => __DIR__ . '/..' . '/paquettg/string-encode/src/stringEncode/Exception.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
         '©' => __DIR__ . '/..' . '/symfony/cache/Traits/ValueWrapper.php',
     );
