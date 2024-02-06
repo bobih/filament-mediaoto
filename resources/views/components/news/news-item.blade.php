@@ -4,7 +4,7 @@
     <div class="px-4 pb-4 md:w-full" >
         <a wire:navigate title="{{ $post->title }}" alt="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
             class="md:hover:text-[#FF9119]">
-            <img loading="lazy" class=" top-0 left-0 right-0 bottom-0 h-full w-full object-fit shadow-lg rounded-lg"
+            <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 top-0 left-0 right-0 bottom-0 h-full w-full object-fit shadow-lg rounded-lg"
                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->slug }}">
         </a>
     </div>
@@ -23,10 +23,12 @@
         @if ($category = $post->categories->first())
         <div class="flex flex-wrap gap-2">
             @foreach ($post->categories as $category)
-                <x-news.news-badge title="{{$category->slug}}"  alt="{{$category->slug}}" wire:navigate href="{{ route('news.index', ['category' => $category->slug]) }}"
-                    :category='$category' bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
-                    {{ $category->title }}
-                </x-news.news-badge>
+            <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
+                :category='$category' bgColor="{{ $category->bg_color }}"
+                txtColor="{{ $category->text_color }}"
+                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300">
+                {{ $category->title }}
+            </x-news.news-badge>
             @endforeach
         </div>
         @endif

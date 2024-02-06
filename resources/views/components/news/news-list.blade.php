@@ -35,15 +35,14 @@
                 <h1 class="mb-8 mt-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {{__('news.recommended')}} :
                 </h1>
-                <div class="flex flex-wrap justify-start gap-4 mb-8">
+                <div class="flex flex-wrap gap-4 gap-y-8 mb-8">
                     @foreach ($categories as $category)
-                        <x-news.news-badge wire:navigate
-                            href="{{route('news.index',['category'=>$category->slug])}}"
-                            :category='$category'
-                            bgColor="{{$category->bg_color}}"
-                            txtColor="{{$category->text_color}}" >
-                            {{$category->title}}
-                        </x-news.news-badge>
+                    <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
+                        :category='$category' bgColor="{{ $category->bg_color }}"
+                        txtColor="{{ $category->text_color }}"
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300">
+                        {{ $category->title }}
+                    </x-news.news-badge>
                     @endforeach
                 </div>
 

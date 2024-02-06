@@ -23,7 +23,7 @@
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
                         <a wire:navigate title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
-                            <img loading="lazy" class="absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
+                            <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
                                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
                         </a>
@@ -39,11 +39,12 @@
                                 class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
                         </h2>
                         <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
-           <div class="flex flex-wrap">
+           <div class="flex flex-wrap gap-4">
                 @foreach ($post->categories as $category)
-                <x-news.news-badge wire:navigate
-                    href="{{ route('news.index', ['category' => $category->slug]) }}" :category='$category'
-                    bgColor="{{ $category->bg_color }}" txtColor="{{ $category->text_color }}">
+                <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
+                    :category='$category' bgColor="{{ $category->bg_color }}"
+                    txtColor="{{ $category->text_color }}"
+                    class="md:hover:-translate-y-1 md:hover:scale-110 duration-300">
                     {{ $category->title }}
                 </x-news.news-badge>
                 @endforeach

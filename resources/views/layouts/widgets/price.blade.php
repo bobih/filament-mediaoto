@@ -7,7 +7,7 @@
                 </div>
                 <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
                     <div
-                        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                         <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price1tag')}}</h3>
                         <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price1desc')}}</p>
                         <div class="flex justify-center items-baseline my-8">
@@ -16,7 +16,7 @@
                         </div>
                         <!-- List -->
                         <ul role="list" class="mb-8 space-y-4 text-left">
-                            <li class="flex items-center space-x-3">
+                            <li class="flex items-center space-x-3 ">
                                 <!-- Icon -->
                                 <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@
                     </div>
                     <!-- Pricing Card -->
                     <div
-                        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                         <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price2tag')}}</h3>
                         <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price2desc')}}</p>
 
@@ -79,7 +79,7 @@
                         </button>
                     </div>
                     <div
-                        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                         <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price3tag')}}</h3>
                         <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price3desc')}}</p>
 

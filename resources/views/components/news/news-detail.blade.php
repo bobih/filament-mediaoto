@@ -24,7 +24,7 @@
 
                     <header class="mb-4 lg:mb-6 not-format">
                         <div class="w-full h-auto pb-1/4">
-                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg"
+                            <img class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </div>
                         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
@@ -44,7 +44,8 @@
                         @foreach ($post->categories as $category)
                             <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
                                 :category='$category' bgColor="{{ $category->bg_color }}"
-                                txtColor="{{ $category->text_color }}">
+                                txtColor="{{ $category->text_color }}"
+                                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300">
                                 {{ $category->title }}
                             </x-news.news-badge>
                         @endforeach
@@ -53,7 +54,8 @@
                     <div class="pt-8 flex flex-wrap">
                         @foreach ($post->tags as $tag)
                             <x-news.news-tag wire:navigate title="{{$tag->slug}}"  alt="{{$tag->slug}}" wire:navigate href="{{ route('news.index', ['tag' => $tag->slug]) }}"
-                                name="{{ $tag->name }}" slug="{{ $tag->slug }}">
+                                name="{{ $tag->name }}" slug="{{ $tag->slug }}"
+                                class="hover:-translate-y-1 hover:scale-110 duration-300">
                             </x-news.news-tag>
                         @endforeach
                     </div>

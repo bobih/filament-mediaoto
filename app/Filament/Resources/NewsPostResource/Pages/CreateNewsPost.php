@@ -157,6 +157,21 @@ class CreateNewsPost extends CreateRecord
             }
         }
 
+
+        $listLink = $dom->find('a');
+        foreach ($listLink as $list) {
+            $currentAttr = $list->getAttribute('class');
+            if ($currentAttr) {
+                if (str_contains('md:hover:text-[#FF9119]', $currentAttr)) {
+                    // Do Not Change
+                } else {
+                    $list->setAttribute('class', 'text-blue-900 dark:text-blue-400 md:hover:text-[#FF9119]');
+                }
+            } else {
+                $list->setAttribute('class', 'text-blue-900 dark:text-blue-400 md:hover:text-[#FF9119]');
+            }
+        }
+
         $content = $dom;
         return $content;
     }
