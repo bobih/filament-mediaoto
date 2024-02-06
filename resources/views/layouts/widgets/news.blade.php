@@ -34,8 +34,9 @@
                                 {{ $post->published_at->diffForHumans() }}</span>
                         </div>
 
-                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                            <a wire:navigate title="{{$post->title}}" href="{{ route('news.show', $post->slug) }}">{{ $post->title }}</a>
+                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300 ">
+                            <a wire:navigate title="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
+                                class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
                         </h2>
                         <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
            <div class="flex flex-wrap">

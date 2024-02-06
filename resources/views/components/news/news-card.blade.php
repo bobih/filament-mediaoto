@@ -1,7 +1,8 @@
 @props(['post'])
 <article class="p-6 bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class=" px-4 pb-4">
-        <a wire:navigate href="{{ route('news.show', $post->slug) }}">
+        <a wire:navigate href="{{ route('news.show', $post->slug) }}"
+            >
             <img loading="lazy" class=" top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->slug }}" title="{{ $post->title }}">
         </a>
@@ -11,7 +12,8 @@
         <span class="text-sm">{{ $post->published_at->diffForHumans() }}</span>
     </div>
     <h2 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-        <a wire:navigate href="{{ route('news.show', $post->slug) }}">{{ $post->title }}</a>
+        <a wire:navigate href="{{ route('news.show', $post->slug) }}"
+            class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
     </h2>
     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
     <div class="flex justify-between items-center">
