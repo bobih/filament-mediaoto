@@ -15,7 +15,7 @@
         <a wire:navigate href="{{ route('news.show', $post->slug) }}"
             class="md:hover:text-[#FF9119] md:hover:transition duration-700 ease-in-out">{{ $post->title }}</a>
     </h2>
-    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
+    <p class="mb-5 text-justify dark:text-gray-400">{{ $post->description }}</p>
     <div class="flex justify-between items-center">
 
         @if ($post->author->id != 36)

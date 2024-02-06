@@ -38,7 +38,7 @@
                             <a wire:navigate title="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
                                 class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
                         </h2>
-                        <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $post->description }}</p>
+                        <p class="mb-5 dark:text-gray-400">{{ $post->description }}</p>
            <div class="flex flex-wrap gap-4">
                 @foreach ($post->categories as $category)
                 <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.index', ['category' => $category->slug]) }}"
