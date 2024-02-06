@@ -1,17 +1,13 @@
 @props(['post','title', 'description'])
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <script type="text/javascript">"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
-
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="true"/>
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
     @if (isset($post))
 <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Mediaoto" />
@@ -92,9 +88,7 @@
           }
         }
         </script>
-
     <?php /*
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -106,7 +100,6 @@
         "thumbnailUrl": "{{ $post->getWebpthumb() }}"
     }
     </script>
-
     */ ?>
 
     <script type="application/ld+json">
@@ -169,15 +162,10 @@
         @endif
 
     @if (env('APP_ENV','local') == "production")
-
-
         <!-- Google tag (gtag.js B3ac5) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
-
         <script type="text/javascript">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q7LP278P3T");</script>
-
         @include('googletagmanager::head')
-
     @endif
     <?php /*
     <!-- Fonts -->
@@ -186,85 +174,14 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     */
     ?>
-    <?php /*
-    <!-- Flowibte -->
-    // Required for Modal
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-     */
-    ?>
-    <?php /*
-     <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-Q7LP278P3T');
-    </script>
-    */
-    ?>
-    <?php /*
-    <!-- Google tag (gtag.js) -->
-    @assets
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-310Q1596DC"></script>
-    @endassets
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-310Q1596DC');
-    </script>
-    */
-    ?>
-    <?php /*
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KPMBPSR6');
-    </script>
-    <!-- End Google Tag Manager -->
-    */
-    ?>
-
     @if (env('APP_ENV','local') == "production")
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
         crossorigin="anonymous"></script>
     @endif
-
     <?php /* @filamentStyles */ ?>
-
-
-
-
-
-
     <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script>
     <?php /*** <!-- Styles --> **/ ?>
     @livewireStyles
@@ -274,28 +191,14 @@
     @if (env('APP_ENV','local') == "production")
     @include('googletagmanager::body')
     @endif
-    <?php /*
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPMBPSR6" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    */
-    ?>
-
     <x-banner />
-
     @yield('header')
     @yield('homesection')
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}
     </main>
-
     <?php /* @include('layouts.widgets.cookies') */ ?>
-
     @include('layouts.widgets.footer')
-
-
     @stack('modals')
     @stack('scripts')
 
@@ -306,5 +209,4 @@
     @livewireScripts
 
 </body>
-
 </html>
