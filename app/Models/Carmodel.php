@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\Car\BodyType;
-use App\Enums\Car\Fuel;
-use App\Enums\Car\Transmission;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
