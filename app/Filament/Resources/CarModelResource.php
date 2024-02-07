@@ -29,6 +29,7 @@ class CarModelResource extends Resource
     protected static ?string $navigationGroup = 'Info';
 
     protected static ?string $navigationLabel = 'Car';
+    protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $navigationIcon = 'fontisto-car';
 
@@ -40,6 +41,7 @@ class CarModelResource extends Resource
                 Tabs::make('Heading')
                     ->tabs([
                         Tabs\Tab::make('Car Info')
+                        ->icon('mdi-carinfo')
                             ->schema([
                                 Grid::make(3)
                                     ->schema([
@@ -57,6 +59,7 @@ class CarModelResource extends Resource
                             ])->columns(2),
 
                         Tabs\Tab::make('Body')
+                        ->icon('mdi-carcog')
                             ->schema([
 
                                 Forms\Components\Select::make('bodytype_id')
@@ -77,6 +80,7 @@ class CarModelResource extends Resource
                             ])->columns(2),
 
                             Tabs\Tab::make('Engine')
+                            ->icon('mdi-engine')
                             ->schema([
                                 Forms\Components\TextInput::make('engine_type')
                                 ->label('Type'),

@@ -28,6 +28,8 @@ class CarvariantRelationManager extends RelationManager
 {
     protected static string $relationship = 'variant';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     public function form(Form $form): Form
     {
         return $form
@@ -47,6 +49,7 @@ class CarvariantRelationManager extends RelationManager
                 Tabs::make('Heading')
                     ->tabs([
                         Tabs\Tab::make('Car Info')
+                        ->icon('mdi-carinfo')
                             ->schema([
                                 Grid::make(2)
                                     ->schema([
@@ -75,6 +78,7 @@ class CarvariantRelationManager extends RelationManager
                             ])->columns(2),
 
                         Tabs\Tab::make('Body')
+                        ->icon('mdi-carcog')
                             ->schema([
 
                                 Forms\Components\Select::make('bodytype_id')
@@ -103,6 +107,7 @@ class CarvariantRelationManager extends RelationManager
                             ])->columns(2),
 
                         Tabs\Tab::make('Engine')
+                        ->icon('mdi-engine')
                             ->schema([
                                 Forms\Components\TextInput::make('engine_type')
                                     ->label('Type'),
