@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Forms\Components\Textarea;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Carmodel;
@@ -106,7 +107,7 @@ class CarModelResource extends Resource
                                         ->responsiveImages()
                                         ->conversion('thumb'),
 
-                                Forms\Components\TextArea::make('description')
+                                TextArea::make('description')
                                     ->label('Description')
                                     ->rows(4)
                                     ->minLength(50)

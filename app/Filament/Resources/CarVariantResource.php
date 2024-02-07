@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Brand;
+use Filament\Forms\Components\Textarea;
 
 use Filament\Forms\Get;
 use Filament\Forms\Set;
@@ -73,7 +74,7 @@ class CarVariantResource extends Resource
                 ->preload()
                 ->options(Transmission::class),
 
-                Forms\Components\TextArea::make('description')
+                TextArea::make('description')
                         ->label('Description')
                         ->rows(4)
                         ->minLength(50)
