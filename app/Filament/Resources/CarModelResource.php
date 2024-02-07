@@ -103,7 +103,7 @@ class CarModelResource extends Resource
                                         ->responsiveImages()
                                         ->conversion('thumb'),
 
-                                        Forms\Components\TextArea::make('description')
+                                        Forms\Components\Textarea::make('description')
                                     ->label('Description')
                                     ->rows(4)
                                     ->minLength(50)

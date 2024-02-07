@@ -66,7 +66,7 @@ class CarvariantRelationManager extends RelationManager
                                     ->schema([
 
 
-                                        Forms\Components\TextArea::make('review')
+                                        Forms\Components\Textarea::make('review')
                                         ->label('Review'),
                                     ]),
 
@@ -129,7 +129,7 @@ class CarvariantRelationManager extends RelationManager
                                             ->responsiveImages()
                                             ->conversion('thumb'),
 
-                                            Forms\Components\TextArea::make('description')
+                                            Forms\Components\Textarea::make('description')
                                             ->label('Description')
                                             ->rows(4)
                                             ->maxLength(250),
