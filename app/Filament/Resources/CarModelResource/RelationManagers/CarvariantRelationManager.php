@@ -129,7 +129,7 @@ class CarvariantRelationManager extends RelationManager
                                             ->responsiveImages()
                                             ->conversion('thumb'),
 
-                                        TextArea::make('description')
+                                            Forms\Components\TextArea::make('description')
                                             ->label('Description')
                                             ->rows(4)
                                             ->maxLength(250),
