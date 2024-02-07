@@ -22,6 +22,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Filament\Forms\Components\Concerns\HasFileAttachments;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class NewsPost extends Model implements HasMedia
 {
@@ -47,6 +48,7 @@ class NewsPost extends Model implements HasMedia
         'content',
         'published_at',
         'featured',
+        'car_model',
         'created_at',
         'updated_at',
     ];
@@ -118,6 +120,15 @@ class NewsPost extends Model implements HasMedia
             related: User::class,
             foreignKey: 'userid',
             ownerKey: 'id'
+        );
+    }
+
+    public function carmodel(): HasOne
+    {
+        return $this->hasOne(
+            related: Carmodel::class,
+            foreignKey: 'car_model',
+            localKey: 'id'
         );
     }
 

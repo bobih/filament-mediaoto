@@ -1,4 +1,4 @@
-@props(['post','title', 'description'])
+@props(['post','title', 'description', 'metaproduct'])
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -88,6 +88,24 @@
           }
         }
         </script>
+
+        @if (count($metaproduct) != 0)
+
+        <script type="application/ld+json">
+            @php
+                echo  json_encode($metaproduct['product']);
+            @endphp
+        </script>
+        <script type="application/ld+json">
+            @php
+                echo  json_encode($metaproduct['listItems']);
+            @endphp
+        </script>
+
+
+        @endif
+
+
     <?php /*
     <script type="application/ld+json">
     {

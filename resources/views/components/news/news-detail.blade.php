@@ -1,6 +1,4 @@
 @props(['post', 'related'])
-
-
 <div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
     <div class="col-span-3">
         <main class="pt-20 antialiased">

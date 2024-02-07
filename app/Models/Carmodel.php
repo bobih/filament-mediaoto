@@ -81,4 +81,9 @@ class Carmodel extends Model implements HasMedia
             foreignKey: 'model_id',
             localKey: 'id');
     }
+
+    public function getVariant(){
+        $list = Carvariant::where('model_id',$this->id)->get();
+        return $list;
+    }
 }

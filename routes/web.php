@@ -31,6 +31,8 @@ Route::get("/crond",  [CronController::class, 'pushData']);
 Route::get("/debug/optimize",  [ArtisanController::class, 'artisanOptimize']);
 Route::get("/debug/clear",  [ArtisanController::class, 'artisanClear']);
 
+Route::get("/testxml", [NewsPostController::class,'testxml'])->name('news.textxml');
+
 /*
 Route::middleware([
     'auth:sanctum',

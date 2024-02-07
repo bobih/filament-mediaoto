@@ -144,6 +144,12 @@ class NewsPostResource extends Resource
 
                     ]),
 
+                    Select::make('carmodel')
+                        ->label('Car Related')
+                        ->relationship('carmodel', 'name')
+                        ->searchable()
+                        ->preload(),
+
 
                     /*
                     Toggle::make('active')
