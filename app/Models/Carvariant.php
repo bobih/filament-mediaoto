@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Models;
+use App\Enums\Car\Fuel;
 use App\Enums\Car\BodyType;
 use App\Enums\Car\Transmission;
-use App\Enums\Car\Fuel;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Carvariant extends Model implements HasMedia
 {
@@ -39,11 +41,43 @@ class Carvariant extends Model implements HasMedia
     ];
 
 
-    protected $casts = [
-        'body_type'      => BodyType::class,
-        'transmission'  => Transmission::class,
-        'fuel'          =>  Fuel::class,
-    ];
+    public function registerMediaConversions(Media $media = null): void
+    {
+
+
+        $this->addMediaConversion('webp')
+            ->watermark(public_path('watermark4.png'))
+            ->watermarkOpacity(15)
+            ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+            ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+            ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+            ->watermarkPadding(15)
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(1200);
+
+        $this->addMediaConversion('webpthumb')
+            ->watermark(public_path('watermark4.png'))
+            ->watermarkOpacity(20)
+            ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
+            ->watermarkHeight(40, Manipulations::UNIT_PERCENT)    // 50 percent height
+            ->watermarkWidth(40, Manipulations::UNIT_PERCENT)
+            ->watermarkPadding(15)
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(600);
+
+        $this->addMediaConversion('webpnomark')
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(1200);
+
+        $this->addMediaConversion('webpthumbnomark')
+            ->sharpen(10)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->width(600);
+    }
+
 
     public function brand(): BelongsTo
     {

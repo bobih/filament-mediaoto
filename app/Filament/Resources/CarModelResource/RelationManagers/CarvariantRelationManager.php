@@ -132,7 +132,6 @@ class CarvariantRelationManager extends RelationManager
                                         TextArea::make('description')
                                             ->label('Description')
                                             ->rows(4)
-                                            ->minLength(50)
                                             ->maxLength(250),
                                     ])->columns(1),
 
