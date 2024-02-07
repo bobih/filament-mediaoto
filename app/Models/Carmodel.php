@@ -41,7 +41,6 @@ class Carmodel extends Model implements HasMedia
 
     protected $casts = [
         'bodytype'      => \App\Enums\Car\BodyType::class,
-        'transmission'  => \App\Enums\Car\Transmission::class,
         'fuel'          =>  \App\Enums\Car\Fuel::class,
     ];
 
