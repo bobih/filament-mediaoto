@@ -16,4 +16,5 @@ class CarBodytype extends Model
         'created_at',
         'updated_at'
     ];
+
 }
