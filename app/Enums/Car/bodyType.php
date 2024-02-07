@@ -32,7 +32,7 @@ enum BodyType: string implements HasLabel
             self::Van    => 'Van',        };
     }
 
-    public static function toArray(): array
+    public static function toArray(): ?array
     {
         $array = [];
         foreach (self::cases() as $case) {

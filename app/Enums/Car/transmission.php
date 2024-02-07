@@ -23,7 +23,7 @@ enum Transmission: string implements HasLabel
         };
     }
 
-    public static function toArray(): array
+    public static function toArray(): ?array
     {
         $array = [];
         foreach (self::cases() as $case) {
