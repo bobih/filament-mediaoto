@@ -56,6 +56,7 @@ class DashPanelProvider extends PanelProvider
                 'Invoices',
                 'SEO',
                 'News',
+                'Info',
                 'Settings',
 
             ])

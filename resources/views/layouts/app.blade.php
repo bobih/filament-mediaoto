@@ -161,6 +161,19 @@
             </script>
         @endif
 
+        <script type="application/ld+json">
+            {
+                "@context": "http:\/\/schema.org",
+                "@type": "SiteNavigationElement",
+                "name": "Mediaoto",
+                "potentialAction": [
+                    { "@type": "action", "name": "Home", "url": "https:\/\/www.mediaoto.id" },
+                    { "@type": "action", "name": "News", "url": "https:\/\/www.mediaoto.id\/news" },
+                    { "@type": "action", "name": "Policy", "url": "https:\/\/www.mediaoto.id\/policy" }
+                ]
+            }
+        </script>
+
     @if (env('APP_ENV','local') == "production")
         <!-- Google tag (gtag.js B3ac5) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
