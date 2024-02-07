@@ -22,10 +22,10 @@ class Carvariant extends Model implements HasMedia
         'model_id',
         'brand_id',
         'name',
-        'body_type',
+        'bodytype_id',
         'seat',
-        'fuel',
-        'transmission',
+        'fuel_id',
+        'transmission_id',
         'engine_volume',
         'engine_type',
         'description',
@@ -60,6 +60,30 @@ class Carvariant extends Model implements HasMedia
             foreignKey: 'model_id',
             ownerKey: 'id'
         );
+    }
+
+    public function bodytype(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarBodytype::class,
+            ownerKey: 'id',
+            foreignKey: 'bodytype_id');
+    }
+
+    public function transmission(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarTransmission::class,
+            ownerKey: 'id',
+            foreignKey: 'transmission_id');
+    }
+
+    public function fuel(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarFuel::class,
+            ownerKey: 'id',
+            foreignKey: 'fuel_id');
     }
 
 

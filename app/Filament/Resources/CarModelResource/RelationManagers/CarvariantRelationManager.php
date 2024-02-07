@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Filament\Resources\CarModelResource\RelationManagers;
+
+use Filament\Forms\Components\Textarea;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Brand;
@@ -31,16 +33,16 @@ class CarvariantRelationManager extends RelationManager
         return $form
             ->schema([
                 Forms\Components\Hidden::make('brand_id')
-                ->default(function(){
+                    ->default(function () {
 
-                    return $this->getOwnerRecord()->brand_id;
-                }),
+                        return $this->getOwnerRecord()->brand_id;
+                    }),
 
                 Forms\Components\Hidden::make('model_id')
-                ->default(function(){
+                    ->default(function () {
 
-                    return $this->getOwnerRecord()->id;
-                }),
+                        return $this->getOwnerRecord()->id;
+                    }),
 
                 Tabs::make('Heading')
                     ->tabs([
@@ -52,101 +54,89 @@ class CarvariantRelationManager extends RelationManager
                                             ->label('Model')
                                             ->required(),
                                             Forms\Components\TextInput::make('otr')
-                                            ->label("OTR Price")
+                                            ->label('OTR')
                                             ->required(),
 
-
+                                            Rating::make('rating'),
 
 
                                     ]),
-                                      Rating::make('rating'),
-                                      Grid::make(2)
+
+                                    Grid::make(2)
                                     ->schema([
-                                       Forms\Components\Textarea::make('review')
-                                            ->label("Review"),
 
 
-
-
+                                        Forms\Components\TextArea::make('review')
+                                        ->label('Review'),
                                     ]),
 
 
-                            ])->columns(1),
+
+                            ])->columns(2),
 
                         Tabs\Tab::make('Body')
                             ->schema([
 
-                                Forms\Components\TextInput::make('body_type')
-                                ->label('Type')
-                                ->default(function(){
+                                Forms\Components\Select::make('bodytype_id')
+                                    ->label('Type')
+                                    ->default(function () {
 
-                                    return $this->getOwnerRecord()->body_type;
-                                })
-                                ->datalist(function(){
-                                    return BodyType::toArray();
-                                }),
+                                        return $this->getOwnerRecord()->bodytype_id;
+                                    })
+                                    ->relationship('bodytype', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
-                                Forms\Components\TextInput::make('fuel')
-                                ->label('Fuel')
-                                ->default(function(){
+                                Forms\Components\Select::make('fuel_id')
+                                    ->label('Fuel')
+                                    ->default(function () {
 
-                                    return $this->getOwnerRecord()->fuel;
-                                })
-                                ->datalist(function(){
-                                    return Fuel::toArray();
-                                }),
+                                        return $this->getOwnerRecord()->fuel_id;
+                                    })
+                                    ->relationship('fuel', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
                                 Forms\Components\TextInput::make('seat')
-                                ->default(function(){
-
-                                    return $this->getOwnerRecord()->seat;
-                                })
-                                ->label('Seat'),
+                                    ->label('Seat'),
 
                             ])->columns(2),
 
-                            Tabs\Tab::make('Engine')
+                        Tabs\Tab::make('Engine')
                             ->schema([
                                 Forms\Components\TextInput::make('engine_type')
-                                ->default(function(){
+                                    ->label('Type'),
 
-                                    return $this->getOwnerRecord()->engine_type;
-                                })
-                                ->label('Type'),
+                                Forms\Components\Select::make('transmission_id')
+                                    ->label('Transmission')
+                                    ->default(function () {
 
-                                Forms\Components\TextInput::make('transmission')
-                                ->label('Transmission')
-                                ->default(function(){
-
-                                    return $this->getOwnerRecord()->transission;
-                                })
-                                ->datalist(function(){
-                                    return Transmission::toArray();
-                                }),
+                                        return $this->getOwnerRecord()->transmission_id;
+                                    })
+                                    ->relationship('transmission', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
-                                ->label("Volume (cc)")
-                                ->default(function(){
-
-                                    return $this->getOwnerRecord()->engine_volume;
-                                }),
+                                    ->label("Volume (cc)"),
                             ])->columns(2),
+
                         Tabs\Tab::make('Description')
                             ->schema([
                                 Grid::make(1)
                                     ->schema([
                                         SpatieMediaLibraryFileUpload::make('image')
-                                        ->responsiveImages()
-                                        ->conversion('thumb'),
+                                            ->responsiveImages()
+                                            ->conversion('thumb'),
 
-                                Forms\Components\TextArea::make('description')
-                                    ->label('Description')
-                                    ->rows(4)
-                                    ->minLength(50)
-                                    ->maxLength(250),
-                            ])->columns(1),
+                                        TextArea::make('description')
+                                            ->label('Description')
+                                            ->rows(4)
+                                            ->minLength(50)
+                                            ->maxLength(250),
+                                    ])->columns(1),
 
-                                    ]),
+                            ]),
 
                     ])
                     ->columnSpanFull()
@@ -161,9 +151,9 @@ class CarvariantRelationManager extends RelationManager
             ->recordTitleAttribute('title')
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable()
-                ->label('Variant'),
+                    ->label('Variant'),
                 Tables\Columns\TextColumn::make('otr')
-                ->label('Price'),
+                    ->label('Price'),
                 RatingColumn::make('rating'),
             ])
             ->filters([
@@ -178,7 +168,7 @@ class CarvariantRelationManager extends RelationManager
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                //    Tables\Actions\DeleteBulkAction::make(),
+                    //    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

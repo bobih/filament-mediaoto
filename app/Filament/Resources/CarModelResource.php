@@ -59,17 +59,17 @@ class CarModelResource extends Resource
                         Tabs\Tab::make('Body')
                             ->schema([
 
-                                Forms\Components\TextInput::make('body_type')
+                                Forms\Components\Select::make('bodytype_id')
                                 ->label('Type')
-                                ->datalist(function(){
-                                    return \App\Enums\Car\BodyType::toArray();
-                                }),
+                                ->relationship('bodytype', 'name')
+                                ->searchable()
+                                ->preload(),
 
-                                Forms\Components\TextInput::make('fuel')
+                                Forms\Components\Select::make('fuel_id')
                                 ->label('Fuel')
-                                ->datalist(function(){
-                                    return \App\Enums\Car\Fuel::toArray();
-                                }),
+                                ->relationship('fuel', 'name')
+                                ->searchable()
+                                ->preload(),
 
                                 Forms\Components\TextInput::make('seat')
                                 ->label('Seat'),
@@ -81,18 +81,14 @@ class CarModelResource extends Resource
                                 Forms\Components\TextInput::make('engine_type')
                                 ->label('Type'),
 
-                                Forms\Components\TextInput::make('transmission')
+                                Forms\Components\Select::make('transmission_id')
                                 ->label('Transmission')
-                                ->datalist(function(){
-                                    return \App\Enums\Car\Transmission::toArray();
-                                }),
+                                ->relationship('transmission', 'name')
+                                ->searchable()
+                                ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
                                 ->label("Volume (cc)"),
-
-
-
-
 
                             ])->columns(2),
 

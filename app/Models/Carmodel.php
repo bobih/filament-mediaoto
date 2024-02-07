@@ -23,10 +23,10 @@ class Carmodel extends Model implements HasMedia
         'id',
         'brand_id',
         'name',
-        'body_type',
+        'bodytype_id',
         'seat',
-        'fuel',
-        'transmission',
+        'fuel_id',
+        'transmission_id',
         'engine_volume',
         'engine_type',
         'otr',
@@ -39,13 +39,6 @@ class Carmodel extends Model implements HasMedia
         'updated_at'
     ];
 
-    /*
-    protected $casts = [
-        'body_type'      => BodyType::class,
-        'transmission'  => Transmission::class,
-        'fuel'          =>  Fuel::class,
-    ];
-    */
 
 
     public function brand(): BelongsTo
@@ -55,6 +48,31 @@ class Carmodel extends Model implements HasMedia
             ownerKey: 'id',
             foreignKey: 'brand_id');
     }
+
+    public function bodytype(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarBodytype::class,
+            ownerKey: 'id',
+            foreignKey: 'bodytype_id');
+    }
+
+    public function transmission(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarTransmission::class,
+            ownerKey: 'id',
+            foreignKey: 'transmission_id');
+    }
+
+    public function fuel(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: CarFuel::class,
+            ownerKey: 'id',
+            foreignKey: 'fuel_id');
+    }
+
 
     public function variant(): HasMany
     {

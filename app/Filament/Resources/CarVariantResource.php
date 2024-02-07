@@ -36,56 +36,57 @@ class CarVariantResource extends Resource
     {
 
 
-                return $form
+        return $form
             ->schema([
 
                 Forms\Components\Select::make('brand_id')
-                ->label('Brand')
-                ->options(Brand::all()->pluck('brand', 'id'))
-                ->searchable()
-                ->afterStateUpdated(fn(Set $set) => $set('model_id', null))
-                ->required()
-                ->preload(),
+                    ->label('Brand')
+                    ->options(Brand::all()->pluck('brand', 'id'))
+                    ->searchable()
+                    ->afterStateUpdated(fn (Set $set) => $set('model_id', null))
+                    ->required()
+                    ->preload(),
 
                 Forms\Components\Select::make('model_id')
-                ->label('Model')
-                ->relationship('model', 'name')
-                ->options(fn(Get $get): Collection => Carmodel::query()
-                    ->where('brand_id', $get('brand'))
-                    ->pluck('name', 'id'))
-                ->searchable()
-                ->preload(),
+                    ->label('Model')
+                    ->relationship('model', 'name')
+                    ->options(fn (Get $get): Collection => Carmodel::query()
+                        ->where('brand_id', $get('brand'))
+                        ->pluck('name', 'id'))
+                    ->searchable()
+                    ->preload(),
 
                 Forms\Components\TextInput::make('name')
-                ->label('Variant')
-                ->required(),
+                    ->label('Variant')
+                    ->required(),
+
 
 
 
 
 
                 Forms\Components\Select::make('body_type')
-                ->searchable()
-                ->preload()
-                ->options(BodyType::class),
+                    ->searchable()
+                    ->preload()
+                    ->options(BodyType::class),
 
                 Forms\Components\Select::make('transmission')
-                ->searchable()
-                ->preload()
-                ->options(Transmission::class),
+                    ->searchable()
+                    ->preload()
+                    ->options(Transmission::class),
 
                 TextArea::make('description')
-                        ->label('Description')
-                        ->rows(4)
-                        ->minLength(50)
-                        ->maxLength(250),
+                    ->label('Description')
+                    ->rows(4)
+                    ->minLength(50)
+                    ->maxLength(250),
 
                 Forms\Components\TextInput::make('url')
-                ->label('Url'),
+                    ->label('Url'),
 
                 SpatieMediaLibraryFileUpload::make('image')
-                ->responsiveImages()
-                ->conversion('thumb'),
+                    ->responsiveImages()
+                    ->conversion('thumb'),
 
                 //
             ]);
@@ -96,11 +97,11 @@ class CarVariantResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->label('ID'),
+                    ->label('ID'),
                 Tables\Columns\TextColumn::make('model.name')
-                ->label('Model'),
+                    ->label('Model'),
                 Tables\Columns\TextColumn::make('name')->searchable()
-                ->label('Variant'),
+                    ->label('Variant'),
 
                 //
             ])
