@@ -39,11 +39,13 @@ class Carmodel extends Model implements HasMedia
         'updated_at'
     ];
 
+    /*
     protected $casts = [
         'body_type'      => BodyType::class,
         'transmission'  => Transmission::class,
         'fuel'          =>  Fuel::class,
     ];
+    */
 
 
     public function brand(): BelongsTo
