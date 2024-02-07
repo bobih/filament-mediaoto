@@ -18,6 +18,8 @@ enum BodyType: string implements HasLabel
 
     public function getLabel(): ?string
     {
+        return $this->name;
+        /*
         return match ($this) {
             self::Hatchback => 'Hatchback',
             self::Convertible => 'Convertible',
@@ -29,7 +31,9 @@ enum BodyType: string implements HasLabel
             self::Micro  => 'Micro Car',
             self::Saloon => 'Saloon',
             self::Wagon  => 'Station Wagon',
-            self::Van    => 'Van',        };
+            self::Van    => 'Van',
+         };
+         */
     }
 
     public static function toArray(): ?array

@@ -13,7 +13,8 @@ enum Transmission: string implements HasLabel
 
     public function getLabel(): ?string
     {
-
+        return $this->name;
+        /*
         return match ($this) {
             self::Manual    => 'Manual',
             self::Automatic => 'Automatic',
@@ -21,6 +22,7 @@ enum Transmission: string implements HasLabel
             self::Semiauto  => 'Semi-Auto',
             self::Dual      => 'Dual Clutch',
         };
+        */
     }
 
     public static function toArray(): ?array

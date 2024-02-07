@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Enums\Car\BodyType;
 use App\Enums\Car\Transmission;
+use App\Enums\Car\Fuel;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -39,8 +40,9 @@ class Carvariant extends Model implements HasMedia
 
 
     protected $casts = [
-        'bodytype'      => BodyType::class,
-        'transmission'  => Transmission::class
+        'body_type'      => BodyType::class,
+        'transmission'  => Transmission::class,
+        'fuel'          =>  Fuel::class,
     ];
 
     public function brand(): BelongsTo

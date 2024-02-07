@@ -13,6 +13,8 @@ enum Fuel: string implements HasLabel
 
     public function getLabel(): ?string
     {
+        return $this->name;
+        /*
         return match ($this) {
             self::Premium    => 'Premium',
             self::Electric   => 'Electric',
@@ -20,6 +22,7 @@ enum Fuel: string implements HasLabel
             self::Petrol     => 'Petrol',
             self::Hybrid     => 'Hybrid',
         };
+        */
     }
     public static function toArray(): ?array
     {
