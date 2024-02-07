@@ -6,12 +6,12 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Carmodel;
-//use Livewire\Component;
+use Livewire\Component;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use App\Enums\Car\BodyType;
-use App\Enums\Car\Fuel;
-use App\Enums\Car\Transmission;
+//use App\Enums\Car\BodyType;
+//use App\Enums\Car\Fuel;
+//use App\Enums\Car\Transmission;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
@@ -62,13 +62,13 @@ class CarModelResource extends Resource
                                 Forms\Components\TextInput::make('body_type')
                                 ->label('Type')
                                 ->datalist(function(){
-                                    return BodyType::toArray();
+                                    return \App\Enums\Car\BodyType::toArray();
                                 }),
 
                                 Forms\Components\TextInput::make('fuel')
                                 ->label('Fuel')
                                 ->datalist(function(){
-                                    return Fuel::toArray();
+                                    return \App\Enums\Car\Fuel::toArray();
                                 }),
 
                                 Forms\Components\TextInput::make('seat')
@@ -84,7 +84,7 @@ class CarModelResource extends Resource
                                 Forms\Components\TextInput::make('transmission')
                                 ->label('Transmission')
                                 ->datalist(function(){
-                                    return Transmission::toArray();
+                                    return \App\Enums\Car\Transmission::toArray();
                                 }),
 
                                 Forms\Components\TextInput::make('engine_volume')
