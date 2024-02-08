@@ -58,7 +58,9 @@ class MetaController extends Controller
                     "offers" => array(
                         "@type" => "Offer",
                         "priceCurrency" => "IDR",
-                        "price" => $variant->otr
+                        "price" => $variant->otr,
+                        "itemCondition" => "https://schema.org/NewCondition",
+                        "availability" => "https://schema.org/InStock"
                     )
                 )
             );
@@ -80,10 +82,13 @@ class MetaController extends Controller
             "url" =>  "https://www.mediaoto.id", //$carlist->url,
             "bodyType" => $carlist->bodytype->name,
             "description" => $carlist->description,
+            "vehicleModelDate" => $carlist->updated_at,
+            "itemCondition" => "https://schema.org/NewCondition",
+            "availability" => "https://schema.org/InStock",
             "vehicleSeatingCapacity" => array(
                 array(
                     "@type" => "QuantitativeValue",
-                    "name" => $carlist->seat . " seats")
+                    "name" => $carlist->seat)
                 ),
             "vehicleTransmission" =>$vehicleTransmission,
             "vehicleEngine" => $vehicleEngine,
@@ -100,13 +105,53 @@ class MetaController extends Controller
                 "priceCurrency" => "IDR",
                 "lowPrice" => min($arrOtr),
                 "highPrice" => max($arrOtr),
-                "offerCount" => 1
+                "offerCount" => 1,
+                "priceValidUntil" => "2025-11-20"
+
             ),
             "aggregateRating" => array(
                 "@type" => "AggregateRating",
                 "ratingValue" => 5,
                 "reviewCount" => 1
             )
+        );
+
+
+        $product = array(
+            "@context" => "https://schema.org",
+            "@type" => "Car",
+            "name" => $carlist->name,
+            "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
+            "image" => [
+              "https://www.mediaoto.id"
+            ],
+            "url" => "https://www.mediaoto.id",
+            "offers" => array (
+              "@type" => "Offer",
+              "availability" => "https://schema.org/InStock",
+              "price" => min($arrOtr),
+              "priceCurrency" => "IDR"
+            ),
+            "itemCondition" => "https://schema.org/NewCondition",
+            "brand" => array (
+              "@type" => "Brand",
+              "name" =>  $carlist->brand->brand
+            ),
+            "model" => "Ram",
+            "vehicleConfiguration" => "ST",
+            "vehicleInteriorColor" => "White",
+            "vehicleInteriorType" => "Standard",
+            "vehicleModelDate" => "2023",
+            "color" => "White",
+            "bodyType" => $carlist->bodytype->name,
+            "driveWheelConfiguration" => "https://schema.org/FourWheelDriveConfiguration",
+            "vehicleEngine" => array(
+              "@type" => "EngineSpecification",
+              "fuelType" => $carlist->fuel->name
+            ),
+            "vehicleTransmission" => $carlist->transmission->name,
+            "numberOfDoors" => 2,
+            "vehicleSeatingCapacity" =>  $carlist->seat
         );
 
         $listItems = array(
