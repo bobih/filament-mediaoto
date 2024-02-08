@@ -163,7 +163,11 @@ class CarModelResource extends Resource
                 ->label('Variant')
                 ->getStateUsing( function ($record): ?string{
                     $total = CarVariant::where('model_id',$record->id)->get();
+                    if($total->count() > 0){
                     return $total->count();
+                    } else {
+                        return '-';
+                    }
                 }),
                 Tables\Columns\TextColumn::make('otr')
                 ->label('Price Range')
