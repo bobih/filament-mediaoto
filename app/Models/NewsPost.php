@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use PHPHtmlParser\Dom;
 use Spatie\Image\Image;
+use App\Models\Carmodel;
 use Spatie\Tags\HasTags;
 use Illuminate\Support\Str;
+
+use App\Models\NewsCategory;
 use Illuminate\Support\Carbon;
 use Spatie\Image\Manipulations;
-
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
@@ -16,13 +19,13 @@ use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\Support\ImageFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Filament\Forms\Components\Concerns\HasFileAttachments;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class NewsPost extends Model implements HasMedia
 {
