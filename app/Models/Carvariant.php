@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Models;
-use App\Enums\Car\Fuel;
-use App\Models\CarFuel;
-use App\Enums\Car\BodyType;
+
+use App\Models\Brand;
+use App\Models\Carmodel;
 use App\Models\CarBodytype;
-use App\Enums\Car\Transmission;
-use App\Models\CarTransmission;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -123,8 +121,4 @@ class CarVariant extends Model implements HasMedia
             ownerKey: 'id',
             foreignKey: 'fuel_id');
     }
-
-
-
-
 }
