@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CarVariant;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -75,13 +76,13 @@ class Carmodel extends Model implements HasMedia
     public function variant(): HasMany
     {
         return $this->hasMany(
-            related: Carvariant::class,
+            related: CarVariant::class,
             foreignKey: 'model_id',
             localKey: 'id');
     }
 
     public function getVariant(){
-        $list = Carvariant::where('model_id',$this->id)->get();
+        $list = CarVariant::where('model_id',$this->id)->get();
         return $list;
     }
 }
