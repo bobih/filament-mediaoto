@@ -169,10 +169,13 @@ class CarVariantRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('title')
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable()
+                Tables\Columns\TextColumn::make('name')
                     ->label('Variant'),
                 Tables\Columns\TextColumn::make('otr')
-                    ->label('Price'),
+                    ->label('Price')
+                    ->formatStateUsing(function ($record){
+                        return number_format($record->otr,0,".",".");
+                    }),
                 RatingColumn::make('rating'),
             ])
             ->filters([
@@ -191,4 +194,5 @@ class CarVariantRelationManager extends RelationManager
                 ]),
             ]);
     }
+
 }

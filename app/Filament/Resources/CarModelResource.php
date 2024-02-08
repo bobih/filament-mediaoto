@@ -7,18 +7,24 @@ use Filament\Tables;
 use Livewire\Component;
 use App\Models\Carmodel;
 use Filament\Forms\Form;
+use App\Models\CarVariant;
 use Filament\Tables\Table;
-use Filament\Infolists\Infolist;
+
+use Filament\Tables\Columns\TextColumn;
 //use App\Enums\Car\BodyType;
 //use App\Enums\Car\Fuel;
 //use App\Enums\Car\Transmission;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
+
 use Yepsua\Filament\Forms\Components\Rating;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Filament\Resources\CarModelResource\Pages;
+use Yepsua\Filament\Tables\Components\RatingColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\CarModelResource\RelationManagers;
 
@@ -152,6 +158,24 @@ class CarModelResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable()
                     ->label('Model'),
                 Tables\Columns\TextColumn::make('brand.brand'),
+                RatingColumn::make('rating'),
+                Tables\Columns\TextColumn::make('id')
+                ->label('Variant')
+                ->getStateUsing( function ($record): ?string{
+                    $total = CarVariant::where('model_id',$record->id)->get();
+                    return $total->count();
+                }),
+                Tables\Columns\TextColumn::make('otr')
+                ->label('Price Range')
+                ->getStateUsing( function ($record): ?string{
+                    $total = CarVariant::where('model_id',$record->id)->get();
+                    foreach($total as $list){
+                       $otr[]= $list->otr;
+                    }
+                    $minOtr = number_format(min($otr),0,".",".");
+                    $maxOtr = number_format(max($otr),0,".",".");
+                    return $minOtr . " - " . $maxOtr;
+                })->wrap(),
                 //
             ])
             ->filters([
