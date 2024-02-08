@@ -122,10 +122,8 @@ class EditNewsPost extends EditRecord
             $filePath = resource_path() . '/../../public_html/' . $list->getAttribute('src'); // . $filename;
             $folderpath = resource_path() . '/../../public_html/images/posts/';
 
-            $uploadimage = File::get($filePath);
-
-
             if (File::exists($filePath)) {
+                $uploadimage = File::get($filePath);
                 //dd("OK");
                 $type = File::mimeType($filePath);
                 $name = File::name($filePath);
