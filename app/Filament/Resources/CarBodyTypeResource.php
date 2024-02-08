@@ -14,10 +14,14 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CarBodyTypeResource extends Resource
 {
+    protected static ?int $navigationSort = 2;
     protected static ?string $model = CarBodytype::class;
 
+    protected static ?string $navigationGroup = 'Info';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Body List';
+
+    protected static ?string $navigationIcon = 'mdi-carcog';
 
     public static function form(Form $form): Form
     {
@@ -47,7 +51,7 @@ class CarBodyTypeResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                   // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

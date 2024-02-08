@@ -25,7 +25,7 @@ class CarModelResource extends Resource
 {
     protected static ?string $model = CarModel::class;
 
-
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationGroup = 'Info';
 
     protected static ?string $navigationLabel = 'Car';
@@ -110,7 +110,6 @@ class CarModelResource extends Resource
                                         Forms\Components\Textarea::make('description')
                                     ->label('Description')
                                     ->rows(4)
-                                    ->minLength(50)
                                     ->maxLength(250),
                             ])->columns(1),
 

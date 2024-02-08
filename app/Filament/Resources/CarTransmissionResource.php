@@ -15,9 +15,13 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CarTransmissionResource extends Resource
 {
+    protected static ?int $navigationSort = 3;
     protected static ?string $model = CarTransmission::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'mdi-engine';
+    protected static ?string $navigationGroup = 'Info';
+
+    protected static ?string $navigationLabel = 'Transmission List';
 
     public static function form(Form $form): Form
     {
@@ -47,7 +51,7 @@ class CarTransmissionResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                   // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

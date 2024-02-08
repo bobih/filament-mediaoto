@@ -15,9 +15,14 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CarFuelResource extends Resource
 {
+    protected static ?int $navigationSort = 4;
     protected static ?string $model = CarFuel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'mdi-fuel';
+
+    protected static ?string $navigationGroup = 'Info';
+
+    protected static ?string $navigationLabel = 'Fuel List';
 
     public static function form(Form $form): Form
     {
@@ -51,7 +56,7 @@ class CarFuelResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                   // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
