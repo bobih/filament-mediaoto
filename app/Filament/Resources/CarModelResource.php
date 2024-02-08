@@ -169,12 +169,16 @@ class CarModelResource extends Resource
                 ->label('Price Range')
                 ->getStateUsing( function ($record): ?string{
                     $total = CarVariant::where('model_id',$record->id)->get();
+                    if($total->count() > 0 || $total != null){
                     foreach($total as $list){
                        $otr[]= $list->otr;
                     }
                     $minOtr = number_format(min($otr),0,".",".");
                     $maxOtr = number_format(max($otr),0,".",".");
                     return $minOtr . " - " . $maxOtr;
+                } else {
+                    return '-';
+                }
                 })->wrap(),
                 //
             ])
