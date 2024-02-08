@@ -45,6 +45,8 @@ class CarVariant extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
+// Hellloooo
+
 
 
         $this->addMediaConversion('webp')
