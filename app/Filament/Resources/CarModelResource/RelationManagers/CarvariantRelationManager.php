@@ -2,29 +2,22 @@
 
 namespace App\Filament\Resources\CarModelResource\RelationManagers;
 
-use Filament\Forms\Components\Textarea;
+
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Brand;
-use App\Enums\Car\Fuel;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use App\Models\Carmodel;
+
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use App\Enums\Car\BodyType;
-use App\Enums\Car\Transmission;
-use Illuminate\Support\Collection;
+
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Tabs;
-use Illuminate\Database\Eloquent\Builder;
+
 use Yepsua\Filament\Forms\Components\Rating;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Yepsua\Filament\Tables\Components\RatingColumn;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class CarvariantRelationManager extends RelationManager
+class CarVariantRelationManager extends RelationManager
 {
     protected static string $relationship = 'variant';
 

@@ -215,7 +215,7 @@ class CarModelResource extends Resource
     {
         return [
 
-            RelationManagers\CarvariantRelationManager::class,
+            RelationManagers\CarVariantRelationManager::class,
         ];
     }
 

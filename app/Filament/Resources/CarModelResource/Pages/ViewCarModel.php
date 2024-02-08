@@ -15,7 +15,7 @@ class ViewCarModel extends ViewRecord
     public function getRelationManagers(): array
     {
             return [
-                RelationManagers\CarvariantRelationManager::class,
+                RelationManagers\CarVariantRelationManager::class,
 
 
             ];

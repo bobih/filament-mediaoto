@@ -4,25 +4,23 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Brand;
-use Filament\Forms\Components\Textarea;
-
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 
 use Filament\Forms\Form;
+use Pages\EditCarVariant;
+
 use App\Models\CarVariant;
 use Filament\Tables\Table;
-use App\Enums\Car\BodyType;
-use App\Enums\Car\Transmission;
+
+use Pages\ListCarVariants;
+use Pages\CreateCarVariant;
 use Filament\Resources\Resource;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\CarVariantResource\Pages;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Tabs;
+use Yepsua\Filament\Forms\Components\Rating;
+use Yepsua\Filament\Tables\Components\RatingColumn;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use App\Filament\Resources\CarVariantResource\RelationManagers;
-use App\Models\Carmodel;
+use App\Filament\Resources\CarVariantResource\Pages;
 
 class CarVariantResource extends Resource
 {
@@ -38,57 +36,140 @@ class CarVariantResource extends Resource
 
         return $form
             ->schema([
+                Forms\Components\Hidden::make('brand_id')
+                    ->default(function () {
 
-                Forms\Components\Select::make('brand_id')
-                    ->label('Brand')
-                    ->options(Brand::all()->pluck('brand', 'id'))
-                    ->searchable()
-                    ->afterStateUpdated(fn (Set $set) => $set('model_id', null))
-                    ->required()
-                    ->preload(),
+                        return $this->getOwnerRecord()->brand_id;
+                    }),
 
-                Forms\Components\Select::make('model_id')
-                    ->label('Model')
-                    ->relationship('model', 'name')
-                    ->options(fn (Get $get): Collection => Carmodel::query()
-                        ->where('brand_id', $get('brand'))
-                        ->pluck('name', 'id'))
-                    ->searchable()
-                    ->preload(),
+                Forms\Components\Hidden::make('model_id')
+                    ->default(function () {
 
-                Forms\Components\TextInput::make('name')
-                    ->label('Variant')
-                    ->required(),
+                        return $this->getOwnerRecord()->id;
+                    }),
+
+                Tabs::make('Heading')
+                    ->tabs([
+                        Tabs\Tab::make('Car Info')
+                        ->icon('mdi-carinfo')
+                            ->schema([
+                                Grid::make(2)
+                                    ->schema([
+                                        Forms\Components\TextInput::make('name')
+                                            ->label('Model')
+                                            ->required(),
+                                        Forms\Components\TextInput::make('otr')
+                                            ->label('OTR')
+                                            ->required(),
+
+                                        Rating::make('rating')
+                                        ->default(function () {
+
+                                            return $this->getOwnerRecord()->rating;
+                                        })
+                                        ->required(),
 
 
+                                    ]),
 
+                                    Grid::make(2)
+                                    ->schema([
+                                        Forms\Components\Textarea::make('review')
+                                        ->label('Review'),
+                                    ]),
 
+                            ])->columns(2),
 
+                        Tabs\Tab::make('Body')
+                        ->icon('mdi-carcog')
+                            ->schema([
 
-                Forms\Components\Select::make('body_type')
-                    ->searchable()
-                    ->preload()
-                    ->options(BodyType::class),
+                                Forms\Components\Select::make('bodytype_id')
+                                    ->label('Type')
+                                    ->default(function () {
 
-                Forms\Components\Select::make('transmission')
-                    ->searchable()
-                    ->preload()
-                    ->options(Transmission::class),
+                                        return $this->getOwnerRecord()->bodytype_id;
+                                    })
+                                    ->relationship('bodytype', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
-                TextArea::make('description')
-                    ->label('Description')
-                    ->rows(4)
-                    ->minLength(50)
-                    ->maxLength(250),
+                                Forms\Components\Select::make('fuel_id')
+                                    ->label('Fuel')
+                                    ->default(function () {
 
-                Forms\Components\TextInput::make('url')
-                    ->label('Url'),
+                                        return $this->getOwnerRecord()->fuel_id;
+                                    })
+                                    ->relationship('fuel', 'name')
+                                    ->searchable()
+                                    ->preload(),
 
-                SpatieMediaLibraryFileUpload::make('image')
-                    ->responsiveImages()
-                    ->conversion('thumb'),
+                                Forms\Components\TextInput::make('seat')
+                                    ->label('Seat')
+                                    ->default(function () {
 
-                //
+                                        return $this->getOwnerRecord()->seat;
+                                    })
+                                    ->required(),
+
+                                Forms\Components\TextInput::make('door')
+                                    ->label('Door')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->door;
+                                    })
+                                    ->required(),
+
+                            ])->columns(2),
+
+                        Tabs\Tab::make('Engine')
+                        ->icon('mdi-engine')
+                            ->schema([
+                                Forms\Components\TextInput::make('engine_type')
+                                    ->label('Type')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->engine_type;
+                                    }),
+
+                                Forms\Components\Select::make('transmission_id')
+                                    ->label('Transmission')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->transmission_id;
+                                    })
+                                    ->relationship('transmission', 'name')
+                                    ->searchable()
+                                    ->preload(),
+
+                                Forms\Components\TextInput::make('engine_volume')
+                                    ->label("Volume (cc)")
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->engine_volume;
+                                    }),
+                            ])->columns(2),
+
+                        Tabs\Tab::make('Description')
+                            ->schema([
+                                Grid::make(1)
+                                    ->schema([
+                                        SpatieMediaLibraryFileUpload::make('image')
+                                            ->responsiveImages()
+                                            ->conversion('thumb'),
+
+                                            Forms\Components\Textarea::make('description')
+                                            ->label('Description')
+                                            ->rows(4)
+                                            ->maxLength(250),
+                                    ])->columns(1),
+
+                            ]),
+
+                    ])
+                    ->columnSpanFull()
+                    ->activeTab(1),
+
             ]);
     }
 

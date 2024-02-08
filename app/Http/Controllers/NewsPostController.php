@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carmodel;
 use App\Models\NewsPost;
-use App\Models\Carvariant;
 use Illuminate\Support\Str;
-
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;

@@ -9,50 +9,15 @@ use Illuminate\Http\Request;
 class MetaController extends Controller
 {
 
-
     public function getMetaProduct($carmodel,$news): array{
 
         $carlist = Carmodel::where('id', $carmodel )->with('variant', 'brand', 'bodytype', 'transmission')->first();
-
-
-
         $tanggal = Carbon::parse($carlist->updated_at);
-
-
-
-        $vehicleTransmission = array();
-        $vehicleEngine = array();
         $listVariant = array();
-        $duplicateTransmission = array();
-        $duplicateEngine = array();
+
         $x = 1;
         foreach ($carlist->variant as $variant) {
-
             $arrOtr[] = $variant->otr;
-            $transmission = $variant->transmission->name;
-            $engine = $variant->engine_volume;
-
-            if( in_array($transmission, $duplicateTransmission) || $transmission == '' ) { //If in array, skip iteration
-                //continue;
-             } else {
-                $vehicleTransmission[] = array(
-                    "@type" => "QualitativeValue",
-                    "name" => $transmission
-                );
-             }
-
-             if( in_array($engine, $duplicateEngine) || $engine == '' ) { //If in array, skip iteration
-                //continue;
-             } else {
-
-                $vehicleEngine[] = array(
-                    "@type" => "EngineSpecification",
-                    "name" =>   $engine . " cc"
-                );
-             }
-
-
-
             $listVariant[] = array(
                 "@type" => "ListItem",
                 "position" => $x,
@@ -89,8 +54,7 @@ class MetaController extends Controller
                 ),
                 )
             );
-            $duplicateTransmission[] = $transmission;
-            $duplicateEngine[] = $engine;
+
             $x++;
         }
 
@@ -140,7 +104,6 @@ class MetaController extends Controller
             "itemListOrder" => "ItemListOrderDescending",
             "numberOfItems" => count($listVariant),
             "itemListElement" => array($listVariant)
-
         );
         $meta = array(
             "product" => $product,

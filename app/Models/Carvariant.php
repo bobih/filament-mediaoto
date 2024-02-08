@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Carvariant extends Model implements HasMedia
+class CarVariant extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
