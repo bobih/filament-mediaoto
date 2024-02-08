@@ -123,12 +123,12 @@ class NewsPost extends Model implements HasMedia
         );
     }
 
-    public function carmodel(): HasOne
+    public function carmodel(): BelongsTo
     {
-        return $this->hasOne(
+        return $this->belongsTo(
             related: Carmodel::class,
-            foreignKey: 'id',
-            localKey: 'carmodel_id'
+            foreignKey: 'carmodel_id',
+            ownerKey: 'id'
         );
     }
 
