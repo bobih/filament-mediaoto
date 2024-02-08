@@ -144,7 +144,7 @@ class NewsPostResource extends Resource
 
                     ]),
 
-                    Select::make('carmodel_id')
+                    Select::make('car_model')
                         ->label('Car Related')
                         ->relationship('carmodel', 'name')
                         ->searchable()

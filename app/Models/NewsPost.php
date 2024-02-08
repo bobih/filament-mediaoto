@@ -127,7 +127,7 @@ class NewsPost extends Model implements HasMedia
     {
         return $this->belongsTo(
             related: Carmodel::class,
-            foreignKey: 'carmodel_id',
+            foreignKey: 'car_model',
             ownerKey: 'id'
         );
     }
