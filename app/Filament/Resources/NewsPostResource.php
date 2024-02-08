@@ -143,12 +143,18 @@ class NewsPostResource extends Resource
                     ->default(1),    // ...
 
                     ]),
-
-                    Select::make('car_model')
+                    Grid::make(3)
+                    ->schema([
+                        Select::make('car_model')
+                        ->default('')
                         ->label('Car Related')
                         ->relationship('carmodel', 'name')
                         ->searchable()
                         ->preload(),
+
+                    ]),
+
+
 
 
                     /*

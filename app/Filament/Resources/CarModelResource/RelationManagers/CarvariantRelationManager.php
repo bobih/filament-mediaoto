@@ -56,24 +56,25 @@ class CarvariantRelationManager extends RelationManager
                                         Forms\Components\TextInput::make('name')
                                             ->label('Model')
                                             ->required(),
-                                            Forms\Components\TextInput::make('otr')
+                                        Forms\Components\TextInput::make('otr')
                                             ->label('OTR')
                                             ->required(),
 
-                                            Rating::make('rating'),
+                                        Rating::make('rating')
+                                        ->default(function () {
+
+                                            return $this->getOwnerRecord()->rating;
+                                        })
+                                        ->required(),
 
 
                                     ]),
 
                                     Grid::make(2)
                                     ->schema([
-
-
                                         Forms\Components\Textarea::make('review')
                                         ->label('Review'),
                                     ]),
-
-
 
                             ])->columns(2),
 
@@ -102,7 +103,20 @@ class CarvariantRelationManager extends RelationManager
                                     ->preload(),
 
                                 Forms\Components\TextInput::make('seat')
-                                    ->label('Seat'),
+                                    ->label('Seat')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->seat;
+                                    })
+                                    ->required(),
+
+                                Forms\Components\TextInput::make('door')
+                                    ->label('Door')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->door;
+                                    })
+                                    ->required(),
 
                             ])->columns(2),
 
@@ -110,7 +124,11 @@ class CarvariantRelationManager extends RelationManager
                         ->icon('mdi-engine')
                             ->schema([
                                 Forms\Components\TextInput::make('engine_type')
-                                    ->label('Type'),
+                                    ->label('Type')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->engine_type;
+                                    }),
 
                                 Forms\Components\Select::make('transmission_id')
                                     ->label('Transmission')
@@ -123,7 +141,11 @@ class CarvariantRelationManager extends RelationManager
                                     ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
-                                    ->label("Volume (cc)"),
+                                    ->label("Volume (cc)")
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->engine_volume;
+                                    }),
                             ])->columns(2),
 
                         Tabs\Tab::make('Description')

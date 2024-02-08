@@ -96,7 +96,7 @@ class NewsPostController extends Controller
             $metaProduct = [];
             if ($news->car_model) {
                 $controller = new MetaController();
-                $metaProduct = $controller->getMetaProduct($news->car_model);
+                $metaProduct = $controller->getMetaProduct($news->car_model,$news);
             }
 
 
@@ -108,7 +108,7 @@ class NewsPostController extends Controller
             $metaProduct = [];
             if ($news->car_model) {
                 $controller = new MetaController();
-                $metaProduct = $controller->getMetaProduct($news->car_model);
+                $metaProduct = $controller->getMetaProduct($news->car_model,$news);
             }
 
 

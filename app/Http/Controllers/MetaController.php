@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carmodel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MetaController extends Controller
 {
 
 
-    public function getMetaProduct($carmodel): array{
+    public function getMetaProduct($carmodel,$news): array{
 
         $carlist = Carmodel::where('id', $carmodel )->with('variant', 'brand', 'bodytype', 'transmission')->first();
+
+
+
+        $tanggal = Carbon::parse($carlist->updated_at);
+
+
 
         $vehicleTransmission = array();
         $vehicleEngine = array();
@@ -59,62 +66,33 @@ class MetaController extends Controller
                         "@type" => "Offer",
                         "priceCurrency" => "IDR",
                         "price" => $variant->otr,
+                        "priceValidUntil" => $tanggal->addMonths(3)->format('c'),
                         "itemCondition" => "https://schema.org/NewCondition",
                         "availability" => "https://schema.org/InStock"
-                    )
+                    ),
+                    "review" => array(
+                        "@type" => "Review",
+                        "reviewRating" => array(
+                          "@type" => "Rating",
+                          "ratingValue" => $variant->rating,
+                          "bestRating" => 5
+                        ),
+                        "author" => array (
+                          "@type" => "Person",
+                          "name" => $news->author->name
+                        )
+                    ),
+                      "aggregateRating" => array (
+                        "@type" => "AggregateRating",
+                        "ratingValue" => $variant->rating,
+                        "reviewCount" => 1
+                ),
                 )
             );
             $duplicateTransmission[] = $transmission;
             $duplicateEngine[] = $engine;
             $x++;
         }
-
-
-
-
-        $product = array(
-            "@context" => "http://schema.org",
-            "@type" => ["Product", "Car"],
-            "name" => $carlist->name,
-            "brand" => array("@type" => "brand", "name" => $carlist->brand->brand),
-            "model" => $carlist->name,
-            "image" => "https://www.mediaoto.id", //$carlist->image,
-            "url" =>  "https://www.mediaoto.id", //$carlist->url,
-            "bodyType" => $carlist->bodytype->name,
-            "description" => $carlist->description,
-            "vehicleModelDate" => $carlist->updated_at,
-            "itemCondition" => "https://schema.org/NewCondition",
-            "availability" => "https://schema.org/InStock",
-            "vehicleSeatingCapacity" => array(
-                array(
-                    "@type" => "QuantitativeValue",
-                    "name" => $carlist->seat)
-                ),
-            "vehicleTransmission" =>$vehicleTransmission,
-            "vehicleEngine" => $vehicleEngine,
-            "fuelType" => array(
-                        array(
-                            "@type" => "QualitativeValue",
-                            "name" => $carlist->fuel->name
-                        )
-                    ),
-            "manufacturer" => array("@type" => "Organization", "name" =>  $carlist->brand->brand),
-            "offers" =>
-            array(
-                "@type" => "AggregateOffer",
-                "priceCurrency" => "IDR",
-                "lowPrice" => min($arrOtr),
-                "highPrice" => max($arrOtr),
-                "offerCount" => 1,
-                "priceValidUntil" => "2025-11-20"
-
-            ),
-            "aggregateRating" => array(
-                "@type" => "AggregateRating",
-                "ratingValue" => 5,
-                "reviewCount" => 1
-            )
-        );
 
 
         $product = array(
@@ -137,11 +115,12 @@ class MetaController extends Controller
               "@type" => "Brand",
               "name" =>  $carlist->brand->brand
             ),
-            "model" => "Ram",
+            "model" => $carlist->name,
+            "numberOfDoors" => $carlist->door,
             "vehicleConfiguration" => "ST",
             "vehicleInteriorColor" => "White",
             "vehicleInteriorType" => "Standard",
-            "vehicleModelDate" => "2023",
+            "vehicleModelDate" => $tanggal->format('Y'),
             "color" => "White",
             "bodyType" => $carlist->bodytype->name,
             "driveWheelConfiguration" => "https://schema.org/FourWheelDriveConfiguration",
@@ -150,7 +129,6 @@ class MetaController extends Controller
               "fuelType" => $carlist->fuel->name
             ),
             "vehicleTransmission" => $carlist->transmission->name,
-            "numberOfDoors" => 2,
             "vehicleSeatingCapacity" =>  $carlist->seat
         );
 
@@ -158,7 +136,7 @@ class MetaController extends Controller
             "@context" => "http://schema.org",
             "@type" => "ItemList",
             "name" => "Varian " . $carlist->name,
-            "description" => "Daftar Varian " . $carlist->name,
+            "description" => "List Varian " . $carlist->name,
             "itemListOrder" => "ItemListOrderDescending",
             "numberOfItems" => count($listVariant),
             "itemListElement" => array($listVariant)

@@ -26,6 +26,7 @@ class Carvariant extends Model implements HasMedia
         'name',
         'bodytype_id',
         'seat',
+        'door',
         'fuel_id',
         'transmission_id',
         'engine_volume',

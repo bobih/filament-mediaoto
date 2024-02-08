@@ -2,21 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms\Components\Textarea;
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Carmodel;
 use Livewire\Component;
+use App\Models\Carmodel;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Infolists\Infolist;
 //use App\Enums\Car\BodyType;
 //use App\Enums\Car\Fuel;
 //use App\Enums\Car\Transmission;
-use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\Textarea;
+use Yepsua\Filament\Forms\Components\Rating;
 use App\Filament\Resources\CarModelResource\Pages;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\CarModelResource\RelationManagers;
@@ -49,13 +50,26 @@ class CarModelResource extends Resource
                                             ->label('Brand')
                                             ->relationship('brand', 'brand')
                                             ->searchable()
+                                            ->required()
                                             ->preload(),
 
                                         Forms\Components\TextInput::make('name')
                                             ->label('Model')
                                             ->required(),
 
+
+
                                     ]),
+                                    Rating::make('rating')
+                                    ->required(),
+
+                                    Grid::make(2)
+                                    ->schema([
+                                        Forms\Components\Textarea::make('review')
+                                            ->label('Review'),
+                                    ]),
+
+
                             ])->columns(2),
 
                         Tabs\Tab::make('Body')
@@ -72,10 +86,15 @@ class CarModelResource extends Resource
                                 ->label('Fuel')
                                 ->relationship('fuel', 'name')
                                 ->searchable()
+                                ->required()
                                 ->preload(),
 
                                 Forms\Components\TextInput::make('seat')
-                                ->label('Seat'),
+                                ->label('Seat')
+                                ->required(),
+                                Forms\Components\TextInput::make('door')
+                                    ->label('Door')
+                                    ->required(),
 
                             ])->columns(2),
 
@@ -88,11 +107,13 @@ class CarModelResource extends Resource
                                 Forms\Components\Select::make('transmission_id')
                                 ->label('Transmission')
                                 ->relationship('transmission', 'name')
+                                ->required()
                                 ->searchable()
                                 ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
-                                ->label("Volume (cc)"),
+                                ->label("Volume (cc)")
+                                ->required(),
 
                             ])->columns(2),
 
