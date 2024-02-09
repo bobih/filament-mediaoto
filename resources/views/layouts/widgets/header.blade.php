@@ -47,24 +47,8 @@
                                 </li>
                             @endif
                         @endforeach
-
                 </div>
 
-                <!-- Dropdown menu -->
-                <?php /*
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Config::get('languages')[App::getLocale()] }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @foreach (Config::get('languages') as $lang => $language)
-                            @if ($lang != App::getLocale())
-                                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
-                            @endif
-                        @endforeach
-                        </div>
-
-                        */
-                ?>
                 <div class="justify-center">
                     <?php /***************** Theme Toggle *************** */ ?>
                     <button id="theme-toggle" title="Toggle Theme" aria-label="btn-theme-toggle" type="button"
