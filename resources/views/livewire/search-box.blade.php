@@ -1,6 +1,5 @@
 <div id="search-box">
-    <!-- <form wire:submit="updateSearch" class="flex items-center" @submit.prevent> -->
-    <div class="flex items-center">
+    <form  class="flex items-center" @submit.prevent>
         <label for="search" class="sr-only">Search</label>
         <div class="relative w-full">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -50,8 +49,7 @@
             </svg>
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
-    <!-- </form> -->
+    </form>
    <script>
         function handleSearch(e) {
             grecaptcha.ready(function() {
