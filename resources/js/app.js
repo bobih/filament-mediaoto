@@ -12,13 +12,6 @@ document.addEventListener('livewire:navigated', () => {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.onload = function() {
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ', {action: 'homepage'}).then(function(token) {
-
-                });
-            });
-        }
         script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
         head.appendChild(script);
      }, 5000);

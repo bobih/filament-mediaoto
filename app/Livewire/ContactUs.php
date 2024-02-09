@@ -64,9 +64,24 @@ class ContactUs extends ModalComponent
     {
 
 
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('RECAPTCHA_SITE_SECRET') . '&response=' . $token);
+        //$response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('RECAPTCHA_SITE_SECRET') . '&response=' . $token);
 
-        $this->captcha = $response->json()['score'];
+        //$this->captcha = $response->json()['score'];
+
+
+        if( session()->get('captcha')){
+            $this->captcha = session()->get('captcha');
+        } else {
+            $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('RECAPTCHA_SITE_SECRET') . '&response=' . $token);
+
+            $this->captcha = $response->json()['score'];
+            if($this->captcha > .3){
+                //Session::set('captcha')=$this->captcha;
+                session(['captcha' => $this->captcha]);
+            }
+        }
+
+
 
         if ($this->captcha > .3) {
             $this->saveContact();
