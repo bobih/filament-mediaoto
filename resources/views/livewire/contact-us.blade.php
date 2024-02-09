@@ -1,7 +1,7 @@
 <!-- Modal content -->
 
 <!-- Modal body -->
-<form wire:submit="saveContact">
+<div>
     <div class="grid gap-4 mb-4 sm:grid-cols-2">
 
         <div class="sm:col-span-2">
@@ -54,13 +54,13 @@
         </a>.</label>
     </div>
 
-    <button wire:loading.remove type="submit"
+    <button wire:loading.remove onclick="handle()" type="submit" data-action='submit' data-callback='handle'
 
     class="{{!$isChecked == true ?'text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800' : 'g-recaptcha text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' }}"
     @if(!$isChecked)
     disabled
     @else
-    data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback='handle'
+    data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"
     @endif
     >
         <span> Submit</span>
@@ -80,8 +80,6 @@
         Loading...
     </button>
 
-</form>
-
 <script>
     function handle(e) {
         grecaptcha.ready(function() {
@@ -93,4 +91,5 @@
                 });
         })
     }
-</script>
+    </script>
+</div>

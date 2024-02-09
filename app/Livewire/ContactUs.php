@@ -43,6 +43,8 @@ class ContactUs extends ModalComponent
 
     public $captcha = 0;
 
+    public $token = '';
+
     /*
     protected $rules = [
         'name' => 'required|min:6',
@@ -61,7 +63,9 @@ class ContactUs extends ModalComponent
     public function updatedCaptcha($token)
     {
 
+
         $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('RECAPTCHA_SITE_SECRET') . '&response=' . $token);
+
         $this->captcha = $response->json()['score'];
 
         if ($this->captcha > .3) {
@@ -79,6 +83,7 @@ class ContactUs extends ModalComponent
 
     public function saveContact()
     {
+
         $this->validate();
 
         Contact::create([
