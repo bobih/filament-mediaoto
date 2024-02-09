@@ -3,20 +3,21 @@
 namespace App\Livewire;
 
 use App\Models\Contact;
-
 use Livewire\Component;
+
 use App\Mail\WelcomeMail;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 use LivewireUI\Modal\ModalComponent;
 use Filament\Support\Enums\Alignment;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\VerticalAlignment;
-use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 use Filament\Notifications\Livewire\Notifications;
+use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
 class ContactUs extends ModalComponent
 {
@@ -116,9 +117,9 @@ class ContactUs extends ModalComponent
         //Notifications::alignment(Alignment::Center);
         //Notifications::verticalAlignment(VerticalAlignment::Center);
         Notification::make()
-            ->title('We appreciate you contacting us')
+            ->title(Lang::get('notif.contact_title'))
             ->success()
-            ->body('Out Team will get back in touch with you soon! Have a great day!')
+            ->body(Lang::get('notif.contact_success'))
             ->iconColor('success')
             ->send();
 
