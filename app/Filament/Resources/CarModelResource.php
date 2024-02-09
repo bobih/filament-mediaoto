@@ -64,10 +64,18 @@ class CarModelResource extends Resource
                                             ->required(),
 
 
-
                                     ]),
-                                    Rating::make('rating')
+
+
+                                    Forms\Components\TextInput::make('rating')
+                                    ->label('Rating (0-5)')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->rating;
+                                    })
                                     ->required(),
+                                   // Rating::make('rating')
+                                   // ->required(),
 
                                     Grid::make(2)
                                     ->schema([
@@ -158,7 +166,10 @@ class CarModelResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable()
                     ->label('Model'),
                 Tables\Columns\TextColumn::make('brand.brand'),
-                RatingColumn::make('rating'),
+                //RatingColumn::make('rating'),
+
+                Tables\Columns\TextColumn::make('rating'),
+
                 Tables\Columns\TextColumn::make('id')
                 ->label('Variant')
                 ->getStateUsing( function ($record): ?string{

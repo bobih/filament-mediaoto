@@ -53,15 +53,24 @@ class CarVariantRelationManager extends RelationManager
                                             ->label('OTR')
                                             ->required(),
 
+
+                                        /*
                                         Rating::make('rating')
                                         ->default(function () {
 
                                             return $this->getOwnerRecord()->rating;
                                         })
                                         ->required(),
-
+                                        */
 
                                     ]),
+                                    Forms\Components\TextInput::make('rating')
+                                            ->label('Rating (0-5)')
+                                            ->default(function () {
+
+                                                return $this->getOwnerRecord()->rating;
+                                            })
+                                            ->required(),
 
                                     Grid::make(2)
                                     ->schema([
@@ -176,7 +185,9 @@ class CarVariantRelationManager extends RelationManager
                     ->formatStateUsing(function ($record){
                         return number_format($record->otr,0,".",".");
                     }),
-                RatingColumn::make('rating'),
+                    Tables\Columns\TextColumn::make('rating')
+                    ->label('Rating'),
+                //RatingColumn::make('rating'),
             ])
             ->filters([
                 //

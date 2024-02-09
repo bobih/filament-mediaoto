@@ -177,7 +177,7 @@ return array(
     'Filament\\Infolists\\' => array($vendorDir . '/filament/infolists/src'),
     'Filament\\Forms\\' => array($vendorDir . '/filament/forms/src'),
     'Filament\\Actions\\' => array($vendorDir . '/filament/actions/src'),
-    'Filament\\' => array($vendorDir . '/filament/spatie-laravel-media-library-plugin/src', $vendorDir . '/filament/spatie-laravel-tags-plugin/src', $vendorDir . '/filament/filament/src'),
+    'Filament\\' => array($vendorDir . '/filament/filament/src', $vendorDir . '/filament/spatie-laravel-media-library-plugin/src', $vendorDir . '/filament/spatie-laravel-tags-plugin/src'),
     'FilamentTiptapEditor\\Tests\\Database\\Factories\\' => array($vendorDir . '/awcodes/filament-tiptap-editor/tests/database/factories'),
     'FilamentTiptapEditor\\Tests\\' => array($vendorDir . '/awcodes/filament-tiptap-editor/tests/src'),
     'FilamentTiptapEditor\\' => array($vendorDir . '/awcodes/filament-tiptap-editor/src'),
