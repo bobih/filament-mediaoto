@@ -23,6 +23,8 @@ class NewsList extends Component
     #[Url]
     public $tag = '';
 
+    public $perPage = 3;
+
     #[Computed()]
     public function posts(){
 
@@ -45,13 +47,13 @@ class NewsList extends Component
 
 
         if($agent->isMobile()){
-            $response = $response->paginate(3);
+            $response = $response->paginate($this->perPage);
             // NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(1)->get();
 
 
 
         } else {
-            $response = $response->paginate(5);
+            $response = $response->paginate($this->perPage);
 
             //$response = NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(5)->get();
         }
@@ -70,6 +72,12 @@ class NewsList extends Component
     public function updateSearch($search){
         $this->reset('search','category','tag');
         $this->search = $search;
+    }
+
+
+    public function loadMore()
+    {
+        $this->perPage += 3;
     }
 
     public function render()
