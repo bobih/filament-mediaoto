@@ -14,6 +14,6 @@ document.addEventListener('livewire:navigated', () => {
         script.type = 'text/javascript';
         script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
         head.appendChild(script);
-     }, 5000);
+     }, 2000);
 })
 
