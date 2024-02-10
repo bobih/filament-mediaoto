@@ -23,7 +23,7 @@ class MetaController extends Controller
                 "position" => $x,
                 "item" => array(
                     "@type" => "Product",
-                    "name" => $variant->name,
+                    "name" => $variant->brand->brand .' '. $variant->name,
                     "description" => "Varian" . $variant->name,
                     "image" => "https://www.mediaoto.id",
                     "url" => "https://www.mediaoto.id",
@@ -62,7 +62,7 @@ class MetaController extends Controller
         $product = array(
             "@context" => "https://schema.org",
             "@type" => "Car",
-            "name" => $carlist->name,
+            "name" => $carlist->brand->brand .' '. $carlist->name,
             "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
             "image" => [
               "https://www.mediaoto.id"
@@ -79,7 +79,7 @@ class MetaController extends Controller
               "@type" => "Brand",
               "name" =>  $carlist->brand->brand
             ),
-            "model" => $carlist->name,
+            "model" => $carlist->brand->brand . ' ' . $carlist->name,
             "numberOfDoors" => $carlist->door,
             "vehicleConfiguration" => "ST",
             "vehicleInteriorColor" => "White",
@@ -99,8 +99,8 @@ class MetaController extends Controller
         $listItems = array(
             "@context" => "http://schema.org",
             "@type" => "ItemList",
-            "name" => "Varian " . $carlist->name,
-            "description" => "List Varian " . $carlist->name,
+            "name" => "Varian " .$carlist->brand->brand .' ' . $carlist->name,
+            "description" => "List Varian " . $carlist->brand->brand . ' '. $carlist->name,
             "itemListOrder" => "ItemListOrderDescending",
             "numberOfItems" => count($listVariant),
             "itemListElement" => array($listVariant)
