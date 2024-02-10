@@ -69,10 +69,6 @@ class CarModelResource extends Resource
 
                                     Forms\Components\TextInput::make('rating')
                                     ->label('Rating (0-5)')
-                                    ->default(function () {
-
-                                        return $this->getOwnerRecord()->rating;
-                                    })
                                     ->required(),
                                    // Rating::make('rating')
                                    // ->required(),
