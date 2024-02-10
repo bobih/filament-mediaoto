@@ -65,7 +65,9 @@ class HomeController extends Controller
     public function policy(Request $request)
     {
         GoogleTagManager::set('pageType', 'policy');
-        return view('policy');
+        return view('policy', [
+            "itemlist" => array()
+        ]);
 
     }
 

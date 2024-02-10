@@ -1,6 +1,10 @@
-<x-app-layout title="{{__('privacy.title')}}" description="{{__('privacy.description')}}">
+<x-app-layout
+title="{{__('privacy.title')}}"
+description="{{__('privacy.descriptiosn')}}"
+:itemlist="$itemlist">
     @section('header')
-        @include('layouts.widgets.header')
+    <?php /*  @include('layouts.widgets.header') */ ?>
+    <livewire:top-nav />
     @endsection
     @section('homesection')
         @include('layouts.widgets.policy')
