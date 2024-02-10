@@ -193,7 +193,7 @@
         </script>
 
         @php
-            if(count($itemlist)>0 || $itemlist != null){
+            if(count($itemlist) > 0 && $itemlist != null){
                 $itemListElement = array();
                 $x=1;
                 foreach ($itemlist as $list) {
@@ -211,11 +211,12 @@
                     "@type" => "ItemList",
                     "itemListElement" => array($itemListElement)
                 );
-            }
+
 
             echo '<script type="application/ld+json">';
             echo  json_encode($listItems);
             echo '</script>';
+        }
         @endphp
 
 
