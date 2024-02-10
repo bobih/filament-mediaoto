@@ -104,10 +104,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a title="privacy" href="/policy" class="hover:underline">{{__('home.footer.privacy')}}</a>
+                            <a wire:navigate title="privacy" href="/policy" class="hover:underline">{{__('home.footer.privacy')}}</a>
                         </li>
                         <li>
-                            <a title="policy" href="/policy" class="hover:underline">{{__('home.footer.terms')}}</a>
+                            <a wire:navigate title="policy" href="/policy" class="hover:underline">{{__('home.footer.terms')}}</a>
                         </li>
                     </ul>
                 </div>
