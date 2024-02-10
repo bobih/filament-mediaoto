@@ -192,7 +192,7 @@
             }
         </script>
 
-        @php
+        <?php
             if(count($itemlist) > 0 && $itemlist != null){
                 $itemListElement = array();
                 $x=1;
@@ -217,7 +217,8 @@
             echo  json_encode($listItems);
             echo '</script>';
         }
-        @endphp
+
+        ?>
 
 
     @if (env('APP_ENV','local') == "production")
