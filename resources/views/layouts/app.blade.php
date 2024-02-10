@@ -89,6 +89,35 @@
         }
         </script>
 
+        <?php
+            if(isset($itemlist)){
+                $itemListElement = array();
+                $x=1;
+                foreach ($itemlist as $list) {
+                    $itemListElement[] = array
+                            (
+                            "@type" =>"ListItem",
+                            "position" => $x,
+                            "url" => "https://www.mediaoto.id/". $list->slug
+                            );
+                $x++;
+                }
+
+                $listItems = array(
+                    "@context" => "http://schema.org",
+                    "@type" => "ItemList",
+                    "itemListElement" => array($itemListElement)
+                );
+
+
+            echo '<script type="application/ld+json">';
+            echo  json_encode($listItems);
+            echo '</script>';
+
+            }
+
+        ?>
+
         @if (count($metaproduct) != 0)
 
         <script type="application/ld+json">

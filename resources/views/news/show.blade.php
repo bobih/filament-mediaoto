@@ -1,4 +1,7 @@
-<x-app-layout :post='$post' :title='$post->title' :description='$post->getExcerpt()' :metaproduct='$metaproduct'>
+<x-app-layout :post='$post'
+    :title='$post->title'
+    :description='$post->getExcerpt()'
+    :metaproduct='$metaproduct'>
     @section('header')
     <?php /*  @include('layouts.widgets.header') */ ?>
     <livewire:top-nav />
