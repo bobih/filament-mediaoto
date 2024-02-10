@@ -118,7 +118,7 @@
 
         ?>
 
-        @if (count($metaproduct) != 0)
+        @if ( isset($metaproduct) && count($metaproduct) != 0 )
 
         <script type="application/ld+json">
             @php
