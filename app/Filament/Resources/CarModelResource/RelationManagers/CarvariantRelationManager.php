@@ -92,6 +92,7 @@ class CarVariantRelationManager extends RelationManager
                                     })
                                     ->relationship('bodytype', 'name')
                                     ->searchable()
+                                    ->required()
                                     ->preload(),
 
                                 Forms\Components\Select::make('fuel_id')
@@ -102,6 +103,7 @@ class CarVariantRelationManager extends RelationManager
                                     })
                                     ->relationship('fuel', 'name')
                                     ->searchable()
+                                    ->required()
                                     ->preload(),
 
                                 Forms\Components\TextInput::make('seat')
@@ -140,6 +142,7 @@ class CarVariantRelationManager extends RelationManager
                                     })
                                     ->relationship('transmission', 'name')
                                     ->searchable()
+                                    ->required()
                                     ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')

@@ -122,8 +122,7 @@ class CarModelResource extends Resource
                                 ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
-                                ->label("Volume (cc)")
-                                ->required(),
+                                ->label("Volume (cc)"),
 
                             ])->columns(2),
 
