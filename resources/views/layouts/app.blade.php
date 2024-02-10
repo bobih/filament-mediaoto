@@ -193,7 +193,7 @@
         </script>
 
         @php
-            if(count($itemlist)>0){
+            if(count($itemlist)>0 || $itemlist != null){
                 $itemListElement = array();
                 $x=1;
                 foreach ($itemlist as $list) {
