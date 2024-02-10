@@ -193,6 +193,7 @@
         </script>
 
         <?php
+        /*
             if(count($itemlist) > 0 && $itemlist != null){
                 $itemListElement = array();
                 $x=1;
@@ -218,6 +219,7 @@
             echo '</script>';
         }
 
+        */
         ?>
 
 

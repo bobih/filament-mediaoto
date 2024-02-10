@@ -23,6 +23,7 @@ class SearchBox extends Component
     {
 
 
+
         if( session()->get('captcha')){
             $this->captcha = session()->get('captcha');
         } else {
@@ -36,6 +37,8 @@ class SearchBox extends Component
 
         }
         //dd($this);
+
+        dd($this->captcha);
 
         if ($this->captcha > .3) {
             $this->updateSearch();
