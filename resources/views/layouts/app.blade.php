@@ -1,4 +1,4 @@
-@props(['post','title', 'description', 'metaproduct'])
+@props(['post','title', 'description', 'metaproduct' ,'itemlist'])
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -191,6 +191,33 @@
                 ]
             }
         </script>
+
+        @php
+            if(count($itemlist)>0){
+                $itemListElement = array();
+                $x=1;
+                foreach ($itemlist as $list) {
+                    $itemListElement[] = array
+                            (
+                            "@type" =>"ListItem",
+                            "position" => $x,
+                            "url" => "https://www.mediaoto.id/". $list->slug
+                            );
+                $x++;
+                }
+
+                $listItems = array(
+                    "@context" => "http://schema.org",
+                    "@type" => "ItemList",
+                    "itemListElement" => array($itemListElement)
+                );
+            }
+
+            echo '<script type="application/ld+json">';
+            echo  json_encode($listItems);
+            echo '</script>';
+        @endphp
+
 
     @if (env('APP_ENV','local') == "production")
         <!-- Google tag (gtag.js B3ac5) -->

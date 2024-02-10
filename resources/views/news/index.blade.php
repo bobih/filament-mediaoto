@@ -1,4 +1,7 @@
-<x-app-layout title="{{__('news.title')}}" description="{{__('news.description')}}">
+<x-app-layout
+    title="{{__('news.title')}}"
+    description="{{__('news.description')}}"
+    :itemlist="$posts">
     @section('header')
     <?php /*  @include('layouts.widgets.header') */ ?>
     <livewire:top-nav />
