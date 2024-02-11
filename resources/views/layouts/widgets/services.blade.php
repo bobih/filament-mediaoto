@@ -125,7 +125,7 @@
                             src="https://www.mediaoto.id/images/services_1.webp" alt="Performance Optimization"
                             title="Performance Optimization">
                         <figcaption class="px-4 my-4 text-lg pb-4">
-                            <h2 class="absolute bottom-20 mb-2 brightness-100 text-2xl text-[#FF9119]">
+                            <h2 class="absolute bottom-28 mb-2 brightness-100 text-2xl text-[#FF9119]">
                                 {{ __('home.services.service1tag') }}</h2>
                             <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-base pr-10">
                                 {{ __('home.services.service1desc') }}</p>
