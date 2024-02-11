@@ -122,7 +122,7 @@
                 <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                     <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                         <img class="w-full rounded-lg shadow-xl brightness-80"
-                            src="https://www.mediaoto.id/images/services_1.webp" alt="Performance Optimization"
+                            src="https://www.mediaoto.id/images/services_1_mobile.webp" alt="Performance Optimization"
                             title="Performance Optimization">
                         <figcaption class="px-4 my-4 text-lg pb-4">
                             <h2 class="absolute bottom-28 mb-2 brightness-100 text-2xl text-[#FF9119]">
