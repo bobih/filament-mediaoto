@@ -115,7 +115,7 @@
 
 
 
-        <div id="indicators-carousel" class="relative h-[350px] w-full" data-carousel="slide">
+        <div id="indicators-carousel" class="md:hidden relative h-[350px] w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-[350px] overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
