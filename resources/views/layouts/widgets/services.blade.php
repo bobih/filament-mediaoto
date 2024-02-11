@@ -137,7 +137,7 @@
 
                     <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                         <img class="w-full rounded-lg shadow-xl brightness-80"
-                            src="https://www.mediaoto.id/images/services_2.webp" alt="Media Buying Agency"
+                            src="https://www.mediaoto.id/images/services_2_mobile.webp" alt="Media Buying Agency"
                             title="Media Buying Agency">
                         <figcaption class="px-4 my-4 text-lg pb-4">
                             <h2 class="absolute bottom-28 mb-2 brightness-100 text-2xl text-[#FF9119]">
@@ -151,7 +151,7 @@
 
                     <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                         <img class="w-full rounded-lg shadow-xl brightness-80"
-                            src="https://www.mediaoto.id/images/services_3.webp" alt="Placement" title="Placement">
+                            src="https://www.mediaoto.id/images/services_3_mobile.webp" alt="Placement" title="Placement">
                         <figcaption class="px-4 my-4 text-lg pb-4">
                             <h2 class="absolute bottom-28 mb-2 brightness-100 text-2xl text-[#FF9119]">
                                 {{ __('home.services.service3tag') }}</h2>
@@ -164,7 +164,7 @@
 
                     <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
                         <img class="w-full rounded-lg shadow-xl brightness-80"
-                            src="https://www.mediaoto.id/images/services_4.webp" alt="Rich Media Banner Placement"
+                            src="https://www.mediaoto.id/images/services_4_mobile.webp" alt="Rich Media Banner Placement"
                             title="Rich Media Banner Placement">
                         <figcaption class="px-4 my-4 text-lg pb-4">
                             <h2 class="absolute bottom-28 mb-2 brightness-100 text-2xl text-[#FF9119]">
