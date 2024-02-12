@@ -31,15 +31,23 @@ class ListUsers extends ListRecords
 
             "This Week" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                    $data = User::where('created_at', '>=', now()->subWeek())
+                    $data = User::where('created_at', '>=', now()->startOfWeek())
+                    ->orderBy('users.id','desc');
+                    return $data ;
+                }),
+                "This Month" => Tab::make()
+                ->modifyQueryUsing(function (Builder $query) {
+                    $data = User::where('created_at', '>=', now()->startOfMonth())
                     ->orderBy('users.id','desc');
                     return $data ;
                 }),
             "Active" => Tab::make()
                 ->modifyQueryUsing(function (Builder $query) {
-                     $data = User::select('users.*','invoice.status')
+                    $data = User::select('users.*','invoice.status')
                      ->leftJoin('invoice','invoice.userid','users.id')
                      ->where('invoice.status',1)->orderBy('users.id','desc');
+
+
 
                     return $data;
                 }),
