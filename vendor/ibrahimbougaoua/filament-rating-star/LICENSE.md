@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) yepsua <oyepez003@gmail.com>
+Copyright (c) ibrahimBougaoua <ibrahim.bougaoua@etu.usthb.dz>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

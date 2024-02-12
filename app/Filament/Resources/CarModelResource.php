@@ -10,23 +10,19 @@ use Filament\Forms\Form;
 use App\Models\CarVariant;
 use Filament\Tables\Table;
 
-use Filament\Tables\Columns\TextColumn;
+use Filament\Infolists\Infolist;
 //use App\Enums\Car\BodyType;
 //use App\Enums\Car\Fuel;
 //use App\Enums\Car\Transmission;
-use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Textarea;
-
-use Yepsua\Filament\Forms\Components\Rating;
-use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Filament\Resources\CarModelResource\Pages;
-use Yepsua\Filament\Tables\Components\RatingColumn;
+use IbrahimBougaoua\FilamentRatingStar\Actions\RatingStar;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\CarModelResource\RelationManagers;
+use IbrahimBougaoua\FilamentRatingStar\Columns\RatingStarColumn;
 
 class CarModelResource extends Resource
 {
@@ -66,10 +62,15 @@ class CarModelResource extends Resource
 
                                     ]),
 
-
+                                    /*
                                     Forms\Components\TextInput::make('rating')
                                     ->label('Rating (0-5)')
                                     ->required(),
+                                    */
+
+                                    RatingStar::make('rating')
+                                    ->label('Rating'),
+
                                    // Rating::make('rating')
                                    // ->required(),
 
@@ -162,8 +163,10 @@ class CarModelResource extends Resource
                     ->label('Model'),
                 Tables\Columns\TextColumn::make('brand.brand'),
                 //RatingColumn::make('rating'),
+                RatingStarColumn::make('rating'),
 
-                Tables\Columns\TextColumn::make('rating'),
+                //Tables\Columns\TextColumn::make('rating'),
+
 
                 Tables\Columns\TextColumn::make('id')
                 ->label('Variant')

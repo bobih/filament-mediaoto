@@ -15,7 +15,9 @@ use Filament\Forms\Components\Tabs;
 use Yepsua\Filament\Forms\Components\Rating;
 use Yepsua\Filament\Tables\Components\RatingColumn;
 use Filament\Resources\RelationManagers\RelationManager;
+use IbrahimBougaoua\FilamentRatingStar\Actions\RatingStar;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use IbrahimBougaoua\FilamentRatingStar\Columns\RatingStarColumn;
 
 class CarVariantRelationManager extends RelationManager
 {
@@ -64,6 +66,18 @@ class CarVariantRelationManager extends RelationManager
                                         */
 
                                     ]),
+
+
+                                    RatingStar::make('rating')
+                                    ->label('Rating')
+                                    ->default(function () {
+
+                                        return $this->getOwnerRecord()->rating;
+                                    })
+                                    ->required(),
+
+                                    /*
+
                                     Forms\Components\TextInput::make('rating')
                                             ->label('Rating (0-5)')
                                             ->default(function () {
@@ -71,6 +85,7 @@ class CarVariantRelationManager extends RelationManager
                                                 return $this->getOwnerRecord()->rating;
                                             })
                                             ->required(),
+                                    */
 
                                     Grid::make(2)
                                     ->schema([
@@ -188,9 +203,8 @@ class CarVariantRelationManager extends RelationManager
                     ->formatStateUsing(function ($record){
                         return number_format($record->otr,0,".",".");
                     }),
-                    Tables\Columns\TextColumn::make('rating')
-                    ->label('Rating'),
-                //RatingColumn::make('rating'),
+
+                    RatingStarColumn::make('rating'),
             ])
             ->filters([
                 //

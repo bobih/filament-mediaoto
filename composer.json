@@ -21,6 +21,7 @@
         "filament/spatie-laravel-tags-plugin": "3.2",
         "firebase/php-jwt": "^6.10",
         "guzzlehttp/guzzle": "^7.8",
+        "ibrahimbougaoua/filament-rating-star": "^1.0",
         "illuminate/contracts": "*",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.0",
@@ -41,8 +42,7 @@
         "spatie/laravel-sitemap": "^7.0",
         "symfony/http-client": "^6.4",
         "tymon/jwt-auth": "^2.0",
-        "wire-elements/modal": "^2.0",
-        "yepsua/filament-rating-field": "^0.3.0"
+        "wire-elements/modal": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
