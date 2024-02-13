@@ -1,4 +1,4 @@
-@props(['post', 'related'])
+@props(['post', 'related','agent'])
 <div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
     <div class="col-span-3">
         <main class="pt-20 antialiased">
@@ -66,6 +66,13 @@
     <div class="col-span-1 hidden md:block col-span-4 md:col-span-1 sticky md:top-0 h-[2000px]">
         <main class="sm:pt-20 pb-10 bg-gray-100 dark:bg-gray-900 antialiased">
             <div class="mt-10  max-w-screen-xl ">
+                @if (!$agent->isMobile())
+                <div class="hidden md:block mb-4">
+                    <livewire:search-box />
+                </div>
+
+                @endif
+
                 <h2 class="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {{__('news.related_news')}}
                 </h2>

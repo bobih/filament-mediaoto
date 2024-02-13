@@ -154,6 +154,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
             'RyanChandler\\BladeCaptureDirective\\' => 35,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
+            'RalphJSmit\\Livewire\\Urls\\' => 25,
         ),
         'P' => 
         array (
@@ -642,6 +643,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Ramsey\\Collection\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
+        ),
+        'RalphJSmit\\Livewire\\Urls\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ralphjsmit/livewire-urls/src',
         ),
         'Psy\\' => 
         array (
@@ -1260,6 +1265,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Filament\\Resources\\CarModelResource\\Pages\\EditCarModel' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/EditCarModel.php',
         'App\\Filament\\Resources\\CarModelResource\\Pages\\ListCarModels' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/ListCarModels.php',
         'App\\Filament\\Resources\\CarModelResource\\Pages\\ViewCarModel' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/ViewCarModel.php',
+        'App\\Filament\\Resources\\CarModelResource\\RelationManagers\\CarVariantRelationManager' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/RelationManagers/CarVariantRelationManager.php',
         'App\\Filament\\Resources\\CarTransmissionResource' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource.php',
         'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\CreateCarTransmission' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource/Pages/CreateCarTransmission.php',
         'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\EditCarTransmission' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource/Pages/EditCarTransmission.php',
@@ -10111,6 +10117,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
         'Psy\\VersionUpdater\\SelfUpdate' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
+        'RalphJSmit\\Livewire\\Urls\\Facades\\Url' => __DIR__ . '/..' . '/ralphjsmit/livewire-urls/src/Facades/Url.php',
+        'RalphJSmit\\Livewire\\Urls\\LivewireUrlsServiceProvider' => __DIR__ . '/..' . '/ralphjsmit/livewire-urls/src/LivewireUrlsServiceProvider.php',
+        'RalphJSmit\\Livewire\\Urls\\Middleware\\LivewireUrlsMiddleware' => __DIR__ . '/..' . '/ralphjsmit/livewire-urls/src/Middleware/LivewireUrlsMiddleware.php',
+        'RalphJSmit\\Livewire\\Urls\\Url' => __DIR__ . '/..' . '/ralphjsmit/livewire-urls/src/Url.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',

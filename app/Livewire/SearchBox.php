@@ -5,10 +5,13 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
+
 use Livewire\Attributes\Session;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 use Filament\Notifications\Notification;
+use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class SearchBox extends Component
 {
@@ -60,6 +63,10 @@ class SearchBox extends Component
     }
 
     public function updateSearch(){
+
+        // Check if current page is detail
+        dd(Url::current());
+
 
         //$this->search = $search;
         if(strlen($this->search) < 3 || strlen($this->search) > 50 || $this->search == '' ){

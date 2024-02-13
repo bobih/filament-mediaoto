@@ -80,6 +80,7 @@ class NewsPostController extends Controller
     {
 
         GoogleTagManager::set('pageType', 'news-detail');
+        $agent = new Agent();
 
         if (env('APP_ENV', 'local') == 'production') {
             $newsRelated = Cache::remember('newsRelated', Carbon::now()->addMinutes(30), function () use ($news) {
@@ -120,6 +121,7 @@ class NewsPostController extends Controller
             "post" => $news,
             "related" => $newsRelated,
             'metaproduct' => $metaProduct,
+            'agent'=>$agent,
         ]);
     }
 
