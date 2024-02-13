@@ -1,7 +1,7 @@
 @props(['post'])
 <article class="p-6 bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class=" px-4 pb-4">
-        <a wire:navigate data-te-ripple-init data-te-ripple-color="white" href="{{ route('news.show', $post->slug) }}"
+        <a wire:navigate href="{{ route('news.show', $post->slug) }}"
             >
             <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 top-0 left-0 right-0 bottom-0 h-full w-full object-fit rounded-lg"
                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->slug }}" title="{{ $post->title }}">
