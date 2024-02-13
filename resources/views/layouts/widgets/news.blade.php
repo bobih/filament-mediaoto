@@ -3,7 +3,12 @@
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900 dark:text-white">
+            <h2  data-te-animation-init
+            data-te-animation-start="onScroll"
+            data-te-animation-on-scroll="repeat"
+            data-te-animation-show-on-load="false"
+            data-te-animation-reset="true"
+            data-te-animation="[fade-in_1s_ease-in-out]" class="mb-4 text-3xl tracking-tight font-bold text-gray-900 dark:text-white">
                 {{__('home.news.infotag')}}
             </h2>
             <p class="text-gray-500 sm:text-xl dark:text-gray-400"> {{__('home.news.titletag')}}</p>
@@ -22,7 +27,7 @@
                 <article
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
-                        <a wire:navigate title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
+                        <a wire:navigate data-te-ripple-init data-te-ripple-color="white" title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
                             <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
                                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
                                 title="{{ $post->title }}">

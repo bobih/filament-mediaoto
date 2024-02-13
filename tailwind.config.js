@@ -15,10 +15,18 @@ export default {
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './vendor/wire-elements/modal/resources/views/*.blade.php',
-        "./node_modules/flowbite/**/*.js"
+        './node_modules/flowbite/**/*.js',
+        './node_modules/tw-elements/dist/js/**/*.js',
     ],
     darkMode: 'class',
     theme: {
+        safelist: [
+            'animate-[fade-in_1s_ease-in-out]',
+            'animate-[fade-in-down_1s_ease-in-out]',
+            'animate-[fly-in-right_0.5s]',
+            'animate-[zoomIn_0.5s]',
+            'animate-[fly-in-left_0.5s]'
+                ],
         extend: {
             colors: {
                     danger: colors.rose,
@@ -70,6 +78,7 @@ export default {
         forms,
         typography,
         require('flowbite/plugin'),
+        require('./node_modules/tw-elements/dist/plugin.cjs'),
     ],
 
 };
