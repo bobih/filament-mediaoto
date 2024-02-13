@@ -9,12 +9,15 @@ use App\Models\NewsCategory;
 use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
+use Illuminate\Http\Client\Request;
 
 class NewsList extends Component
 {
     use WithPagination;
     #[Url]
-    public $search='';
+    public $search = '';
+
+    protected $queryString = ['search'];
 
     #[Url]
     public $category = '';

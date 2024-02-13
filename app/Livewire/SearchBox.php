@@ -15,12 +15,14 @@ use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class SearchBox extends Component
 {
+    #[Url]
     public $search = '';
     public $captcha = 0;
 
     protected $rules = [
         'search' => 'required|min:6|max:20'
     ];
+    protected $queryString = ['search'];
 
     public function updatedCaptcha($token)
     {
@@ -65,9 +67,12 @@ class SearchBox extends Component
     public function updateSearch(){
 
         // Check if current page is detail
-        dd(Url::current());
 
 
+        if(Url::currentRoute() == 'news.show'){
+            // redrect to news
+            $this->redirect('/news?search='.$this->search,true);
+        } else {
         //$this->search = $search;
         if(strlen($this->search) < 3 || strlen($this->search) > 50 || $this->search == '' ){
             $this->search = '';
@@ -76,6 +81,7 @@ class SearchBox extends Component
         } else {
             $this->dispatch('search',search: $this->search);
         }
+    }
 
     }
 
