@@ -161,7 +161,7 @@ class CarModelResource extends Resource
                     ->label('Brand')->searchable(),
                 Tables\Columns\TextColumn::make('name')->searchable()
                     ->label('Model'),
-                Tables\Columns\TextColumn::make('brand.brand'),
+                //Tables\Columns\TextColumn::make('brand.brand'),
                 //RatingColumn::make('rating'),
                 RatingStarColumn::make('rating'),
 
