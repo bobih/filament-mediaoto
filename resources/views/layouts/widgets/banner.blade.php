@@ -35,6 +35,7 @@
         <div id="animate"
         data-te-animation-init
         data-te-animation-reset="true"
+        data-te-animation-start="manually"
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="mt-10 lg:mt-0 lg:col-span-5 lg:flex">
