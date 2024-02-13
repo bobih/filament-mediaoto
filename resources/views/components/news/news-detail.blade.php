@@ -4,7 +4,7 @@
     <div class="col-span-3">
         <main class="pt-20 antialiased">
                     @if ($agent->isMobile())
-            <div id="mobilesearch" class="transition-opacity ease-out duration-500 pt-6 -mt-4 py-4 px-4 bg-gray-100 dark:bg-gray-900 top-20 start-0 z-30 w-full fixed">
+            <div id="mobilesearch" class="transition-opacity ease-in duration-300 pt-6 -mt-4 py-4 px-4 bg-gray-100 dark:bg-gray-900 top-20 start-0 z-30 w-full fixed">
                 <livewire:search-box />
             </div>
             @endif
