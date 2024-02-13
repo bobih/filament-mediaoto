@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -19,6 +20,7 @@ class NewsPostController extends Controller
     {
 
         GoogleTagManager::set('pageType', 'news');
+        $agent = new Agent();
 
         if (env('APP_ENV', 'local') == 'production') {
             $newsResponse = Cache::remember('newsResponse', Carbon::now()->addHours(1), function () {
@@ -46,7 +48,8 @@ class NewsPostController extends Controller
         return view('news.index', [
             "posts" => $newsResponse,
             "latest" => $newsLatest,
-            "categories" => $newscategories
+            "categories" => $newscategories,
+            "agent" => $agent
         ]);
     }
 
