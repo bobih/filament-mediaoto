@@ -32,13 +32,20 @@
             </div>
 
         </div>
-        <div data-te-animation-init
-        data-te-animation-start="onScroll"
-        data-te-animation-on-scroll="repeat"
-        data-te-animation-show-on-load="false"
+        <div id="animate"
+        data-te-animation-init
         data-te-animation-reset="true"
-        data-te-animation="[fly-in-left_0.5s]" class="mt-10 lg:mt-0 lg:col-span-5 lg:flex">
+        data-te-animation="[fly-in-left_0.5s]"
+        data-te-animation-show-on-load="false"
+         class="mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img class="" src="https://www.mediaoto.id/images/phone-mockup2.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
     </div>
+    <script>
+
+
+
+    </script>
+
+
 </section>
