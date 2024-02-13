@@ -22,6 +22,7 @@ export default {
     theme: {
         safelist: [
             'animate-[fade-in_1s_ease-in-out]',
+            'animate-[fade-out_1s_ease-in-out]',
             'animate-[fade-in-down_1s_ease-in-out]',
             'animate-[fly-in-right_0.5s]',
             'animate-[zoomIn_0.5s]',
