@@ -266,11 +266,13 @@
     */
     ?>
 
+    <?php /*
     @if (env('APP_ENV','local') == "production")
     <meta name="google-adsense-account" content="ca-pub-1433601050494794">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433601050494794"
         crossorigin="anonymous"></script>
     @endif
+    */ ?>
 
     <?php /* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" /> */ ?>
 
