@@ -58,7 +58,8 @@ class HomeController extends Controller
         GoogleTagManager::set('pageType', 'home');
 
         return view('home',[
-            "posts" => $response
+            "posts" => $response,
+            "agent" => $agent
         ]);
     }
 

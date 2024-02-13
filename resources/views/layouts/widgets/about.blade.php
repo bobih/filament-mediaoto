@@ -127,7 +127,12 @@
 
             </div>
         </div>
-        <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+        <div data-te-animation-init
+        data-te-animation-start="onScroll"
+        data-te-animation-on-scroll="repeat"
+        data-te-animation-show-on-load="false"
+        data-te-animation-reset="true"
+        data-te-animation="[fade-in_0.5s_ease-in-out]" class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
             <p class="mb-4">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4">{{__('home.aboutus.content3')}}</p>

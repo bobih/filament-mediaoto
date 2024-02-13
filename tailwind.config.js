@@ -25,7 +25,8 @@ export default {
             'animate-[fade-in-down_1s_ease-in-out]',
             'animate-[fly-in-right_0.5s]',
             'animate-[zoomIn_0.5s]',
-            'animate-[fly-in-left_0.5s]'
+            'animate-[fly-in-left_0.5s]',
+            'animate-[fade-in_0.5s_ease-in-out]'
                 ],
         extend: {
             colors: {
