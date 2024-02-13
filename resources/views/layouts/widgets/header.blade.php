@@ -3,14 +3,14 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             @if (Request::segment(1) == '')
                 <a title="headerlogo" href="/#home" rel="noopener" target="_self"
-                    class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
+                    class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                     <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                     <x-application-logo />
                     <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
                 </a>
                 @else
                     <a wire:navigate title="headerlogo" href="/" rel="noopener" target="_self"
-                    class="flex items-center flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
+                    class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                     <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
                     <x-application-logo />
                     <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
@@ -22,7 +22,7 @@
 
                 <button title="{{ Config::get('languages')[App::getLocale()]['display'] }}" id="dropdownDefaultButton"
                     data-dropdown-toggle="dropdown"
-                    class="text-gray-500 dark:text-gray-400  text-sm px-2 py-2.5 text-center inline-flex items-center text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 text-sm"
+                    class="px-2 py-2.5 text-center inline-flex items-center text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 text-sm"
                     type="button">
                     <span
                         class="flag-icon flag-icon-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }} px-2 md:px-4"></span>
