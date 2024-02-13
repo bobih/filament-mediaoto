@@ -158,7 +158,7 @@ class CarModelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('brand.brand')
-                    ->label('Brand'),
+                    ->label('Brand')->searchable(),
                 Tables\Columns\TextColumn::make('name')->searchable()
                     ->label('Model'),
                 Tables\Columns\TextColumn::make('brand.brand'),
