@@ -79,16 +79,20 @@ document.addEventListener('livewire:navigated', () => {
                     // console.log('scrolling down');
 
 
-                    document.getElementById("mobilesearch").classList.remove('visible');
-                    document.getElementById("mobilesearch").classList.add('invisible');
+                    document.getElementById("mobilesearch").classList.remove('opacity-100');
+                    document.getElementById("mobilesearch").classList.add('opacity-0');
+                    document.getElementById("searchbox").setAttribute("disabled",true);
+
 
 
                 } else if (scrollTopPosition < lastScrollTop) {
                     // console.log('scrolling up');
 
 
-                    document.getElementById("mobilesearch").classList.remove('invisible');
-                    document.getElementById("mobilesearch").classList.add('visible');
+                    document.getElementById("mobilesearch").classList.remove('opacity-0');
+                    document.getElementById("mobilesearch").classList.add('opacity-100');
+                    document.getElementById("searchbox").removeAttribute("disabled");
+
                 }
                 lastScrollTop =
                     scrollTopPosition <= 0 ? 0 : scrollTopPosition;

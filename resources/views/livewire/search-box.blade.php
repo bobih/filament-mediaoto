@@ -1,5 +1,6 @@
 <div id="search-box">
-    <form  class="flex items-center" @submit.prevent>
+    <form  @submit.prevent>
+        <fieldset id="searchbox" class ="w-full flex items-center">
         <label for="search" class="sr-only">Search</label>
         <div class="relative w-full">
            <?php /*
@@ -53,6 +54,7 @@
             </svg>
             <span class="sr-only">Loading...</span>
         </div>
+    </fieldset>
     </form>
    <script>
         function handleSearch(e) {
