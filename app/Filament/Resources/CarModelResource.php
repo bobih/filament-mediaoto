@@ -102,9 +102,11 @@ class CarModelResource extends Resource
 
                                 Forms\Components\TextInput::make('seat')
                                 ->label('Seat')
+                                ->numeric()
                                 ->required(),
                                 Forms\Components\TextInput::make('door')
                                     ->label('Door')
+                                    ->numeric()
                                     ->required(),
 
                             ])->columns(2),
@@ -123,6 +125,7 @@ class CarModelResource extends Resource
                                 ->preload(),
 
                                 Forms\Components\TextInput::make('engine_volume')
+                                ->numeric()
                                 ->label("Volume (cc)"),
 
                             ])->columns(2),

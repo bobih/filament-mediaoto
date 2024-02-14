@@ -25,6 +25,10 @@ class CarVariantRelationManager extends RelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    public ?string $tableSortColumn = 'otr';
+
+    public ?string $tableSortDirection = 'asc';
+
     public function form(Form $form): Form
     {
         return $form
@@ -53,6 +57,8 @@ class CarVariantRelationManager extends RelationManager
                                             ->required(),
                                         Forms\Components\TextInput::make('otr')
                                             ->label('OTR')
+                                            ->numeric()
+                                            ->mask('999.999.999')
                                             ->required(),
 
 
@@ -123,6 +129,7 @@ class CarVariantRelationManager extends RelationManager
 
                                 Forms\Components\TextInput::make('seat')
                                     ->label('Seat')
+                                    ->numeric()
                                     ->default(function () {
 
                                         return $this->getOwnerRecord()->seat;
@@ -131,6 +138,7 @@ class CarVariantRelationManager extends RelationManager
 
                                 Forms\Components\TextInput::make('door')
                                     ->label('Door')
+                                    ->numeric()
                                     ->default(function () {
 
                                         return $this->getOwnerRecord()->door;
@@ -162,6 +170,7 @@ class CarVariantRelationManager extends RelationManager
 
                                 Forms\Components\TextInput::make('engine_volume')
                                     ->label("Volume (cc)")
+                                    ->numeric()
                                     ->default(function () {
 
                                         return $this->getOwnerRecord()->engine_volume;
@@ -188,7 +197,7 @@ class CarVariantRelationManager extends RelationManager
                     ->columnSpanFull()
                     ->activeTab(1),
 
-            ]);
+                        ]);
     }
 
     public function table(Table $table): Table
