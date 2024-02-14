@@ -58,6 +58,8 @@ class CarVariantRelationManager extends RelationManager
                                         Forms\Components\TextInput::make('otr')
                                             ->label('OTR')
                                             ->numeric()
+                                            ->mask('999.999.999')
+                                            ->stripCharacters('.')
                                             ->required(),
 
 
