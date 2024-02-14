@@ -209,12 +209,13 @@ class CarVariantRelationManager extends RelationManager
                     ->label('Variant'),
                 Tables\Columns\TextColumn::make('otr')
                     ->label('Price')
+                    ->sortable()
                     ->formatStateUsing(function ($record){
                         return number_format($record->otr,0,".",".");
                     }),
 
                     RatingStarColumn::make('rating'),
-            ])
+            ])->defaultSort('otr', 'asc')
             ->filters([
                 //
             ])
