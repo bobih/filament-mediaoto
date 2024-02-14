@@ -149,6 +149,9 @@ class NewsPostResource extends Resource
                         ->default('')
                         ->label('Car Related')
                         ->relationship('carmodel', 'name')
+                        ->getOptionLabelFromRecordUsing(function ($record){
+                            return $record->brand->brand .' '. $record->name;
+                        })
                         ->searchable()
                         ->preload(),
 
