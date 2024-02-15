@@ -80,7 +80,9 @@ document.addEventListener('livewire:navigated', () => {
 
 
                     document.getElementById("mobilesearch").classList.remove('opacity-100');
+                    document.getElementById("mobilesearch").classList.remove('-mt-4');
                     document.getElementById("mobilesearch").classList.add('opacity-0');
+                    document.getElementById("mobilesearch").classList.add('-mt-20');
                     document.getElementById("searchbox").setAttribute("disabled",true);
 
 
@@ -88,7 +90,8 @@ document.addEventListener('livewire:navigated', () => {
                 } else if (scrollTopPosition < lastScrollTop) {
                     // console.log('scrolling up');
 
-
+                    document.getElementById("mobilesearch").classList.remove('-mt-20');
+                    document.getElementById("mobilesearch").classList.add('-mt-4');
                     document.getElementById("mobilesearch").classList.remove('opacity-0');
                     document.getElementById("mobilesearch").classList.add('opacity-100');
                     document.getElementById("searchbox").removeAttribute("disabled");
