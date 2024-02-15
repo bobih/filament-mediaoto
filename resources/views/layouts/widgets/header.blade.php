@@ -17,7 +17,7 @@
                     </a>
                 @endif
 
-            <div class="flex gap-2 md:order-2">
+            <div class="flex items-center gap-2 md:order-2">
 
 
                 <button title="{{ Config::get('languages')[App::getLocale()]['display'] }}" id="dropdownDefaultButton"
