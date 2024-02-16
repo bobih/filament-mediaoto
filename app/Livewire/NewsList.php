@@ -72,7 +72,7 @@ class NewsList extends Component
 
     #[On('search')]
     public function updateSearch($search){
-        dd('Get');
+       // dd('Get');
         //$this->reset('search','category','tag');
         //$this->search = $search;
         //$this->redirect
