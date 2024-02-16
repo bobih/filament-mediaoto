@@ -6,7 +6,7 @@
             <div class="grid">
 
                 <div class="grid__item  three-quarters  portable-one-whole">
-                    <div class="heading py-4">
+                    <div class="text-justify heading py-4">
                         <p class="py-2 text-lg font-medium text-gray-900 dark:text-white">Selamat Datang di Jaringan mediaoto</p>
                         <p>Kami www.mediaoto.id, sebagai bagian dari jaringan <a
                                 href="https://www.mediaoto.id/">www.mediaoto.id</a>
@@ -35,7 +35,7 @@
                             </button>
                           </h2>
                         <div  id="accordion-collapse-jaringan-body" class="hidden" aria-labelledby="accordion-collapse-jaringan-heading">
-                            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                            <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                                 <ol style="list-style: upper-alpha" class="ps-5 mt-2 space-y-1 list-inside">
                                     <li>mediaoto menerbitkan atau menyediakan informasi jaringan mediaoto, iklan, produk dan
                                         penawaran layanan, data kendaraan, valuasi, software dan link, dan konten lain yang dipasok
@@ -61,7 +61,7 @@
                         </button>
                       </h2>
                     <div  id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Kebijakan Privasi ini mencakup perlakuan situs terhadap data pribadi yang dikumpulkan ketika Anda
                                 berada di situs ini dan saat Anda menggunakan layanannya. Kebijakan ini juga menjelaskan
                                 bagaimana perusahaan mengungkapkan data pribadi Anda. Kebijakan ini tidak menggambarkan
@@ -84,7 +84,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Situs ini mengumpulkan Data Pribadi atau badan terkait yang dianggap perlu untuk perusahaan
                                 menyediakan berbagai layanan yang mereka tawarkan. Informasi yang kami kumpulkan secara umum
                                 terbagi dalam dua kategori: </p>
@@ -212,7 +212,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-cookies" class="hidden" aria-labelledby="accordion-collapse-heading-cookies">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p class="py-2 text-lg font-medium text-gray-900 dark:text-white">Cookies</p>
                             <p>Cookie digunakan untuk memantau penggunaan situs dan untuk mengumpulkan informasi seperti bagian
                                 dari situs mana yang sering dikunjungi serta informasi penggunaan situs lain.</p>
@@ -246,7 +246,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-perangkat" class="hidden" aria-labelledby="accordion-collapse-heading-perangkat">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Web server kami (dan/atau server web yang dioperasikan oleh penyedia layanan kami) secara
                                 otomatis mengumpulkan dan dapat menyimpan informasi yang terbatas tentang konfigurasi komputer
                                 Anda ketika Anda mengunjungi website kami, termasuk:</p>
@@ -280,7 +280,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-analytic" class="hidden" aria-labelledby="accordion-collapse-heading-analytic">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Kami dapat mengumpulkan atau memiliki, data tentang bagaimana pengunjung menggunakan dan
                                 bernavigasi melalui situs kami. Seperti, jumlah pengguna yang mengunjungi berbagai halaman dalam
                                 situs, apa yang mereka klik, apakah mereka gulir ke atas atau bawah pada halaman tertentu,
@@ -300,7 +300,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-iklan" class="hidden" aria-labelledby="accordion-collapse-heading-iklan">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Situs ini memiliki hubungan dengan jaringan pengiklan pihak ketiga tertentu dan layanan iklan
                                 ("Iklan Layanan") yang mengumpulkan data, atau pesan pemasaran lain yang Anda lihat di situs
                                 kami dan situs lainnya serta pada aplikasi mobile, termasuk situs yang dimiliki dan/atau
@@ -326,7 +326,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-pribadi" class="hidden" aria-labelledby="accordion-collapse-heading-pribadi">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>mediaoto mungkin saja menggunakan, memproses, mentransfer, dan/atau mengungkapkan data pribadi
                                 Anda untuk berbagai tujuan, antara lain namun tidak terbatas pada:</p>
                             <ol style="list-style: lower-alpha" class="ps-5 mt-2 space-y-1 list-decimal list-inside">
@@ -373,7 +373,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-setuju" class="hidden" aria-labelledby="accordion-collapse-heading-setuju">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Jika Anda tidak setuju untuk mediaoto memproses Data Pribadi Anda untuk tujuan yang tercantum di
                                 atas, Anda dapat menolak atau menarik kembali persetujuan Anda kepada kami untuk mengumpulkan,
                                 menggunakan, atau mengungkapkan data pribadi Anda dengan memberi kami pemberitahuan yang wajar.
@@ -457,7 +457,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-hyperlink" class="hidden" aria-labelledby="accordion-collapse-heading-hyperlink">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Ketika Anda berada di situs ini, Anda dapat diarahkan ke situs lain yang berada di luar kendali
                                 kita, termasuk hyperlink ke pengiklan, pedagang, sponsor, dan mitra konten.</p>
                             <p>Ketika Anda mengklik pada hyperlink yang meninggalkan situs ini, Anda akan diarahkan ke sesuatu
@@ -477,7 +477,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-kids" class="hidden" aria-labelledby="accordion-collapse-heading-kids">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Situs kami tidak diasarankan untuk anak usia di bawah 18 tahun dan kami sadar tidak akan
                                 membiarkan siapapun di bawah usia 18 tahun untuk memberikan kami informasi identitas pribadi.
                                 Jika Anda berusia di bawah 18 tahun, jangan memberikan informasi apapun tentang diri Anda pada
@@ -495,7 +495,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-intl" class="hidden" aria-labelledby="accordion-collapse-heading-intl">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Situs ini dimaksudkan untuk digunakan oleh pengunjung di Indonesia. Perlu diketahui bahwa:</p>
                             <ol class="ps-5 mt-2 space-y-1 list-decimal list-inside">
                                 <li>Database kami tersimpan di server dan perangkat penyimpanan yang berlokasi di Indonesia,
@@ -523,7 +523,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-tgl" class="hidden" aria-labelledby="accordion-collapse-heading-tgl">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Kebijakan Privasi ini berlaku sejak Agustus 2023.</p>
                             <p>Kebijakan Privasi ini telah diperbaharui pada 1 November 2023.</p>
                       </div>
@@ -540,7 +540,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-perubahan" class="hidden" aria-labelledby="accordion-collapse-heading-perubahan">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Kami dapat merevisi ketentuan ini dari waktu ke waktu, versi terbaru selalu dapat ditemukan di
                                 sini. Perusahaan menyarankan Anda untuk meninjau kebijakan ini secara berkala untuk menyadari
                                 modifikasi tersebut. Dengan terus mengakses atau menggunakan layanan setelah di
@@ -559,7 +559,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-keamanan" class="hidden" aria-labelledby="accordion-collapse-heading-keamanan">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>Situs ini menggunakan upaya terbaik untuk menyimpan semua Data Pribadi pada server dengan akses
                                 terbatas, dan semua penyimpanan elektronik dan transmisi Data Pribadi dijamin dengan teknologi
                                 keamanan yang sesuai. Tidak untuk menahan hal tersebut, situs tidak dapat menjamin bahwa
@@ -578,7 +578,7 @@
                         </button>
                       </h2>
                       <div  id="accordion-collapse-body-hapus" class="hidden" aria-labelledby="accordion-collapse-heading-hapus">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 text-justify border border-b-0 border-gray-200 dark:border-gray-700">
                             <p>
                                 Anda berhak setiap saat untuk meminta kami membatasi pemrosesan dan penggunaan data pribadi
                                 Anda. Permintaan tertulis Anda harus ditujukan kepada Pejabat Kepatuhan kami di kolom Contact
