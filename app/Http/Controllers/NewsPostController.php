@@ -146,13 +146,28 @@ class NewsPostController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function category(string $category)
+=======
+    public function category($category)
+>>>>>>> 5eaf0128b23c9db8e6ad46284613658dc071fb69
     {
         GoogleTagManager::set('pageType', 'news-category');
         $agent = new Agent();
 
         //dd($category);
+        if (env('APP_ENV', 'local') == 'production') {
+            $newsResponse = Cache::remember('newsCategoryResponse', Carbon::now()->addDay(), function () use ($category) {
+                return NewsPost::when(NewsCategory::where('slug', $category)->first(), function ($query) use ($category) {
+                    $query->withCategory($category);
+                })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            });
 
+            $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
+                return NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            });
+
+<<<<<<< HEAD
         $newsResponse =  NewsPost::when(NewsCategory::where('slug', $category)->first(), function ($query) use ($category) {
             $query->withCategory($category);
         })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
@@ -162,6 +177,24 @@ class NewsPostController extends Controller
         })->take(10)->get();
 
 
+=======
+            $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
+                return NewsCategory::whereHas('posts', function ($query) {
+                    $query->published();
+                })->take(10)->get();
+            });
+        } else {
+            $newsResponse =  NewsPost::when(NewsCategory::where('slug', $category)->first(), function ($query) use ($category) {
+                $query->withCategory($category);
+            })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+        }
+
+>>>>>>> 5eaf0128b23c9db8e6ad46284613658dc071fb69
         // $this->dispatch('category',category: $category);
 
         return view('news.index', [
@@ -179,6 +212,7 @@ class NewsPostController extends Controller
         GoogleTagManager::set('pageType', 'news-search');
         $agent = new Agent();
 
+<<<<<<< HEAD
         // dd($search);
 
         $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
@@ -191,6 +225,40 @@ class NewsPostController extends Controller
         })->take(10)->get();
 
 
+=======
+
+
+
+
+        if (env('APP_ENV', 'local') == 'production') {
+            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
+                return NewsPost::where('title', 'like', "%{$search}%")
+                    ->with('categories', 'media', 'tags', 'author')
+                    ->published()
+                    ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            });
+
+            $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
+                return NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            });
+
+            $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
+                return NewsCategory::whereHas('posts', function ($query) {
+                    $query->published();
+                })->take(10)->get();
+            });
+        } else {
+            $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
+                ->with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+        }
+>>>>>>> 5eaf0128b23c9db8e6ad46284613658dc071fb69
         // $this->dispatch('category',category: $category);
 
         return view('news.index', [
@@ -207,8 +275,20 @@ class NewsPostController extends Controller
         GoogleTagManager::set('pageType', 'news-tag');
         $agent = new Agent();
 
-        //dd($category);
+        if (env('APP_ENV', 'local') == 'production') {
+            $newsResponse = Cache::remember('newsTagResponse', Carbon::now()->addDay(), function () use ($tag) {
+                return NewsPost::with('categories', 'media', 'tags', 'author')
+                    ->published()
+                    ->when(NewsPost::withAllTags([$tag])->first(), function ($query) use ($tag) {
+                        $query->withAllTags([$tag]);
+                    })
+                    ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            });
+            $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
+                return NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            });
 
+<<<<<<< HEAD
         $newsResponse =  NewsPost::with('categories', 'media', 'tags', 'author')
             ->published()
             ->when(NewsPost::withAllTags([$tag])->first(), function ($query) use ($tag) {
@@ -219,6 +299,28 @@ class NewsPostController extends Controller
         $newscategories = NewsCategory::whereHas('posts', function ($query) {
             $query->published();
         })->take(10)->get();
+=======
+            $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
+                return NewsCategory::whereHas('posts', function ($query) {
+                    $query->published();
+                })->take(10)->get();
+            });
+        } else {
+            $newsResponse =  NewsPost::with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->when(NewsPost::withAllTags([$tag])->first(), function ($query) use ($tag) {
+                    $query->withAllTags([$tag]);
+                })
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+        }
+
+
+
+>>>>>>> 5eaf0128b23c9db8e6ad46284613658dc071fb69
 
 
         // $this->dispatch('category',category: $category);
