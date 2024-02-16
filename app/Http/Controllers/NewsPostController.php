@@ -16,6 +16,7 @@ use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
 class NewsPostController extends Controller
 {
+
     public function index()
     {
 
@@ -122,6 +123,89 @@ class NewsPostController extends Controller
             "related" => $newsRelated,
             'metaproduct' => $metaProduct,
             'agent'=>$agent,
+        ]);
+    }
+
+
+    public function category(string $category){
+        GoogleTagManager::set('pageType', 'news-category');
+        $agent = new Agent();
+
+        //dd($category);
+
+            $newsResponse =  NewsPost::when(NewsCategory::where('slug',$category)->first(), function($query) use($category){
+                $query->withCategory($category);
+            })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+
+
+           // $this->dispatch('category',category: $category);
+
+        return view('news.index', [
+            "posts" => $newsResponse,
+            "latest" => $newsLatest,
+            "categories" => $newscategories,
+            "agent" => $agent
+        ]);
+    }
+
+
+
+    public function search(string $search){
+        GoogleTagManager::set('pageType', 'news-search');
+        $agent = new Agent();
+
+       // dd($search);
+
+            $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
+            ->with('categories','media','tags','author')
+            ->published()
+            ->orderBy('published_at','desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+
+
+           // $this->dispatch('category',category: $category);
+
+        return view('news.index', [
+            "posts" => $newsResponse,
+            "latest" => $newsLatest,
+            "categories" => $newscategories,
+            "agent" => $agent
+        ]);
+    }
+
+
+    public function tag(string $tag){
+        GoogleTagManager::set('pageType', 'news-tag');
+        $agent = new Agent();
+
+        //dd($category);
+
+            $newsResponse =  NewsPost::with('categories','media','tags','author')
+            ->published()
+            ->when(NewsPost::withAllTags([$tag])->first(), function($query) use($tag){
+                $query->withAllTags([$tag]);
+            })
+            ->orderBy('published_at','desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+
+
+           // $this->dispatch('category',category: $category);
+
+        return view('news.index', [
+            "posts" => $newsResponse,
+            "latest" => $newsLatest,
+            "categories" => $newscategories,
+            "agent" => $agent
         ]);
     }
 

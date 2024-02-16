@@ -6,24 +6,23 @@ use App\Models\NewsPost;
 use Jenssegers\Agent\Agent;
 use Livewire\Attributes\On;
 use App\Models\NewsCategory;
-use Livewire\Attributes\Url;
+
 use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Illuminate\Http\Client\Request;
+use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class NewsList extends Component
 {
     use WithPagination;
-    #[Url]
     public $search = '';
 
     protected $queryString = ['search'];
 
-    #[Url]
     public $category = '';
 
 
-    #[Url]
+
     public $tag = '';
 
     public $perPage = 3;
@@ -73,9 +72,18 @@ class NewsList extends Component
 
     #[On('search')]
     public function updateSearch($search){
-        $this->reset('search','category','tag');
-        $this->search = $search;
+        //$this->reset('search','category','tag');
+        //$this->search = $search;
+        //$this->redirect
+        $this->redirect('/news/search/'.$search,true);
     }
+
+    #[On('category')]
+    public function updateCategory($category){
+        $this->reset('search','category','tag');
+        $this->category = $category;
+    }
+
 
 
     public function loadMore()
@@ -87,4 +95,29 @@ class NewsList extends Component
     {
         return view('livewire.news-list');
     }
+
+    public function boot()
+    {
+        //dd(Url::current());
+
+        if(Url::currentRoute() == 'news.category'){
+            $this->reset('search','category','tag');
+           $arrUrl = explode ("/", Url::current());
+           $category = $arrUrl [(count ($arrUrl) - 1)];
+           $this->category = $category;
+
+        } else if(Url::currentRoute() == 'news.search'){
+            $this->reset('search','category','tag');
+           $arrUrl = explode ("/", Url::current());
+           $search = $arrUrl [(count ($arrUrl) - 1)];
+           $this->search = $search;
+
+        } else if(Url::currentRoute() == 'news.tag'){
+            $this->reset('search','category','tag');
+           $arrUrl = explode ("/", Url::current());
+           $tag = $arrUrl [(count ($arrUrl) - 1)];
+           $this->tag = $tag;
+
+        }
+}
 }

@@ -23,6 +23,11 @@ Route::get('/privacy', [HomeController::class,'privacy'])->name('privacy');
 Route::get('/news', [NewsPostController::class,'index'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsPostController::class,'show'])->name('news.show');
 
+Route::get('/news/category/{category}', [NewsPostController::class,'category'])->name('news.category');
+Route::get('/news/search/{search}', [NewsPostController::class,'search'])->name('news.search');
+Route::get('/news/tag/{tag}', [NewsPostController::class,'tag'])->name('news.tag');
+
+
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get("/getnews",  [NewsPostController::class, 'getNews']);

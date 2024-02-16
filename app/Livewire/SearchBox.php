@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
-
+use Illuminate\Support\Str;
 use Livewire\Attributes\Session;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Http;
@@ -15,7 +15,6 @@ use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class SearchBox extends Component
 {
-    #[Url]
     public $search = '';
     public $captcha = 0;
 
@@ -61,14 +60,14 @@ class SearchBox extends Component
     public function updatedSearch($search){
         //$this->search = $search;
 
-        $this->dispatch('search',search: $this->search);
+       // $this->dispatch('search',search: $this->search);
     }
 
     public function updateSearch(){
 
         // Check if current page is detail
 
-
+        /*
         if(Url::currentRoute() == 'news.show'){
             // redrect to news
             $this->redirect('/news?search='.$this->search,true);
@@ -81,12 +80,28 @@ class SearchBox extends Component
         } else {
             $this->dispatch('search',search: $this->search);
         }
-    }
+        */
+        if($this->search == ""){
+            $this->redirect('/news',true);
+
+        } else {
+            $this->redirect('/news/search/'.Str::slug($this->search),true);
+        }
 
     }
 
     public function render()
     {
         return view('livewire.search-box');
+    }
+
+    public function boot()
+    {
+        //dd(Url::current());
+         if(Url::currentRoute() == 'news.search'){
+           $arrUrl = explode ("/", Url::current());
+           $search = $arrUrl [(count ($arrUrl) - 1)];
+           $this->search = Str::of($search)->replace('-', ' ');
+        }
     }
 }
