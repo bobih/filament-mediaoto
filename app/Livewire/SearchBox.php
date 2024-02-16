@@ -18,9 +18,6 @@ class SearchBox extends Component
     public $search = '';
     public $captcha = 0;
 
-    protected $rules = [
-        'search' => 'required|min:6|max:20'
-    ];
     protected $queryString = ['search'];
 
     public function updatedCaptcha($token)

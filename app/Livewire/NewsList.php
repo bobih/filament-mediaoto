@@ -17,7 +17,7 @@ class NewsList extends Component
     use WithPagination;
     public $search = '';
 
-    protected $queryString = ['search'];
+    //protected $queryString = ['search'];
 
     public $category = '';
 
