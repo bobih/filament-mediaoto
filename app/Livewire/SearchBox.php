@@ -37,7 +37,7 @@ class SearchBox extends Component
         }
 
         }
-        //dd($this);
+        dd($this);
 
        //dd($this->captcha);
 
