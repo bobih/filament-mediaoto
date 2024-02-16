@@ -20,6 +20,8 @@ class NewsPostController extends Controller
     public function index()
     {
 
+
+
         $request = request();
         if ($request->has('search')) {
             //dd($request->input('search'));
