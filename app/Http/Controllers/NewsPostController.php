@@ -19,6 +19,16 @@ class NewsPostController extends Controller
 
     public function index()
     {
+        $request = request();
+        if ($request->has('search')) {
+            //dd($request->input('search'));
+            return to_route('news.search', ['search' => $request->input('search')]);
+        } else if ($request->has('category')) {
+            return to_route('news.category', ['category' => $request->input('category')]);
+        } else if ($request->has('tag')) {
+            return to_route('news.tag', ['tag' => $request->input('tag')]);
+        }
+
 
         GoogleTagManager::set('pageType', 'news');
         $agent = new Agent();
@@ -64,12 +74,12 @@ class NewsPostController extends Controller
 
 
 
-          // echo '<script type="application/ld+json">';
+        // echo '<script type="application/ld+json">';
         //echo  json_encode($meta['product']);
-            //echo '</script>';
-              //  echo '<script type="application/ld+json">';
-             //   echo  json_encode($meta['listItems']);
-              //  echo '</script>';
+        //echo '</script>';
+        //  echo '<script type="application/ld+json">';
+        //   echo  json_encode($meta['listItems']);
+        //  echo '</script>';
 
 
     }
@@ -98,10 +108,8 @@ class NewsPostController extends Controller
             $metaProduct = [];
             if ($news->car_model) {
                 $controller = new MetaController();
-                $metaProduct = $controller->getMetaProduct($news->car_model,$news);
+                $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
-
-
         } else {
             $newsRelated =  NewsPost::whereNotIn('id', [$news->id])->inRandomOrder()->with('categories', 'media', 'tags', 'author')->take(3)->get();
 
@@ -110,7 +118,7 @@ class NewsPostController extends Controller
             $metaProduct = [];
             if ($news->car_model) {
                 $controller = new MetaController();
-                $metaProduct = $controller->getMetaProduct($news->car_model,$news);
+                $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
 
 
@@ -122,27 +130,28 @@ class NewsPostController extends Controller
             "post" => $news,
             "related" => $newsRelated,
             'metaproduct' => $metaProduct,
-            'agent'=>$agent,
+            'agent' => $agent,
         ]);
     }
 
 
-    public function category(string $category){
+    public function category(string $category)
+    {
         GoogleTagManager::set('pageType', 'news-category');
         $agent = new Agent();
 
         //dd($category);
 
-            $newsResponse =  NewsPost::when(NewsCategory::where('slug',$category)->first(), function($query) use($category){
-                $query->withCategory($category);
-            })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
-            $newscategories = NewsCategory::whereHas('posts', function ($query) {
-                $query->published();
-            })->take(10)->get();
+        $newsResponse =  NewsPost::when(NewsCategory::where('slug', $category)->first(), function ($query) use ($category) {
+            $query->withCategory($category);
+        })->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+        $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+        $newscategories = NewsCategory::whereHas('posts', function ($query) {
+            $query->published();
+        })->take(10)->get();
 
 
-           // $this->dispatch('category',category: $category);
+        // $this->dispatch('category',category: $category);
 
         return view('news.index', [
             "posts" => $newsResponse,
@@ -154,23 +163,24 @@ class NewsPostController extends Controller
 
 
 
-    public function search(string $search){
+    public function search(string $search)
+    {
         GoogleTagManager::set('pageType', 'news-search');
         $agent = new Agent();
 
-       // dd($search);
+        // dd($search);
 
-            $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
-            ->with('categories','media','tags','author')
+        $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
+            ->with('categories', 'media', 'tags', 'author')
             ->published()
-            ->orderBy('published_at','desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
-            $newscategories = NewsCategory::whereHas('posts', function ($query) {
-                $query->published();
-            })->take(10)->get();
+            ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+        $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+        $newscategories = NewsCategory::whereHas('posts', function ($query) {
+            $query->published();
+        })->take(10)->get();
 
 
-           // $this->dispatch('category',category: $category);
+        // $this->dispatch('category',category: $category);
 
         return view('news.index', [
             "posts" => $newsResponse,
@@ -181,25 +191,26 @@ class NewsPostController extends Controller
     }
 
 
-    public function tag(string $tag){
+    public function tag(string $tag)
+    {
         GoogleTagManager::set('pageType', 'news-tag');
         $agent = new Agent();
 
         //dd($category);
 
-            $newsResponse =  NewsPost::with('categories','media','tags','author')
+        $newsResponse =  NewsPost::with('categories', 'media', 'tags', 'author')
             ->published()
-            ->when(NewsPost::withAllTags([$tag])->first(), function($query) use($tag){
+            ->when(NewsPost::withAllTags([$tag])->first(), function ($query) use ($tag) {
                 $query->withAllTags([$tag]);
             })
-            ->orderBy('published_at','desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
-            $newscategories = NewsCategory::whereHas('posts', function ($query) {
-                $query->published();
-            })->take(10)->get();
+            ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+        $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+        $newscategories = NewsCategory::whereHas('posts', function ($query) {
+            $query->published();
+        })->take(10)->get();
 
 
-           // $this->dispatch('category',category: $category);
+        // $this->dispatch('category',category: $category);
 
         return view('news.index', [
             "posts" => $newsResponse,
