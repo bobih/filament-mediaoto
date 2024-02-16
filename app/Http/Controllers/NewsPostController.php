@@ -214,7 +214,6 @@ class NewsPostController extends Controller
                 $query->published();
             })->take(10)->get();
         }
-        // $this->dispatch('category',category: $category);
 
         return view('news.index', [
             "posts" => $newsResponse,
