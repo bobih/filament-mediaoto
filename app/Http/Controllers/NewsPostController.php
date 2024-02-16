@@ -30,6 +30,17 @@ class NewsPostController extends Controller
         }
 
 
+        $request = request();
+        if ($request->has('search')) {
+            //dd($request->input('search'));
+            return to_route('news.search', ['search' => $request->input('search')]);
+        } else if ($request->has('category')) {
+            return to_route('news.category', ['category' => $request->input('category')]);
+        } else if ($request->has('tag')) {
+            return to_route('news.tag', ['tag' => $request->input('tag')]);
+        }
+
+
         GoogleTagManager::set('pageType', 'news');
         $agent = new Agent();
 
