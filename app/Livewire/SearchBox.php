@@ -37,9 +37,6 @@ class SearchBox extends Component
         }
 
         }
-        dd($this);
-
-       //dd($this->captcha);
 
         if ($this->captcha > .3) {
             $this->updateSearch();
