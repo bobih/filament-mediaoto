@@ -25,7 +25,6 @@
             </div>
             @if ($agent->isMobile())
             <div class="flex w-full justify-between ">
-                <?php /*
                 <div class="block md:hidden">
                     <button title="getstarted" x-data={} x-on:click="$dispatch('open-modal')"
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
@@ -33,19 +32,7 @@
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
-                */ ?>
 
-                <div class="block md:hidden">
-                       <a title="android" target="_blank" rel="noopener noreferrer"
-                       href="https://play.google.com/store/apps/details?id=id.mediaoto.apps"
-                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg aria-hidden="true" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="m12.954 11.616 2.957-2.957L6.36 3.291c-.633-.342-1.226-.39-1.746-.016l8.34 8.341zm3.461 3.462 3.074-1.729c.6-.336.929-.812.929-1.34 0-.527-.329-1.004-.928-1.34l-2.783-1.563-3.133 3.132 2.841 2.84zM4.1 4.002c-.064.197-.1.417-.1.658v14.705c0 .381.084.709.236.97l8.097-8.098L4.1 4.002zm8.854 8.855L4.902 20.91c.154.059.32.09.495.09.312 0 .637-.092.968-.276l9.255-5.197-2.666-2.67z">
-                            </path>
-                        </svg>
-                        <span class="text-left ml-2">Download on<br />Google Play</span>
-                    </a>
-                </div>
             </div>
             @endif
 
@@ -63,7 +50,7 @@
         </div>
 
 
-        <div class="block md:hidden">
+        <div class="text-right">
             <a title="android" target="_blank" rel="noopener noreferrer"
             href="https://play.google.com/store/apps/details?id=id.mediaoto.apps"
              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
