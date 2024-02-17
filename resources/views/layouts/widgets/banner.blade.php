@@ -42,10 +42,10 @@
                         </svg>
 
                         <div class="w-full flex flex-wrap shrink ">
-                            <span class="flex-1">
+                            <span class="">
                                 Download on
                             </span>
-                            <span class="flex-1">
+                            <span class="">
                                 Google Play
                             </span>
                         </div>
