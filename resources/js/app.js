@@ -2,6 +2,8 @@ import './bootstrap';
 import 'flowbite';
 import './darktogle';
 import './notif';
+import { initializeApp } from "firebase/app";
+import { getMessaging } from "firebase/messaging";
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
@@ -9,6 +11,36 @@ import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 initFlowbite();
 initTE({ Animate, Ripple, Carousel });
 Observer.start();
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
+    authDomain: "mediaoto-b3ac5.firebaseapp.com",
+    projectId: "mediaoto-b3ac5",
+    storageBucket: "mediaoto-b3ac5.appspot.com",
+    messagingSenderId: "676189219899",
+    appId: "1:676189219899:web:0deaa956dfaafb4eb0001e",
+    measurementId: "G-Q7LP278P3T"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const messaging = getMessaging(app);
+
+
+  getToken(messaging, { vapidKey: 'AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq' }).then((currentToken) => {
+    if (currentToken) {
+      console.log(currentToken);
+    } else {
+      // Show permission request UI
+      console.log('No registration token available. Request permission to generate one.');
+      // ...
+    }
+  }).catch((err) => {
+    console.log('An error occurred while retrieving token. ', err);
+    // ...
+  });
+
+
 
 document.addEventListener('livewire:navigated', () => {
     console.log('navigated');
