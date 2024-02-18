@@ -43,20 +43,8 @@ class FcmController extends Controller
 
             "title" => 'Mediaoto News',
             "body" => "Ini Produk yang Kena Recall Toyota di Tahun 2024",
-            "icon" => '',
-            "color" => '',
-            "sound" => '',
-            "LinkUrl" => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
-            "tag" => 'tag',
-            "click_action" => 'https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian',
-            "body_loc_key" => 'body_lock_key',
-            "body_loc_args" => array(
-                "body_loc"
-            ),
-            "title_loc_key" => 'title_loc',
-            "title_loc_args" => array(
-                'Title_loc'
-            ),
+            "topic" => "industry-tech",
+
 
         );
 
@@ -116,11 +104,13 @@ class FcmController extends Controller
           */
 
         $message = array(
-            "notification" => $params,
-            "webpush" => $webpush,
+            "topic" => "industry-tech",
+            "notification" => array(
+              "title" => "Sparky says hello!",
+            ),
             "android" => $android,
             "apns"  => $apns,
-            "data" => $data,
+            "webpush" => $webpush,
             "to" => $userToken,
         );
 
