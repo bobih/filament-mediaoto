@@ -43,7 +43,7 @@ class FcmController extends Controller
 
             "title" => 'Mediaoto News',
             "body" => "Ini Produk yang Kena Recall Toyota di Tahun 2024",
-            "icon" => 'https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp',
+            "icon" => '',
             "color" => '',
             "sound" => '',
             "LinkUrl" => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
