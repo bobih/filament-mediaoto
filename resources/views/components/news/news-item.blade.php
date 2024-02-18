@@ -1,8 +1,5 @@
 @props(['post', 'categories'])
-<?php /* Ignore */ ?>
-
-
-<article wire:ignore
+<article
     class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
     <div class="-mt-20 md:mt-0  md:px-4 pb-4 md:w-full" >
         <a wire:navigate title="{{ $post->title }}" alt="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
