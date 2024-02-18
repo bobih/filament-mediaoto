@@ -5,7 +5,7 @@ data-te-animation-init
             data-te-animation-on-scroll="repeat"
             data-te-animation-show-on-load="false"
             data-te-animation-reset="true"
-            data-te-animation="[fly-in-right_1s_ease-in-out]"
+            data-te-animation="[fly-in-right_0.5s_ease-in-out]"
  class=" bg-[#172554] dark:bg-gray-700">
     <div class=" w-full absolute ">
         <div
