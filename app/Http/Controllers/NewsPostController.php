@@ -234,12 +234,16 @@ class NewsPostController extends Controller
 
 
         //dd($newsResponse);
+        /*
         return view('news.index', [
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
             "agent" => $agent
         ]);
+        */
+
+        return view('news.index');
     }
 
 
@@ -284,13 +288,15 @@ class NewsPostController extends Controller
 
 
         // $this->dispatch('category',category: $category);
-
+        /*
         return view('news.index', [
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
             "agent" => $agent
         ]);
+        */
+        return view('news.index');
     }
 
 
