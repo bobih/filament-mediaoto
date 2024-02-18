@@ -13,7 +13,7 @@ class FcmController extends Controller
 {
 
     public function setToken($request){
-
+        dd($request);
         $fcmtoken = trim($request['fcmtoken']);
         $fmweb = FcmWeb::create([
             'fcmtoken' => $fcmtoken,
