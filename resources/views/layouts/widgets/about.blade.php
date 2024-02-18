@@ -1,5 +1,5 @@
 <div id="aboutus" class="-mt-32  md:pt-28 mb-20 md:mb-5"></div>
-<section class=" bg-[#172554] dark:bg-gray-700">
+<section class=" bg-[#172554] dark:bg-gray-700 intersect:bg-indigo-600 transition-colors">
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
@@ -127,12 +127,7 @@
 
             </div>
         </div>
-        <div data-te-animation-init
-        data-te-animation-start="onScroll"
-        data-te-animation-on-scroll="repeat"
-        data-te-animation-show-on-load="false"
-        data-te-animation-reset="true"
-        data-te-animation="[fade-in_0.5s_ease-in-out]" class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+        <div  class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
             <p class="mb-4">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4">{{__('home.aboutus.content3')}}</p>

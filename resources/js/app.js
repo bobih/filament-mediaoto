@@ -3,6 +3,8 @@ import 'flowbite';
 import './darktogle';
 import './notif';
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
+import Observer from 'tailwindcss-intersect';
+
 import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 initFlowbite();
 initTE({ Animate, Ripple, Carousel });
@@ -12,6 +14,8 @@ document.addEventListener('livewire:navigated', () => {
     console.log('navigated');
     initFlowbite();
     initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
+
+    Observer.start();
 
     setTimeout(function () {
         var head = document.getElementsByTagName('head')[0];

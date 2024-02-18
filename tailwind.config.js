@@ -81,6 +81,7 @@ export default {
         typography,
         require('flowbite/plugin'),
         require('./node_modules/tw-elements/dist/plugin.cjs'),
+        require('tailwindcss-intersect'),
     ],
 
 };
