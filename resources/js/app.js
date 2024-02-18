@@ -3,7 +3,7 @@ import 'flowbite';
 import './darktogle';
 import './notif';
 import { initializeApp } from "firebase/app";
-import { getMessaging } from "firebase/messaging";
+import { getMessaging, getToken } from "firebase/messaging";
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
