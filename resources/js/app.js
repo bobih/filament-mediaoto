@@ -37,7 +37,7 @@ setTimeout(function () {
         if (currentToken) {
             //console.log(currentToken);
            navigator.sendBeacon(
-                '/settoken?fcmtoken=${currentToken}'
+                `/settoken?fcmtoken=${currentToken}`
            );
 
 
