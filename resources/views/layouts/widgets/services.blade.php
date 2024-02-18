@@ -25,7 +25,7 @@
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
+            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
                     src="https://www.mediaoto.id/images/services_2.webp" alt="Media Buying Agency"
                     title="Media Buying Agency">
@@ -52,7 +52,7 @@
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 duration-500  hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
+            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75  hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
                     src="https://www.mediaoto.id/images/services_4.webp" alt="Rich Media Banner Placement"
                     title="Rich Media Banner Placement">
