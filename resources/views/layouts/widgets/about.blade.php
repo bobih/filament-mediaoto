@@ -131,9 +131,9 @@
             </div>
         </div>
         <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
-            <p class="mb-4 scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">{{__('home.aboutus.content1')}}</p>
-            <p class="mb-4">{{__('home.aboutus.content2')}}</p>
-            <p class="mb-4">{{__('home.aboutus.content3')}}</p>
+            <p class="mb-4 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-200">{{__('home.aboutus.content1')}}</p>
+            <p class="mb-4 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-500">{{__('home.aboutus.content2')}}</p>
+            <p class="mb-4 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">{{__('home.aboutus.content3')}}</p>
 
 
             <?php /*
