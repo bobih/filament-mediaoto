@@ -25,7 +25,7 @@
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 duration-500  hover:filter-none">
+            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
                     src="https://www.mediaoto.id/images/services_2.webp" alt="Media Buying Agency"
                     title="Media Buying Agency">
