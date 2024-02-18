@@ -14,6 +14,7 @@ class FcmController extends Controller
 
     public function setToken(Request $request){
         $fcmtoken = trim($request['fcmtoken']);
+        dd($fcmtoken);
         $fmweb = FcmWeb::create([
             'fcmtoken' => $fcmtoken,
             'created_at' => Carbon::now()
