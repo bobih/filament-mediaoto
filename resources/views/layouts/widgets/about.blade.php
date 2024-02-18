@@ -130,13 +130,8 @@
 
             </div>
         </div>
-        <div data-te-animation-init
-        data-te-animation-start="onScroll"
-        data-te-animation-on-scroll="repeat"
-        data-te-animation-show-on-load="false"
-        data-te-animation-reset="true"
-        data-te-animation="[fly-in-left_0.5s]" class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
-            <p class="mb-4">{{__('home.aboutus.content1')}}</p>
+        <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+            <p class="mb-4 scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4">{{__('home.aboutus.content3')}}</p>
 
