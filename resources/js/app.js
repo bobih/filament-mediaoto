@@ -8,7 +8,7 @@ import Observer from 'tailwindcss-intersect';
 import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 initFlowbite();
 initTE({ Animate, Ripple, Carousel });
-
+Observer.start();
 
 document.addEventListener('livewire:navigated', () => {
     console.log('navigated');
