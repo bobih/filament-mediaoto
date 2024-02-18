@@ -46,6 +46,7 @@ class FcmController extends Controller
             "icon" => 'https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp',
             "color" => '',
             "sound" => '',
+            "LinkUrl" => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
             "tag" => 'tag',
             "click_action" => 'https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian',
             "body_loc_key" => 'body_lock_key',
@@ -72,8 +73,16 @@ class FcmController extends Controller
 
         );
 
+        $webpush = array(
+            "headers" => array(
+                "image" => "https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
+            ),
+        );
+
+
         $message = array(
             "notification" => $params,
+            "webpush" => $webpush,
             "data" => $data,
             "to" => $userToken,
         );
