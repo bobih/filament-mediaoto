@@ -3,10 +3,11 @@
 namespace App\Livewire;
 use Livewire\Component;
 use App\Models\NewsPost;
+use Illuminate\Support\Str;
 use Jenssegers\Agent\Agent;
 use Livewire\Attributes\On;
-use App\Models\NewsCategory;
 
+use App\Models\NewsCategory;
 use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Illuminate\Http\Client\Request;
@@ -32,7 +33,8 @@ class NewsList extends Component
 
         $agent = new Agent();
 
-        $response = NewsPost::where('title', 'like', "%{$this->search}%")
+
+        $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
                     ->with('categories','media','tags','author')
                     ->published()
                     ->orderBy('published_at','desc')
@@ -111,6 +113,7 @@ class NewsList extends Component
             $this->reset('search','category','tag');
            $arrUrl = explode ("/", Url::current());
            $search = $arrUrl [(count ($arrUrl) - 1)];
+           $search = Str::of($search)->replace('-', ' ');
            $this->search = $search;
 
         } else if(Url::currentRoute() == 'news.tag'){
