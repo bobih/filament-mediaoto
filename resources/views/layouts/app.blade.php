@@ -273,7 +273,6 @@
         crossorigin="anonymous"></script>
     @endif
     */ ?>
-    <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
 
     <?php /* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" /> */ ?>
 
@@ -305,6 +304,7 @@
     <script>
         window.filamentData = []    </script>
     @livewireScripts
+    <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
 
 </body>
 </html>
