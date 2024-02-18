@@ -220,6 +220,17 @@ class NewsPostController extends Controller
             })->take(10)->get();
         }
 
+
+        $newsResponse =  NewsPost::where('title', 'LIKE', "%".$search."%")
+        ->with('categories', 'media', 'tags', 'author')
+        ->published()
+        ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+    $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+    $newscategories = NewsCategory::whereHas('posts', function ($query) {
+        $query->published();
+    })->take(10)->get();
+
         dd($newsResponse);
 
         return view('news.index', [
