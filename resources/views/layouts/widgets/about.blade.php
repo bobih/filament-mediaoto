@@ -6,7 +6,7 @@ data-te-animation-reset="true"
 data-te-animation-start="manually"
 data-te-animation="[fly-in-left_0.5s]"
 data-te-animation-show-on-load="false"
- class=" bg-[#172554] dark:bg-gray-700 intersect:bg-indigo-600  transition duration-700">
+ class=" bg-[#172554] dark:bg-gray-700">
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
