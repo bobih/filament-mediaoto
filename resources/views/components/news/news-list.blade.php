@@ -1,5 +1,5 @@
 @props(['posts','categories','agent'])
-<section class="pt-20  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
+<section class="pt-20  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900 scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
     <div class="w-full max-w-screen-xl grid grid-cols-4 gap-4">
         <div class="pt-16 md:pt-4 md:col-span-3 col-span-4">
             <div id="posts" class="mb-4 px-3 lg:px-7 ms:py-6">
