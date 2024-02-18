@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CronController;
 use App\Http\Controllers\ArtisanController;
+use App\Http\Controllers\FcmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsPostController;
 
@@ -26,6 +27,8 @@ Route::get('/news/{news:slug}', [NewsPostController::class,'show'])->name('news.
 Route::get('/news/category/{category}', [NewsPostController::class,'category'])->name('news.category');
 Route::get('/news/search/{search}', [NewsPostController::class,'search'])->name('news.search');
 Route::get('/news/tag/{tag}', [NewsPostController::class,'tag'])->name('news.tag');
+
+Route::get('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
 
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

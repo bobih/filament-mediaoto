@@ -2,13 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AppInfo;
 use App\Models\User;
+use App\Models\FcmWeb;
+use App\Models\AppInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\JsonResponse;
 
 class FcmController extends Controller
 {
+
+    public function setToken($request){
+
+        $fcmtoken = trim($request['fcmtoken']);
+        $fmweb = FcmWeb::create([
+            'fcmtoken' => $fcmtoken,
+            'created_at' => Carbon::now()
+        ]);
+        return "OK";
+    }
+
     public function sendPushNotification($fcmtoken, $title, $payload)
     {
         $userToken = $fcmtoken;
