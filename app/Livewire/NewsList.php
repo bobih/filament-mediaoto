@@ -26,7 +26,7 @@ class NewsList extends Component
 
     public $tag = '';
 
-    public $perPage = 3;
+    public $perPage = 1;
 
     #[Computed()]
     public function posts(){
