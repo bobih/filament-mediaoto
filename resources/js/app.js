@@ -16,6 +16,7 @@ document.addEventListener('livewire:navigated', () => {
  *  Observer
  *
  */
+Observer.start();
 var u=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);var _=u(i=>{"use strict";Object.defineProperty(i,"__esModule",{value:!0});Object.defineProperty(i,"default",{enumerable:!0,get:function(){return a}});function l(e,t){return{handler:e,config:t}}l.withOptions=function(e,t=()=>({})){let n=function(r){return{__options:r,handler:e(r),config:t(r)}};return n.__isOptionsFunction=!0,n.__pluginFunction=e,n.__configFunction=t,n};var a=l});var f=u(o=>{"use strict";Object.defineProperty(o,"__esModule",{value:!0});Object.defineProperty(o,"default",{enumerable:!0,get:function(){return P}});var p=g(_());function g(e){return e&&e.__esModule?e:{default:e}}var P=p.default});var d=u((b,s)=>{var c=f();s.exports=(c.__esModule?c:{default:c}).default});var O=d();module.exports=O(({addVariant:e})=>{e("intersect","&:not([no-intersect])")});
 
 
@@ -23,7 +24,7 @@ var u=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);var _=u(i=>{"use s
     initFlowbite();
     initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
 
-    Observer.start();
+
 
     setTimeout(function () {
         var head = document.getElementsByTagName('head')[0];
