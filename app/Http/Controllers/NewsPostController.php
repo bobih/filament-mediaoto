@@ -189,7 +189,7 @@ class NewsPostController extends Controller
         $search = Str::of($search)->replace('-', ' ');
 
 
-        //dd($search);
+       /*
 
         if (env('APP_ENV', 'local') == 'production') {
             $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
@@ -219,6 +219,7 @@ class NewsPostController extends Controller
                 $query->published();
             })->take(10)->get();
         }
+        */
 
 
         $newsResponse =  NewsPost::where('title', 'LIKE', "%".$search."%")
