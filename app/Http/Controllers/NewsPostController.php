@@ -193,7 +193,7 @@ class NewsPostController extends Controller
 
         if (env('APP_ENV', 'local') == 'production') {
             $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
-                return NewsPost::where('title', 'like', "%{$search}%")
+                return NewsPost::where('title', 'LIKE', "%".$search."%")
                     ->with('categories', 'media', 'tags', 'author')
                     ->published()
                     ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
@@ -209,7 +209,7 @@ class NewsPostController extends Controller
                 })->take(10)->get();
             });
         } else {
-            $newsResponse =  NewsPost::where('title', 'like', "%{$search}%")
+            $newsResponse =  NewsPost::where('title', 'LIKE', "%".$search."%")
                 ->with('categories', 'media', 'tags', 'author')
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
