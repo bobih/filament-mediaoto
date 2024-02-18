@@ -11,7 +11,7 @@
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">{{ __('home.services.titletag') }}</p>
         </div>
         <div class="hidden md:grid md:grid-cols-2 md:gap-3">
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 duration-500  hover:filter-none">
+            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
                     src="https://www.mediaoto.id/images/services_1.webp" alt="Performance Optimization"
                     title="Performance Optimization">
@@ -52,7 +52,7 @@
                 </figcaption>
             </figure>
 
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 duration-500  hover:filter-none">
+            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 duration-500  hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
                     src="https://www.mediaoto.id/images/services_4.webp" alt="Rich Media Banner Placement"
                     title="Rich Media Banner Placement">
