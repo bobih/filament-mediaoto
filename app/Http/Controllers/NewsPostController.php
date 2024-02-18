@@ -232,7 +232,7 @@ class NewsPostController extends Controller
         $query->published();
     })->take(10)->get();
 
-        dd($newsResponse);
+
 
         return view('news.index', [
             "posts" => $newsResponse,
