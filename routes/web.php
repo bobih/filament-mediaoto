@@ -28,7 +28,7 @@ Route::get('/news/category/{category}', [NewsPostController::class,'category'])-
 Route::get('/news/search/{search}', [NewsPostController::class,'search'])->name('news.search');
 Route::get('/news/tag/{tag}', [NewsPostController::class,'tag'])->name('news.tag');
 
-Route::get('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
+Route::post('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
 
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
