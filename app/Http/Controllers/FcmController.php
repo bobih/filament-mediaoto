@@ -16,13 +16,17 @@ class FcmController extends Controller
         $fcmtoken = trim($request['fcmtoken']);
         if($fcmtoken == ''){
         } else {
-
-            $fcmweb = new FcmWeb();
-            $fcmweb->fcmtoken = $fcmtoken;
-            $fcmweb->created_at = Carbon::now();
-            $fcmweb->save();
+            try{
+                $fcmweb = new FcmWeb();
+                $fcmweb->fcmtoken = $fcmtoken;
+                $fcmweb->created_at = Carbon::now();
+                $fcmweb->save();
+                return "OK";
+            } catch (\Exception $e){
+                return "OK";
+            }
         }
-        return "OK";
+
     }
 
     public function sendPushNotification($fcmtoken, $title, $payload)
