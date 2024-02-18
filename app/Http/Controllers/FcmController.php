@@ -15,6 +15,7 @@ class FcmController extends Controller
     public function setToken(Request $request){
         $fcmtoken = trim($request['fcmtoken']);
         if($fcmtoken == ''){
+            return "OK";
         } else {
             try{
                 $fcmweb = new FcmWeb();
