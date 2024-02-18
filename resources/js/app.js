@@ -4,6 +4,8 @@ import './darktogle';
 import './notif';
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
+import { onBackgroundMessage } from "firebase/messaging/sw";
+
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
@@ -38,6 +40,19 @@ const firebaseConfig = {
   }).catch((err) => {
     console.log('An error occurred while retrieving token. ', err);
     // ...
+  });
+
+  onBackgroundMessage(messaging, (payload) => {
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+    // Customize notification here
+    const notificationTitle = 'Background Message Title';
+    const notificationOptions = {
+      body: 'Background Message body.',
+      icon: '/firebase-logo.png'
+    };
+
+    self.registration.showNotification(notificationTitle,
+      notificationOptions);
   });
 
 
