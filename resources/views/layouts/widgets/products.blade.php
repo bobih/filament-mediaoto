@@ -206,6 +206,7 @@
         </div>
     </section>
 @else
+<!-- Mobile -->
     <section class="bg-gray-100 dark:bg-gray-900 ">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div class="max-w-screen-md mb-8 lg:mb-16">
