@@ -121,7 +121,7 @@ class FcmController extends Controller
                 "icon"      => "https://www.mediaoto.id/images/white_logo.png",
                 "title"     => "Mediaoto News",
                 "body"      => "Ini Produk yang Kena Recall Toyota di Tahun 2024",
-                "LinkUrl"   => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
+                "click_action"   => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
                 "image"     => "https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
             ),
             "android" => $android,
