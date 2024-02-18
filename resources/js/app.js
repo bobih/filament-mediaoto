@@ -11,6 +11,7 @@ initTE({ Animate, Ripple, Carousel });
 Observer.start();
 
 document.addEventListener('livewire:navigated', () => {
+
     console.log('navigated');
     initFlowbite();
     initTE({ Ripple, Animate, Carousel }, { allowReinits: true });

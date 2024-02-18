@@ -273,7 +273,7 @@
         crossorigin="anonymous"></script>
     @endif
     */ ?>
-    <?php /* <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script> */ ?>
+    <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
 
     <?php /* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" /> */ ?>
 
