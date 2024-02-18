@@ -14,11 +14,18 @@ class FcmController extends Controller
 
     public function setToken(Request $request){
         $fcmtoken = trim($request['fcmtoken']);
-        dd($fcmtoken);
+
+        $fcmweb = new FcmWeb();
+        $fcmweb->fcmtoken = $fcmtoken;
+        $fcmweb->created_at = Carbon::now();
+        $fcmweb->save();
+
+        /*
         $fmweb = FcmWeb::create([
             'fcmtoken' => $fcmtoken,
             'created_at' => Carbon::now()
         ]);
+        */
         return "OK";
     }
 
