@@ -1,6 +1,6 @@
 <div id="products" class="-mt-20 mb-20 "></div>
 
-@if (!$agent == 'mobile')
+@if ($agent->isMobile() == false)
 <!-- Desktop -->
     <section class="bg-gray-100 dark:bg-gray-900 ">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
