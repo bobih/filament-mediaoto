@@ -27,7 +27,7 @@ const firebaseConfig = {
   const messaging = getMessaging(app);
 
 
-  getToken(messaging, { vapidKey: 'AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq' }).then((currentToken) => {
+  getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
     if (currentToken) {
       console.log(currentToken);
     } else {
