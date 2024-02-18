@@ -1,7 +1,7 @@
 <div id="aboutus" class="-mt-32  md:pt-28 mb-20 md:mb-5"></div>
 <section
 
- class=" bg-[#172554] dark:bg-gray-700">
+ class="  dark:bg-gray-700 intersect:bg-[#172554] transition-colors ease-out duration-1000">
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
@@ -45,7 +45,7 @@
     </div>
 
     <div
-    class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6 intersect:bg-indigo-600 transition-colors">
+    class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6 ">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
             <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
