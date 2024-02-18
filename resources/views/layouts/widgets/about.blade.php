@@ -45,7 +45,7 @@
     </div>
 
     <div
-    class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
+    class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6 intersect:bg-indigo-600 transition-colors">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
             <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
