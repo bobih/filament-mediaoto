@@ -304,7 +304,5 @@
     <script>
         window.filamentData = []    </script>
     @livewireScripts
-    <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
-
 </body>
 </html>
