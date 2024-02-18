@@ -1,11 +1,10 @@
 <div id="aboutus" class="-mt-32  md:pt-28 mb-20 md:mb-5"></div>
 <section
-id="animate"
 data-te-animation-init
-data-te-animation-reset="true"
-data-te-animation-start="manually"
-data-te-animation="[fly-in-left_0.5s]"
-data-te-animation-show-on-load="false"
+            data-te-animation-start="onScroll"
+            data-te-animation-on-scroll="repeat"
+            data-te-animation-show-on-load="false"
+            data-te-animation-reset="true"
  class=" bg-[#172554] dark:bg-gray-700">
     <div class=" w-full absolute ">
         <div
