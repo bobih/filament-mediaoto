@@ -1,5 +1,5 @@
 <div id="aboutus" class="-mt-32  md:pt-28 mb-20 md:mb-5"></div>
-<section class=" bg-[#172554] dark:bg-gray-700 intersect:bg-indigo-600 transition-colors ">
+<section class=" bg-[#172554] dark:bg-gray-700 intersect:bg-indigo-600  transition duration-700">
     <div class=" w-full absolute ">
         <div
             class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
