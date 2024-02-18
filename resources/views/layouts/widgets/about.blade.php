@@ -51,7 +51,7 @@
     data-te-animation-on-scroll="repeat"
     data-te-animation-show-on-load="false"
     data-te-animation-reset="true"
-    data-te-animation="[fly-in-right_0.5s_ease-in-out]"
+    data-te-animation="[fly-in-right_0.5s]"
 
     class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
 
