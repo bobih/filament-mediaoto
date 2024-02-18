@@ -12,7 +12,7 @@ use Illuminate\Http\JsonResponse;
 class FcmController extends Controller
 {
 
-    public function setToken($request){
+    public function setToken(Request $request){
         dd($request);
         $fcmtoken = trim($request['fcmtoken']);
         $fmweb = FcmWeb::create([
