@@ -45,14 +45,6 @@
     </div>
 
     <div
-
-    data-te-animation-init
-    data-te-animation-start="onScroll"
-    data-te-animation-on-scroll="repeat"
-    data-te-animation-show-on-load="false"
-    data-te-animation-reset="true"
-    data-te-animation="[fly-in-right_0.5s]"
-
     class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
@@ -138,7 +130,12 @@
 
             </div>
         </div>
-        <div  class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+        <div data-te-animation-init
+        data-te-animation-start="onScroll"
+        data-te-animation-on-scroll="repeat"
+        data-te-animation-show-on-load="false"
+        data-te-animation-reset="true"
+        data-te-animation="[fly-in-left_0.5s]" class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
             <p class="mb-4">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4">{{__('home.aboutus.content3')}}</p>
