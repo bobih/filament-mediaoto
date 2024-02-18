@@ -107,6 +107,8 @@ class FcmController extends Controller
             "topic" => "industry-tech",
             "notification" => array(
               "title" => "Sparky says hello!",
+              "body"  => "Hello World",
+              "image" =>"https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
             ),
             "android" => $android,
             "apns"  => $apns,
