@@ -31,7 +31,7 @@ class FcmController extends Controller
     }
 
     public function sentNews(){
-        $userToken = 'e28hxY1XmkwUMUU2ITOdHj:APA91bFsf46ndMswcYo0ee2CozGQgEHS-HPhtSsGtw8kxZYmTsm3mQMwRwJi9Z261QnM2BH5X4LMXekv_yOiElCUFg0VGBXRIK17Jse-zxs3KdWX35sYtHEm8lZ6hfY0_wP3BzuxdRcW';
+        $userToken = 'd0tp1uAenpDIqCYNaZSQXj:APA91bEXi75jI3JTUwVtE-xZJznEkox-fxaJ45pLTSOJUvBiuYWcfndp2BHAgkPwyXX4oJUGyhFWp1gaInhX6OW7BYLCKtBQ_4k6PdD3dOAp6RNEcW1a382TVPbvwh0T1Z-cUvpOgLeL';
 
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";
