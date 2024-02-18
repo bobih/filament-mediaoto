@@ -1,10 +1,13 @@
 @props(['post', 'categories'])
-<article
+<?php /* Ignore */ ?>
+
+
+<article wire:ignore
     class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
     <div class="-mt-20 md:mt-0  md:px-4 pb-4 md:w-full" >
         <a wire:navigate title="{{ $post->title }}" alt="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
             class="md:hover:text-[#FF9119]">
-            <img  loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border dark:border-gray-700 shadow-xl rounded-lg scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700"
+            <img  loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border dark:border-gray-700 shadow-xl rounded-lg scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700"
                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->slug }}">
         </a>
     </div>
