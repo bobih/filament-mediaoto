@@ -96,25 +96,6 @@ class FcmController extends Controller
                 ),
             );
 
-
-        /*
-        "android":{
-            "notification":{
-              "image":"https://foo.bar/pizza-monster.png"
-            }
-          },
-          "apns":{
-            "payload":{
-              "aps":{
-                "mutable-content":1
-              }
-            },
-            "fcm_options": {
-                "image":"https://foo.bar/pizza-monster.png"
-            }
-          },
-          */
-
           $message = array(
             "topic" => "industry-tech",
             "notification" => array(
@@ -124,9 +105,9 @@ class FcmController extends Controller
                 "click_action"   => "https://www.mediaoto.id/news/ini-produk-yang-kena-recall-toyota-di-tahun-2024-cek-mobil-kalian",
                 "image"     => "https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
             ),
-            "android" => $android,
-            "apns"  => $apns,
-            "webpush" => $webpush,
+//            "android" => $android,
+//            "apns"  => $apns,
+//            "webpush" => $webpush,
             "to" => $userToken,
         );
 
