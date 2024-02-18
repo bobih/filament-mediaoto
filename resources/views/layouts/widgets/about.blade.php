@@ -1,11 +1,6 @@
 <div id="aboutus" class="-mt-32  md:pt-28 mb-20 md:mb-5"></div>
 <section
-data-te-animation-init
-            data-te-animation-start="onScroll"
-            data-te-animation-on-scroll="repeat"
-            data-te-animation-show-on-load="false"
-            data-te-animation-reset="true"
-            data-te-animation="[fly-in-right_0.5s_ease-in-out]"
+
  class=" bg-[#172554] dark:bg-gray-700">
     <div class=" w-full absolute ">
         <div
@@ -49,7 +44,16 @@ data-te-animation-init
         </div>
     </div>
 
-    <div class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
+    <div
+
+    data-te-animation-init
+    data-te-animation-start="onScroll"
+    data-te-animation-on-scroll="repeat"
+    data-te-animation-show-on-load="false"
+    data-te-animation-reset="true"
+    data-te-animation="[fly-in-right_0.5s_ease-in-out]"
+
+    class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
             <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
