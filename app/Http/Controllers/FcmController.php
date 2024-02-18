@@ -79,10 +79,47 @@ class FcmController extends Controller
             ),
         );
 
+        $android = array(
+            "notification" => array (
+                "image" =>"https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
+                )
+            );
+
+        $apns = array(
+            "payload" => array(
+                "aps" => array(
+                  "mutable-content" => 1
+                    ),
+                ),
+                "fcm_options" => array(
+                    "image" =>"https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
+                ),
+            );
+
+
+        /*
+        "android":{
+            "notification":{
+              "image":"https://foo.bar/pizza-monster.png"
+            }
+          },
+          "apns":{
+            "payload":{
+              "aps":{
+                "mutable-content":1
+              }
+            },
+            "fcm_options": {
+                "image":"https://foo.bar/pizza-monster.png"
+            }
+          },
+          */
 
         $message = array(
             "notification" => $params,
             "webpush" => $webpush,
+            "android" => $android,
+            "apns"  => $apns,
             "data" => $data,
             "to" => $userToken,
         );
