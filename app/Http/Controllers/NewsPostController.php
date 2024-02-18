@@ -186,6 +186,8 @@ class NewsPostController extends Controller
         GoogleTagManager::set('pageType', 'news-search');
         $agent = new Agent();
 
+        $search = Str::of($search)->replace('-', ' ');
+
         if (env('APP_ENV', 'local') == 'production') {
             $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
                 return NewsPost::where('title', 'like', "%{$search}%")
