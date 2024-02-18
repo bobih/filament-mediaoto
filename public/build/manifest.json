@@ -2667,5 +2667,10 @@
     "file": "assets/app-8e229981.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/firebase-messaging-sw.js": {
+    "file": "assets/firebase-messaging-sw-f8efdbad.js",
+    "isEntry": true,
+    "src": "resources/js/firebase-messaging-sw.js"
   }
 }
