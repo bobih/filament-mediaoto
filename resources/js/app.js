@@ -32,10 +32,11 @@ const firebaseConfig = {
   getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
     if (currentToken) {
       //console.log(currentToken);
-      requestPermission();
+
     } else {
       // Show permission request UI
       console.log('No registration token available. Request permission to generate one.');
+      requestPermission();
       // ...
     }
   }).catch((err) => {
