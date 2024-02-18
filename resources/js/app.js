@@ -27,11 +27,12 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
-
+  //requestPermission();
 
   getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
     if (currentToken) {
-      console.log(currentToken);
+      //console.log(currentToken);
+      requestPermission();
     } else {
       // Show permission request UI
       console.log('No registration token available. Request permission to generate one.');
@@ -41,6 +42,23 @@ const firebaseConfig = {
     console.log('An error occurred while retrieving token. ', err);
     // ...
   });
+
+  function requestPermission() {
+    console.log('Requesting permission...');
+    // [START request_permission]
+    messaging.requestPermission().then(function() {
+      console.log('Notification permission granted.');
+      // TODO(developer): Retrieve an Instance ID token for use with FCM.
+      // [START_EXCLUDE]
+      // In many cases once an app has been granted notification permission, it
+      // should update its UI reflecting this.
+      //resetUI();
+      // [END_EXCLUDE]
+    }).catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    // [END request_permission]
+  }
 
 
 document.addEventListener('livewire:navigated', () => {
