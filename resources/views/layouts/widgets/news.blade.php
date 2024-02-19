@@ -22,7 +22,7 @@
         */
         ?>
         <!-- News Section -->
-        <div class="grid gap-1 lg:grid-cols-1">
+        <div class="grid grid-cols-1 gap-4 md:mb-10">
             @foreach ($posts as $post)
                 <article
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
