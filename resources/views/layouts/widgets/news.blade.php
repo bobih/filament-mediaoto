@@ -28,7 +28,7 @@
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="md:px-4 pb-4 md:w-ful4" >
                         <a wire:navigate title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
-                            <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
+                            <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border dark:border-gray-700 shadow-xl rounded-lg duration-300"
                                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
                         </a>
