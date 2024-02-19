@@ -26,7 +26,7 @@
             @foreach ($posts as $post)
                 <article
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <div class="relative px-4 w-80 h-48 pb-1/4" style="min-width: 320px; ">
+                    <div class="md:px-4 pb-4 md:w-ful4" >
                         <a wire:navigate title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
                             <img loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 absolute top-0 left-0 drop-shadow-lg right-0 bottom-0 h-full w-full  object-fit rounded-lg"
                                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
