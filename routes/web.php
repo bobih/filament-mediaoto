@@ -29,6 +29,7 @@ Route::get('/news/search/{search}', [NewsPostController::class,'search'])->name(
 Route::get('/news/tag/{tag}', [NewsPostController::class,'tag'])->name('news.tag');
 
 Route::post('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
+Route::get('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
 Route::get('/sentnews', [FcmController::class,'sentNews'])->name('fcm.sentNews');
 
 
