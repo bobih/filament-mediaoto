@@ -1,9 +1,5 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
-<div class="wrapper">
-    <div class="gradient gradient-1"></div>
-    <div class="gradient gradient-2"></div>
-    <div class="gradient gradient-3"></div>
-  </div>
+
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
@@ -88,6 +84,10 @@
 
 
     </script>
-
+<div class="wrapper">
+    <div class="gradient gradient-1"></div>
+    <div class="gradient gradient-2"></div>
+    <div class="gradient gradient-3"></div>
+  </div>
 
 </section>
