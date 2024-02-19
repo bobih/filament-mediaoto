@@ -1,7 +1,12 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
 
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
-    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+    <div class="wrapper">
+        <div class="gradient gradient-1"></div>
+        <div class="gradient gradient-2"></div>
+        <div class="gradient gradient-3"></div>
+      </div>
+    <div class="z-10 grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
 
                 <h1 data-te-animation-init
@@ -49,7 +54,7 @@
         data-te-animation-start="manually"
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
-         class="md:hidden mt-10 lg:mt-0 lg:col-span-5 lg:flex">
+         class="z-10 md:hidden mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img class="" src="https://www.mediaoto.id/images/phone-mockup-mobile.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
@@ -74,7 +79,7 @@
         data-te-animation-start="manually"
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
-         class="hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
+         class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img class="" src="https://www.mediaoto.id/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
         @endif
@@ -84,10 +89,6 @@
 
 
     </script>
-<div class="wrapper">
-    <div class="gradient gradient-1"></div>
-    <div class="gradient gradient-2"></div>
-    <div class="gradient gradient-3"></div>
-  </div>
+
 
 </section>
