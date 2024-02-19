@@ -176,6 +176,7 @@ return array(
     'App\\Models\\Carmodel' => $baseDir . '/app/Models/Carmodel.php',
     'App\\Models\\City' => $baseDir . '/app/Models/City.php',
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
+    'App\\Models\\FcmWeb' => $baseDir . '/app/Models/FcmWeb.php',
     'App\\Models\\Invoice' => $baseDir . '/app/Models/Invoice.php',
     'App\\Models\\Leads' => $baseDir . '/app/Models/Leads.php',
     'App\\Models\\ListCall' => $baseDir . '/app/Models/ListCall.php',

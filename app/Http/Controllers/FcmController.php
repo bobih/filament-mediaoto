@@ -5,21 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\FcmWeb;
 use App\Models\AppInfo;
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\JsonResponse;
+
 
 class FcmController extends Controller
 {
 
     public function setToken(Request $request){
         $fcmtoken = trim($request['fcmtoken']);
+        $agent = new Agent();
+        $platform = $agent->platform();
+
         if($fcmtoken == ''){
             return "OK";
         } else {
             try{
                 $fcmweb = new FcmWeb();
                 $fcmweb->fcmtoken = $fcmtoken;
+                $fcmweb->platform = $platform;
                 $fcmweb->created_at = Carbon::now();
                 $fcmweb->save();
                 return "OK";

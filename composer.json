@@ -23,6 +23,7 @@
         "guzzlehttp/guzzle": "^7.8",
         "ibrahimbougaoua/filament-rating-star": "^1.0",
         "illuminate/contracts": "*",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.0",
         "laravel/sanctum": "^3.3",

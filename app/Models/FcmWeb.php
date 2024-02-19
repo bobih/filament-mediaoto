@@ -13,6 +13,7 @@ class FcmWeb extends Model
 
     protected $fillable = [
         'fcmtoken',
+        'platform',
         'created_at',
         'updated_at'
     ];

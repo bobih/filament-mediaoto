@@ -1395,6 +1395,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Models\\Carmodel' => __DIR__ . '/../..' . '/app/Models/Carmodel.php',
         'App\\Models\\City' => __DIR__ . '/../..' . '/app/Models/City.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
+        'App\\Models\\FcmWeb' => __DIR__ . '/../..' . '/app/Models/FcmWeb.php',
         'App\\Models\\Invoice' => __DIR__ . '/../..' . '/app/Models/Invoice.php',
         'App\\Models\\Leads' => __DIR__ . '/../..' . '/app/Models/Leads.php',
         'App\\Models\\ListCall' => __DIR__ . '/../..' . '/app/Models/ListCall.php',
