@@ -18,7 +18,7 @@
                 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
                     {!! trans('home.banner.infotag') !!}
                 </h1>
-                <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">{!! trans('home.banner.content1') !!}</p>
+                <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">{!! trans('home.banner.content1') !!}</p>
             <div class="hidden md:flex justify-between items-center">
                 <div>
                     <button title="getstarted" x-data={} x-on:click="$dispatch('open-modal')"
