@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <div class="flex my-4 space-x-10 items-center sm:justify-center sm:mt-0">
+                <div class="flex my-4 space-x-8 items-center sm:justify-center sm:mt-0">
                     <span class="text-gray-500 ">{{__('home.footer.followus')}}</span>
 
                     <a target="_blank" title="instagram" rel="noopener noreferrer" href="https://www.instagram.com/mediaoto.id"
