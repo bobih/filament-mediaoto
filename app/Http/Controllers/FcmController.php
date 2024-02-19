@@ -18,6 +18,7 @@ class FcmController extends Controller
         $fcmtoken = trim($request['fcmtoken']);
         $agent = new Agent();
         $platform = $agent->platform();
+        $device = $agent->device();
 
         if($fcmtoken == ''){
             return "OK";
@@ -25,7 +26,7 @@ class FcmController extends Controller
             try{
                 $fcmweb = new FcmWeb();
                 $fcmweb->fcmtoken = $fcmtoken;
-                $fcmweb->platform = $platform;
+                $fcmweb->platform = $platform ." ". $device;
                 $fcmweb->created_at = Carbon::now();
                 $fcmweb->save();
                 return "OK";
