@@ -36,11 +36,13 @@ class NewsList extends Component
         $agent = new Agent();
         // Implement cache
         if($this->search == '' && $this->category == '' && $this->tag == ''){
+            /*
              $response = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () {
                 return NewsPost::with('categories','media','tags','author')
                 ->published()
                 ->orderBy('published_at','desc')->get();
             });
+            */
 
             $response = NewsPost::with('categories','media','tags','author')
                 ->published()
