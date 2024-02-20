@@ -49,7 +49,7 @@
                     </div>
                     <!-- Pricing Card -->
                     <div
-                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:neuph dark:text-white">
                         <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price2tag')}}</h3>
                         <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price2desc')}}</p>
 
@@ -84,7 +84,7 @@
                         </button>
                     </div>
                     <div
-                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:neuph dark:text-white">
                         <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price3tag')}}</h3>
                         <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price3desc')}}</p>
 
