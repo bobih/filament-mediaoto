@@ -1,6 +1,6 @@
 @props(['post','title', 'description', 'metaproduct' ,'itemlist'])
 <!DOCTYPE html>
-<html className="dark" class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <script type="text/javascript">"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
     <meta charset="utf-8">
