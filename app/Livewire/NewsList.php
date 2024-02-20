@@ -36,17 +36,7 @@ class NewsList extends Component
 
         $agent = new Agent();
         // Implement cache
-        if($this->search == '' && $this->category == '' && $this->tag == ''){
 
-            $page = request()->has('page') ? request()->get('page') : 1;
-
-             $response = Cache::remember('newsSearchResponse_page'.$page, Carbon::now()->addDay(), function () {
-                return NewsPost::with('categories','media','tags','author')
-                ->published()
-                ->orderBy('published_at','desc')->paginate($this->perPage);
-            });
-
-        } else {
             $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
             ->with('categories','media','tags','author')
             ->published()
@@ -58,24 +48,6 @@ class NewsList extends Component
                 $query->withAllTags([$this->tag]);
             });
             $response = $response->paginate($this->perPage);
-        }
-
-
-
-        if($agent->isMobile()){
-
-            // NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(1)->get();
-
-
-
-        } else {
-
-
-            //$response = NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(5)->get();
-        }
-
-
-
        return $response;
     }
 
