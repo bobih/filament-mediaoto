@@ -39,7 +39,7 @@ class NewsList extends Component
              $response = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () {
                 return NewsPost::with('categories','media','tags','author')
                 ->published()
-                ->orderBy('published_at','desc');
+                ->orderBy('published_at','desc')->get();
             });
 
         } else {
