@@ -15,7 +15,7 @@ class ImageCarousel extends Component
 
         $newsdata = NewsPost::where('id',$postid)->with('media')->get();
         dd($newsdata);
-        $this->images = $newsdata->getWebp();
+        $this->images = $newsdata->media[0]->file_name();
 
 
 
