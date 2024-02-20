@@ -56,23 +56,7 @@ class NewsList extends Component
                 $query->withAllTags([$this->tag]);
             });
         }
-
-
-
-        if($agent->isMobile()){
             $response = $response->paginate($this->perPage);
-            // NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(1)->get();
-
-
-
-        } else {
-            $response = $response->paginate($this->perPage);
-
-            //$response = NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(5)->get();
-        }
-
-
-
        return $response;
     }
 
