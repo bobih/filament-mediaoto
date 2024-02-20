@@ -48,9 +48,6 @@ class NewsList extends Component
             ->with('categories','media','tags','author')
             ->published()
             ->orderBy('published_at','desc')
-            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
-                $query->withCategory($this->category);
-            })
             ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
                 $query->withAllTags([$this->tag]);
             });
