@@ -14,8 +14,10 @@
         @livewire('contact-us')
         @endslot
     </x-custom-modal>
+
     <x-custom-carousel>
         @slot('body')
+        @endslot
     </x-custom-carousel>
 
 </x-app-layout>
