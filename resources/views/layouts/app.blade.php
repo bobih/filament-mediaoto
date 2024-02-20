@@ -284,7 +284,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased dark:bg-gray-700" x-data="{'isImageModalOpen': false}" x-on:keydown.escape="isImageModalOpen=false">
+<body class="font-sans antialiased dark:bg-gray-700">
     @if (env('APP_ENV','local') == "production")
     @include('googletagmanager::body')
     @endif
