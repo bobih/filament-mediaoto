@@ -44,7 +44,7 @@ class NewsList extends Component
             });
             */
 
-            $response = NewsPost::with('categories','media','tags','author')
+            $response = NewsPost::all()->with('categories','media','tags','author')
                 ->published()
                 ->orderBy('published_at','desc');
 
