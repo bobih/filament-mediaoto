@@ -12,7 +12,7 @@
         '2xl' => 'sm:max-w-2xl',
     ][$maxWidth ?? '2xl'];
 @endphp
-    <div x-data="{ show: false }" x-show = "show" x-on:open-modal.window = "show=true;" x-on:close-modal.window = "show=false"
+    <div x-data="{ show: false }" x-show = "show" x-on:open-image-modal.window = "show=true;" x-on:close-image-modal.window = "show=false"
         x-on:keydown.escape.window="show = false" class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
         style="display: none;" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
@@ -44,7 +44,7 @@
 
                     <button id="btnclose" type="button"
                         class="text-gray-400 bg-transparent hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        x-on:click="$dispatch('close-modal')"">
+                        x-on:click="$dispatch('close-image-modal')"">
                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
