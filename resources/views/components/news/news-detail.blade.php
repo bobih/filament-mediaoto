@@ -29,10 +29,10 @@
                     @endif
 
                     <header class="mb-4 lg:mb-6 not-format">
-                        <button x-on:click="isImageModalOpen = true"  class="w-full h-auto pb-1/4">
+                        <div x-on:click="isImageModalOpen = true"  class="w-full h-auto pb-1/4">
                             <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
-                        </button>
+                        </div>
                         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
                             <span class="text-sm">{{ Str::upper($post->source) }} |
                                 {{ $post->published_at->diffForHumans() }}</span>
@@ -110,28 +110,4 @@
             </div>
         </main>
     </div>
-
-    <div
-    class="modal"
-    role="dialog"
-    tabindex="-1"
-    x-show="isImageModalOpen"
-    x-on:click.away="isImageModalOpen = false"
-    x-cloak
-    x-transition
-  >
-      <div class="model-inner">
-        <div class="modal-header">
-          <h3>Hello World</h3>
-          <button aria-label="Close" x-on:click="isImageModalOpen=false">✖</button>
-        </div>
-        <p>
-          Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
-          dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
-          accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
-          dolores. Quo accusamus hic atque nisi minima.
-        </p>
-      </div>
-  </div>
-
 </div>
