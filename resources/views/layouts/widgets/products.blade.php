@@ -14,7 +14,7 @@
             </div>
             <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
                 <!-- Products -->
-                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
+                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 intersect-once">
                     <div class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                         <svg class="h-20 w-20 " height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@
                     <p class="text-gray-500 dark:text-gray-400">{{ __('home.products.product1desc') }}</p>
                 </div>
                 <!-- Products -->
-                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
+                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200 intersect-once">
                     <div class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@
                     <p class="text-gray-500 dark:text-gray-400">{{ __('home.products.product2desc') }}</p>
                 </div>
                 <!-- Products -->
-                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-500">
+                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-500 intersect-once">
                     <div class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@
                     <p class="text-gray-500 dark:text-gray-400">{{ __('home.products.product3desc') }}</p>
                 </div>
                 <!-- Products -->
-                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-700">
+                <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-700 intersect-once">
 
                     <div class="flex justify-left items-center mb-4 w-75 h-75  lg:h-75 lg:w-75 ">
 
