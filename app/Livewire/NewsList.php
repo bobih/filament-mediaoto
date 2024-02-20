@@ -47,10 +47,7 @@ class NewsList extends Component
             $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
             ->with('categories','media','tags','author')
             ->published()
-            ->orderBy('published_at','desc')
-            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
-                $query->withAllTags([$this->tag]);
-            });
+            ->orderBy('published_at','desc');
 
         } else {
             $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
