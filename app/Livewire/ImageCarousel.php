@@ -8,7 +8,8 @@ use Livewire\Attributes\On;
 class ImageCarousel extends Component
 {
     #[On('showImageModal')]
-    public function showImageModal(){
+    public function showImageModal($postid){
+        dd($postid);
         $this->dispatch('open-image-modal');
     }
 
