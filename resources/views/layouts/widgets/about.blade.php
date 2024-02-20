@@ -130,7 +130,7 @@
 
             </div>
         </div>
-        <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-400 lg:col-span-2 ">
+        <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-300 lg:col-span-2 ">
             <p class="mb-4 text-justify">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4 text-justify">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4 text-justify">{{__('home.aboutus.content3')}}</p>
