@@ -46,9 +46,6 @@ class NewsList extends Component
                 ->orderBy('published_at','desc')->paginate($this->perPage);
             });
 
-            //$response = $response->paginate($this->perPage);
-
-
         } else {
             $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
             ->with('categories','media','tags','author')
