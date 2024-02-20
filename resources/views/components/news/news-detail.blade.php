@@ -29,7 +29,7 @@
                     @endif
 
                     <header class="mb-4 lg:mb-6 not-format">
-                        <div x-data={} x-on:click="$dispatch('open-image-modal',{image:'{{ $post->getWebp()}}'})"  class="w-full h-auto pb-1/4">
+                        <div wire:click="showImageModal"  class="w-full h-auto pb-1/4">
                             <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </div>
