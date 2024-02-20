@@ -44,9 +44,16 @@ class NewsList extends Component
             });
             */
 
-            $response = NewsPost::all()->with('categories','media','tags','author')
-                ->published()
-                ->orderBy('published_at','desc');
+            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
+            ->with('categories','media','tags','author')
+            ->published()
+            ->orderBy('published_at','desc')
+            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                $query->withCategory($this->category);
+            })
+            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                $query->withAllTags([$this->tag]);
+            });
 
         } else {
             $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
