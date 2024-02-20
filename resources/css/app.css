@@ -254,9 +254,8 @@
   @layer components {
   .neuph {
     border: none;
-    border-radius: 22px;
     background: linear-gradient(145deg, #0f1623, #121a2a);
-    box-shadow:  10px 10px 23px #0a0e17,
-                -10px -10px 23px #182237;
+    box-shadow:  8px 8px 12px #0a0e17,
+                -8px -8px 12px #182237;
   }
 }
