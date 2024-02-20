@@ -29,10 +29,10 @@
                     @endif
 
                     <header class="mb-4 lg:mb-6 not-format">
-                        <div  class="w-full h-auto pb-1/4">
-                            <img x-on:click="isImageModalOpen = true" class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
+                        <button x-on:click="isImageModalOpen = true"  class="w-full h-auto pb-1/4">
+                            <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
-                        </div>
+                        </button>
                         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
                             <span class="text-sm">{{ Str::upper($post->source) }} |
                                 {{ $post->published_at->diffForHumans() }}</span>
