@@ -12,7 +12,7 @@
         '2xl' => 'sm:max-w-2xl',
     ][$maxWidth ?? '2xl'];
 @endphp
-    <div x-data="{ show: false }" x-show = "show" x-on:open-image-modal.window = "show=true;" x-on:close-image-modal.window = "show=false"
+    <div x-data="{ show: false }" x-show = "show" x-on:open-image-modal.window = "show=true;image=$event.detail.image" x-on:close-image-modal.window = "show=false"
         x-on:keydown.escape.window="show = false" class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
         style="display: none;" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
