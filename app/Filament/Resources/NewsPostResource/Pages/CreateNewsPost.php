@@ -80,11 +80,13 @@ class CreateNewsPost extends CreateRecord
             // Clear Cache
         }
 
-        Cache::forget('mobileCache');
-        Cache::forget('homeDesktopCache');
-        Cache::forget('newsResponse');
-        Cache::forget('newsLatest');
-        Cache::forget('newscategories');
+        //Cache::forget('mobileCache');
+        //Cache::forget('homeDesktopCache');
+        //Cache::forget('newsResponse');
+        //Cache::forget('newsLatest');
+        //Cache::forget('newscategories');
+
+        Cache::flush();
     }
 
 

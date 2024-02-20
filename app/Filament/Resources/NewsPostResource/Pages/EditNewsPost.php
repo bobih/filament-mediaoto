@@ -90,11 +90,12 @@ class EditNewsPost extends EditRecord
             // Clear Cache
         }
 
-        Cache::forget('mobileCache');
-        Cache::forget('homeDesktopCache');
-        Cache::forget('newsResponse');
-        Cache::forget('newsLatest');
-        Cache::forget('newscategories');
+       // Cache::forget('mobileCache');
+       // Cache::forget('homeDesktopCache');
+       // Cache::forget('newsResponse');
+       // Cache::forget('newsLatest');
+       // Cache::forget('newscategories');
+       Cache::flush();
     }
 
     public function changeHeader($content)
