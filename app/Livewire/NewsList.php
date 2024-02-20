@@ -44,8 +44,7 @@ class NewsList extends Component
             });
             */
 
-            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
-            ->with('categories','media','tags','author')
+            $response = NewsPost::with('categories','media','tags','author')
             ->published()
             ->orderBy('published_at','desc');
 
