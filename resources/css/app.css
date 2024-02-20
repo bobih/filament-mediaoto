@@ -250,3 +250,10 @@
         translateY(10%);
     }
   }
+  .neuph {
+    border: none;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #0f1623, #121a2a);
+    box-shadow:  10px 10px 23px #0a0e17,
+                -10px -10px 23px #182237;
+  }
