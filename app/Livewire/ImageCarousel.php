@@ -14,9 +14,9 @@ class ImageCarousel extends Component
     public function showImageModal($postid){
 
         $newsdata = NewsPost::where('id',$postid)->with('media')->first();
-        dd($newsdata->getMedia());
+        //dd($newsdata->getMedia());
         $urlLocation = $newsdata->media[0]->getUrl('webp');
-        //dd($newsdata);
+        dd($urlLocation);
         $this->images = $newsdata->media[0]->getUrl('webp');
 
 
