@@ -30,18 +30,23 @@ class NewsList extends Component
 
     public $perPage = 3;
 
+
     #[Computed()]
     public function posts(){
 
         $agent = new Agent();
         // Implement cache
-        if($this->search == 'aaaaa' && $this->category == '' && $this->tag == ''){
+        if($this->search == '' && $this->category == '' && $this->tag == ''){
 
-             $response = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () {
+            $page = request()->has('page') ? request()->get('page') : 1;
+
+             $response = Cache::remember('newsSearchResponse_page'.$page, Carbon::now()->addDay(), function () {
                 return NewsPost::with('categories','media','tags','author')
                 ->published()
-                ->orderBy('published_at','desc');
+                ->orderBy('published_at','desc')->paginate($this->perPage);
             });
+
+            //$response = $response->paginate($this->perPage);
 
 
         } else {
@@ -55,18 +60,19 @@ class NewsList extends Component
             ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
                 $query->withAllTags([$this->tag]);
             });
+            $response = $response->paginate($this->perPage);
         }
 
 
 
         if($agent->isMobile()){
-            $response = $response->paginate($this->perPage);
+
             // NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(1)->get();
 
 
 
         } else {
-            $response = $response->paginate($this->perPage);
+
 
             //$response = NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(5)->get();
         }
