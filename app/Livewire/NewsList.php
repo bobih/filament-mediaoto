@@ -9,8 +9,10 @@ use Livewire\Attributes\On;
 
 use App\Models\NewsCategory;
 use Livewire\WithPagination;
+use Illuminate\Support\Carbon;
 use Livewire\Attributes\Computed;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Cache;
 use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class NewsList extends Component
@@ -32,21 +34,26 @@ class NewsList extends Component
     public function posts(){
 
         $agent = new Agent();
+        // Implement cache
+        if($this->search == '' && $this->category == '' && $this->tag == ''){
+             $response = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () {
+                return NewsPost::with('categories','media','tags','author')
+                ->published()
+                ->orderBy('published_at','desc');
+            });
 
-
-        $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
-                    ->with('categories','media','tags','author')
-                    ->published()
-                    ->orderBy('published_at','desc')
-                    ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
-                        $query->withCategory($this->category);
-                    })
-                    ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
-                        $query->withAllTags([$this->tag]);
-                    });
-                    //$response = NewsPost::withAllTags(['google'],'categories')->get();
-
-                    //dd($response);
+        } else {
+            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
+            ->with('categories','media','tags','author')
+            ->published()
+            ->orderBy('published_at','desc')
+            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                $query->withCategory($this->category);
+            })
+            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                $query->withAllTags([$this->tag]);
+            });
+        }
 
 
 
