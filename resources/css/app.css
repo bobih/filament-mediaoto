@@ -250,6 +250,8 @@
         translateY(10%);
     }
   }
+
+  @layer components {
   .neuph {
     border: none;
     border-radius: 22px;
@@ -257,3 +259,4 @@
     box-shadow:  10px 10px 23px #0a0e17,
                 -10px -10px 23px #182237;
   }
+}
