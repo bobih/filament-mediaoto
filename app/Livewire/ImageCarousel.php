@@ -13,7 +13,7 @@ class ImageCarousel extends Component
     #[On('showImageModal')]
     public function showImageModal($postid){
 
-        $newsdata = NewsPost::where('id',$postid);
+        $newsdata = NewsPost::where('id',$postid)->with('media')->get();
         dd($newsdata);
 
 
