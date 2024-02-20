@@ -54,7 +54,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
-               <img src="{{$image}}">
+                {{ $body }}
             </div>
         </div>
     </div>
