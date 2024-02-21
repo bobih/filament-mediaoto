@@ -35,8 +35,6 @@ class HomeController extends Controller
         // Check if Mobile
 
         $agent = new Agent();
-        $locale = App::currentLocale();
-        app()->setLocale('id');
 
         $homeMobileCache = Cache::remember('mobileCache', Carbon::now()->addHours(1), function () {
             return NewsPost::featured()->published()->with('categories','media','tags','author')->orderBy('published_at','desc')->take(5)->get();
