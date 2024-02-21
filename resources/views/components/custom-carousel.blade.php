@@ -59,7 +59,7 @@
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                          <!-- Item 1 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                            <img src="{{$slider}}" class="absolute block w-full h-full " alt="...">
+                            <img src="{{$slider}}" class="absolute block h-full object-cover" alt="...">
                         </div>
                         <!-- Item 5 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
