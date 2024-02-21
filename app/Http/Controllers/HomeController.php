@@ -9,6 +9,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Session;
 use Spatie\Analytics\Facades\Analytics;
 use Spatie\GoogleTagManager\GoogleTagManagerFacade as GoogleTagManager;
 
@@ -32,6 +34,10 @@ class HomeController extends Controller
         // Check if Mobile
 
         $agent = new Agent();
+        if (array_key_exists('id', Config::get('languages'))) {
+            Session::put('applocale', 'id');
+            app()->setLocale('id');
+        }
 
 
         $homeMobileCache = Cache::remember('mobileCache', Carbon::now()->addHours(1), function () {
