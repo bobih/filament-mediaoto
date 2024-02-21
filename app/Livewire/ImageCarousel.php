@@ -14,11 +14,11 @@ class ImageCarousel extends Component
     #[On('showImageModal')]
     public function showImageModal($postid){
 
-        $newsdata = NewsPost::where('id',$postid)->with('media')->first();
+       // $newsdata = NewsPost::where('id',$postid)->with('media')->first();
         //dd($newsdata->getMedia());
-        $urlLocation = $newsdata->media[0]->getUrl('webp');
+       // $urlLocation = $newsdata->media[0]->getUrl('webp');
         //dd($urlLocation);
-        $this->images = $newsdata->media[0]->getUrl('webp');
+       // $this->images = $newsdata->media[0]->getUrl('webp');
         $this->dispatch('open-image-modal');
     }
 
