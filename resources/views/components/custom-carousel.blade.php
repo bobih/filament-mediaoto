@@ -59,7 +59,7 @@
         <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                @for ($x=1; $x<3;$x++)
+                @for ($x=1; $x<5;$x++)
                 <!--First item-->
                 <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item>
