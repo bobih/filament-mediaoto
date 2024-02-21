@@ -9,6 +9,7 @@ use Jenssegers\Agent\Agent;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -257,12 +258,14 @@ class NewsPostController extends Controller
                 //dd($arrSearch);
                 $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
                     foreach ($arrSearch as $value) {
-                        $query->orWhere('title', 'like', "%".$value."%");
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
                     }
                 })
                 ->with('categories', 'media', 'tags', 'author')
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+                dd(DB::getQueryLog());
 
                 //print_r($newsResponse->toSql() );
                 //exit();
