@@ -110,7 +110,7 @@
             </div>
         </main>
     </div>
-    <x-custom-carousel wre:ignore :slider="$slider">
+    <x-custom-carousel wire:ignore :slider="$slider">
         @slot('body')
 
         @endslot
