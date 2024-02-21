@@ -34,7 +34,7 @@ class HomeController extends Controller
         // Check if Mobile
 
         $agent = new Agent();
-        if (array_key_exists('id', Config::get('languages'))) {
+        if (!array_key_exists('id', Config::get('languages'))) {
             Session::put('applocale', 'id');
             app()->setLocale('id');
         }
