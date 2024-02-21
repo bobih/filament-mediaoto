@@ -2,7 +2,21 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <?php /*
     <script type="text/javascript">"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
+        */?>
+    <script>
+        if(!('color-theme' in localStorage)){
+            localStorage.setItem('color-theme', 'dark');
+        }
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+    </script>
+
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="true"/>
     <meta name="application-name" content="{{ config('app.name') }}">
