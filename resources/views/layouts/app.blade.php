@@ -82,6 +82,7 @@
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Jakarta Selatan",
+            "addressRegion" : "Jakarta Selatan",
             "addressLocality": "Jakarta",
             "addressCountry": "ID",
             "postalCode": "12910"
