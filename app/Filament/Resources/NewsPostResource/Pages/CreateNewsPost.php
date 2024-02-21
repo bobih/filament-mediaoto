@@ -113,8 +113,7 @@ class CreateNewsPost extends CreateRecord
                     $image = Image::load($filePath);
 
                     // Disable Watermark
-                    $watermark = false;
-                    if($watermark == true){
+
                     $image->watermark(public_path('watermark4.png'))
                         ->watermarkOpacity(20)
                         ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
@@ -125,11 +124,7 @@ class CreateNewsPost extends CreateRecord
                         ->format(Manipulations::FORMAT_WEBP)
                         ->width(600)
                         ->save($folderpath . $name . '.webp');
-                    } else {
-                        $image->format(Manipulations::FORMAT_WEBP)
-                        ->width(600)
-                        ->save($folderpath . $name . '.webp');
-                    }
+
                 }
 
                 $list->setAttribute('src', '/images/posts/' . $name . '.webp');
