@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Models\NewsPost;
 use Livewire\Component;
+use App\Models\NewsPost;
 use Livewire\Attributes\On;
+use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class ImageCarousel extends Component
 {
@@ -18,9 +19,6 @@ class ImageCarousel extends Component
         $urlLocation = $newsdata->media[0]->getUrl('webp');
         //dd($urlLocation);
         $this->images = $newsdata->media[0]->getUrl('webp');
-
-
-
         $this->dispatch('open-image-modal');
     }
 
@@ -29,5 +27,13 @@ class ImageCarousel extends Component
         return view('livewire.image-carousel',[
             'images' => $this->images
         ]);
+    }
+
+    public function boot()
+    {
+        $arrUrl = explode ("/", Url::current());
+        $slug = $arrUrl [(count ($arrUrl) - 1)];
+        dd($slug);
+       // $postid = NewsPost::where('slug',)
     }
 }
