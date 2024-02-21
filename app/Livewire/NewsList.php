@@ -53,13 +53,6 @@ class NewsList extends Component
                 $query->withAllTags([$this->tag]);
             });
 
-            if(count($response->take(10)->get()) == 0){
-                $response = NewsPost::with('categories','media','tags','author')
-                ->published()
-                ->orderBy('published_at','desc')
-                ->when(NewsCategory::where('title', 'like' , '%tips%'));
-            }
-            $response = $response->paginate($this->perPage);
        return $response;
     }
 
