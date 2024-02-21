@@ -57,12 +57,16 @@
         <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                <!--First item-->
+
+               @foreach ($slider as $slide)
                 <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
-                    <img src="{{$slider}}" class="block w-full"
+                    <img src="{{$slide->image}}" class="block w-full"
                         alt="Wild Landscape" />
                 </div>
+               @endforeach
+                <!--First item-->
+
                 <!--Second item-->
                 <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item>

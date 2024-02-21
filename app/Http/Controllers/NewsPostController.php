@@ -125,7 +125,7 @@ class NewsPostController extends Controller
             }
 
             $slider = [];
-            $slider[0] = $news->media[0]->getUrl();;
+            $slider[0]->image = $news->media[0]->getUrl();;
 
 
             $newsid =  $news;
