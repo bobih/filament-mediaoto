@@ -36,7 +36,7 @@ class HomeController extends Controller
         $agent = new Agent();
         if (!array_key_exists('id', Config::get('languages'))) {
             Session::put('applocale', 'id');
-            app()->setLocale('id');
+            //app()->setLocale('id');
         }
 
 
