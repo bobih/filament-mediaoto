@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PHPHtmlParser\Dom;
 use App\Models\NewsPost;
 use Illuminate\Support\Str;
+use Jenssegers\Agent\Agent;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Jenssegers\Agent\Agent;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -113,6 +115,25 @@ class NewsPostController extends Controller
                 $controller = new MetaController();
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
+
+            $slider = [];
+            $imagelist = array(
+                'image' =>$news->media[0]->getUrl()
+            );
+            $slider[0] = (object) $imagelist;
+
+            $dom = new Dom;
+            $dom->loadStr($news->content);
+            $listImages = $dom->find('img');
+
+            foreach ($listImages as $list){
+                $imagelist = array(
+                    'image' =>$list->getAttribute('src')
+                );
+                $slider[] = (object) $imagelist;
+            }
+
+
         } else {
             $newsRelated =  NewsPost::whereNotIn('id', [$news->id])->inRandomOrder()->with('categories', 'media', 'tags', 'author')->take(3)->get();
 
@@ -124,6 +145,25 @@ class NewsPostController extends Controller
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
 
+            // Get Image from content
+
+
+            $slider = [];
+            $imagelist = array(
+                'image' =>$news->media[0]->getUrl()
+            );
+            $slider[0] = (object) $imagelist;
+
+            $dom = new Dom;
+            $dom->loadStr($news->content);
+            $listImages = $dom->find('img');
+
+            foreach ($listImages as $list){
+                $imagelist = array(
+                    'image' =>$list->getAttribute('src')
+                );
+                $slider[] = (object) $imagelist;
+            }
 
             $newsid =  $news;
         }
@@ -134,6 +174,7 @@ class NewsPostController extends Controller
             "related" => $newsRelated,
             'metaproduct' => $metaProduct,
             'agent' => $agent,
+            'slider' => $slider
         ]);
     }
 
@@ -187,11 +228,16 @@ class NewsPostController extends Controller
         $agent = new Agent();
 
         $search = Str::of($search)->replace('-', ' ');
+        $arrSearch = explode(' ',$search);
 
 
         if (env('APP_ENV', 'local') == 'production') {
-            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
-                return NewsPost::where('title', 'LIKE', "%".$search."%")
+            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($arrSearch) {
+                return NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
+                    }
+                })
                     ->with('categories', 'media', 'tags', 'author')
                     ->published()
                     ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
@@ -212,11 +258,29 @@ class NewsPostController extends Controller
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
 
+
+
+
+                $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
+                    }
+                })
+                ->with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+                //print_r($newsResponse->toSql() );
+                //exit();
+
+
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
             $newscategories = NewsCategory::whereHas('posts', function ($query) {
                 $query->published();
             })->take(10)->get();
         }
+
+
 
 
         return view('news.index', [
