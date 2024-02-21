@@ -36,8 +36,13 @@ class NewsList extends Component
 
         $agent = new Agent();
         // Implement cache
+        $arrSearch = explode(" ", $this->search);
 
-            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
+            $response = NewsPost::where(function($query) use ($arrSearch) {
+                foreach ($arrSearch as $value) {
+                    $query->orWhere('title', 'LIKE', "%".$value."%");
+                }
+            })
             ->with('categories','media','tags','author')
             ->published()
             ->orderBy('published_at','desc')
