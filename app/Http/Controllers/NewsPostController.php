@@ -124,6 +124,8 @@ class NewsPostController extends Controller
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
 
+            $slider = $news->media[0]->getUrl();;
+
 
             $newsid =  $news;
         }
@@ -134,6 +136,7 @@ class NewsPostController extends Controller
             "related" => $newsRelated,
             'metaproduct' => $metaProduct,
             'agent' => $agent,
+            'slider' => $slider
         ]);
     }
 
