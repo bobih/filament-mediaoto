@@ -57,7 +57,7 @@ class NewsList extends Component
                 $response = NewsPost::with('categories','media','tags','author')
                 ->published()
                 ->orderBy('published_at','desc')
-                ->when(NewsPost::withAllTags([$this->search]));
+                ->when(NewsCategory::where('title', 'like' , '%'.$this->search.'%'));
             }
             $response = $response->paginate($this->perPage);
        return $response;
