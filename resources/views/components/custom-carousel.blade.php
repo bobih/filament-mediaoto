@@ -38,6 +38,7 @@
             <?php /*
             <!-- Modal content -->
             <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-transparent sm:p-5">
+             */ ?>
                 <!-- Modal header -->
 
                 <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
@@ -53,7 +54,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
-                */ ?>
+
                 <div id="indicators-carousel" class="relative w-full h-[500px]" data-carousel="static">
                     <!-- Carousel wrapper -->
                     <div class="relative overflow-hidden rounded-lg min-h-full">
