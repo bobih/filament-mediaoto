@@ -37,6 +37,7 @@
             <!-- Modal content -->
             <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-transparent sm:p-5">
                 <!-- Modal header -->
+                <?php /*
                 <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <button id="btnclose" type="button"
                         class="text-gray-400 bg-transparent hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -50,6 +51,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
+                */ ?>
                 <div id="custom-controls-gallery" class="relative w-full" data-carousel="static">
                     <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
