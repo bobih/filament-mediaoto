@@ -15,10 +15,4 @@
         @endslot
     </x-custom-modal>
 
-    <x-custom-carousel :post="$post">
-        @slot('body')
-       @livewire('image-carousel')
-        @endslot
-    </x-custom-carousel>
-
 </x-app-layout>

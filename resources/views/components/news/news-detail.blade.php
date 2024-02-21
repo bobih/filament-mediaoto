@@ -110,4 +110,9 @@
             </div>
         </main>
     </div>
+    <x-custom-carousel>
+        @slot('body')
+       @livewire('image-carousel')
+        @endslot
+    </x-custom-carousel>
 </div>
