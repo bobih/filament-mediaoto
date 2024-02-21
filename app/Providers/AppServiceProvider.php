@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->setLocale('id');
+
         /*
         Filament::serving(function () {
             Filament::registerNavigationGroups([
