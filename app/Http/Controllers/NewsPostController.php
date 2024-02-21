@@ -255,8 +255,7 @@ class NewsPostController extends Controller
 
             $arrSearch = explode(' ',$search);
 
-                //dd($arrSearch);
-                DB::enableQueryLog();
+
                 $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
                     foreach ($arrSearch as $value) {
                         $query->orWhere('title', 'LIKE', "%".$value."%");
@@ -265,8 +264,6 @@ class NewsPostController extends Controller
                 ->with('categories', 'media', 'tags', 'author')
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-
-                dd(DB::getQueryLog());
 
                 //print_r($newsResponse->toSql() );
                 //exit();
