@@ -35,11 +35,7 @@
         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 
-        <?php /*
-            <!-- Modal content -->
-            <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-transparent sm:p-5">
-             */
-        ?>
+
         <!-- Modal header -->
 
         <div class="absolute right-0 z-40">
@@ -56,28 +52,28 @@
             </button>
         </div>
 
-        <div id="carouselExampleControls" class="relative"
-            data-te-carousel-init
-            data-te-ride="carousel">
+
+        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+        <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                @for ($x=1; $x<5;$x++)
                 <!--First item-->
-                    @if ($x==1)
-                    <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                        data-te-carousel-item
-                        data-te-carousel-active>
-                        <img src="{{$this->images}}" class="block w-full"
-                            alt="Wild Landscape" />
-                    </div>
-                    @else
-                    <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                        data-te-carousel-item>
-                        <img src="{{$this->images}}" class="block w-full"
-                            alt="Wild Landscape" />
-                    </div>
-                    @endif
-                @endfor
+                <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item data-te-carousel-active>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="block w-full"
+                        alt="Wild Landscape" />
+                </div>
+                <!--Second item-->
+                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="block w-full" alt="Camera" />
+                </div>
+                <!--Third item-->
+                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="block w-full"
+                        alt="Exotic Fruits" />
+                </div>
             </div>
 
             <!--Carousel controls - prev item-->
@@ -109,3 +105,4 @@
         </div>
     </div>
 </div>
+
