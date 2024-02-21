@@ -82,7 +82,7 @@
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Jakarta Selatan",
-            "addressRegion" : "Jakarta Selatan",
+            "addressRegion" : "DKI Jakarta",
             "addressLocality": "Jakarta",
             "addressCountry": "ID",
             "postalCode": "12910"
