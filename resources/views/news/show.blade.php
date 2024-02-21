@@ -9,10 +9,11 @@
     @section('homesection')
     <x-news.news-detail :post="$post" :related="$related" :agent="$agent" />
     @endsection
-    <x-custom-modal :sliders="$sliders">
+    <x-custom-modal >
         @slot('body')
         @livewire('contact-us')
         @endslot
     </x-custom-modal>
+
 
 </x-app-layout>

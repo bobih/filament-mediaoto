@@ -110,7 +110,7 @@
             </div>
         </main>
     </div>
-    <x-custom-carousel :images="$images">
+    <x-custom-carousel :slider="$slider">
         @slot('body')
 
         @endslot
