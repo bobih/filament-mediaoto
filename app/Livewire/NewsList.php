@@ -36,6 +36,21 @@ class NewsList extends Component
 
         $agent = new Agent();
         // Implement cache
+
+        if($this->search == ""){
+
+            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
+            ->with('categories','media','tags','author')
+            ->published()
+            ->orderBy('published_at','desc')
+            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                $query->withCategory($this->category);
+            })
+            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                $query->withAllTags([$this->tag]);
+            });
+
+        } else {
         $arrSearch = explode(" ", $this->search);
 
             $response = NewsPost::where(function($query) use ($arrSearch) {
@@ -52,6 +67,7 @@ class NewsList extends Component
             ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
                 $query->withAllTags([$this->tag]);
             });
+        }
 
        return $response;
     }
