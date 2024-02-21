@@ -28,10 +28,7 @@ class ImageCarousel extends Component
         $arrUrl = explode ("/", Url::current());
         $slug = $arrUrl [(count ($arrUrl) - 1)];
         $newsdata = NewsPost::where('slug',$slug)->with('media')->first();
-        //dd($newsdata->getMedia());
-        //dd($urlLocation);
         $this->images = $newsdata->media[0]->getUrl('desktop');
-       // dd($slug);
-       // $postid = NewsPost::where('slug',)
+
     }
 }
