@@ -228,11 +228,16 @@ class NewsPostController extends Controller
         $agent = new Agent();
 
         $search = Str::of($search)->replace('-', ' ');
+        $arrSearch = explode(' ',$search);
 
 
         if (env('APP_ENV', 'local') == 'production') {
-            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($search) {
-                return NewsPost::where('title', 'LIKE', "%".$search."%")
+            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($arrSearch) {
+                return NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
+                    }
+                })
                     ->with('categories', 'media', 'tags', 'author')
                     ->published()
                     ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
@@ -253,7 +258,7 @@ class NewsPostController extends Controller
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
 
-            $arrSearch = explode(' ',$search);
+
 
 
                 $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
@@ -275,24 +280,7 @@ class NewsPostController extends Controller
             })->take(10)->get();
         }
 
-        $arrSearch = explode(' ',$search);
 
-
-                $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
-                    foreach ($arrSearch as $value) {
-                        $query->orWhere('title', 'LIKE', "%".$value."%");
-                    }
-                })
-                ->with('categories', 'media', 'tags', 'author')
-                ->published()
-                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-
-                //print_r($newsResponse->toSql() );
-                //exit();
-            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
-            $newscategories = NewsCategory::whereHas('posts', function ($query) {
-                $query->published();
-            })->take(10)->get();
 
 
         return view('news.index', [
