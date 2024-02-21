@@ -252,6 +252,20 @@ class NewsPostController extends Controller
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
 
+            $arrSearch = explode(' ',$search);
+
+
+                $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'like', "%{$value}%");
+                    }
+                })
+                ->with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+
+
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
             $newscategories = NewsCategory::whereHas('posts', function ($query) {
                 $query->published();
