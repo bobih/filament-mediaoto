@@ -41,7 +41,7 @@
              */ ?>
                 <!-- Modal header -->
 
-                <div class="absolute right-0 ">
+                <div class="absolute right-0 z-40">
                     <button id="btnclose" type="button"
                         class=" text-gray-400 bg-transparent hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                         x-on:click="$dispatch('close-image-modal')"">
