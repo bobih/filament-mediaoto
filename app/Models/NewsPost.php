@@ -227,7 +227,7 @@ class NewsPost extends Model implements HasMedia
             try{
                 $urlLocation = $this->media[0]->getUrl('webpthumbnomark');
             }catch(\Exception $e){
-                $urlLocation = $this->image;
+                $urlLocation = '';
             }
             //$urlLocation = $this->getFirstMediaUrl();
         }
