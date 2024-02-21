@@ -57,17 +57,32 @@
         <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-
+                @php
+                    $first = true;
+                @endphp
                @foreach ($slider as $slide)
+                @if ($first)
                 <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                    data-te-carousel-item>
+                    data-te-carousel-item data-te-carousel-active>
                     <img src="{{$slide->image}}" class="block w-full"
                         alt="Wild Landscape" />
                 </div>
+                @else
+                <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                data-te-carousel-item>
+                <img src="{{$slide->image}}" class="block w-full"
+                    alt="Wild Landscape" />
+            </div>
+                @endif
+
                @endforeach
                 <!--First item-->
 
-
+                <!--Second item-->
+                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="block w-full" alt="Camera" />
+                </div>
 
             </div>
 
