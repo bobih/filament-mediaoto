@@ -35,7 +35,7 @@
             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <!-- Modal content -->
-            <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-gray-800 sm:p-5">
+            <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-transparent sm:p-5">
                 <!-- Modal header -->
                 <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <button id="btnclose" type="button"
