@@ -56,17 +56,27 @@
             </button>
         </div>
 
-        <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
+        <div id="carouselExampleControls" class="relative"
+            data-te-carousel-init
+            data-te-ride="carousel">
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                 @for ($x=1; $x<5;$x++)
                 <!--First item-->
-                <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                    data-te-carousel-item>
-                    <img src="{{$this->images}}" class="block w-full"
-                        alt="Wild Landscape" />
-                </div>
-
+                    @if ($x==1)
+                    <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                        data-te-carousel-item
+                        data-te-carousel-active>
+                        <img src="{{$this->images}}" class="block w-full"
+                            alt="Wild Landscape" />
+                    </div>
+                    @else
+                    <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                        data-te-carousel-item>
+                        <img src="{{$this->images}}" class="block w-full"
+                            alt="Wild Landscape" />
+                    </div>
+                    @endif
                 @endfor
             </div>
 
@@ -97,7 +107,5 @@
                     class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
             </button>
         </div>
-
-
     </div>
 </div>
