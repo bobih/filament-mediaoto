@@ -1,6 +1,6 @@
 
 <div class="w-full h-full">
-    <x-custom-carousel wire:ignore :slider="$slider">
+    <x-custom-carousel>
         @slot('body')
 
         @endslot

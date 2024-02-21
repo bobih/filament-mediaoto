@@ -60,7 +60,7 @@
                     <div class="relative overflow-hidden rounded-lg min-h-full">
                          <!-- Item 1 -->
                         <div class=" duration-700 ease-in-out" data-carousel-item="active">
-                            <img src="{{$slider}}" class="absolute mx-auto block h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img src="" class="absolute mx-auto block h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 5 -->
                         <div class=" duration-700 ease-in-out" data-carousel-item>
