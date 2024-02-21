@@ -129,6 +129,8 @@ class NewsPostController extends Controller
                 'image' =>$news->media[0]->getUrl()
             );
             $slider[0] = (object) $imagelist;
+            $slider[1] = (object) $imagelist;
+            $slider[2] = (object) $imagelist;
             //$slider[0]->image = ;;
 
 
