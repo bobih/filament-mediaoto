@@ -1,4 +1,4 @@
-@props(['post', 'related','agent'])
+@props(['post', 'related','agent','slider'])
 <div class="grid grid-cols-1 sm:grid-cols-4 bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
 
     <div class="col-span-3">
@@ -110,7 +110,7 @@
             </div>
         </main>
     </div>
-    <x-custom-carousel >
+    <x-custom-carousel :slider="$slider">
         @slot('body')
 
         @endslot

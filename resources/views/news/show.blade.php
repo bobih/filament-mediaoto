@@ -7,7 +7,7 @@
     <livewire:top-nav />
     @endsection
     @section('homesection')
-    <x-news.news-detail :post="$post" :related="$related" :agent="$agent" />
+    <x-news.news-detail :post="$post" :related="$related" :agent="$agent" :slider="$slider" />
     @endsection
     <x-custom-modal >
         @slot('body')
