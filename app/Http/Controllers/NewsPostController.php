@@ -257,14 +257,15 @@ class NewsPostController extends Controller
                 //dd($arrSearch);
                 $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
                     foreach ($arrSearch as $value) {
-                        //$query->orWhere('title', 'like', "%".$value."%");
-                        dd($value);
+                        $query->orWhere('title', 'like', "%".$value."%");
                     }
                 })
                 ->with('categories', 'media', 'tags', 'author')
                 ->published()
-                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5);
 
+                print_r($newsResponse->getBindings() );
+                exit();
 
 
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
