@@ -52,6 +52,18 @@ class NewsList extends Component
             ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
                 $query->withAllTags([$this->tag]);
             });
+
+            if(count($response) == 0){
+                $response = NewsPost::with('categories','media','tags','author')
+                ->published()
+                ->orderBy('published_at','desc')
+                ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                    $query->withCategory($this->category);
+                })
+                ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                    $query->withAllTags([$this->search]);
+                });
+            }
             $response = $response->paginate($this->perPage);
        return $response;
     }
