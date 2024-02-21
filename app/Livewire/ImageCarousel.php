@@ -33,7 +33,12 @@ class ImageCarousel extends Component
     {
         $arrUrl = explode ("/", Url::current());
         $slug = $arrUrl [(count ($arrUrl) - 1)];
-        dd($slug);
+        $newsdata = NewsPost::where('slug',$slug)->with('media')->first();
+        //dd($newsdata->getMedia());
+        $urlLocation = $newsdata->media[0]->getUrl('webp');
+        //dd($urlLocation);
+        $this->images = $newsdata->media[0]->getUrl('webp');
+       // dd($slug);
        // $postid = NewsPost::where('slug',)
     }
 }
