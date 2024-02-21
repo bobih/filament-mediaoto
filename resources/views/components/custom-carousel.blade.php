@@ -54,7 +54,8 @@
 
 
         <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <div id="carouselExampleControls" class="relative" data-te-carousel-init data-te-ride="carousel">
+        <div id="carouselExampleControls" class="relative"
+        data-te-carousel-init>
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                 @php
