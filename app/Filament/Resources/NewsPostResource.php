@@ -188,6 +188,7 @@ class NewsPostResource extends Resource
 
                     SpatieMediaLibraryFileUpload::make('image')
                     ->responsiveImages()
+                    ->required()
                     ->conversion('thumb'),
 
                     TextArea::make('description')
