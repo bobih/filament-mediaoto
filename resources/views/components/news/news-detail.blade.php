@@ -110,9 +110,9 @@
             </div>
         </main>
     </div>
-    <x-custom-carousel>
+    <x-custom-carousel :images="$images">
         @slot('body')
-       @livewire('image-carousel')
+
         @endslot
     </x-custom-carousel>
 </div>
