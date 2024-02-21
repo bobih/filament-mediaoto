@@ -256,15 +256,21 @@ class NewsPost extends Model implements HasMedia
         if ($isUrl) {
             $urlLocation = $this->image;
         } else {
+
+            try{
             if ($this->media[0]->hasGeneratedConversion('webpthumb')) {
                 if($this->watermark == 1){
                 $urlLocation = $this->media[0]->getUrl('webpthumb');
                 } else {
                     $urlLocation = $this->media[0]->getUrl('webpthumbnomark');
                 }
+
             } else {
                 $urlLocation = $this->media[0]->getUrl();
             }
+        } catch(\Exception $e){
+            $urlLocation = $this->image;
+        }
         }
         return  $urlLocation;
     }
