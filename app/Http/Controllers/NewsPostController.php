@@ -114,6 +114,25 @@ class NewsPostController extends Controller
                 $controller = new MetaController();
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
+
+            $slider = [];
+            $imagelist = array(
+                'image' =>$news->media[0]->getUrl()
+            );
+            $slider[0] = (object) $imagelist;
+
+            $dom = new Dom;
+            $dom->loadStr($news->content);
+            $listImages = $dom->find('img');
+
+            foreach ($listImages as $list){
+                $imagelist = array(
+                    'image' =>$list->getAttribute('src')
+                );
+                $slider[] = (object) $imagelist;
+            }
+
+
         } else {
             $newsRelated =  NewsPost::whereNotIn('id', [$news->id])->inRandomOrder()->with('categories', 'media', 'tags', 'author')->take(3)->get();
 
