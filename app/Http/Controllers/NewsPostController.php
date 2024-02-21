@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use PHPHtmlParser\Dom;
 use App\Models\NewsPost;
 use Illuminate\Support\Str;
+use Jenssegers\Agent\Agent;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -124,15 +125,25 @@ class NewsPostController extends Controller
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
 
+            // Get Image from content
+
+
             $slider = [];
             $imagelist = array(
                 'image' =>$news->media[0]->getUrl()
             );
             $slider[0] = (object) $imagelist;
-            $slider[1] = (object) $imagelist;
-            $slider[2] = (object) $imagelist;
-            //$slider[0]->image = ;;
 
+            $dom = new Dom;
+            $dom->loadStr($news->content);
+            $listImages = $dom->find('img');
+
+            foreach ($listImages as $list){
+                $imagelist = array(
+                    'image' =>$list->getAttribute('src')
+                );
+                $slider[] = (object) $imagelist;
+            }
 
             $newsid =  $news;
         }
