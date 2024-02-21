@@ -15,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->setLocale('id');
+
        // if (env('APP_ENV','local')) {
        //     $this->app->register('Barryvdh\Debugbar\ServiceProvider');
        // }
@@ -26,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->app->setLocale('id');
         /*
         Filament::serving(function () {
             Filament::registerNavigationGroups([
