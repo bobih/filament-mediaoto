@@ -6,6 +6,7 @@ use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
@@ -34,11 +35,8 @@ class HomeController extends Controller
         // Check if Mobile
 
         $agent = new Agent();
-        if (!array_key_exists('id', Config::get('languages'))) {
-            Session::put('applocale', 'id');
-            //app()->setLocale('id');
-        }
-
+        $locale = App::currentLocale();
+        App::setLocale($locale);
 
         $homeMobileCache = Cache::remember('mobileCache', Carbon::now()->addHours(1), function () {
             return NewsPost::featured()->published()->with('categories','media','tags','author')->orderBy('published_at','desc')->take(5)->get();
