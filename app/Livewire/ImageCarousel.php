@@ -13,12 +13,6 @@ class ImageCarousel extends Component
 
     #[On('showImageModal')]
     public function showImageModal($postid){
-
-       // $newsdata = NewsPost::where('id',$postid)->with('media')->first();
-        //dd($newsdata->getMedia());
-       // $urlLocation = $newsdata->media[0]->getUrl('webp');
-        //dd($urlLocation);
-       // $this->images = $newsdata->media[0]->getUrl('webp');
         $this->dispatch('open-image-modal');
     }
 
@@ -35,9 +29,8 @@ class ImageCarousel extends Component
         $slug = $arrUrl [(count ($arrUrl) - 1)];
         $newsdata = NewsPost::where('slug',$slug)->with('media')->first();
         //dd($newsdata->getMedia());
-        $urlLocation = $newsdata->media[0]->getUrl('webp');
         //dd($urlLocation);
-        $this->images = $newsdata->media[0]->getUrl('webp');
+        $this->images = $newsdata->media[0]->getUrl('desktop');
        // dd($slug);
        // $postid = NewsPost::where('slug',)
     }
