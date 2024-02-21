@@ -53,7 +53,7 @@ class NewsList extends Component
                 $query->withAllTags([$this->tag]);
             });
 
-            if(count($response) == 0){
+            if(count($response->get(10)) == 0){
                 $response = NewsPost::with('categories','media','tags','author')
                 ->published()
                 ->orderBy('published_at','desc')
