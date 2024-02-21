@@ -262,10 +262,10 @@ class NewsPostController extends Controller
                 })
                 ->with('categories', 'media', 'tags', 'author')
                 ->published()
-                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5);
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
 
-                print_r($newsResponse->toSql() );
-                exit();
+                //print_r($newsResponse->toSql() );
+                //exit();
 
 
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
