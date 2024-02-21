@@ -264,7 +264,7 @@ class NewsPostController extends Controller
                 ->published()
                 ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5);
 
-                print_r($newsResponse->getBindings() );
+                print_r($newsResponse->toSql() );
                 exit();
 
 
