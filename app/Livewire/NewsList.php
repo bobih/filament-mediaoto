@@ -9,10 +9,8 @@ use Livewire\Attributes\On;
 
 use App\Models\NewsCategory;
 use Livewire\WithPagination;
-use Illuminate\Support\Carbon;
 use Livewire\Attributes\Computed;
 use Illuminate\Http\Client\Request;
-use Illuminate\Support\Facades\Cache;
 use RalphJSmit\Livewire\Urls\Facades\Url;
 
 class NewsList extends Component
@@ -30,44 +28,41 @@ class NewsList extends Component
 
     public $perPage = 3;
 
-
     #[Computed()]
     public function posts(){
 
         $agent = new Agent();
-        // Implement cache
 
-        if($this->search == ""){
 
-            $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
-            ->with('categories','media','tags','author')
-            ->published()
-            ->orderBy('published_at','desc')
-            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
-                $query->withCategory($this->category);
-            })
-            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
-                $query->withAllTags([$this->tag]);
-            });
+        $response = NewsPost::where('title', 'LIKE', "%".$this->search."%")
+                    ->with('categories','media','tags','author')
+                    ->published()
+                    ->orderBy('published_at','desc')
+                    ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
+                        $query->withCategory($this->category);
+                    })
+                    ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
+                        $query->withAllTags([$this->tag]);
+                    });
+                    //$response = NewsPost::withAllTags(['google'],'categories')->get();
+
+                    //dd($response);
+
+
+
+        if($agent->isMobile()){
+            $response = $response->paginate($this->perPage);
+            // NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(1)->get();
+
+
 
         } else {
-        $arrSearch = explode(" ", $this->search);
+            $response = $response->paginate($this->perPage);
 
-            $response = NewsPost::where(function($query) use ($arrSearch) {
-                foreach ($arrSearch as $value) {
-                    $query->orWhere('title', 'LIKE', "%".$value."%");
-                }
-            })
-            ->with('categories','media','tags','author')
-            ->published()
-            ->orderBy('published_at','desc')
-            ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
-                $query->withCategory($this->category);
-            })
-            ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
-                $query->withAllTags([$this->tag]);
-            });
+            //$response = NewsPost::where('featured',1)->with('categories')->orderBy('published_at','desc')->take(5)->get();
         }
+
+
 
        return $response;
     }
