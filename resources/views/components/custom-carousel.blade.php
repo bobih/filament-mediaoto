@@ -50,7 +50,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
-                <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+                <div id="custom-controls-gallery" class="relative w-full" data-carousel="static">
                     <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                          <!-- Item 1 -->
