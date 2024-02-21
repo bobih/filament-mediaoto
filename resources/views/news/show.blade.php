@@ -15,9 +15,9 @@
         @endslot
     </x-custom-modal>
 
-    <x-custom-carousel :post="$post">
+    <x-custom-carousel>
         @slot('body')
-        @livewire('image-carousel')
+        <?php /* @livewire('image-carousel') */ ?>
         @endslot
     </x-custom-carousel>
 
