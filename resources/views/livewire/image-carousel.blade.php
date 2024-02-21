@@ -1,3 +1,3 @@
-<div class="mx-auto">
-    <img src="{{$this->images}}" class="" alt="...">
+<div class="w-full>
+    <img class="mx-auto" src="{{$this->images}}" class="" alt="...">
 </div>
