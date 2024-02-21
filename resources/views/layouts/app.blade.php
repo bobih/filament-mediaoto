@@ -216,6 +216,7 @@
                 "@type": "PostalAddress",
                 "streetAddress": "Jakarta Selatan",
                 "addressLocality": "Jakarta",
+                "addressRegion" : "DKI Jakarta",
                 "addressCountry": "ID",
                 "postalCode": "12910"
               }
