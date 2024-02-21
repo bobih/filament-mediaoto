@@ -112,7 +112,7 @@
     </div>
     <?php /*    @livewire('image-carousel') */ ?>
 
-    <x-custom-carousel>
+    <x-custom-carousel :slider="$slider">
         @slot('body')
         @endslot
     </x-custom-carousel>
