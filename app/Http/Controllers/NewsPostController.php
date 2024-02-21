@@ -289,8 +289,6 @@ class NewsPostController extends Controller
 
                 //print_r($newsResponse->toSql() );
                 //exit();
-            dd($newsResponse);
-
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
             $newscategories = NewsCategory::whereHas('posts', function ($query) {
                 $query->published();
