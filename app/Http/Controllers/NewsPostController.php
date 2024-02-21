@@ -256,6 +256,7 @@ class NewsPostController extends Controller
             $arrSearch = explode(' ',$search);
 
                 //dd($arrSearch);
+                DB::enableQueryLog();
                 $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
                     foreach ($arrSearch as $value) {
                         $query->orWhere('title', 'LIKE', "%".$value."%");
