@@ -34,10 +34,12 @@
             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+
+            <?php /*
             <!-- Modal content -->
             <div class="relative p-4 bg-gray-100 rounded-lg shadow dark:bg-transparent sm:p-5">
                 <!-- Modal header -->
-                <?php /*
+
                 <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <button id="btnclose" type="button"
                         class="text-gray-400 bg-transparent hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -95,7 +97,8 @@
                         </button>
                     </div>
                 </div>
-            </div>
+
+
         </div>
     </div>
 
