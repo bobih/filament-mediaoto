@@ -110,6 +110,11 @@
             </div>
         </main>
     </div>
-    @livewire('image-carousel')
+    <?php /*    @livewire('image-carousel') */ ?>
+
+    <x-custom-carousel>
+        @slot('body')
+        @endslot
+    </x-custom-carousel>
 
 </div>
