@@ -55,7 +55,7 @@
                     </button>
                 </div>
 
-                <div id="indicators-carousel" class="relative w-full h-[500px]" data-carousel="static">
+                <div wire:ignore id="indicators-carousel" class="relative w-full h-[500px]" data-carousel="static">
                     <!-- Carousel wrapper -->
                     <div class="relative overflow-hidden rounded-lg min-h-full">
                          <!-- Item 1 -->
