@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Routing\Route;
+
 use Filament\Facades\Filament;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Filament\Navigation\NavigationGroup;
