@@ -13,7 +13,7 @@
         <div class="hidden md:grid md:grid-cols-2 md:gap-3">
             <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
                 <img class="w-full transition ease-in-out rounded-lg shadow-xl"
-                    src="https://www.mediaoto.id/images/services_1.webp" alt="Performance Optimization"
+                    src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/services_1.webp" alt="Performance Optimization"
                     title="Performance Optimization">
                 <div
                     class="invisible md:visible absolute flex items-center justify-center top-0 w-16 left-10 h-16 bg-[#FF9119] rounded-b-lg">
