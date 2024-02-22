@@ -16,7 +16,7 @@
                     <!-- Author -->
                     <address class="pb-10 md:pb-10 ">
                         <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                            <img class="mr-4 w-16 h-16 rounded-full" src="https://www.mediaoto.id/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
+                            <img class="mr-4 w-16 h-16 rounded-full" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
                             <div>
                                 <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{$post->author->nama}}</a>
                                 <p class="text-base text-gray-900 dark:text-gray-400">Content Creative Mediaoto</p>
