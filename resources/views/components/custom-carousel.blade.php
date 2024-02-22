@@ -66,7 +66,7 @@
                 @if ($first)
                 <div  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
-                    <img src="{{$slide->image}}" class="block w-full"
+                    <img src="{{$slide->image}}" class="block h-full fill-cover mx-auto"
                         alt="Wild Landscape" />
                 </div>
                 @php
@@ -75,7 +75,7 @@
                 @else
                 <div  class="relative  float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item>
-                <img src="{{$slide->image}}" class="block fill-cover mx-auto"
+                <img src="{{$slide->image}}" class="block h-full fill-cover mx-auto"
                     alt="Wild Landscape" />
             </div>
                 @endif
