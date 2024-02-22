@@ -10,7 +10,28 @@ import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
 import { Animate, Ripple, Carousel, initTE } from "tw-elements";
-initFlowbite();
+
+
+//requestPermission();
+
+
+// Request Notification Permission
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+
+});
+
+
+document.addEventListener('livewire:navigated', () => {
+    console.log('navigated');
+    initFlowbite();
+    initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
+
+
+    initFlowbite();
 initTE({ Animate, Ripple, Carousel });
 Observer.start();
 
@@ -27,13 +48,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
-//requestPermission();
-
-
-// Request Notification Permission
-
-
-document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(function () {
 
@@ -76,13 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-});
 
 
-document.addEventListener('livewire:navigated', () => {
-    console.log('navigated');
-    initFlowbite();
-    initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
+
+
     Observer.start();
 
     setTimeout(function () {
