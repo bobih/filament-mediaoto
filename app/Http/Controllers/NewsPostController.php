@@ -117,7 +117,7 @@ class NewsPostController extends Controller
 
             $slider = [];
             $imagelist = array(
-                'image' =>$news->media[0]->getUrl()
+                'image' =>$news->media[0]->getUrl('webpthumbnomark')
             );
             $slider[0] = (object) $imagelist;
 
