@@ -67,7 +67,7 @@
                 <div  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
 
-                    <img src="{{$slide->image}}" class="block object-contain mx-auto"
+                    <img src="{{$slide->image}}" class="block object-cover h-[500px] mx-auto"
                         alt="Wild Landscape" />
 
                 </div>
@@ -77,7 +77,7 @@
                 @else
                 <div  class="relative  float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item>
-                <img src="{{$slide->image}}" class="block object-contain mx-auto"
+                <img src="{{$slide->image}}" class="block object-cover h-[500px] mx-auto"
                     alt="Wild Landscape" />
             </div>
                 @endif
