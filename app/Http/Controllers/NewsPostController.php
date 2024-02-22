@@ -59,6 +59,7 @@ class NewsPostController extends Controller
                 $query->published();
             })->take(10)->get();
         }
+        $newsResponse = [];
 
 
         return view('news.index', [
