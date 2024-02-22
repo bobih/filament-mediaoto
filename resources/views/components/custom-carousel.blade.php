@@ -28,7 +28,7 @@
     </div>
 
     <div x-show="show"
-        style="max-height: 500px;"
+        style="max-height: 500px"
         class="mb-6 bg-gray-100 dark:bg-gray-800/50 rounded-lg  shadow-xl transform transition-all h-full  w-full sm:mx-auto"
         x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -39,7 +39,7 @@
 
         <!-- Modal header -->
 
-        <div class="absolute right-0 z-40 mx-4 my-4 top-0 flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none">
+        <div  class="absolute right-0 z-40 mx-4 my-4 top-0 flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none">
             <button id="btnclose" type="button"
                 class="  text-gray-900 bg-white hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 x-on:click="$dispatch('close-image-modal')"">
@@ -55,7 +55,7 @@
 
 
         <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <div id="carouselExampleControls" class="relative"
+        <div style="max-height: 500px" id="carouselExampleControls" class="relative"
         data-te-carousel-init>
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
