@@ -29,6 +29,7 @@ class HomeController extends Controller
     {
         $lang = $request->session()->get('applocale');
 
+        dd($lang);
         if($lang == null){
             $lang = 'id';
         }
