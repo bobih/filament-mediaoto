@@ -35,7 +35,7 @@
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </div>
                         @else
-                        <button x-data={} x-on:click="$dispatch('open-image-modal')"  class="w-full h-auto pb-1/4 hover:cursor-auto">
+                        <button x-data={} x-on:click="$dispatch('open-image-modal')"  class="w-full h-auto pb-1/4">
                             <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </button>
