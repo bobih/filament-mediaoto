@@ -8,7 +8,7 @@
       </div>
 
       <marquee class="test" scrolldelay="500">
-        <span>A</span>
+        <span class="font-size-[100px]">A</span>
         <span>B</span>
       </marquee>
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
