@@ -42,7 +42,7 @@
         <div  class="absolute right-0 z-40 mx-4 my-4 top-0 flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none">
             <button id="btnclose" type="button"
                 class="  text-gray-900 bg-white hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                x-on:click="$dispatch('close-image-modal')"">
+                x-on:click="$dispatch('close-image-modal')">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -66,7 +66,7 @@
                 @if ($first)
                 <div  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
-                    <img src="{{$slide->image}}" class="block h-full fill-cover mx-auto"
+                    <img src="{{$slide->image}}" class="block mx-auto"
                         alt="Wild Landscape" />
                 </div>
                 @php
@@ -75,7 +75,7 @@
                 @else
                 <div  class="relative  float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item>
-                <img src="{{$slide->image}}" class="block h-full fill-cover mx-auto"
+                <img src="{{$slide->image}}" class="block mx-auto"
                     alt="Wild Landscape" />
             </div>
                 @endif
