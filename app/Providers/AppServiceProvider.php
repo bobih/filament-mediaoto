@@ -42,6 +42,11 @@ class AppServiceProvider extends ServiceProvider
 
         }
 
+        Filament::serving(function () {
+            dd($this);
+
+        });
+
         /*
         Filament::serving(function () {
             Filament::registerNavigationGroups([
