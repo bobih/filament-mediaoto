@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use App\Filament\Resources\NewsCategoryResource;
-use App\Filament\Resources\NewsPostResource;
-use Illuminate\Support\ServiceProvider;
 use Filament\Facades\Filament;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\ServiceProvider;
 use Filament\Navigation\NavigationGroup;
+use App\Filament\Resources\NewsPostResource;
+use App\Filament\Resources\NewsCategoryResource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $lang = Session::get('applocale');
+
+       // dd($lang);
+        if($lang == null){
+            $lang = 'id';
+
+            Session::put('applocale', 'id');
+            app()->setLocale('id');
+
+        }
 
         /*
         Filament::serving(function () {
