@@ -115,21 +115,26 @@ class NewsPostController extends Controller
                 $metaProduct = $controller->getMetaProduct($news->car_model, $news);
             }
 
+
             $slider = [];
             $imagelist = array(
-                'image' =>$news->media[0]->getUrl('webpthumbnomark')
+                'image' =>$news->media[0]->getUrl('webpthumbnomark'),
+                'title' =>'Pic 1 - ' . $news->title
+
             );
             $slider[0] = (object) $imagelist;
 
             $dom = new Dom;
             $dom->loadStr($news->content);
             $listImages = $dom->find('img');
-
+            $x = 2;
             foreach ($listImages as $list){
                 $imagelist = array(
-                    'image' =>$list->getAttribute('src')
+                    'image' =>$list->getAttribute('src'),
+                    'title' =>'Pic '.$x.' - ' . $news->title
                 );
                 $slider[] = (object) $imagelist;
+                $x++;
             }
 
 
@@ -149,19 +154,23 @@ class NewsPostController extends Controller
 
             $slider = [];
             $imagelist = array(
-                'image' =>$news->media[0]->getUrl()
+                'image' =>$news->media[0]->getUrl('webpthumbnomark'),
+                'title' =>'Pic 1 - ' . $news->title
+
             );
             $slider[0] = (object) $imagelist;
 
             $dom = new Dom;
             $dom->loadStr($news->content);
             $listImages = $dom->find('img');
-
+            $x = 2;
             foreach ($listImages as $list){
                 $imagelist = array(
-                    'image' =>$list->getAttribute('src')
+                    'image' =>$list->getAttribute('src'),
+                    'title' =>'Pic '.$x.' - ' . $news->title
                 );
                 $slider[] = (object) $imagelist;
+                $x++;
             }
 
             $newsid =  $news;
