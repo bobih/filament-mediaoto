@@ -31,7 +31,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        dd(Route::current());
         $lang = Session::get('applocale');
 
        // dd($lang);
