@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Filament::serving(function () {
-            dd($this);
+            app()->setLocale('en');
 
         });
 
