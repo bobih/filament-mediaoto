@@ -66,7 +66,7 @@
                 @if ($first)
                 <div  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
-                    <div class="bg-contain bg-center ..." style="background-image: url({{$slide->image}})"></div>
+                    <div class="bg-contain bg-center block mx-auto" style="background-image: url({{$slide->image}})"></div>
                     <?php /*
                     <img src="{{$slide->image}}" class="block mx-auto"
                         alt="Wild Landscape" />
