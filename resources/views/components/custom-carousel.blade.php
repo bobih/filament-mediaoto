@@ -55,10 +55,10 @@
 
 
         <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <div style="max-height: 500px" id="carouselExampleControls" class="relative"
+        <div style="max-height: 500px"  id="carouselExampleControls" class="relative"
         data-te-carousel-init>
             <!--Carousel items-->
-            <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+            <div style="max-height: 500px" class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                 @php
                     $first = true;
                 @endphp
@@ -75,7 +75,7 @@
                 @else
                 <div  class="relative  float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item>
-                <img src="{{$slide->image}}" class="block w-full"
+                <img src="{{$slide->image}}" class="block fill-cover mx-auto"
                     alt="Wild Landscape" />
             </div>
                 @endif
