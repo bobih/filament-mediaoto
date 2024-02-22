@@ -39,9 +39,7 @@ class NewsPostController extends Controller
         $agent = new Agent();
 
         if (env('APP_ENV', 'local') == 'production') {
-            $newsResponse = Cache::remember('newsResponse', Carbon::now()->addHours(1), function () {
-                return NewsPost::inRandomOrder()->with('categories', 'media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
-            });
+            $newsResponse = [];
 
             $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
                 return NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
@@ -53,7 +51,7 @@ class NewsPostController extends Controller
                 })->take(10)->get();
             });
         } else {
-            $newsResponse =  NewsPost::inRandomOrder()->with('categories', 'media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            $newsResponse = [];
             $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
             $newscategories = NewsCategory::whereHas('posts', function ($query) {
                 $query->published();
