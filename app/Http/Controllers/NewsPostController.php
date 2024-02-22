@@ -130,7 +130,7 @@ class NewsPostController extends Controller
             $x = 2;
             foreach ($listImages as $list){
                 $imagelist = array(
-                    'image' =>$list->getAttribute('src'),
+                    'image' =>env('IMAGE_URL','https://www.mediaoto.id') . $list->getAttribute('src'),
                     'title' =>'Pic '.$x.' - ' . $news->title
                 );
                 $slider[] = (object) $imagelist;
@@ -166,7 +166,7 @@ class NewsPostController extends Controller
             $x = 2;
             foreach ($listImages as $list){
                 $imagelist = array(
-                    'image' =>$list->getAttribute('src'),
+                    'image' => env('IMAGE_URL','https://www.mediaoto.id'). $list->getAttribute('src'),
                     'title' =>'Pic '.$x.' - ' . $news->title
                 );
                 $slider[] = (object) $imagelist;
