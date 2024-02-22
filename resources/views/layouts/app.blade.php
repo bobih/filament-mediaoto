@@ -4,7 +4,7 @@
 <head>
     <?php /*
     <script type="text/javascript">"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
-        */?>
+
     <script>
         if(!('color-theme' in localStorage)){
             localStorage.setItem('color-theme', 'dark');
@@ -16,6 +16,8 @@
         document.documentElement.classList.remove('dark')
     }
     </script>
+    */?>
+    <script>"color-theme"in localStorage||localStorage.setItem("color-theme","dark"),"dark"!==localStorage.getItem("color-theme")&&("color-theme"in localStorage||!window.matchMedia("(prefers-color-scheme: dark)").matches)?document.documentElement.classList.remove("dark"):document.documentElement.classList.add("dark");</script>
 
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="true"/>
