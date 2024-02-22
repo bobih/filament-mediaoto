@@ -28,7 +28,7 @@
     </div>
 
     <div x-show="show"
-        style="max-height: 600px"
+        style="max-height: 580px"
         class="mb-6  transform transition-all h-full  w-full sm:mx-auto"
         x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -55,10 +55,10 @@
 
 
         <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <div style="max-height: 600px"  id="carouselExampleControls" class="relative"
+        <div style="max-height: 580px"  id="carouselExampleControls" class="relative"
         data-te-carousel-init>
             <!--Carousel items-->
-            <div style="max-height: 600px" class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+            <div style="max-height: 580px" class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                 @php
                     $first = true;
                 @endphp
@@ -67,7 +67,7 @@
                 <div  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item data-te-carousel-active>
 
-                    <img src="{{$slide->image}}" class="block object-cover h-[600px] mx-auto drop-shadow-xl rounded-lg"
+                    <img src="{{$slide->image}}" class="block object-cover h-[580px] mx-auto drop-shadow-xl rounded-lg"
                         alt="Wild Landscape" />
 
                 </div>
@@ -77,7 +77,7 @@
                 @else
                 <div  class="relative  float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item>
-                <img src="{{$slide->image}}" class="block object-cover h-[600px] mx-auto drop-shadow-xl rounded-lg"
+                <img src="{{$slide->image}}" class="block object-cover h-[580px] mx-auto drop-shadow-xl rounded-lg"
                     alt="Wild Landscape" />
             </div>
                 @endif
