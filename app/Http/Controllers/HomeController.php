@@ -28,6 +28,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $lang = $request->session()->get('applocale');
+
+        dd($lang);
+
         if (array_key_exists($lang, Config::get('languages'))) {
             Session::put('applocale', 'id');
             app()->setLocale('id');
