@@ -63,6 +63,7 @@ document.addEventListener('livewire:navigated', () => {
                     type: "GET",
                     dataType: "json",
                     success:function(data) {
+                        console.log(data);
                       var serinfo = parseFloat(data)+parseFloat(quantity);
                     },
                     });
