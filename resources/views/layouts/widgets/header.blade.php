@@ -199,7 +199,6 @@
 
                 <div class="flex items-center gap-2 md:order-2">
 
-
                     <button title="{{ Config::get('languages')[App::getLocale()]['display'] }}"
                         id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                         class="px-2 py-2.5 text-center inline-flex items-center text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 text-sm"
