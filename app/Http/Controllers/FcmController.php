@@ -27,7 +27,7 @@ class FcmController extends Controller
 
         if($fcmtoken == ''){
             return Response::json([
-                'message' => 'Token :' . $fcmtoken
+                'message' => 'Token :' . $request
             ], 201);
         } else {
             try{
