@@ -20,7 +20,7 @@ class FcmController extends Controller
        $fcmtoken = $request['fcmtoken'];
 
        $input = $request->all();
-       dd($input);
+       dd($input[0]->fcmtoken);
 
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
 
