@@ -80,7 +80,7 @@
         </div>
 
         @if ($agent->isMobile())
-        <div id="animate"
+        <div id="animate2"
         data-te-animation-init
         data-te-animation-reset="true"
         data-te-animation-start="manually"
