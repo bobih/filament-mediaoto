@@ -22,7 +22,7 @@ class FcmController extends Controller
        $input = $request->all();
        $fcmtoken = $input['fcmtoken'];
 
-
+        dd($fcmtoken);
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
 
         $agent = new Agent();
