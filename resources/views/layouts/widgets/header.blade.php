@@ -98,64 +98,7 @@
                     id="navbar-search">
                     <ul
                         class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-400 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800">
-                        @php
 
-                              $arrMenu = array(
-                                array(
-                                    "pagename" => "home",
-                                    "class" => '',
-                                    "url"   => "/",
-                                    "href"  => "/#home",
-                                    "lang"  => "home.nav.home"
-
-                                ),
-                                    array(
-                                        "pagename" => "aboutus",
-                                        "class" => '',
-                                        "url"   => "/",
-                                        "href"  => "/#aboutus",
-                                        "lang"  => "home.nav.about"
-
-                                    ),
-                                    array(
-                                        "pagename" => "products",
-                                        "class" => '',
-                                        "url"   => "/",
-                                        "href"  => "/#products",
-                                        "lang"  => "home.nav.products"
-
-                                    ),
-                                );
-
-
-                                $x = 0;
-                              foreach ($arrMenu as $menu) {
-                                if($this->nav == $menu['pagename']){
-                                    $arrMenu[$x]['class'] = 'inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 dark:border-indigo-600 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out';
-                                } else {
-                                    $arrMenu[$x]['class'] = 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out';
-                                }
-                                $x++;
-                              }
-
-                            @endphp
-                        @foreach ($arrMenu as $menu )
-                        <li>
-                            @if (Request::segment(1) == '')
-                            <a title="{{$menu['pagename']}}" href="{{$menu['href']}}" wire:click.prevent="pageName('{{$menu['pagename']}}')" rel="noopener" target="_self"
-                                class="{{$menu['class']}}">
-                                {{ __($menu['lang']) }}
-                            </a>
-                        @else
-                            <button wire:click.prevent="getPage('{{$menu['url']}}','{{$menu['pagename']}}')"
-                                class="{{$menu['class']}}">
-                                {{ __($menu['lang']) }}
-                            </button>
-                        @endif
-
-                        </li>
-
-                        @endforeach
 
                         <li>
 
