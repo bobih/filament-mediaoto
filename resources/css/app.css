@@ -5,6 +5,10 @@
 @import '../../node_modules/tw-elements/dist/css/tw-elements.min.css';
 
 
+*::-webkit-scrollbar {
+    display: none;
+  }
+
 [x-cloak] {
     display: none;
 }
