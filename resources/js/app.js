@@ -106,7 +106,6 @@ const messaging = getMessaging(app);
             script.type = 'text/javascript';
             script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
 
-            head.removeChild(script);
             head.appendChild(script);
 
     }, 2000);
