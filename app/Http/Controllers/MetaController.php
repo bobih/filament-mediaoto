@@ -49,6 +49,21 @@ class MetaController extends Controller
                               ),
                             ),
                         ),
+                        "deliveryTime" => array (
+                            "@type" => "ShippingDeliveryTime",
+                            "handlingTime" => array (
+                              "@type" => "QuantitativeValue",
+                              "minValue" => 0,
+                              "maxValue" => 1,
+                              "unitCode" => "DAY"
+                            ),
+                            "transitTime" => array(
+                              "@type" => "QuantitativeValue",
+                              "minValue" => 14,
+                              "maxValue" => 30,
+                              "unitCode" => "DAY"
+                            ),
+                        ),
                     ),
                     "review" => array(
                         "@type" => "Review",
@@ -101,6 +116,21 @@ class MetaController extends Controller
                     "addressCountry" => "ID",
                     "addressRegion" => array( "JKT")
                   ),
+                ),
+                "deliveryTime" => array (
+                    "@type" => "ShippingDeliveryTime",
+                    "handlingTime" => array (
+                      "@type" => "QuantitativeValue",
+                      "minValue" => 0,
+                      "maxValue" => 1,
+                      "unitCode" => "DAY"
+                    ),
+                    "transitTime" => array(
+                      "@type" => "QuantitativeValue",
+                      "minValue" => 14,
+                      "maxValue" => 30,
+                      "unitCode" => "DAY"
+                    ),
                 ),
             ),
             ),
