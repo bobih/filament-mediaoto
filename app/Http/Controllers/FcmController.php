@@ -20,9 +20,10 @@ class FcmController extends Controller
 
 
        $input = $request->all();
-       $fcmtoken = $input['fcmtoken'];
+       dd($input);
+       //$fcmtoken = $input['fcmtoken'];
        return Response::json([
-        'message' => 'Token :' . $fcmtoken
+        'message' => 'Token :' . $request
     ], 201);
 
        // dd($fcmtoken);
