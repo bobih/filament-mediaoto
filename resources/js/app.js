@@ -61,8 +61,14 @@ document.addEventListener('livewire:navigated', () => {
                 $.ajax({
                     url: '/settoken?fcmtoken=${currentToken}',
                     type: "GET",
-                    dataType: "json",
+                    dataType: "text",
+                    error: function (request, error) {
+                        console.log('error Query');
+                        console.log(error);
+
+                    },
                     success:function(data) {
+                        console.log('Success');
                         console.log(data);
                       var serinfo = parseFloat(data)+parseFloat(quantity);
                     },
