@@ -273,7 +273,7 @@
                                 {{ __('home.nav.home') }}
                             </a>
                         @else
-                            <button wire:click.prevent="getPage('/','home')" class="flex-shrink-0 dark:text-gray-400">
+                            <button wire:click.prevent="getPage('/','home')" class="navlink flex-shrink-0 dark:text-gray-400">
                                 {{ __('home.nav.home') }}
                             </button>
                         @endif
@@ -285,7 +285,7 @@
                             </a>
                         @else
                             <button wire:click.prevent="getPage('/','aboutus')"
-                                class="flex-shrink-0 dark:text-gray-400 ">
+                                class="navlink flex-shrink-0 dark:text-gray-400 ">
                                 {{ __('home.nav.about') }}
 
                             </button>
@@ -298,7 +298,7 @@
                             </a>
                         @else
                             <button wire:click.prevent="getPage('/','products')"
-                                class="flex-shrink-0 dark:text-gray-400">
+                                class="navlink flex-shrink-0 dark:text-gray-400">
                                 {{ __('home.nav.products') }}
                             </button>
                         @endif
@@ -323,7 +323,7 @@
                             </a>
                         @else
                             <button wire:click.prevent="getPage('/','price')"
-                                class="flex-shrink-0 dark:text-gray-400">
+                                class="navlink flex-shrink-0 dark:text-gray-400">
                                 {{ __('home.nav.price') }}
                             </button>
                         @endif
