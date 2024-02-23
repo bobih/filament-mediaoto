@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\FcmController;
 use App\Models\Contact;
 use Livewire\Component;
 
@@ -113,6 +114,20 @@ class ContactUs extends ModalComponent
         $this->reset(['name', 'email','phone', 'note']);
         $this->isChecked = false;
 
+        // Sent Notif
+        $data = (object) array(
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'notes' => $this->note,
+        );
+        $fcm = new FcmController();
+
+        try{
+            $fcm->sentContactUs($data);
+        } catch (\Exception $e){
+            // Do Nothing
+        }
 
         // Sent Email
         /*
