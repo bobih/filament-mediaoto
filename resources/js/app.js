@@ -98,6 +98,7 @@ const messaging = getMessaging(app);
 
     setTimeout(function () {
 
+            document.getElementsByTagName('head')[0].removeChild(document.getElementsByTagName('head')[0].getElementsByTagName('script')[0]);
 
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
