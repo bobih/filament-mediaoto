@@ -96,6 +96,8 @@ class NewsList extends Component
         dd($this->totalData);
         if($this->totalData < ($this->perPage + 3)){
             $this->perPage += 3;
+        } else {
+            return;
         }
     }
 
