@@ -26,8 +26,8 @@ class FcmController extends Controller
 
         if($fcmtoken == ''){
             return Response::json([
-                'message' => 'OK'
-            ], 201);
+                'message' => 'TOken :' . $fcmtoken
+            ], 401);
         } else {
             try{
                 $fcmweb = new FcmWeb();
