@@ -21,7 +21,7 @@ class FcmController extends Controller
 
         $input      = $request->all();
         $fcmtoken   = $input['fcmtoken'];
-        $fcmid      = $input['fcmid'];
+        $fcmstore   = $input['fcmstore'];
 
         $agent = new Agent();
         $platform = $agent->platform();
@@ -34,7 +34,7 @@ class FcmController extends Controller
         } else {
             try{
 
-                if($fcmid === 0){
+                if($fcmstore == ''){
                     // Save Data
                     $fcmweb = new FcmWeb();
                     $fcmweb->fcmtoken = $fcmtoken;
@@ -42,14 +42,14 @@ class FcmController extends Controller
                     $fcmweb->created_at = Carbon::now();
                     $fcmweb->save();
                     return Response::json([
-                        'message' => $fcmweb->id
+                        'message' =>  "OK"
                     ], 201);
                 } else {
-                    $fcmweb = FcmWeb::where('id',$fcmid)->first();
+                    $fcmweb = FcmWeb::where('fcmtoken',$fcmstore)->first();
                     $fcmweb->fcmtoken = $fcmtoken;
                     $fcmweb->update();
                     return Response::json([
-                        'message' => $fcmweb->id
+                        'message' => "OK"
                     ], 201);
                 }
 
