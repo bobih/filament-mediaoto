@@ -72,7 +72,7 @@ class NewsList extends Component
         return  NewsPost::inRandomOrder()->published()->with('categories')->orderBy('published_at','desc')->take(2)->get();
     }
 
-    #[On('search')]
+    //#[On('search')]
     public function updateSearch($search){
        // dd('Get');
         //$this->reset('search','category','tag');
