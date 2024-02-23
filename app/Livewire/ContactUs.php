@@ -111,8 +111,7 @@ class ContactUs extends ModalComponent
 
         GoogleTagManager::flash('formContact', 'success');
 
-        $this->reset(['name', 'email','phone', 'note']);
-        $this->isChecked = false;
+
 
         // Sent Notif
         $data = array(
@@ -158,6 +157,8 @@ class ContactUs extends ModalComponent
             ->iconColor('success')
             ->send();
 
+            $this->reset(['name', 'email','phone', 'note']);
+            $this->isChecked = false;
 
         $this->eventName = 'Hello World!!';
         $this->dispatch('succesSave');
