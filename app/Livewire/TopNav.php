@@ -44,15 +44,16 @@ class TopNav extends Component
         //dd($agent->isMobile());
         $this->isMobile = false;// $agent->isMobile();
 
-        if(Url::currentRoute() == 'news.tag'){
-
+        if(Url::currentRoute() == 'news.index'){
+            $this->nav = 'news';
         }
-        $this->nav = Url::currentRoute();
+
     }
 
     public function getPage($page, $path){
       // dd($this->currentUrl);
         if($path){
+
             session()->flash('scroll', $path);
             $this->redirect('/',true);
         } else if($page){
