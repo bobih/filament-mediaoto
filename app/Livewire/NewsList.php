@@ -115,6 +115,7 @@ class NewsList extends Component
            $search = $arrUrl [(count ($arrUrl) - 1)];
            $search = Str::of($search)->replace('-', ' ');
            $this->search = $search;
+           dd('OK');
 
         } else if(Url::currentRoute() == 'news.tag'){
             $this->reset('search','category','tag');
