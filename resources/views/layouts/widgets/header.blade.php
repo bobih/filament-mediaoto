@@ -134,7 +134,7 @@
                         @foreach ($arrMenu as $menu )
                         <li>
                             @if (Request::segment(1) == '')
-                            <a title="home" href="{{$menu['href']}}" wire:click.prevent="pageName({{$menu['pagename']}})" rel="noopener" target="_self"
+                            <a title="home" href="{{$menu['href']}}" wire:click.prevent="pageName('{{$menu['pagename']}}')" rel="noopener" target="_self"
                                 class="{{$menu['class']}}">
                                 {{ __($menu['lang']) }}
                             </a>
