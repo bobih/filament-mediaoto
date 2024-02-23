@@ -32,31 +32,31 @@ document.addEventListener('livewire:navigated', () => {
 
 
     initFlowbite();
-initTE({ Animate, Ripple, Carousel });
-Observer.start();
+    initTE({ Animate, Ripple, Carousel });
+    Observer.start();
 
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
-    authDomain: "mediaoto-b3ac5.firebaseapp.com",
-    projectId: "mediaoto-b3ac5",
-    storageBucket: "mediaoto-b3ac5.appspot.com",
-    messagingSenderId: "676189219899",
-    appId: "1:676189219899:web:0deaa956dfaafb4eb0001e",
-    measurementId: "G-Q7LP278P3T"
-};
+    const firebaseConfig = {
+        apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
+        authDomain: "mediaoto-b3ac5.firebaseapp.com",
+        projectId: "mediaoto-b3ac5",
+        storageBucket: "mediaoto-b3ac5.appspot.com",
+        messagingSenderId: "676189219899",
+        appId: "1:676189219899:web:0deaa956dfaafb4eb0001e",
+        measurementId: "G-Q7LP278P3T"
+    };
 
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
 
     setTimeout(function () {
 
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 //console.log(currentToken);
-               navigator.sendBeacon(
+                navigator.sendBeacon(
                     `/settoken?fcmtoken=${currentToken}`
-               );
+                );
 
 
             } else {
@@ -97,13 +97,13 @@ const messaging = getMessaging(app);
     Observer.start();
 
     setTimeout(function () {
-            var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            script.setAttribute('id', 'gcaptchasrc');
-            script.type = 'text/javascript';
-            script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.setAttribute('id', 'gcaptchasrc');
+        script.type = 'text/javascript';
+        script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
 
-            head.appendChild(script);
+        head.appendChild(script);
 
     }, 3000);
 

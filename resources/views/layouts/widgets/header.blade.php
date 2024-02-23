@@ -180,7 +180,7 @@
     <!-- mobile -->
     <header id="home">
         <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-2 p-2">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-2 p-1">
                 @if (Request::segment(1) == '')
                     <a title="headerlogo" href="/#home" rel="noopener" target="_self"
                         class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
@@ -265,7 +265,7 @@
 
                 </div>
                 <div id="mobilenav" class="flex">
-                    <div class="flex pt-1 pb-1  overflow-x-scroll w-[380px] space-x-8 flex-nowrap text-nowrap">
+                    <div class="flex pt-1 pb-2  overflow-x-scroll w-[380px] space-x-8 flex-nowrap text-nowrap">
 
                         @if (Request::segment(1) == '')
                             <a title="home" href="/#home" rel="noopener" target="_self"
