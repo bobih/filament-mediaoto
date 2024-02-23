@@ -18,6 +18,8 @@
         observe () {
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    console.log($this->perPage);
+                    console.log($this->totalData);
                     if (entry.isIntersecting && ($this->perPage < $this->totalData) ) {
                         @this.call('loadMore')
                     }
