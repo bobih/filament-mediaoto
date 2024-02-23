@@ -179,28 +179,28 @@
 
         <div id="mobilenav" class="flex">
             <div
-            class="flex py-2  overflow-x-scroll w-[400px] space-x-8 flex-nowrap text-nowrap">
+            class="flex pt-3 px-3  overflow-x-scroll w-[400px] space-x-8 flex-nowrap text-nowrap">
 
                 @if (Request::segment(1) == '')
                     <a title="home" href="/#home" rel="noopener" target="_self"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.home') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','home')"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.home') }}
                     </button>
                 @endif
 
                 @if (Request::segment(1) == '')
                     <a title="about-us" href="/#aboutus" rel="noopener" target="_self"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.about') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','aboutus')"
-                        class="flex-shrink-0 ">
+                        class="flex-shrink-0 dark:text-gray-400 ">
                         {{ __('home.nav.about') }}
 
                 </button>
@@ -208,18 +208,18 @@
 
                 @if (Request::segment(1) == '')
                 <a title="products" href="/#products" rel="noopener" target="_self"
-                    class="flex-shrink-0">
+                    class="flex-shrink-0 dark:text-gray-400">
                     {{ __('home.nav.products') }}
                 </a>
                 @else
                     <button wire:click.prevent="getPage('/','products')"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.products') }}
                     </button>
                 @endif
 
                 <a wire:navigate title="news" href="/news" rel="noopener" target="_self"
-                    class="flex-shrink-0">
+                    class="flex-shrink-0 dark:text-gray-400">
                     {{__('home.nav.news')}}
                 </a>
 
@@ -233,19 +233,19 @@
 
                 @if (Request::segment(1) == '')
                     <a title="price" href="/#price" rel="noopener" target="_self"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.price') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','price')"
-                        class="flex-shrink-0">
+                        class="flex-shrink-0 dark:text-gray-400">
                         {{ __('home.nav.price') }}
                     </button>
                 @endif
 
                 <button title="contact-us" x-data
                     x-on:click="$dispatch('open-modal');document.getElementById('btnlink2').click();"
-                    class="flex-shrink-0">
+                    class="flex-shrink-0 dark:text-gray-400">
                     {{ __('home.nav.contact') }}
                 </button>
 
