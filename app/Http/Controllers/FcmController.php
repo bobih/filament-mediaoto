@@ -403,7 +403,7 @@ class FcmController extends Controller
         $message = " Nama: " .   $request->name;
         $message .= " Email: " . $request->email;
         $message .= " Phone: " . $request->phone;
-        $message .= " Note: " . $request->note;
+        $message .= " Note: " . $request->notes;
 
        // $message = "Nama:" . $request->name . " Email: " . $request->email. "";
         $url = "https://fcm.googleapis.com/fcm/send";
