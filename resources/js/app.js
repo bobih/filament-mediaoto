@@ -81,7 +81,7 @@ document.addEventListener('livewire:navigated', () => {
                         success:function(data) {
                             console.log('Success');
                             console.log(data);
-                            localStorage.setItem("fcmtoken", data);
+                            localStorage.setItem("fcmtoken", currentToken);
 
                         },
                         });
