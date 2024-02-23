@@ -39,7 +39,7 @@ class TopNav extends Component
         $agent =  new Agent();
 
         //dd($agent->isMobile());
-        $this->isMobile = $agent->isMobile();
+        $this->isMobile = false;// $agent->isMobile();
     }
 
     public function getPage($page, $path){
