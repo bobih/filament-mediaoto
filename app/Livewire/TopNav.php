@@ -16,6 +16,8 @@ class TopNav extends Component
 
     public $scroll = '';
 
+    public $nav = 'home';
+
     public $isMobile = false;
     public function render()
     {
@@ -55,5 +57,9 @@ class TopNav extends Component
     public function updatedCurrpage($nav)
     {
         $this->currpage = $nav;
+    }
+
+    public function pageName($page){
+        $this->nav = $page;
     }
 }
