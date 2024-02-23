@@ -19,7 +19,13 @@ import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    setTimeout(function () {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
+        head.appendChild(script);
+    }, 2000);
 
 
 });
@@ -96,13 +102,7 @@ const messaging = getMessaging(app);
 
     Observer.start();
 
-    setTimeout(function () {
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
-        head.appendChild(script);
-    }, 2000);
+
 
 
     const card = document.querySelectorAll('#animate')
