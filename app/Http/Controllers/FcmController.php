@@ -10,13 +10,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Response;
+use Symfony\Component\Console\Input\Input;
 
 
 class FcmController extends Controller
 {
 
     public function setToken(Request $request){
-       $fcmtoken = trim($request['fcmtoken']);
+       $fcmtoken = $request['fcmtoken'];
 
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
 
@@ -26,7 +27,7 @@ class FcmController extends Controller
 
         if($fcmtoken == ''){
             return Response::json([
-                'message' => 'TOken :' . $fcmtoken
+                'message' => 'Token :' . $fcmtoken
             ], 201);
         } else {
             try{
