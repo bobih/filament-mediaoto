@@ -62,7 +62,7 @@ document.addEventListener('livewire:navigated', () => {
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 console.log(currentToken);
-                var fcmstore = localStorage.getItem('fcmtoken')
+                var fcmstore = localStorage.getItem('fcmtoken');
 
                 if(fcmstore != currentToken || fcmstore == ''){
                     console.log('update token....');
@@ -72,7 +72,7 @@ document.addEventListener('livewire:navigated', () => {
                             },
                         url: '/settoken',
                         type: "POST",
-                        data:     {fcmtoken: currentToken,fcmstore: fcmtoken},
+                        data:     {fcmtoken: currentToken, fcmstore: fcmstore},
                         dataType: "json",
                         error: function (request, error) {
                             console.log('error Query');
@@ -85,7 +85,7 @@ document.addEventListener('livewire:navigated', () => {
                             localStorage.setItem('fcmtoken', currentToken);
 
                         },
-                        });
+                    });
                 }
 
 
