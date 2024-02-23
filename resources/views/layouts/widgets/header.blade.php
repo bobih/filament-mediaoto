@@ -92,7 +92,7 @@
                 </button>
             </div>
 
-            @if (!$this->isMobile)
+            @if ($this->isMobile == false)
             <div class="items-center justify-between hidden z-50 w-full md:flex md:w-auto md:order-1"
                 id="navbar-search">
                 <ul
