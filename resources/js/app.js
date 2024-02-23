@@ -64,7 +64,8 @@ document.addEventListener('livewire:navigated', () => {
                 console.log(currentToken);
                 var fcmstore = localStorage.getItem("fcmtoken");
 
-                if(fcmstore != currentToken){
+                if(fcmstore != currentToken || fcmstore == ''){
+                    console.log('update token....')
                     $.ajax({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
