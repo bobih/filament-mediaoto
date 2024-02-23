@@ -69,7 +69,7 @@ document.addEventListener('livewire:navigated', () => {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                            },
                     url: '/settoken',
-                    type: "POST",
+                    type: "GET",
                     data:     {fcmtoken: currentToken,fcmid: 0},
                     dataType: "json",
                     contentType : "application/json",
