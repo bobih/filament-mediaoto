@@ -21,6 +21,9 @@ class FcmController extends Controller
 
        $input = $request->all();
        $fcmtoken = $input['fcmtoken'];
+       return Response::json([
+        'message' => 'Token :' . $fcmtoken
+    ], 201);
 
        // dd($fcmtoken);
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
@@ -28,7 +31,7 @@ class FcmController extends Controller
         $agent = new Agent();
         $platform = $agent->platform();
 
-
+        /*
         if($fcmtoken == ''){
             return Response::json([
                 'message' => 'Token :' . $fcmtoken
@@ -49,6 +52,7 @@ class FcmController extends Controller
                 ], 400);
             }
         }
+        */
 
     }
 
