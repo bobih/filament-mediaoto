@@ -9,8 +9,9 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <?php /*
     @if($this->posts->hasMorePages())
+    <?php /*
+
         <button wire:click.prevent="loadMore">Load more</button>
     @endif
     */ ?>
@@ -19,7 +20,6 @@
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        console.log('Helloooo')
                         @this.call('loadMore')
                     }
                 })
@@ -34,6 +34,7 @@
     }"
     x-init="observe"
 ></div>
+@endif
 
     <?php /*
     <div class="p-10 my-3">
