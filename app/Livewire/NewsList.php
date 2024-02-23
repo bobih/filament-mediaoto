@@ -28,6 +28,8 @@ class NewsList extends Component
 
     public $perPage = 3;
 
+    public $totalData = 0;
+
     #[Computed()]
     public function posts(){
 
@@ -48,7 +50,7 @@ class NewsList extends Component
 
                     //dd($response);
 
-
+        $this->totalData = count($response->get());
 
         if($agent->isMobile()){
             $response = $response->paginate($this->perPage);
@@ -91,7 +93,9 @@ class NewsList extends Component
 
     public function loadMore()
     {
-        $this->perPage += 3;
+        if($this->totalData < ($this->perPage + 3)){
+            $this->perPage += 3;
+        }
     }
 
     public function render()
