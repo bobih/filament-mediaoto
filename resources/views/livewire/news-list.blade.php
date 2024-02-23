@@ -19,6 +19,7 @@
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        console.log('Helloooo')
                         @this.call('loadMore')
                     }
                 })
