@@ -177,8 +177,6 @@
         </nav>
     </header>
 @else
-
-
     <!-- mobile -->
     <header id="home">
         <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
