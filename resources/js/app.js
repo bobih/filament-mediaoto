@@ -10,6 +10,11 @@ import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
 import { Animate, Ripple, Carousel, initTE } from "tw-elements";
+import jQuery from 'jquery';
+
+
+
+
 
 
 //requestPermission();
@@ -19,7 +24,7 @@ import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    window.$ = jQuery;
 
 
 });
@@ -33,6 +38,9 @@ document.addEventListener('livewire:navigated', () => {
 
     initFlowbite();
     initTE({ Animate, Ripple, Carousel });
+
+    window.$ = jQuery;
+
     Observer.start();
 
 
