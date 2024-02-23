@@ -9,9 +9,10 @@ use Illuminate\Http\Request;
 class MetaController extends Controller
 {
 
-    public function getMetaProduct($carmodel,$news): array{
+    public function getMetaProduct($carmodel, $news): array
+    {
 
-        $carlist = Carmodel::where('id', $carmodel )->with('variant', 'brand', 'bodytype', 'transmission')->first();
+        $carlist = Carmodel::where('id', $carmodel)->with('variant', 'brand', 'bodytype', 'transmission')->first();
         $tanggal = Carbon::parse($carlist->updated_at);
         $listVariant = array();
 
@@ -23,7 +24,7 @@ class MetaController extends Controller
                 "position" => $x,
                 "item" => array(
                     "@type" => "Product",
-                    "name" => $variant->brand->brand .' '. $variant->name,
+                    "name" => $variant->brand->brand . ' ' . $variant->name,
                     "description" => "Varian" . $variant->name,
                     "image" => "https://www.mediaoto.id",
                     "url" => "https://www.mediaoto.id",
@@ -37,51 +38,51 @@ class MetaController extends Controller
                         "shippingDetails" => array(
                             "@type" => "OfferShippingDetails",
                             "shippingRate" => array(
-                              "@type" => "MonetaryAmount",
-                              "value" => "0",
-                              "currency" => "IDR"
+                                "@type" => "MonetaryAmount",
+                                "value" => "0",
+                                "currency" => "IDR"
                             ),
                             "shippingDestination" => array(
-                              array (
-                                "@type" => "DefinedRegion",
-                                "addressCountry" => "ID",
-                                "addressRegion" => array( "JKT")
-                              ),
+                                array(
+                                    "@type" => "DefinedRegion",
+                                    "addressCountry" => "ID",
+                                    "addressRegion" => array("JKT")
+                                ),
                             ),
-                        ),
-                        "deliveryTime" => array (
-                            "@type" => "ShippingDeliveryTime",
-                            "handlingTime" => array (
-                              "@type" => "QuantitativeValue",
-                              "minValue" => 0,
-                              "maxValue" => 1,
-                              "unitCode" => "DAY"
-                            ),
-                            "transitTime" => array(
-                              "@type" => "QuantitativeValue",
-                              "minValue" => 14,
-                              "maxValue" => 30,
-                              "unitCode" => "DAY"
+                            "deliveryTime" => array(
+                                "@type" => "ShippingDeliveryTime",
+                                "handlingTime" => array(
+                                    "@type" => "QuantitativeValue",
+                                    "minValue" => 0,
+                                    "maxValue" => 1,
+                                    "unitCode" => "DAY"
+                                ),
+                                "transitTime" => array(
+                                    "@type" => "QuantitativeValue",
+                                    "minValue" => 14,
+                                    "maxValue" => 30,
+                                    "unitCode" => "DAY"
+                                ),
                             ),
                         ),
                     ),
                     "review" => array(
                         "@type" => "Review",
                         "reviewRating" => array(
-                          "@type" => "Rating",
-                          "ratingValue" => $variant->rating,
-                          "bestRating" => 5
+                            "@type" => "Rating",
+                            "ratingValue" => $variant->rating,
+                            "bestRating" => 5
                         ),
-                        "author" => array (
-                          "@type" => "Person",
-                          "name" => $news->author->name
+                        "author" => array(
+                            "@type" => "Person",
+                            "name" => $news->author->name
                         )
                     ),
-                      "aggregateRating" => array (
+                    "aggregateRating" => array(
                         "@type" => "AggregateRating",
                         "ratingValue" => $variant->rating,
                         "reviewCount" => 1
-                ),
+                    ),
                 )
             );
 
@@ -92,52 +93,52 @@ class MetaController extends Controller
         $product = array(
             "@context" => "https://schema.org",
             "@type" => "Car",
-            "name" => $carlist->brand->brand .' '. $carlist->name,
+            "name" => $carlist->brand->brand . ' ' . $carlist->name,
             "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
             "image" => [
-              "https://www.mediaoto.id"
+                "https://www.mediaoto.id"
             ],
             "url" => "https://www.mediaoto.id",
-            "offers" => array (
-              "@type" => "Offer",
-              "availability" => "https://schema.org/InStock",
-              "price" => min($arrOtr),
-              "priceCurrency" => "IDR",
-              "shippingDetails" => array(
-                "@type" => "OfferShippingDetails",
-                "shippingRate" => array(
-                  "@type" => "MonetaryAmount",
-                  "value" => "0",
-                  "currency" => "IDR"
-                ),
-                "shippingDestination" => array(
-                  array (
-                    "@type" => "DefinedRegion",
-                    "addressCountry" => "ID",
-                    "addressRegion" => array( "JKT")
-                  ),
-                ),
-                "deliveryTime" => array (
-                    "@type" => "ShippingDeliveryTime",
-                    "handlingTime" => array (
-                      "@type" => "QuantitativeValue",
-                      "minValue" => 0,
-                      "maxValue" => 1,
-                      "unitCode" => "DAY"
+            "offers" => array(
+                "@type" => "Offer",
+                "availability" => "https://schema.org/InStock",
+                "price" => min($arrOtr),
+                "priceCurrency" => "IDR",
+                "shippingDetails" => array(
+                    "@type" => "OfferShippingDetails",
+                    "shippingRate" => array(
+                        "@type" => "MonetaryAmount",
+                        "value" => "0",
+                        "currency" => "IDR"
                     ),
-                    "transitTime" => array(
-                      "@type" => "QuantitativeValue",
-                      "minValue" => 14,
-                      "maxValue" => 30,
-                      "unitCode" => "DAY"
+                    "shippingDestination" => array(
+                        array(
+                            "@type" => "DefinedRegion",
+                            "addressCountry" => "ID",
+                            "addressRegion" => array("JKT")
+                        ),
+                    ),
+                    "deliveryTime" => array(
+                        "@type" => "ShippingDeliveryTime",
+                        "handlingTime" => array(
+                            "@type" => "QuantitativeValue",
+                            "minValue" => 0,
+                            "maxValue" => 1,
+                            "unitCode" => "DAY"
+                        ),
+                        "transitTime" => array(
+                            "@type" => "QuantitativeValue",
+                            "minValue" => 14,
+                            "maxValue" => 30,
+                            "unitCode" => "DAY"
+                        ),
                     ),
                 ),
-            ),
             ),
             "itemCondition" => "https://schema.org/NewCondition",
-            "brand" => array (
-              "@type" => "Brand",
-              "name" =>  $carlist->brand->brand
+            "brand" => array(
+                "@type" => "Brand",
+                "name" =>  $carlist->brand->brand
             ),
             "model" => $carlist->brand->brand . ' ' . $carlist->name,
             "numberOfDoors" => $carlist->door,
@@ -149,8 +150,8 @@ class MetaController extends Controller
             "bodyType" => $carlist->bodytype->name,
             "driveWheelConfiguration" => "https://schema.org/FourWheelDriveConfiguration",
             "vehicleEngine" => array(
-              "@type" => "EngineSpecification",
-              "fuelType" => $carlist->fuel->name
+                "@type" => "EngineSpecification",
+                "fuelType" => $carlist->fuel->name
             ),
             "vehicleTransmission" => $carlist->transmission->name,
             "vehicleSeatingCapacity" =>  $carlist->seat
@@ -159,8 +160,8 @@ class MetaController extends Controller
         $listItems = array(
             "@context" => "http://schema.org",
             "@type" => "ItemList",
-            "name" => "Varian " .$carlist->brand->brand .' ' . $carlist->name,
-            "description" => "List Varian " . $carlist->brand->brand . ' '. $carlist->name,
+            "name" => "Varian " . $carlist->brand->brand . ' ' . $carlist->name,
+            "description" => "List Varian " . $carlist->brand->brand . ' ' . $carlist->name,
             "itemListOrder" => "ItemListOrderDescending",
             "numberOfItems" => count($listVariant),
             "itemListElement" => array($listVariant)
