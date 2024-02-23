@@ -179,7 +179,7 @@
 
         <div id="mobilenav" class="flex">
             <ul
-            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-400 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800">
+            class="flex flex-nowrap w-[1000px] ">
             <li>
                 @if (Request::segment(1) == '')
                     <a title="home" href="/#home" rel="noopener" target="_self"
