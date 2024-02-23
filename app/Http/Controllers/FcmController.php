@@ -18,7 +18,6 @@ class FcmController extends Controller
     public function setToken(Request $request){
        $fcmtoken = trim($request['fcmtoken']);
 
-       dd($request);
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
 
         $agent = new Agent();

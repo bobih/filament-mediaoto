@@ -70,7 +70,7 @@ document.addEventListener('livewire:navigated', () => {
                            },
                     url: '/settoken',
                     type: "POST",
-                    data:     {fcmtoken: '${currentToken}',fcmid: 0},
+                    data:     {fcmtoken: currentToken,fcmid: 0},
                     dataType: "json",
                     contentType : "application/json",
                     error: function (request, error) {
