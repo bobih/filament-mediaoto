@@ -92,9 +92,7 @@ class NewsList extends Component
 
 
     public function loadMore(){
-
         $this->perPage += 3;
-
     }
 
     public function render()
