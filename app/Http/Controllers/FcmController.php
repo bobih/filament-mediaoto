@@ -401,10 +401,10 @@ class FcmController extends Controller
 
 
         $userToken = "e28hxY1XmkwUMUU2ITOdHj:APA91bH0FWU1iKNXdjn3fZK76odmaQCITZp6inlFyVf_HgCFtOHYTzBQzfDPsnMIe-mXBeat4byEX7y0Nz1x94EJSmB9u3yQrkuaiFZxEMHeiDyfeFrT-AP4SqHhxVminrHoaP9fBYf8";
-        $body = "Nama: " .   $request['name'] ."\n";
-        $body .= "Email: " . $request['email']."\n";
-        $body .= "Phone: " . $request['phone']."\n";
-        $body .= "Note: " . $request['notes'];
+        $body  = $request['name'] ."\n";
+        $body .= $request['email']."\n";
+        $body .= $request['phone']."\n";
+        $body .= $request['notes'];
        // $message = "Nama:" . $request->name . " Email: " . $request->email. "";
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";
