@@ -98,11 +98,38 @@
                     id="navbar-search">
                     <ul
                         class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-400 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800">
+                        @php
+                              $arrMenu = array(
+                                'home' => array(
+                                    "pagename" => "home",
+                                    "url"   => "/",
+                                    "href"  => "/#home",
+                                    "lang"  => "home.nav.home"
+                                )
+                              );
+                            @endphp
+                        @foreach ($arrMenu as $menu )
                         <li>
-                            {{$this->nav}}
+                            @if (Request::segment(1) == '')
+                            <a title="home" href="{{$menu->href}}" wire:click.prevent="pageName('home')" rel="noopener" target="_self"
+                                class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                {{ __('home.nav.home') }}
+                            </a>
+                        @else
+                            <button wire:click.prevent="getPage('/','home')"
+                                class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                {{ __('home.nav.home') }}
+                            </button>
+                        @endif
+
                         </li>
 
+                        @endforeach
+
                         <li>
+
+
+
                             @if (Request::segment(1) == '')
                                 <a title="home" href="/#home" wire:click.prevent="pageName('home')" rel="noopener" target="_self"
                                     class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
