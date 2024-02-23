@@ -238,6 +238,8 @@ class NewsPostController extends Controller
         $search = Str::of($search)->replace('-', ' ');
         $arrSearch = explode(' ',$search);
 
+        dd('Helloo');
+
 
         if (env('APP_ENV', 'local') == 'production') {
             $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($arrSearch) {

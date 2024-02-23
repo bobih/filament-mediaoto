@@ -80,7 +80,7 @@ class SearchBox extends Component
 
         } else {
 
-            dd('Hellooo');
+
             $this->redirect('/news/search/'.Str::slug($this->search),true);
         }
 
