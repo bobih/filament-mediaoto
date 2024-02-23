@@ -32,6 +32,10 @@ class TopNav extends Component
     {
         $this->currentUrl = url()->current();
 
+    }
+
+    public function boot(){
+
         $agent =  new Agent();
 
         //dd($agent->isMobile());
