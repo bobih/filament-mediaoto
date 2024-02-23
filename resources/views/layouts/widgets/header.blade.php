@@ -92,7 +92,7 @@
                 </button>
             </div>
             @php
-                dd($this->isMObile);
+                dd($this->isMobile);
             @endphp
 
             @if ($this->isMobile == false)
