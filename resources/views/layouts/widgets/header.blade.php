@@ -182,7 +182,7 @@
     <!-- mobile -->
     <header id="home">
         <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between md:mx-auto p-4">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-2 p-2">
                 @if (Request::segment(1) == '')
                     <a title="headerlogo" href="/#home" rel="noopener" target="_self"
                         class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
