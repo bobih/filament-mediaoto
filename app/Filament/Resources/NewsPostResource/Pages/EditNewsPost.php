@@ -134,6 +134,10 @@ class EditNewsPost extends EditRecord
                     $image = Image::load($filePath);
 
                     // Disable Watermark
+                    $image->format(Manipulations::FORMAT_WEBP)
+                    ->width(600)
+                    ->save($folderpath . $name . '.webp');
+
                     $image->watermark(public_path('watermark4.png'))
                         ->watermarkOpacity(20)
                         ->watermarkPosition(Manipulations::POSITION_TOP_LEFT)      // Watermark at the top
@@ -143,7 +147,8 @@ class EditNewsPost extends EditRecord
                         ->sharpen(10)
                         ->format(Manipulations::FORMAT_WEBP)
                         ->width(600)
-                        ->save($folderpath . $name . '.webp');
+                        ->save($folderpath . $name . 'wmk.webp');
+
 
                 }
 

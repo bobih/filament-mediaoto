@@ -113,6 +113,9 @@ class CreateNewsPost extends CreateRecord
                     $image = Image::load($filePath);
 
                     // Disable Watermark
+                    $image->format(Manipulations::FORMAT_WEBP)
+                    ->width(600)
+                    ->save($folderpath . $name . '.webp');
 
                     $image->watermark(public_path('watermark4.png'))
                         ->watermarkOpacity(20)
@@ -123,7 +126,7 @@ class CreateNewsPost extends CreateRecord
                         ->sharpen(10)
                         ->format(Manipulations::FORMAT_WEBP)
                         ->width(600)
-                        ->save($folderpath . $name . '.webp');
+                        ->save($folderpath . $name . 'wmk.webp');
 
                 }
 
