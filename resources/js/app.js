@@ -100,6 +100,8 @@ const messaging = getMessaging(app);
 
 
             var head = document.getElementsByTagName('head')[0];
+            var tags = document.getElementsByTagName('script');
+            head.removeChild(tags);
 
             var script = document.createElement('script');
             script.id = "gcaptchasrc";
