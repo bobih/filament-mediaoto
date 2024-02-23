@@ -405,10 +405,6 @@ class FcmController extends Controller
         $body .= " Email: " . $request['email'];
         $body .= " Phone: " . $request['phone'];
         $body .= " Note: " . $request['notes'];
-
-
-        dd($body);
-
        // $message = "Nama:" . $request->name . " Email: " . $request->email. "";
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";
@@ -420,7 +416,7 @@ class FcmController extends Controller
                 "title"     => "New Contact Request",
                 "body"      => $body,
                 "click_action"   => "https://www.mediaoto.id",
-                "image"     => "https://www.mediaoto.id/images/44/conversions/01HPM67AABJ3JFESAJNJV6QYZ6-webpthumbnomark.webp"
+                "image"     => "https://www.mediaoto.id/images/home_openGraph_300.webp"
             ),
 //            "android" => $android,
 //            "apns"  => $apns,
