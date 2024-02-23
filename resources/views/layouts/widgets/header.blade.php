@@ -119,7 +119,7 @@
                                 }
                                 $x++;
                               }
-                              dd($arrMenu);
+
                             @endphp
                         @foreach ($arrMenu as $menu )
                         <li>
