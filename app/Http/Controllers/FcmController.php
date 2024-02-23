@@ -19,6 +19,8 @@ class FcmController extends Controller
     public function setToken(Request $request){
        $fcmtoken = $request['fcmtoken'];
 
+       $input = $request->all();
+
        //$data = array('status' => $request->deatails,'url' => '/dispdetails');
 
         $agent = new Agent();
@@ -27,7 +29,7 @@ class FcmController extends Controller
 
         if($fcmtoken == ''){
             return Response::json([
-                'message' => 'Token :' . $request['fcmtoken']
+                'message' => 'Token :' . $input
             ], 201);
         } else {
             try{
