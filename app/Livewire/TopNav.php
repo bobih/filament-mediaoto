@@ -16,7 +16,7 @@ class TopNav extends Component
 
     public $scroll = '';
 
-    public $agent = new Agent();
+    public $agent = '';
     public function render()
     {
         return view('livewire.top-nav');
@@ -31,6 +31,8 @@ class TopNav extends Component
     public function mount()
     {
         $this->currentUrl = url()->current();
+
+        $this->agent =  new Agent();
     }
 
     public function getPage($page, $path){
