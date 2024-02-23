@@ -16,7 +16,7 @@ class TopNav extends Component
 
     public $scroll = '';
 
-    public $agent = '';
+    public $isMobile = false;
     public function render()
     {
         return view('livewire.top-nav');
@@ -32,7 +32,8 @@ class TopNav extends Component
     {
         $this->currentUrl = url()->current();
 
-        $this->agent =  new Agent();
+        $agent =  new Agent();
+        $this->isMobile = $agent->isMobile();
     }
 
     public function getPage($page, $path){
