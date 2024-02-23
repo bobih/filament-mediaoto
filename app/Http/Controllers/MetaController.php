@@ -33,7 +33,22 @@ class MetaController extends Controller
                         "price" => $variant->otr,
                         "priceValidUntil" => $tanggal->addMonths(3)->format('c'),
                         "itemCondition" => "https://schema.org/NewCondition",
-                        "availability" => "https://schema.org/InStock"
+                        "availability" => "https://schema.org/InStock",
+                        "shippingDetails" => array(
+                            "@type" => "OfferShippingDetails",
+                            "shippingRate" => array(
+                              "@type" => "MonetaryAmount",
+                              "value" => "0",
+                              "currency" => "IDR"
+                            ),
+                            "shippingDestination" => array(
+                              array (
+                                "@type" => "DefinedRegion",
+                                "addressCountry" => "ID",
+                                "addressRegion" => array( "JKT")
+                              ),
+                            ),
+                        ),
                     ),
                     "review" => array(
                         "@type" => "Review",
@@ -72,7 +87,22 @@ class MetaController extends Controller
               "@type" => "Offer",
               "availability" => "https://schema.org/InStock",
               "price" => min($arrOtr),
-              "priceCurrency" => "IDR"
+              "priceCurrency" => "IDR",
+              "shippingDetails" => array(
+                "@type" => "OfferShippingDetails",
+                "shippingRate" => array(
+                  "@type" => "MonetaryAmount",
+                  "value" => "0",
+                  "currency" => "IDR"
+                ),
+                "shippingDestination" => array(
+                  array (
+                    "@type" => "DefinedRegion",
+                    "addressCountry" => "ID",
+                    "addressRegion" => array( "JKT")
+                  ),
+                ),
+            ),
             ),
             "itemCondition" => "https://schema.org/NewCondition",
             "brand" => array (
