@@ -329,7 +329,7 @@
                         @endif
 
                         <button title="contact-us" x-data
-                            x-on:click="$dispatch('open-modal');document.getElementById('btnlink2').click();"
+                            x-on:click="$dispatch('open-modal');"
                             class="flex-shrink-0 dark:text-gray-400">
                             {{ __('home.nav.contact') }}
                         </button>
