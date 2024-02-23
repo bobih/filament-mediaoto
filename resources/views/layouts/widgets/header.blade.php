@@ -107,6 +107,8 @@
                                     "lang"  => "home.nav.home"
 
                               );
+
+                              dd($arrMenu);
                                 $x = 0;
                               foreach ($arrMenu as $menu) {
                                 if($this->nav == $menu['pagename']){
