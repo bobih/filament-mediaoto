@@ -416,7 +416,7 @@ class FcmController extends Controller
                 "title"     => "New Contact Request",
                 "body"      => $body,
                 "click_action"   => "https://www.mediaoto.id",
-                "image"     => "https://www.mediaoto.id/images/home_openGraph_300.webp"
+
             ),
 //            "android" => $android,
 //            "apns"  => $apns,
