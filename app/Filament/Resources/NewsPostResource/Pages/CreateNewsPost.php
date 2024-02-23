@@ -126,7 +126,7 @@ class CreateNewsPost extends CreateRecord
                         ->sharpen(10)
                         ->format(Manipulations::FORMAT_WEBP)
                         ->width(600)
-                        ->save($folderpath . $name . 'wmk.webp');
+                        ->save($folderpath . $name . '-wmk.webp');
 
                 }
 
