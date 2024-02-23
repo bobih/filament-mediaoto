@@ -105,7 +105,7 @@ const messaging = getMessaging(app);
 
             head.appendChild(script);
 
-    }, 5000);
+    }, 3000);
 
 
     const card = document.querySelectorAll('#animate')
