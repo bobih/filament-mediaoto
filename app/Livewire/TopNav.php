@@ -48,6 +48,9 @@ class TopNav extends Component
         if(Url::currentRoute() == 'news.index'){
             $this->nav = 'news';
         }
+        if(session('nav')){
+            $this->nav = session('nav');
+        }
 
     }
 
