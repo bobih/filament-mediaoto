@@ -33,6 +33,8 @@ class TopNav extends Component
         $this->currentUrl = url()->current();
 
         $agent =  new Agent();
+
+        dd($agent->isMobile());
         $this->isMobile = $agent->isMobile();
     }
 
