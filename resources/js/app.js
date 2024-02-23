@@ -100,16 +100,12 @@ const messaging = getMessaging(app);
 
 
             var head = document.getElementsByTagName('head')[0];
-            var tags = document.getElementsByTagName('script');
-
-
             var script = document.createElement('script');
             script.id = "gcaptchasrc";
             script.type = 'text/javascript';
             script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
 
-            head.removeChild(tags).then(
-            head.appendChild(script));
+            head.appendChild(script);
 
     }, 2000);
 
