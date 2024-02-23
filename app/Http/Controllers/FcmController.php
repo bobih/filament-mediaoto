@@ -399,8 +399,11 @@ class FcmController extends Controller
 
     public function sentContactUs($request){
 
+        $fcmweb = FcmWeb::where('id',1)->first();
 
-        $userToken = "e28hxY1XmkwUMUU2ITOdHj:APA91bH0FWU1iKNXdjn3fZK76odmaQCITZp6inlFyVf_HgCFtOHYTzBQzfDPsnMIe-mXBeat4byEX7y0Nz1x94EJSmB9u3yQrkuaiFZxEMHeiDyfeFrT-AP4SqHhxVminrHoaP9fBYf8";
+        //$userToken = "e28hxY1XmkwUMUU2ITOdHj:APA91bH0FWU1iKNXdjn3fZK76odmaQCITZp6inlFyVf_HgCFtOHYTzBQzfDPsnMIe-mXBeat4byEX7y0Nz1x94EJSmB9u3yQrkuaiFZxEMHeiDyfeFrT-AP4SqHhxVminrHoaP9fBYf8";
+        $userToken = $fcmweb->fcmtoken;
+
         $body  = $request['name'] ."\n";
         $body .= $request['email']."\n";
         $body .= $request['phone']."\n";
