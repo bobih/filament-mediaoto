@@ -124,7 +124,7 @@ class ContactUs extends ModalComponent
 
         try{
            $sentFCM =  $fcm->sentContactUs($data);
-           dd($sentFCM);
+
         } catch (\Exception $e){
         }
 
