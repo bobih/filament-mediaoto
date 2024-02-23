@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
+use Jenssegers\Agent\Agent;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\Request;
 
@@ -14,6 +15,8 @@ class TopNav extends Component
     public $currpage = 'home';
 
     public $scroll = '';
+
+    public $agent = new Agent();
     public function render()
     {
         return view('livewire.top-nav');
