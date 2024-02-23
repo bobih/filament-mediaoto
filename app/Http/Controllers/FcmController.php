@@ -57,7 +57,7 @@ class FcmController extends Controller
             } catch (\Exception $e){
                 return Response::json([
                     'message' => $e
-                ], 400);
+                ], 201);
             }
         }
 
