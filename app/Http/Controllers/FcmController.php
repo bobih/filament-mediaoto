@@ -19,8 +19,8 @@ class FcmController extends Controller
     public function setToken(Request $request){
 
 
-       $input = $request->all();
-       dd($input);
+      // $input = $request->all();
+       dd($request);
        //$fcmtoken = $input['fcmtoken'];
        return Response::json([
         'message' => 'Token :' . $request

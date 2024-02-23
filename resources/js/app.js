@@ -72,7 +72,6 @@ document.addEventListener('livewire:navigated', () => {
                     type: "POST",
                     data:     {fcmtoken: currentToken,fcmid: 0},
                     dataType: "json",
-                    contentType : "application/json",
                     error: function (request, error) {
                         console.log('error Query');
                         console.log(error);
