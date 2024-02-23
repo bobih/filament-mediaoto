@@ -405,6 +405,9 @@ class FcmController extends Controller
         $body .= " Phone: " . $request->phone;
         $body .= " Note: " . $request->notes;
 
+
+        dd($body);
+
        // $message = "Nama:" . $request->name . " Email: " . $request->email. "";
         $url = "https://fcm.googleapis.com/fcm/send";
         $server_key = "AAAAnXAErDs:APA91bFNBiYEq7DtFkzdk80XjuKKL-Th5hukyDzTBKRW4VbxFVcYHs2_blwTZaliuKA5xvvA3iBbwvZxnr4dGYYdaysX9Sd4J46PGECiGLqlwpNRODrIINMpAfXLmSCHfnnQNfn8W4aq";
