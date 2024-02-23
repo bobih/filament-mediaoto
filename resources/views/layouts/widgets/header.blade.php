@@ -114,7 +114,7 @@
                                         "class" => '',
                                         "url"   => "/",
                                         "href"  => "/#aboutus",
-                                        "lang"  => "home.nav.aboutu"
+                                        "lang"  => "home.nav.about"
 
                                     ),
                                 );
