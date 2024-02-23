@@ -117,6 +117,14 @@
                                         "lang"  => "home.nav.about"
 
                                     ),
+                                    array(
+                                        "pagename" => "products",
+                                        "class" => '',
+                                        "url"   => "/",
+                                        "href"  => "/#products",
+                                        "lang"  => "home.nav.products"
+
+                                    ),
                                 );
 
 
