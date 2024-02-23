@@ -62,27 +62,30 @@ document.addEventListener('livewire:navigated', () => {
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 console.log(currentToken);
+                var fcmstore = localStorage.getItem("fcmtoken");
 
+                if(fcmstore != currentToken){
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                        url: '/settoken',
+                        type: "POST",
+                        data:     {fcmtoken: currentToken,fcmstore: fcmtoken},
+                        dataType: "json",
+                        error: function (request, error) {
+                            console.log('error Query');
+                            console.log(error);
 
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                           },
-                    url: '/settoken',
-                    type: "POST",
-                    data:     {fcmtoken: currentToken,fcmid: 0},
-                    dataType: "json",
-                    error: function (request, error) {
-                        console.log('error Query');
-                        console.log(error);
+                        },
+                        success:function(data) {
+                            console.log('Success');
+                            console.log(data);
+                            localStorage.setItem("fcmtoken", data);
 
-                    },
-                    success:function(data) {
-                        console.log('Success');
-                        console.log(data);
-                      var serinfo = parseFloat(data)+parseFloat(quantity);
-                    },
-                    });
+                        },
+                        });
+                }
 
 
             } else {
