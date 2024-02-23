@@ -94,10 +94,8 @@ class NewsList extends Component
     public function loadMore()
     {
 
-        if($this->totalData < ($this->perPage + 3)){
+        if($this->totalData > ($this->perPage + 3)){
             $this->perPage += 3;
-        } else {
-            return;
         }
     }
 
