@@ -19,8 +19,9 @@ class FcmController extends Controller
     public function setToken(Request $request){
 
 
-        $input = $request->all();
-        $fcmtoken = $input['fcmtoken'];
+        $input      = $request->all();
+        $fcmtoken   = $input['fcmtoken'];
+        $fcmid      = $input['fcmid'];
 
         $agent = new Agent();
         $platform = $agent->platform();
@@ -32,14 +33,27 @@ class FcmController extends Controller
             ], 201);
         } else {
             try{
-                $fcmweb = new FcmWeb();
-                $fcmweb->fcmtoken = $fcmtoken;
-                $fcmweb->platform = $platform;
-                $fcmweb->created_at = Carbon::now();
-                $fcmweb->save();
-                return Response::json([
-                    'message' => 'OK'
-                ], 201);
+
+                if($fcmid === 0){
+                    // Save Data
+                    $fcmweb = new FcmWeb();
+                    $fcmweb->fcmtoken = $fcmtoken;
+                    $fcmweb->platform = $platform;
+                    $fcmweb->created_at = Carbon::now();
+                    $fcmweb->save();
+                    return Response::json([
+                        'message' => $fcmweb->id
+                    ], 201);
+                } else {
+                    $fcmweb = FcmWeb::where('id',$fcmid)->first();
+                    $fcmweb->fcmtoken = $fcmtoken;
+                    $fcmweb->update();
+                    return Response::json([
+                        'message' => $fcmweb->id
+                    ], 201);
+                }
+
+
             } catch (\Exception $e){
                 return Response::json([
                     'message' => $e
