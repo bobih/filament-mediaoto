@@ -107,6 +107,7 @@
                                     "lang"  => "home.nav.home"
                                 )
                               );
+                              dd($arrMenu);
                             @endphp
                         @foreach ($arrMenu as $menu )
                         <li>
