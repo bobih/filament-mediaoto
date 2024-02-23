@@ -187,7 +187,7 @@
                     <a title="headerlogo" href="/#home" rel="noopener" target="_self"
                         class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                         <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
-                        <x-application-logo :size="10" />
+                        <x-application-logo :size="8" />
                         <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
                     </a>
                 @else
