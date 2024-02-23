@@ -6,8 +6,9 @@ use Livewire\Component;
 
 use Jenssegers\Agent\Agent;
 use Livewire\Attributes\Computed;
-use RalphJSmit\Livewire\Urls\Facades\Url;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
+use RalphJSmit\Livewire\Urls\Facades\Url;
 
 
 class TopNav extends Component
@@ -53,7 +54,7 @@ class TopNav extends Component
     public function getPage($page, $path){
       // dd($this->currentUrl);
         if($path){
-
+            Session::set('nav', $path);
             session()->flash('scroll', $path);
             $this->redirect('/',true);
         } else if($page){
