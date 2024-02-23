@@ -238,7 +238,7 @@ class NewsPostController extends Controller
         $search = Str::of($search)->replace('-', ' ');
         $arrSearch = explode(' ',$search);
 
-        dd('Helloo');
+
 
 
         if (env('APP_ENV', 'local') == 'production') {
@@ -291,7 +291,7 @@ class NewsPostController extends Controller
         }
 
 
-
+        $newsResponse = [];
 
         return view('news.index', [
             "posts" => $newsResponse,
