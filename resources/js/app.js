@@ -62,10 +62,10 @@ document.addEventListener('livewire:navigated', () => {
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 console.log(currentToken);
-                var fcmstore = localStorage.getItem("fcmtoken");
+                var fcmstore = localStorage.getItem('fcmtoken')
 
                 if(fcmstore != currentToken || fcmstore == ''){
-                    console.log('update token....')
+                    console.log('update token....');
                     $.ajax({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -82,7 +82,7 @@ document.addEventListener('livewire:navigated', () => {
                         success:function(data) {
                             console.log('Success');
                             console.log(data);
-                            localStorage.setItem("fcmtoken", currentToken);
+                            localStorage.setItem('color-theme', currentToken);
 
                         },
                         });
