@@ -101,7 +101,7 @@ const messaging = getMessaging(app);
 
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
-            script.id = "gcaptchasrc";
+            script.setAttribute('id', 'gcaptchasrc');
             script.type = 'text/javascript';
             script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
 
