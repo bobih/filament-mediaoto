@@ -179,7 +179,7 @@
 
         <div id="mobilenav" class="flex">
             <div
-            class="flex flex-nowrap w-[1000px] ">
+            class="flex overflow-x-scroll w-[400px] ">
 
                 @if (Request::segment(1) == '')
                     <a title="home" href="/#home" rel="noopener" target="_self"
