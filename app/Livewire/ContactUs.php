@@ -115,7 +115,7 @@ class ContactUs extends ModalComponent
         $this->isChecked = false;
 
         // Sent Notif
-        $data = (object) array(
+        $data = array(
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
