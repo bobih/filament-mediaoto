@@ -9,19 +9,25 @@ use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Response;
 
 
 class FcmController extends Controller
 {
 
     public function setToken(Request $request){
-        $fcmtoken = trim($request['fcmtoken']);
+       $fcmtoken = trim($request->fcmtoken);
+
+       //$data = array('status' => $request->deatails,'url' => '/dispdetails');
+
         $agent = new Agent();
         $platform = $agent->platform();
 
 
         if($fcmtoken == ''){
-            return "OK";
+            return Response::json([
+                'message' => 'OK'
+            ], 201);
         } else {
             try{
                 $fcmweb = new FcmWeb();
@@ -29,9 +35,13 @@ class FcmController extends Controller
                 $fcmweb->platform = $platform;
                 $fcmweb->created_at = Carbon::now();
                 $fcmweb->save();
-                return "OK";
+                return Response::json([
+                    'message' => 'OK'
+                ], 201);
             } catch (\Exception $e){
-                return "OK";
+                return Response::json([
+                    'message' => $e
+                ], 400);
             }
         }
 

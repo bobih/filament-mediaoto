@@ -62,14 +62,17 @@ document.addEventListener('livewire:navigated', () => {
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 console.log(currentToken);
-                //navigator.sendBeacon(
-                ///    `/settoken?fcmtoken=${currentToken}`
-                //);
+
 
                 $.ajax({
-                    url: '/settoken?fcmtoken=${currentToken}',
-                    type: "GET",
-                    dataType: "text",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                           },
+                    url: '/settoken',
+                    type: "POST",
+                    data:     {fcmtoken: '${currentToken}',fcmid: 0},
+                    dataType: "json",
+                    contentType : "application/json",
                     error: function (request, error) {
                         console.log('error Query');
                         console.log(error);
