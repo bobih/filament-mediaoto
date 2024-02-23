@@ -183,24 +183,24 @@
 
                 @if (Request::segment(1) == '')
                     <a title="home" href="/#home" rel="noopener" target="_self"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink block ">
                         {{ __('home.nav.home') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','home')"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink block ">
                         {{ __('home.nav.home') }}
                     </button>
                 @endif
 
                 @if (Request::segment(1) == '')
                     <a title="about-us" href="/#aboutus" rel="noopener" target="_self"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink block ">
                         {{ __('home.nav.about') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','aboutus')"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink block ">
                         {{ __('home.nav.about') }}
 
                 </button>
@@ -208,18 +208,18 @@
 
                 @if (Request::segment(1) == '')
                 <a title="products" href="/#products" rel="noopener" target="_self"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                    class="block ">
                     {{ __('home.nav.products') }}
                 </a>
                 @else
                     <button wire:click.prevent="getPage('/','products')"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink block ">
                         {{ __('home.nav.products') }}
                     </button>
                 @endif
 
                 <a wire:navigate title="news" href="/news" rel="noopener" target="_self"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                    class="block ">
                     {{__('home.nav.news')}}
                 </a>
 
@@ -233,19 +233,19 @@
 
                 @if (Request::segment(1) == '')
                     <a title="price" href="/#price" rel="noopener" target="_self"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="block ">
                         {{ __('home.nav.price') }}
                     </a>
                 @else
                     <button wire:click.prevent="getPage('/','price')"
-                        class="navlink block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:focus:text-[#FF9119] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        class="navlink ">
                         {{ __('home.nav.price') }}
                     </button>
                 @endif
 
                 <button title="contact-us" x-data
                     x-on:click="$dispatch('open-modal');document.getElementById('btnlink2').click();"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-white md:hover:bg-transparent md:hover:text-[#FF9119] md:p-0 dark:text-white md:dark:hover:text-[#FF9119] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                    class="block ">
                     {{ __('home.nav.contact') }}
                 </button>
 
