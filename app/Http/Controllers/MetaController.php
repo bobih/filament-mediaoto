@@ -65,6 +65,14 @@ class MetaController extends Controller
                                 ),
                             ),
                         ),
+                        "hasMerchantReturnPolicy" => array(
+                            "@type" => "MerchantReturnPolicy",
+                            "applicableCountry" => "CH",
+                            "returnPolicyCategory" => "https://schema.org/MerchantReturnFiniteReturnWindow",
+                            "merchantReturnDays" => 90,
+                            "returnMethod" => "https://schema.org/ReturnByMail",
+                            "returnFees" => "https://schema.org/FreeReturn"
+                        ),
                     ),
                     "review" => array(
                         "@type" => "Review",
@@ -133,6 +141,14 @@ class MetaController extends Controller
                             "unitCode" => "DAY"
                         ),
                     ),
+                ),
+                "hasMerchantReturnPolicy" => array(
+                    "@type" => "MerchantReturnPolicy",
+                    "applicableCountry" => "CH",
+                    "returnPolicyCategory" => "https://schema.org/MerchantReturnFiniteReturnWindow",
+                    "merchantReturnDays" => 90,
+                    "returnMethod" => "https://schema.org/ReturnByMail",
+                    "returnFees" => "https://schema.org/FreeReturn"
                 ),
             ),
             "itemCondition" => "https://schema.org/NewCondition",
