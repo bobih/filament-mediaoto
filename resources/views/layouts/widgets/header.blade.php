@@ -139,7 +139,7 @@
                                 {{ __($menu['lang']) }}
                             </a>
                         @else
-                            <button wire:click.prevent="getPage({{$menu['url']}},{{$menu['pagename']}})"
+                            <button wire:click.prevent="getPage('{{$menu['url']}}','{{$menu['pagename']}}')"
                                 class="{{$menu['class']}}">
                                 {{ __($menu['lang']) }}
                             </button>
