@@ -6,6 +6,7 @@ use Livewire\Component;
 
 use Jenssegers\Agent\Agent;
 use Livewire\Attributes\Computed;
+use RalphJSmit\Livewire\Urls\Facades\Url;
 use Illuminate\Support\Facades\Request;
 
 
@@ -42,6 +43,11 @@ class TopNav extends Component
 
         //dd($agent->isMobile());
         $this->isMobile = false;// $agent->isMobile();
+
+        if(Url::currentRoute() == 'news.tag'){
+
+        }
+        $this->nav = Url::currentRoute();
     }
 
     public function getPage($page, $path){
