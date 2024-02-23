@@ -54,7 +54,7 @@ class TopNav extends Component
     public function getPage($page, $path){
       // dd($this->currentUrl);
         if($path){
-            Session::set('nav', $path);
+            Session::put('nav', $path);
             session()->flash('scroll', $path);
             $this->redirect('/',true);
         } else if($page){
