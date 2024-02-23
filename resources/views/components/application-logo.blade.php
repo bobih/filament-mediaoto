@@ -19,8 +19,8 @@
                     </g>
                 </svg>
 */ ?>
-
-<svg class="h-10 w-10" fill="currentColor"
+@props(['size'])
+<svg class="h-{{$size}} w-{{$size}}" fill="currentColor"
                     viewBox="0 0 192 192" aria-hidden="true">
                     <g>
                         <path fill-rule="evenodd"

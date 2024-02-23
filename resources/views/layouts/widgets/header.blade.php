@@ -177,6 +177,8 @@
         </nav>
     </header>
 @else
+
+
     <!-- mobile -->
     <header id="home">
         <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
@@ -185,7 +187,7 @@
                     <a title="headerlogo" href="/#home" rel="noopener" target="_self"
                         class="flex items-center gap-3 text-gray-500 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white">
                         <!-- <img src="/images/white_logo.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
-                        <x-application-logo />
+                        <x-application-logo :size="10" />
                         <span class="self-center text-xl font-semibold whitespace-nowrap">Mediaoto</span>
                     </a>
                 @else
@@ -262,16 +264,7 @@
                 </button>
                 */
                     ?>
-                    <button id="btnlink2" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
+
                 </div>
                 <div id="mobilenav" class="flex">
                     <div class="flex pt-3 px-3 pb-2  overflow-x-scroll w-[400px] space-x-8 flex-nowrap text-nowrap">
