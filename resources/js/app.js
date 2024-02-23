@@ -54,9 +54,18 @@ document.addEventListener('livewire:navigated', () => {
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
                 //console.log(currentToken);
-                navigator.sendBeacon(
-                    `/settoken?fcmtoken=${currentToken}`
-                );
+                //navigator.sendBeacon(
+                ///    `/settoken?fcmtoken=${currentToken}`
+                //);
+
+                $.ajax({
+                    url: '/settoken?fcmtoken=${currentToken}',
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                      var serinfo = parseFloat(data)+parseFloat(quantity);
+                    },
+                    });
 
 
             } else {
