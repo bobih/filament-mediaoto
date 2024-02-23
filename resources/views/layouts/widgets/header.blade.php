@@ -265,7 +265,7 @@
 
                 </div>
                 <div id="mobilenav" class="flex">
-                    <div class="flex pt-2 pb-2  overflow-x-scroll w-[380px] space-x-8 flex-nowrap text-nowrap">
+                    <div class="flex pt-1 pb-1  overflow-x-scroll w-[380px] space-x-8 flex-nowrap text-nowrap">
 
                         @if (Request::segment(1) == '')
                             <a title="home" href="/#home" rel="noopener" target="_self"
