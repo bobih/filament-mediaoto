@@ -266,7 +266,4 @@
 /* animation */
 @layer utilities{
 
-    .slide-in-right{animation:slide-in-right .5s ease-in-out 1s both}
-    @keyframes slide-in-right{0%{transform:translateX(1500px);opacity:0}100%{transform:translateX(0);opacity:1}}
-
 }
