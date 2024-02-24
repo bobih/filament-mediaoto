@@ -28,9 +28,11 @@ class MetaController extends Controller
                     "itemCondition" => "https://schema.org/NewCondition",
                     "vehicleModelDate" => Carbon::now()->year,
                     "bodyType" => $variant->bodyType,
+                    "model" => $variant->brand->brand . ' ' . $variant->name,
+                    "vehicleTransmission" =>  $variant->transmission->name,
                     "brand" => array (
                         "@type" => "Brand",
-                        "name" => $carlist->brand->brand
+                        "name" => $variant->brand->brand
                     ),
                     "description" => "Varian" . $variant->name,
                     "image" => "https://www.mediaoto.id",
@@ -114,8 +116,7 @@ class MetaController extends Controller
                 "name" => $carlist->brand->brand
             ),
             "itemCondition" => "https://schema.org/NewCondition",
-            "vehicleModelDate" => Carbon::now()->year,
-            "bodyType" => $variant->bodyType,
+            "bodyType" => $carlist->bodytype->name,
             "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
             "image" => [
                 "https://www.mediaoto.id"
@@ -165,7 +166,6 @@ class MetaController extends Controller
                     "returnFees" => "https://schema.org/FreeReturn"
                 ),
             ),
-            "itemCondition" => "https://schema.org/NewCondition",
             "model" => $carlist->brand->brand . ' ' . $carlist->name,
             "numberOfDoors" => $carlist->door,
             "vehicleConfiguration" => "ST",
@@ -173,7 +173,6 @@ class MetaController extends Controller
             "vehicleInteriorType" => "Standard",
             "vehicleModelDate" => $tanggal->format('Y'),
             "color" => "White",
-            "bodyType" => $carlist->bodytype->name,
             "driveWheelConfiguration" => "https://schema.org/FourWheelDriveConfiguration",
             "vehicleEngine" => array(
                 "@type" => "EngineSpecification",
