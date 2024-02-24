@@ -29,24 +29,15 @@ import jQuery from 'jquery';
 document.addEventListener('DOMContentLoaded', () => {
     window.$ = jQuery;
 
-    Livewire.hook('component.initialized', (component) => {
-        console.log('component.initialized');
-    });
-    Livewire.hook('element.initialized', (el, component) => {
-        console.log('element.initialized');
-    });
-    Livewire.hook('element.updating', (fromEl, toEl, component) => {
-        console.log('element.updating');
-    });
-    Livewire.hook('element.updated', (el, component) => {
-        console.log('element.updated');
-    });
-    Livewire.hook('element.removed', (el, component) => {
-        console.log('element.removed');
-    });
 
 
 
+
+});
+
+
+document.addEventListener('livewire:update', function () {
+    console.log('livewire:update');
 });
 
 
@@ -64,21 +55,6 @@ document.addEventListener('livewire:navigated', () => {
 
     Observer.start();
 
-    Livewire.hook('component.initialized', (component) => {
-        console.log('component.initialized');
-    });
-    Livewire.hook('element.initialized', (el, component) => {
-        console.log('element.initialized');
-    });
-    Livewire.hook('element.updating', (fromEl, toEl, component) => {
-        console.log('element.updating');
-    });
-    Livewire.hook('element.updated', (el, component) => {
-        console.log('element.updated');
-    });
-    Livewire.hook('element.removed', (el, component) => {
-        console.log('element.removed');
-    });
 
 
     const firebaseConfig = {
