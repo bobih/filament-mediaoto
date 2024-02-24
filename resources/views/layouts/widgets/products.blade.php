@@ -208,7 +208,7 @@
 @else
 <!-- Mobile -->
     <section class="bg-gray-100 dark:bg-gray-900 ">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16">
             <div class="max-w-screen-md mb-8 lg:mb-16">
                 <h2 data-te-animation-init data-te-animation-start="onScroll" data-te-animation-on-scroll="repeat"
                     data-te-animation-show-on-load="false" data-te-animation-reset="true"
@@ -217,9 +217,9 @@
                     {{ __('home.products.infotag') }}</h2>
                 <p class="text-gray-500 sm:text-xl dark:text-gray-400">{{ __('home.products.titletag') }}</p>
             </div>
-            <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+            <div class="space-y-8">
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700  intersect-once">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
                     <div class="mx-4">
                         <svg class="h-20 w-20 " height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +249,7 @@
                     </div>
                 </div>
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200 intersect-once">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
                     <div class="mx-4">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +317,7 @@
                     </div>
                 </div>
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-500 intersect-once">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-500">
                     <div class="mx-4">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +346,7 @@
                     </div>
                 </div>
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100  transition duration-700 delay-700 intersect-once">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100  transition duration-700 delay-700">
                     <div class="mx-4">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
