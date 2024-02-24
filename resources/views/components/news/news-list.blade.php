@@ -73,12 +73,12 @@
     </div>
 @script
 <script >
-    document.addEventListener("DOMContentLoaded", () => {
+
 
         Livewire.hook('element.updated', (el, component) => {
         console.log('ELement Updated');
         });
-    });
+
   </script>
 @endscript
 </section>
