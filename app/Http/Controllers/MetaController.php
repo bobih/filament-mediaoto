@@ -139,6 +139,7 @@ class MetaController extends Controller
                 "availability" => "https://schema.org/InStock",
                 "price" => min($arrOtr),
                 "priceCurrency" => "IDR",
+                "priceValidUntil" => $tanggal->addMonths(3)->format('c'),
                 "shippingDetails" => array(
                     "@type" => "OfferShippingDetails",
                     "shippingRate" => array(
@@ -176,6 +177,18 @@ class MetaController extends Controller
                     "merchantReturnDays" => 90,
                     "returnMethod" => "https://schema.org/ReturnByMail",
                     "returnFees" => "https://schema.org/FreeReturn"
+                ),
+                "review" => array(
+                    "@type" => "Review",
+                    "reviewRating" => array(
+                        "@type" => "Rating",
+                        "ratingValue" => $carlist->rating,
+                        "bestRating" => 5
+                    ),
+                    "author" => array(
+                        "@type" => "Person",
+                        "name" => $news->author->name
+                    )
                 ),
             ),
             "model" => $carlist->brand->brand . ' ' . $carlist->name,
