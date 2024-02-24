@@ -40,6 +40,8 @@ class MetaController extends Controller
                     "vehicleSeatingCapacity" => $variant->seat,
                     "model" => $variant->brand->brand . ' ' . $variant->name,
                     "vehicleTransmission" =>  $variant->transmission->name,
+                    "vehicleConfiguration" => "ST",
+                    "driveWheelConfiguration" => "https://schema.org/FrontWheelDriveConfiguration",
                     "brand" => array (
                         "@type" => "Brand",
                         "name" => $variant->brand->brand
