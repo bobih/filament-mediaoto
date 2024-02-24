@@ -192,7 +192,24 @@ class MetaController extends Controller
                 "fuelType" => $carlist->fuel->name
             ),
             "vehicleTransmission" => $carlist->transmission->name,
-            "vehicleSeatingCapacity" =>  $carlist->seat
+            "vehicleSeatingCapacity" =>  $carlist->seat,
+            "review" => array(
+                "@type" => "Review",
+                "reviewRating" => array(
+                    "@type" => "Rating",
+                    "ratingValue" => $carlist->rating,
+                    "bestRating" => 5
+                ),
+                "author" => array(
+                    "@type" => "Person",
+                    "name" => $news->author->name
+                )
+            ),
+            "aggregateRating" => array(
+                "@type" => "AggregateRating",
+                "ratingValue" => $carlist->rating,
+                "reviewCount" => 1
+            ),
         );
 
         $listItems = array(
