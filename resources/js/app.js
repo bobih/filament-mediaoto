@@ -29,6 +29,13 @@ import jQuery from 'jquery';
 document.addEventListener('DOMContentLoaded', () => {
     window.$ = jQuery;
 
+    Livewire.hook('element.updated', (el, component) => {
+        console.log('Updated...');
+        Observer.start();
+
+        })
+
+
 
 });
 
@@ -48,6 +55,7 @@ document.addEventListener('livewire:navigated', () => {
     Observer.start();
 
     Livewire.hook('element.updated', (el, component) => {
+        console.log('navigate updated...');
 
     Observer.start();
 
