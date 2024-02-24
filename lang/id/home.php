@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "title" => "Close more deals Gak pake ribet! - Mediaoto",
+    "title" => "Solusi unggulan Lead Otomotif dan Properti di Mediaoto",
     "desc"  => "Mediaoto adalah agensi layanan lengkap independen dan terintegrasi khususnya untuk pasar otomotif dan properti",
     "nav" => [
         "home"          => "Beranda",
