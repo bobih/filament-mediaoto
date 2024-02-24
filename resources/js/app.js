@@ -47,6 +47,12 @@ document.addEventListener('livewire:navigated', () => {
 
     Observer.start();
 
+    Livewire.hook('element.updated', (el, component) => {
+
+    Observer.start();
+
+    })
+
 
     const firebaseConfig = {
         apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
