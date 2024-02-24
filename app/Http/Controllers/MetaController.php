@@ -27,7 +27,7 @@ class MetaController extends Controller
                     "name" => $variant->brand->brand . ' ' . $variant->name,
                     "itemCondition" => "https://schema.org/NewCondition",
                     "vehicleModelDate" => Carbon::now()->year,
-                    "bodyType" => $variant->bodyType,
+                    "bodyType" => $variant->bodyType->name,
                     "model" => $variant->brand->brand . ' ' . $variant->name,
                     "vehicleTransmission" =>  $variant->transmission->name,
                     "brand" => array (
