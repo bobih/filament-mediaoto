@@ -25,6 +25,9 @@ class MetaController extends Controller
                 "item" => array(
                     "@type" => array("Product", "Car"),
                     "name" => $variant->brand->brand . ' ' . $variant->name,
+                    "itemCondition" => "https://schema.org/NewCondition",
+                    "vehicleModelDate" => Carbon::now()->year,
+                    "bodyType" => $variant->bodyType,
                     "brand" => array (
                         "@type" => "Brand",
                         "name" => $carlist->brand->brand
@@ -110,6 +113,9 @@ class MetaController extends Controller
                 "@type" => "Brand",
                 "name" => $carlist->brand->brand
             ),
+            "itemCondition" => "https://schema.org/NewCondition",
+            "vehicleModelDate" => Carbon::now()->year,
+            "bodyType" => $variant->bodyType,
             "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
             "image" => [
                 "https://www.mediaoto.id"
@@ -160,10 +166,6 @@ class MetaController extends Controller
                 ),
             ),
             "itemCondition" => "https://schema.org/NewCondition",
-            "brand" => array(
-                "@type" => "Brand",
-                "name" =>  $carlist->brand->brand
-            ),
             "model" => $carlist->brand->brand . ' ' . $carlist->name,
             "numberOfDoors" => $carlist->door,
             "vehicleConfiguration" => "ST",
