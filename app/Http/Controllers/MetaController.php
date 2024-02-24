@@ -25,6 +25,10 @@ class MetaController extends Controller
                 "item" => array(
                     "@type" => array("Product", "Car"),
                     "name" => $variant->brand->brand . ' ' . $variant->name,
+                    "brand" => array (
+                        "@type" => "Brand",
+                        "name" => $carlist->brand->brand
+                    ),
                     "description" => "Varian" . $variant->name,
                     "image" => "https://www.mediaoto.id",
                     "url" => "https://www.mediaoto.id",
@@ -102,6 +106,10 @@ class MetaController extends Controller
             "@context" => "https://schema.org",
             "@type" => array("Product", "Car"),
             "name" => $carlist->brand->brand . ' ' . $carlist->name,
+            "brand" => array (
+                "@type" => "Brand",
+                "name" => $carlist->brand->brand
+            ),
             "vehicleIdentificationNumber" => "1BXKF12ZXXJ000000",
             "image" => [
                 "https://www.mediaoto.id"
