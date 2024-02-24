@@ -29,6 +29,15 @@ class MetaController extends Controller
                     "vehicleIdentificationNumber" => "1BXKF23ZXXJ0000".$variant->id,
                     "vehicleModelDate" => Carbon::now()->year,
                     "bodyType" => $variant->bodyType->name,
+                    "color" => "White",
+                    "vehicleInteriorColor" => "Gray",
+                    "vehicleInteriorType" => "Standard",
+                    "vehicleEngine" => array (
+                        "@type" => "EngineSpecification",
+                        "fuelType" =>  $variant->fuel->name
+                    ),
+                    "numberOfDoors" =>  $variant->door,
+                    "vehicleSeatingCapacity" => $variant->seat,
                     "model" => $variant->brand->brand . ' ' . $variant->name,
                     "vehicleTransmission" =>  $variant->transmission->name,
                     "brand" => array (
