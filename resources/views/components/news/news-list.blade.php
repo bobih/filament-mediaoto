@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    @script
+
 <script wire:ignore>
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -80,6 +80,6 @@
         });
     });
   </script>
-@endscript
+
 </section>
 
