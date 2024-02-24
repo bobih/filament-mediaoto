@@ -219,7 +219,7 @@
             </div>
             <div class="space-y-8">
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
                     <div class="mx-4">
                         <svg class="h-20 w-20 " height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +317,7 @@
                     </div>
                 </div>
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-500">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700 delay-200">
                     <div class="mx-4">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +346,7 @@
                     </div>
                 </div>
                 <!-- Products -->
-                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100  transition duration-700 delay-700">
+                <div class="flex scale-50 opacity-0 intersect:scale-100 intersect:opacity-100  transition duration-700 delay-200">
                     <div class="mx-4">
                         <svg class="h-20 w-20" height="150px" width="150px" viewBox="0 0 150 150"
                             xmlns="http://www.w3.org/2000/svg"
