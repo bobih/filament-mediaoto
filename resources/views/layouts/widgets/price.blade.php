@@ -12,7 +12,7 @@
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
             <div
-                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white opacity-0 intersect:opacity-100 transition intersect:delay-150 intersect-once">
+                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price1tag')}}</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price1desc')}}</p>
                 <div class="flex justify-center items-baseline my-8">
@@ -49,7 +49,7 @@
             </div>
             <!-- Pricing Card -->
             <div
-                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white  opacity-0 intersect:opacity-100 transition intersect:delay-300 intersect-once">
+                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price2tag')}}</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price2desc')}}</p>
 
@@ -84,7 +84,7 @@
                 </button>
             </div>
             <div
-                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white  opacity-0 intersect:opacity-100 transition intersect:delay-500 intersect-once">
+                class="md:hover:-translate-y-1 md:hover:scale-110 duration-300 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-300 shadow-lg dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 class="mb-4 text-2xl font-semibold">{{__('home.price.price3tag')}}</h3>
                 <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">{{__('home.price.price3desc')}}</p>
 
