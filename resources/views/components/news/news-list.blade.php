@@ -71,15 +71,5 @@
             </div>
         </div>
     </div>
-
-<script >
-
-
-        Livewire.hook('element.updated', (el, component) => {
-        console.log('ELement Updated');
-        });
-
-  </script>
-
 </section>
 
