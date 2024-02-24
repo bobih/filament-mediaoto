@@ -178,18 +178,6 @@ class MetaController extends Controller
                     "returnMethod" => "https://schema.org/ReturnByMail",
                     "returnFees" => "https://schema.org/FreeReturn"
                 ),
-                "review" => array(
-                    "@type" => "Review",
-                    "reviewRating" => array(
-                        "@type" => "Rating",
-                        "ratingValue" => $carlist->rating,
-                        "bestRating" => 5
-                    ),
-                    "author" => array(
-                        "@type" => "Person",
-                        "name" => $news->author->name
-                    )
-                ),
             ),
             "model" => $carlist->brand->brand . ' ' . $carlist->name,
             "numberOfDoors" => $carlist->door,
