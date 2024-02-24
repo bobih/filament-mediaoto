@@ -71,4 +71,15 @@
             </div>
         </div>
     </div>
+    @script
+<script wire:ignore>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        Livewire.hook('element.updated', (el, component) => {
+        console.log('ELement Updated');
+        });
+    });
+  </script>
+@endscript
 </section>
+
