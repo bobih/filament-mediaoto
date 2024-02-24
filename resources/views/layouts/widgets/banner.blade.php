@@ -106,7 +106,6 @@
         </div>
 
         @else
-
         <div id="animate"
         data-te-animation-init
         data-te-animation-reset="true"
@@ -116,6 +115,8 @@
          class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img class="" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
+
+
         @endif
     </div>
     <script>

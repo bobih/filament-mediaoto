@@ -2,6 +2,9 @@ import './bootstrap';
 import 'flowbite';
 import './darktogle';
 import './notif';
+
+
+
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
 import { onBackgroundMessage } from "firebase/messaging/sw";
@@ -40,6 +43,7 @@ document.addEventListener('livewire:navigated', () => {
     initTE({ Animate, Ripple, Carousel });
 
     window.$ = jQuery;
+
 
     Observer.start();
 

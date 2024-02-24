@@ -302,7 +302,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased dark:bg-gray-700">
+<body class="font-sans antialiased dark:bg-gray-700" x-data>
     @if (env('APP_ENV','local') == "production")
     @include('googletagmanager::body')
     @endif
