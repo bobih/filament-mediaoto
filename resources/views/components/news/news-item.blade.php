@@ -16,7 +16,7 @@
 
             observer.observe(this.$el)
         }
-        }
+
     }"
     x-init="observe"
     data-te-animation-init
