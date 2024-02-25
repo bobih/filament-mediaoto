@@ -33,7 +33,7 @@
         id="animate"
         data-te-animation-init
         data-te-animation-reset="true"
-        data-te-animation-start="onScroll"
+        data-te-animation-start="manually"
         data-te-animation="[browse-in_0.5s]"
         data-te-animation-show-on-load="false"
         class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
