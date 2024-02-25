@@ -18,6 +18,12 @@ use App\Http\Controllers\NewsPostController;
 |
 */
 
+Route::get('/login', function () {
+    // Validate the request...
+
+    return redirect()->route('home');
+});
+
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/policy', [HomeController::class,'policy'])->name('policy');
 Route::get('/privacy', [HomeController::class,'privacy'])->name('privacy');
