@@ -41,13 +41,12 @@
         {{ $this->posts->onEachSide(1)->links() }}
     </div>
     */ ?>
-    @push('scripts')
+
     <script>
         Livewire.on('component.rendered', () => {
             console.log("Hello");
         });
     </script>
-@endpush
 
 </div>
 
