@@ -43,7 +43,7 @@
     */ ?>
 @script
     <script>
-        $wire.on('component.rendered', () => {
+        Livewire.on('component.rendered', () => {
             console.log("Hello");
         });
     </script>
