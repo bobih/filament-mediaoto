@@ -57,12 +57,5 @@
     */ ?>
     <div
 ></div>
-@push('scripts')
-    <script>
-        Livewire.on('component.rendered', () => {
-            console.log("Hello");
-        });
-    </script>
-@endpush
 </article>
 
