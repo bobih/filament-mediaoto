@@ -6,14 +6,6 @@
         }
     }"
     x-init="loadedItem"
-
-    x-transition:enter="transform ease-out duration-300 transition"
-    x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-    x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
-    x-transition:leave="transition ease-in duration-100"
-    x-transition:leave-start="opacity-100"
-    x-transition:leave-end="opacity-0"
-
     id="newsitemlist"
         class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="-mt-20 md:mt-0  md:px-4 pb-4 md:w-full" >
