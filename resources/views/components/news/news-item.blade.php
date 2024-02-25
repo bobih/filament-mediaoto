@@ -23,6 +23,7 @@
 
     }"
     x-init="observe"
+    id="newslist"
     data-te-animation-init
     data-te-animation-start="manually"
         class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">

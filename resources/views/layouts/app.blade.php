@@ -323,9 +323,9 @@
         window.filamentData = []    </script>
     @livewireScripts
     <script>
-        const card = document.querySelectorAll('#animate')
+        const newslist = document.querySelectorAll('#newslist')
 
-if (card.length > 0) {
+if (newslist.length > 0) {
     const observer = new IntersectionObserver(entries => {
 
         entries.forEach(entry => {
@@ -348,7 +348,7 @@ if (card.length > 0) {
     });
 
 
-    observer.observe(card[0]);
+    observer.observe(newslist[0]);
 }
     </script>
 </body>
