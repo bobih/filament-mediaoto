@@ -16,7 +16,7 @@
                        console.log('intersect..')
                        manually.startAnimation();
                     } else {
-                        manually.stopAnimation();
+                       // manually.stopAnimation();
                     }
                 })
             }, {
