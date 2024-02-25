@@ -9,11 +9,14 @@
     id="newsitemlist"
         class="mt-20 md:mt-0 p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="-mt-20 md:mt-0  md:px-4 pb-4 md:w-full" >
+        <div class= "scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
+
         <a wire:navigate title="{{ $post->title }}" alt="{{$post->title}}" href="{{ route('news.show', $post->slug) }}"
             class="md:hover:text-[#FF9119]">
             <img  loading="lazy" class="md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border dark:border-gray-700 shadow-xl rounded-lg duration-300"
                 src="{{ $post->getWebpthumb()}}" alt="{{ $post->slug }}">
         </a>
+        </div>
     </div>
     <div class="md:px-4 lg:px-8 w-full">
         <div class="mt-5 flex justify-between items-center mb-5 text-gray-500">
