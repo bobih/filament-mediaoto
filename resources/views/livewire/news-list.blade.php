@@ -41,12 +41,12 @@
         {{ $this->posts->onEachSide(1)->links() }}
     </div>
     */ ?>
-
+@script
     <script>
         $wire.on('component.rendered', () => {
             console.log("Hello");
         });
     </script>
-
+@endscript
 </div>
 
