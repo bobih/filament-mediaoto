@@ -1,12 +1,5 @@
 @props(['post', 'categories'])
 <article wire:key="{{$post->id}}"
-    x-data="{
-        observe () {
-
-            initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
-        }
-    }"
-    x-init="observe"
     id="newsitemlist"
     data-te-animation-init
         data-te-animation-reset="true"
@@ -65,3 +58,10 @@
     <div
 ></div>
 </article>
+@push('scripts')
+    <script>
+        Livewire.on('component.rendered', () => {
+
+        });
+    </script>
+@endpush
