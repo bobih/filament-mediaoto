@@ -57,13 +57,14 @@
     */ ?>
     <div x-data="{
         observe () {
-            const manually = new te.Animate(manuallyEl, {
-                animation: 'pulse',
-                animationStart: 'manually',
-                animationRepeat: true,
-              });
+
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    const manually = new te.Animate(manuallyEl, {
+                        animation: 'pulse',
+                        animationStart: 'manually',
+                        animationRepeat: true,
+                      });
                     if (entry.isIntersecting) {
                        console.log('intersect..')
                     }
