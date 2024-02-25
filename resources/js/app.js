@@ -16,7 +16,10 @@ import { Animate, Ripple, Carousel, initTE } from "tw-elements";
 import jQuery from 'jquery';
 
 
-
+window.iniTE = initTE;
+window.Animate = Animate;
+window.Ripple = Ripple;
+window.Carousel = Carousel;
 
 
 
