@@ -20,7 +20,7 @@
     }"
     x-init="observe"
     data-te-animation-init
-        data-te-animation-reset="true"
+        data-te-animation-reset="false"
         data-te-animation-start="onScroll"
         data-te-animation-show-on-load="false"
         data-te-animation="[fly-in-left_0.5s]"
