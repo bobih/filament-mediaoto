@@ -57,7 +57,6 @@
     */ ?>
     <div
 ></div>
-</article>
 @push('scripts')
     <script>
         Livewire.on('component.rendered', () => {
@@ -65,3 +64,5 @@
         });
     </script>
 @endpush
+</article>
+
