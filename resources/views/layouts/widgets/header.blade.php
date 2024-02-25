@@ -1,5 +1,5 @@
 @if ($this->isMobile == false)
-    <header id="home">
+    <header id="home" wire:ignore>
         <nav class="bg-white  border-gray-300 dark:bg-gray-800  drop-shadow-lg fixed  top-0 start-0 w-full z-40">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between md:mx-auto p-4">
                 @if (Request::segment(1) == '')
