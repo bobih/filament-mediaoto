@@ -2,7 +2,6 @@
 <article wire:key="{{$post->id}}"
     x-data="{
         loadedItem () {
-
            console.log('item Loaded...')
         }
     }"
