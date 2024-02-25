@@ -1,7 +1,7 @@
 
 <div class="grid grid-cols-1 gap-4 md:mb-10" id="news-list">
     @foreach ($this->posts as $post)
-    <x-news.news-item wire:id="{{$post->id}}" :post="$post" />
+    <x-news.news-item :post="$post" />
     @endforeach
     <div wire:loading class="mx-auto my-8 flex items-center justify-center w-56 h-56">
         <div role="status">
