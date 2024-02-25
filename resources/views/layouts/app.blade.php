@@ -322,5 +322,34 @@
     <script>
         window.filamentData = []    </script>
     @livewireScripts
+    <script>
+        const card = document.querySelectorAll('#animate')
+
+if (card.length > 0) {
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+            // console.log(entry);
+
+            const manuallyEl = entry.target;
+            //console.log(manuallyEl);
+            const manually = new Animate(manuallyEl, {
+
+            });
+            if (entry.isIntersecting) {
+                manually.startAnimation();
+            } else {
+               //  manually.stopAnimation();
+            }
+        });
+    }, {
+        threshold: 0.5,
+        //rootMargin: "-100px"
+    });
+
+
+    observer.observe(card[0]);
+}
+    </script>
 </body>
 </html>
