@@ -20,7 +20,7 @@
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                       // @this.call('loadMore')
+                        @this.call('loadMore')
                     }
                 })
             }, {
