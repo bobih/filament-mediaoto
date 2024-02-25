@@ -57,7 +57,7 @@
     */ ?>
     <div x-data="{
         observe () {
-            initTE({ Animate, Ripple, Carousel });
+            initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
