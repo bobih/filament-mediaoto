@@ -106,13 +106,13 @@ class NewsList extends Component
         //dd(Url::current());
 
         if(Url::currentRoute() == 'news.category'){
-            $this->reset('search','category','tag');
+            $this->reset('search','tag');
            $arrUrl = explode ("/", Url::current());
            $category = $arrUrl [(count ($arrUrl) - 1)];
            $this->category = $category;
 
         } else if(Url::currentRoute() == 'news.search'){
-            $this->reset('search','category','tag');
+            $this->reset('category','tag');
            $arrUrl = explode ("/", Url::current());
            $search = $arrUrl [(count ($arrUrl) - 1)];
            $search = Str::of($search)->replace('-', ' ');
@@ -120,7 +120,7 @@ class NewsList extends Component
            //dd('OK');
 
         } else if(Url::currentRoute() == 'news.tag'){
-            $this->reset('search','category','tag');
+            $this->reset('search','category');
            $arrUrl = explode ("/", Url::current());
            $tag = $arrUrl [(count ($arrUrl) - 1)];
            $this->tag = $tag;
