@@ -1,5 +1,32 @@
 @props(['post', 'categories'])
 <article wire:key="{{$post->id}}"
+    x-data="{
+        observe () {
+
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+
+                    const manuallyEl = entry.target;
+                //console.log(manuallyEl);
+                const manually = new Animate(manuallyEl, {
+
+                });
+
+                    if (entry.isIntersecting) {
+                       console.log('intersect..')
+                       manually.startAnimation();
+                    }
+                })
+            }, {
+                root: document.querySelector('#scrollArea'),
+                rootMargin: '0px',
+                threshold: 0,
+            })
+
+            observer.observe(this.$el)
+        }
+    }"
+    x-init="observe"
     id="animate"
         data-te-animation-init
         data-te-animation-reset="true"
@@ -55,32 +82,6 @@
         </a>
     </div>
     */ ?>
-    <div x-data="{
-        observe () {
-
-            let observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-
-                    const manuallyEl = entry.target;
-                //console.log(manuallyEl);
-                const manually = new Animate(manuallyEl, {
-
-                });
-
-                    if (entry.isIntersecting) {
-                       console.log('intersect..')
-                       manually.startAnimation();
-                    }
-                })
-            }, {
-                root: document.querySelector('#scrollArea'),
-                rootMargin: '0px',
-                threshold: 0,
-            })
-
-            observer.observe(this.$el)
-        }
-    }"
-    x-init="observe"
+    <div
 ></div>
 </article>
