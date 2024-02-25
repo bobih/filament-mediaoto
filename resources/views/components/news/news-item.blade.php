@@ -56,7 +56,6 @@
     </div>
     */ ?>
     <div x-data="{
-
         observe () {
 
             let observer = new IntersectionObserver((entries) => {
