@@ -69,6 +69,7 @@
 
                     if (entry.isIntersecting) {
                        console.log('intersect..')
+                       manually.startAnimation();
                     }
                 })
             }, {
