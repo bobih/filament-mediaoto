@@ -1,5 +1,12 @@
 @props(['post', 'categories'])
 <article wire:key="{{$post->id}}"
+    x-data="{
+        loadedItem () {
+
+           console.log('item Loaded...')
+        }
+    }"
+    x-init="loadedItem"
     id="newsitemlist"
     data-te-animation-init
         data-te-animation-reset="true"

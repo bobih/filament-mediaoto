@@ -22,7 +22,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         @this.call('loadMore')
-                        console.log('updated..')
+
                     }
                 })
             }, {
