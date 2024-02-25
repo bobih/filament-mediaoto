@@ -296,8 +296,8 @@
 
     <?php /* @filamentStyles */ ?>
     <?php /*  <script src="https://cdn.tailwindcss.com"></script> */ ?>
-    <?php /** @vite(['resources/css/app.css', 'resources/js/app.js']) */?>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <?php /* <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script> */ ?>
     <?php /*** <!-- Styles --> **/ ?>
     @livewireStyles
@@ -323,7 +323,7 @@
     <script>
         window.filamentData = []    </script>
     @livewireScripts
-    @vite(['resources/js/app.js'])
+
 
 
 </body>
