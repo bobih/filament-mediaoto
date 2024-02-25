@@ -1,5 +1,11 @@
 @props(['post', 'categories'])
 <article wire:key="{{$post->id}}"
+    x-data="{
+        observe () {
+            initTE({ Animate, Ripple, Carousel });
+        }
+    }"
+    x-init="observe"
     id="newsitemlist"
     data-te-animation-init
         data-te-animation-reset="true"
