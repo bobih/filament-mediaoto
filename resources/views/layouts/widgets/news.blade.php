@@ -24,7 +24,7 @@
         <!-- News Section -->
         <div class="grid grid-cols-1 gap-4 md:mb-10">
             @foreach ($posts as $post)
-            <div class= "scale-60 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-500">
+            <div class= "scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-300 delay-200">
 
                 <article
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
