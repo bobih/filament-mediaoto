@@ -67,7 +67,7 @@
                 })
             }, {
                 root: document.querySelector('#scrollArea'),
-                rootMargin: '500px',
+                rootMargin: '0px',
                 threshold: 0,
             })
 
