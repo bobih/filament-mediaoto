@@ -10,7 +10,7 @@
                 })
             }, {
                 root: document.querySelector('#scrollArea'),
-                rootMargin: '0',
+                rootMargin: '0px',
                 threshold: 1,
             })
 
