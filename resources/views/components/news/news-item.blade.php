@@ -60,6 +60,11 @@
 
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    import {
+                        Animate,
+                        Ripple,
+                        initTE,
+                      } from 'tw-elements';
                     const manually = new te.Animate(manuallyEl, {
                         animation: 'pulse',
                         animationStart: 'manually',
