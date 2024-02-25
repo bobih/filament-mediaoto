@@ -4,7 +4,7 @@
         observe () {
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    const manually = new Animate(manuallyEl, {
+                    const manually = new Animate(entry, {
 
                     });
                     if (entry.isIntersecting) {
