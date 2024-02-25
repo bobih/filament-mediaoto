@@ -2,8 +2,8 @@
 <article wire:key="{{$post->id}}"
     x-data="{
         observe () {
-            import { Tooltip, initTE } from 'tw-elements';
-            initTE({ Tooltip });
+
+            initTE({ Animation });
         }
     }"
     x-init="observe"
