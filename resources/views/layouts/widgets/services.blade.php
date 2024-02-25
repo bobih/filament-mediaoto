@@ -11,8 +11,8 @@
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">{{ __('home.services.titletag') }}</p>
         </div>
         <div class="hidden md:grid md:grid-cols-2 md:gap-3">
-            <figure class="mb-10 md:mb-0 relative shadow-xl brightness-75 hover:filter-none scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
-                <img loading="lazy" class="w-full transition ease-in-out rounded-lg shadow-xl"
+            <figure class="mb-10 md:mb-0 relative shadow-xl  scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
+                <img loading="lazy" class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
                     src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/services_1.webp" alt="Performance Optimization"
                     title="Performance Optimization">
                 <div
