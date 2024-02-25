@@ -14,6 +14,7 @@
 
                     if (entry.isIntersecting) {
                        console.log('intersect..')
+                       @this.call('loadMore')
                        //manually.startAnimation();
                     } else {
                        // manually.stopAnimation();
