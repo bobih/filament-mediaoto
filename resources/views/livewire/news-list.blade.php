@@ -17,6 +17,7 @@
     */ ?>
     <div x-data="{
         observe () {
+            console.log('updated..')
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -41,12 +42,6 @@
         {{ $this->posts->onEachSide(1)->links() }}
     </div>
     */ ?>
-@script
-    <script>
-        Livewire.on('component.rendered', () => {
-            console.log("Hello");
-        });
-    </script>
-@endscript
+
 </div>
 
