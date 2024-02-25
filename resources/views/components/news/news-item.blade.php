@@ -2,7 +2,20 @@
 <article wire:key="{{$post->id}}"
     x-data="{
         observe () {
-            console.log('observe...');
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('intersect..')
+                    }
+                })
+            }, {
+                root: document.querySelector('#scrollArea'),
+                rootMargin: '0',
+                threshold: 1,
+            })
+
+            observer.observe(this.$el)
+        }
         }
     }"
     x-init="observe"
