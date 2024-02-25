@@ -18,7 +18,7 @@
                     if (entry.isIntersecting) {
                        console.log('intersect..')
 
-                      // manually.startAnimation();
+                       manually.startAnimation();
                     } else {
                        // manually.stopAnimation();
                     }
