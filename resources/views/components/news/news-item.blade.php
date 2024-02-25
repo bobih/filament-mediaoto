@@ -60,16 +60,13 @@
 
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    import {
-                        Animate,
-                        Ripple,
-                        initTE,
-                      } from 'tw-elements';
-                    const manually = new te.Animate(manuallyEl, {
-                        animation: 'pulse',
-                        animationStart: 'manually',
-                        animationRepeat: true,
-                      });
+
+                    const manuallyEl = entry.target;
+                //console.log(manuallyEl);
+                const manually = new Animate(manuallyEl, {
+
+                });
+
                     if (entry.isIntersecting) {
                        console.log('intersect..')
                     }
