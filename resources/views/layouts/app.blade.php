@@ -323,33 +323,7 @@
         window.filamentData = []    </script>
     @livewireScripts
     <script>
-        const newslist = document.querySelectorAll('#newslist')
-
-if (newslist.length > 0) {
-    const observer = new IntersectionObserver(entries => {
-
-        entries.forEach(entry => {
-            // console.log(entry);
-
-            const manuallyEl = entry.target;
-            //console.log(manuallyEl);
-            const manually = new Animate(manuallyEl, {
-
-            });
-            if (entry.isIntersecting) {
-                manually.startAnimation();
-            } else {
-               //  manually.stopAnimation();
-            }
-        });
-    }, {
-        threshold: 0.5,
-        //rootMargin: "-100px"
-    });
-
-
-    observer.observe(newslist[0]);
-}
+        import { Animate, Ripple, Carousel, initTE } from "tw-elements";
     </script>
 </body>
 </html>
