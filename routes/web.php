@@ -60,3 +60,8 @@ Route::middleware([
     })->name('dashboard');
 });
 */
+
+/** 404 */
+Route::any('{query}',
+  function() { return redirect('/'); })
+  ->where('query', '.*');
