@@ -17,11 +17,12 @@
     */ ?>
     <div x-data="{
         observe () {
-            console.log('updated..')
+
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         @this.call('loadMore')
+                        console.log('updated..')
                     }
                 })
             }, {
