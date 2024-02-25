@@ -170,7 +170,7 @@ document.addEventListener('livewire:navigated', () => {
                 if (entry.isIntersecting) {
                     manually.startAnimation();
                 } else {
-                    // manually.stopAnimation();
+                     manually.stopAnimation();
                 }
             });
         }, {
