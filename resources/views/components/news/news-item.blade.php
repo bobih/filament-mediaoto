@@ -3,7 +3,7 @@
     x-data="{
         observe () {
 
-            initTE({ Animation });
+            initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
         }
     }"
     x-init="observe"
