@@ -24,6 +24,8 @@
         <!-- News Section -->
         <div class="grid grid-cols-1 gap-4 md:mb-10">
             @foreach ($posts as $post)
+            <div class= "scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
+
                 <article
                     class="p-6 md:flex md:items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="md:px-4 pb-4 md:w-ful4" >
@@ -44,14 +46,18 @@
                                 class="md:hover:text-[#FF9119]">{{ $post->title }}</a>
                         </h2>
                         <p class="mb-5 dark:text-gray-400 text-justify">{{ $post->description }}</p>
-           <div class="flex flex-wrap gap-4">
-                @foreach ($post->categories as $category)
+
+
+                        <div class="flex flex-wrap gap-4">
+
+                            @foreach ($post->categories as $category)
                 <x-news.news-badge wire:navigate title="{{$category->slug}}"  alt="{{$category->slug}}" href="{{ route('news.category', ['category' => $category->slug]) }}"
                     :category='$category' bgColor="{{ $category->bg_color }}"
                     txtColor="{{ $category->text_color }}"
                     class="md:hover:-translate-y-1 md:hover:scale-110 duration-300">
                     {{ $category->title }}
                 </x-news.news-badge>
+
                 @endforeach
             </div>
         </div>
@@ -69,6 +75,7 @@
                         </a>
                     </div>
                 </article>
+                </div>
             @endforeach
         </div>
     </div>
