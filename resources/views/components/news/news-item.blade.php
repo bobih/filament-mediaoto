@@ -11,7 +11,7 @@
                 const manually = new Animate(manuallyEl, {
                     animation: '[browse-in_0.5s]',
                     animationStart: 'onscroll',
-                    animationRepeat: false,
+                    animationRepeat: true,
 
                 });
 
