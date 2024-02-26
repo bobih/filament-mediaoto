@@ -10,7 +10,7 @@
 </div>
 <div class="bg-white/10 dark:bg-black/10 relative pt-[100px] h-[500px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
-        <h1 class=" text-center top-0 mx-auto my-auto max-w-2xl text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+        <h1 class="text-white text-center top-0 mx-auto my-auto max-w-2xl text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl ">
             Get more insight from us!
         </h1>
     </div>
