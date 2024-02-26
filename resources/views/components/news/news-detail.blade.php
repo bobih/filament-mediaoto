@@ -31,12 +31,12 @@
                     <header class="mb-4 lg:mb-6 not-format">
                         @if ($agent->isMobile())
                         <div class="w-full h-auto pb-1/4">
-                            <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
+                            <img  class="border-gray-300 dark:border-gray-700 h-auto w-full object-fit drop-shadow-md rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </div>
                         @else
                         <button x-data={} x-on:click="$dispatch('open-image-modal')"  class="w-full h-auto pb-1/4">
-                            <img  class="h-auto w-full object-fit drop-shadow-xl rounded-lg "
+                            <img  class="border-gray-300 dark:border-gray-700 h-auto w-full object-fit drop-shadow-md rounded-lg "
                                 src="{{ $post->getWebp()}}" alt="{{ $post->slug }}">
                         </button>
                         @endif
