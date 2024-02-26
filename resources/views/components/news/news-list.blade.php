@@ -4,9 +4,8 @@
     <source src="/videos/news.webm" type="video/webm">
     Your browser does not support the video tag.
   </video>
-  <div class="bg-black absolute w-full">
-</div>
-<div class="w-full h-[500px]">
+
+<div class="bg-black relative opacity-50 top-0 h-[600px] w-full">
     <div class="z-10 mr-auto place-self-center lg:col-span-7">
 
         <h1
