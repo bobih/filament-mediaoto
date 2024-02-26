@@ -11,8 +11,12 @@
 <div class="bg-black/10 relative pt-[100px] h-[500px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
         <h1 class="text-white text-center top-0 mx-auto my-auto max-w-2xl text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl ">
-            Kabar Otomotif dan Properti: Tren Terbaru di Indonesia!
+            Kabar Otomotif dan Properti:
         </h1>
+        <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
+            Tren Terbaru di Indonesia!
+        </p>
+
     </div>
 </div>
 @endif
