@@ -1,16 +1,17 @@
 @props(['posts','categories','agent'])
+<div class="fixed bottom-8 w-full">
+    <video class="" autoplay loop muted plays-inline>
+        <source src="/videos/news3.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
 
-<video class="fixed bottom-8 w-full" autoplay loop muted plays-inline>
-    <source src="/videos/news3.webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
-
+    <h1
+    class="text-center bottom-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+        {!! trans('home.banner.infotag') !!}
+    </h1>
+</div>
 <div class="bg-black/20 relative pt-[100px] h-[500px] w-full">
 
-        <h1
-        class="text-center bottom-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-            {!! trans('home.banner.infotag') !!}
-        </h1>
 
 
 </div>
