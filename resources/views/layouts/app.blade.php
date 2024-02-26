@@ -93,7 +93,7 @@
           "logo": "https://www.mediaoto.id/images/black_logo.png",
           "name": "Mediaoto",
           "description": "{{__('home.desc')}}",
-          "email": "support@mediaoto.id.com",
+          "email": "support@mediaoto.id",
           "telephone": "+62813-1137-2266",
           "address": {
             "@type": "PostalAddress",
@@ -212,7 +212,7 @@
               "logo": "https://www.mediaoto.id/images/black_logo.png",
               "name": "Mediaoto",
               "description": "{{__('home.desc')}}",
-              "email": "support@mediaoto.id.com",
+              "email": "support@mediaoto.id",
               "telephone": "+62813-1137-2266",
               "address": {
                 "@type": "PostalAddress",
