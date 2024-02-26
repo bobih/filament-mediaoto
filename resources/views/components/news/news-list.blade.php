@@ -14,10 +14,10 @@
     <div class="fixed h-full w-full text-center">
         <div class="pl-12 mt-[240px] text-start">
 
-            <h1 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
+            <h1 class="text-gray-900 max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
                 {!! __('news.banner') !!}
             </h1>
-            <p class="max-w-2xl font-light  lg:mb-8 md:text-lg lg:text-xl text-white">
+            <p class="text-gray-900 max-w-2xl font-light  lg:mb-8 md:text-lg lg:text-xl dark:text-white">
                 {{__('news.banner_desc')}}
             </p>
     </div>
