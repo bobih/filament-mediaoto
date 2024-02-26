@@ -2,10 +2,12 @@
 
 @if ($agent->isMobile() == false)
 <div wire:ignore class="fixed w-full h-[460px] top-0 ">
+    @persist('player')
     <video id="newsVideo" class="w-full " autoplay loop muted plays-inline>
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
+    @endpersist
 
 </div>
 <div wire:ignore class="bg-black/10 relative h-[460px] w-full">
