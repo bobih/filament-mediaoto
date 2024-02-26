@@ -10,7 +10,7 @@
 </div>
 <div class="bg-black/10 relative h-[460px] w-full">
     <div class="fixed h-full w-full text-center">
-        <div class="pl-12 mt-[200px] text-start">
+        <div class="pl-12 mt-[240px] text-start">
 
             <h1 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
             Berita Otomotif <br>dan Properti
