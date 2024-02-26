@@ -8,7 +8,7 @@
 <div class="bg-black/80 relative pt-[100px] h-[600px] w-full">
 
         <h1
-        class="mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+        class="text-center bottom-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
             {!! trans('home.banner.infotag') !!}
         </h1>
 
