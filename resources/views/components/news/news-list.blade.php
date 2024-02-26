@@ -5,7 +5,7 @@
     Your browser does not support the video tag.
   </video>
 
-<div class="bg-black/20 relative pt-[100px] h-[400px] w-full">
+<div class="bg-black/20 relative pt-[100px] h-[600px] w-full">
 
         <h1
         class="text-center bottom-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
@@ -14,7 +14,7 @@
 
 
 </div>
-<section class="relative pt-20  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
+<section class="relative pt-8  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
 
     <div class="w-full max-w-screen-xl grid grid-cols-4 gap-4">
         <div class="pt-16 md:pt-4 md:col-span-3 col-span-4">
