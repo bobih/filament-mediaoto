@@ -1,14 +1,14 @@
 @props(['posts','categories','agent'])
 
 @if ($agent->isMobile() == false)
-<div class="fixed w-full h-[460px] top-0 ">
+<div wire:ignore class="fixed w-full h-[460px] top-0 ">
     <video id="newsVideo" class="w-full " autoplay loop muted plays-inline>
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
 
 </div>
-<div class="bg-black/10 relative h-[460px] w-full">
+<div wire:ignore class="bg-black/10 relative h-[460px] w-full">
     <div class="fixed h-full w-full text-center">
         <div class="pl-12 mt-[240px] text-start">
 
