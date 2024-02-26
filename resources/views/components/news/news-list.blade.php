@@ -15,10 +15,11 @@
         <div class="pl-12 mt-[240px] text-start">
 
             <h1 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-            Berita Otomotif <br>dan Properti
+                {{__('news.banner')}}
             </h1>
             <p class="max-w-2xl font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
-                Dapatkan Tren Terbaru disini</p>
+                {{__('news.banner_desc')}}
+            </p>
     </div>
 
     </div>
