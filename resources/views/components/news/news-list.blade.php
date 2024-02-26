@@ -1,16 +1,16 @@
 @props(['posts','categories','agent'])
 
 @if ($agent->isMobile() == false)
-<div class="fixed w-full h-[450px] top-0 ">
+<div class="fixed w-full h-[460px] top-0 ">
     <video class="w-full " autoplay="" loop="" muted="" plays-inline defaultPlaybackRate="0.2">
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
 
 </div>
-<div class="bg-black/10 relative pt-[100px] h-[450px] w-full">
+<div class="bg-black/10 relative pt-[100px] h-[460px] w-full">
     <div class="fixed h-full w-full items-center text-center">
-        <div class="pl-12 pt-20 text-start">
+        <div class="pl-12 pt-24 text-start">
 
             <h1 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
             Berita Otomotif <br>dan Properti
