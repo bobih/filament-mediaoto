@@ -113,7 +113,7 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img class="" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
+            <img class="" width="520" height="389" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
