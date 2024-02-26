@@ -1,22 +1,21 @@
 @props(['posts','categories','agent'])
 
 @if ($agent->isMobile() == false)
-<div class="fixed w-full bottom-8 ">
-    <video class="w-full " autoplay loop muted plays-inline>
+<div class="fixed w-full h-[480px] top-0 ">
+    <video class="w-full " autoplay="" loop="" muted="" plays-inline="">
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
 
 </div>
-<div class="bg-black/10 relative pt-[100px] h-[500px] w-full">
+<div class="bg-black/10 relative pt-[100px] h-[480px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
         <div class="pl-12 pb-20 text-start">
 
-            <h1
-            class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-            Berita Otomotif <br />dan Properti
+            <h1 class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+            Berita Otomotif <br>dan Properti
             </h1>
-            <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
                 Dapatkan Tren Terbaru disini</p>
     </div>
 
