@@ -12,12 +12,13 @@ import { onBackgroundMessage } from "firebase/messaging/sw";
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
-import { Animate, Ripple, Carousel, initTE } from "tw-elements";
+import { Animate, Ripple, Carousel,LazyLoad, initTE } from "tw-elements";
 import jQuery from 'jquery';
 
 
 window.iniTE = initTE;
 window.Animate = Animate;
+window.LazyLoad = LazyLoad;
 window.Ripple = Ripple;
 window.Carousel = Carousel;
 
@@ -49,11 +50,7 @@ document.addEventListener('livewire:update', function () {
 document.addEventListener('livewire:navigated', () => {
     console.log('navigated');
     initFlowbite();
-    initTE({ Ripple, Animate, Carousel }, { allowReinits: true });
-
-
-    initFlowbite();
-    initTE({ Animate, Ripple, Carousel });
+    initTE({ Ripple, Animate, Carousel,LazyLoad }, { allowReinits: true });
 
     window.$ = jQuery;
 
