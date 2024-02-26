@@ -10,7 +10,7 @@
     </div>
 
 </div>
-<div wire:ignore class="bg-black/10 relative h-[460px] w-full">
+<div wire:ignore class="bg-white/50 dark:bg-black/10 relative h-[460px] w-full">
     <div class="fixed h-full w-full text-center">
         <div class="pl-12 mt-[240px] text-start">
 
