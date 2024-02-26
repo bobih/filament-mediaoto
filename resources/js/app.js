@@ -57,13 +57,11 @@ document.addEventListener('livewire:navigated', () => {
 
     window.$ = jQuery;
 
+    console.log('');
+
 
     Observer.start();
 
-    /*
-    let vid = document.getElementById("newsVideo");
-    vid.playbackRate = 0.5;
-    */
     const firebaseConfig = {
         apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
         authDomain: "mediaoto-b3ac5.firebaseapp.com",
