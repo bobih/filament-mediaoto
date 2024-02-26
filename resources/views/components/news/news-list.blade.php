@@ -10,7 +10,7 @@
 </div>
 <div class="bg-black/10 relative pt-[100px] h-[500px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
-        <div class="z-10 mr-auto place-self-center lg:col-span-7">
+        <div class="place-self-center lg:col-span-7">
 
             <h1 data-te-animation-init
             data-te-animation-start="onScroll"
