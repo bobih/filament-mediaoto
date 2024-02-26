@@ -10,28 +10,14 @@
 </div>
 <div class="bg-black/10 relative pt-[100px] h-[500px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
-        <div class="place-self-center lg:col-span-7">
+        <div class="pl-12 text-start">
 
-            <h1 data-te-animation-init
-            data-te-animation-start="onScroll"
-            data-te-animation-on-scroll="repeat"
-            data-te-animation-show-on-load="false"
-            data-te-animation-reset="true"
-            data-te-animation="[fade-in_1s_ease-in-out]"
+            <h1
             class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
             Kabar Otomotif <br />dan Properti
             </h1>
             <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
                 Tren Terbaru di Indonesia</p>
-        <div class="hidden md:flex justify-between items-center">
-            <div>
-
-            </div>
-
-
-        </div>
-
-
     </div>
 
 
