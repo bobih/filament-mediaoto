@@ -13,7 +13,7 @@
             <div class="hidden md:grid md:grid-cols-2 md:gap-3">
                 <figure
                     class="mb-10 md:mb-0 relative shadow-xl  scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
-                    <img loading="lazy"
+                    <img loading="lazy" width="610" height="305"
                         class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_1.webp"
                         alt="Performance Optimization" title="Performance Optimization">
@@ -29,7 +29,7 @@
 
                 <figure
                     class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
-                    <img loading="lazy"
+                    <img loading="lazy"  width="610" height="305"
                         class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_2.webp"
                         alt="Media Buying Agency" title="Media Buying Agency">
@@ -45,7 +45,7 @@
 
                 <figure
                     class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
-                    <img loading="lazy"
+                    <img loading="lazy"  width="610" height="305"
                         class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_3.webp" alt="Placement"
                         title="Placement">
@@ -61,7 +61,7 @@
 
                 <figure
                     class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
-                    <img loading="lazy"
+                    <img loading="lazy"  width="610" height="305"
                         class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_4.webp"
                         alt="Rich Media Banner Placement" title="Rich Media Banner Placement">
