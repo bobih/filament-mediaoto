@@ -82,12 +82,14 @@
         </div>
 
         @if ($agent->isMobile())
-        <div
+        <div id="animate"
+        data-te-animation-init
+        data-te-animation-reset="true"
+        data-te-animation-start="manually"
+        data-te-animation="[fly-in-left_0.5s]"
+        data-te-animation-show-on-load="false"
          class="z-10 md:hidden mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img data-te-lazy-load-init
-            data-te-animation-init
-            data-te-animation-start="manually"
-        data-te-animation="[fly-in-left_0.5s]"
                 data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
                 data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp"
              class="" width="380" height="284" >
