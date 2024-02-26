@@ -4,14 +4,15 @@
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
-    <div class="absolute">
-    <h1
-    class=" text-center top-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-        {!! trans('home.banner.infotag') !!}
-    </h1>
-</div>
+
 </div>
 <div class="bg-black/20 relative pt-[100px] h-[500px] w-full">
+    <div class="absolute">
+        <h1
+        class=" text-center top-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+            {!! trans('home.banner.infotag') !!}
+        </h1>
+    </div>
 
 
 
