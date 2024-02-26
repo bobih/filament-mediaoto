@@ -5,7 +5,7 @@
     Your browser does not support the video tag.
   </video>
 
-<div class="bg-black relative opacity-50 top-0 h-[600px] w-full">
+<div class="bg-black/80 relative pt-[100px] h-[600px] w-full">
     <div class="z-10 mr-auto place-self-center lg:col-span-7">
 
         <h1
