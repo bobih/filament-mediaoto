@@ -116,7 +116,9 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img class="" width="520" height="389" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
+            <img data-te-lazy-load-init
+            data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
+            data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" class="" width="520" height="389"  alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
