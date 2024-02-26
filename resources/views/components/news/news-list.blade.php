@@ -14,12 +14,11 @@
 
             <h1
             class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-            Kabar Otomotif <br />dan Properti
+            Berita Otomotif <br />dan Properti
             </h1>
             <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">
-                Tren Terbaru di Indonesia</p>
+                Dapatkan Tren Terbaru disini</p>
     </div>
-
 
     </div>
 </div>
