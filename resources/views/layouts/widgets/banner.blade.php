@@ -93,7 +93,7 @@
                 data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
                 data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp"
                 data-te-lazy-animation="[fade-in_1s_ease-in-out]"
-                class="opacity-0" width="380" height="284" alt="mediaoto-apps" title="mediaoto-apps">
+                class="" width="380" height="284" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
