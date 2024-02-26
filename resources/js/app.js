@@ -57,8 +57,6 @@ document.addEventListener('livewire:navigated', () => {
 
     window.$ = jQuery;
 
-    console.log('');
-
 
     Observer.start();
 
