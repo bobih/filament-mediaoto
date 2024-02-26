@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 });
 
 
@@ -58,7 +60,8 @@ document.addEventListener('livewire:navigated', () => {
 
     Observer.start();
 
-
+    let vid = document.getElementById("newsVideo");
+    vid.playbackRate = 0.5;
 
     const firebaseConfig = {
         apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",

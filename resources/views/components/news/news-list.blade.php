@@ -2,7 +2,7 @@
 
 @if ($agent->isMobile() == false)
 <div class="fixed w-full h-[460px] top-0 ">
-    <video class="w-full " autoplay="" loop="" muted="" plays-inline defaultPlaybackRate="0.2">
+    <video id="newsVideo" class="w-full " autoplay loop muted plays-inline>
         <source src="/videos/news3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
