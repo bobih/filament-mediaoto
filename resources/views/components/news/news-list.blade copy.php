@@ -4,7 +4,7 @@
     Your browser does not support the video tag.
   </video>
 <div class="w-full">
-    <div class="pl-12 text-start">
+    <div class="pl-12 text-start ">
 
         <h1 data-te-animation-init="" data-te-animation-start="onScroll" data-te-animation-on-scroll="repeat" data-te-animation-show-on-load="false" data-te-animation-reset="true" data-te-animation="[fade-in_1s_ease-in-out]" class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white" style="visibility: visible;">
         Berita Otomotif <br>dan Properti
