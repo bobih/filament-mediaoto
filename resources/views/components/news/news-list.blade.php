@@ -5,7 +5,7 @@
     Your browser does not support the video tag.
   </video>
 
-<div class="bg-black/80 relative pt-[100px] h-[600px] w-full">
+<div class="bg-black/20 relative pt-[100px] h-[400px] w-full">
 
         <h1
         class="text-center bottom-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
