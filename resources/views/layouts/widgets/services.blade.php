@@ -12,9 +12,9 @@
         @if ($agent->isMobile() == false)
             <div class="hidden md:grid md:grid-cols-2 md:gap-3">
                 <figure
-                    class="mb-10 md:mb-0 relative shadow-xl  scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
+                    class="mb-10 md:mb-0 relative shadow-md  scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
                     <img loading="lazy" width="610" height="305"
-                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
+                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-md"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_1.webp"
                         alt="Performance Optimization" title="Performance Optimization">
                     <div
@@ -28,9 +28,9 @@
                 </figure>
 
                 <figure
-                    class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
+                    class="mb-10 md:mb-0 relative shadow-md scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
                     <img loading="lazy"  width="610" height="305"
-                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
+                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-md"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_2.webp"
                         alt="Media Buying Agency" title="Media Buying Agency">
                     <div
@@ -44,9 +44,9 @@
                 </figure>
 
                 <figure
-                    class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
+                    class="mb-10 md:mb-0 relative shadow-md scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700">
                     <img loading="lazy"  width="610" height="305"
-                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
+                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-md"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_3.webp" alt="Placement"
                         title="Placement">
                     <div
@@ -60,9 +60,9 @@
                 </figure>
 
                 <figure
-                    class="mb-10 md:mb-0 relative shadow-xl scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
+                    class="mb-10 md:mb-0 relative shadow-md scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
                     <img loading="lazy"  width="610" height="305"
-                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-xl"
+                        class="w-full brightness-75 duration-300 hover:filter-none ease-in-out rounded-lg shadow-md"
                         src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_4.webp"
                         alt="Rich Media Banner Placement" title="Rich Media Banner Placement">
                     <div
@@ -103,8 +103,8 @@
                     <!--First item-->
                     <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item data-te-carousel-active>
-                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
-                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-xl brightness-80"
+                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-md">
+                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-md brightness-80"
                                 src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_1_mobile.webp"
                                 alt="Performance Optimization" title="Performance Optimization">
                             <figcaption class="px-4 my-4 text-lg pb-4">
@@ -118,8 +118,8 @@
                     <!--Second item-->
                     <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item>
-                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
-                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-xl brightness-80"
+                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-md">
+                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-md brightness-80"
                                 src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_2_mobile.webp"
                                 alt="Media Buying Agency" title="Media Buying Agency">
                             <figcaption class="px-4 my-4 text-lg pb-4">
@@ -133,8 +133,8 @@
                     <!--Third item-->
                     <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item>
-                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
-                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-xl brightness-80"
+                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-md">
+                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-md brightness-80"
                                 src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_3_mobile.webp"
                                 alt="Placement" title="Placement">
                             <figcaption class="px-4 my-4 text-lg pb-4">
@@ -149,8 +149,8 @@
                     <!--Fourth item-->
                     <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item>
-                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-xl">
-                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-xl brightness-80"
+                        <figure class="relative mb-10 md:mb-0 dark:bg-gray-800 rounded-lg shadow-md">
+                            <img loading="lazy"  width="380" height="190" class="w-full rounded-lg shadow-md brightness-80"
                                 src="{{ env('IMAGE_URL', 'https://www.mediaoto.id') }}/images/services_4_mobile.webp"
                                 alt="Rich Media Banner Placement" title="Rich Media Banner Placement">
                             <figcaption class="px-4 my-4 text-lg pb-4">
