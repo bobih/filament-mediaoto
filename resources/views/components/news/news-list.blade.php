@@ -10,7 +10,7 @@
 </div>
 <div class="bg-black/10 relative pt-[100px] h-[500px] w-full">
     <div class="fixed h-full w-full flex items-center text-center">
-        <div class="pl-12 text-start">
+        <div class="pl-12 pb-20 text-start">
 
             <h1
             class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
