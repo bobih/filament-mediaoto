@@ -1,5 +1,5 @@
 @props(['posts','categories','agent'])
-
+<?php /*
 @if ($agent->isMobile() == false)
 <div class="fixed w-full bottom-8 ">
     <video class="w-full " autoplay loop muted plays-inline>
@@ -16,6 +16,7 @@
     </div>
 </div>
 @endif
+*/ ?>
 <section class="md:relative pt-20 md:pt-8  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
 
     <div class="w-full max-w-screen-xl grid grid-cols-4 gap-4">
