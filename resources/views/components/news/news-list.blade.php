@@ -1,5 +1,5 @@
 @props(['posts','categories','agent'])
-<video class="fixed w-full" autoplay loop muted>
+<video class="fixed w-full" autoplay loop muted plays-inline>
     <source src="/videos/news.webm" type="video/webm">
     Your browser does not support the video tag.
   </video>
