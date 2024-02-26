@@ -6,14 +6,11 @@
   </video>
 
 <div class="bg-black/80 relative pt-[100px] h-[600px] w-full">
-    <div class="z-10 mx-auto place-self-center lg:col-span-7">
 
         <h1
-        class=" max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+        class="mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
             {!! trans('home.banner.infotag') !!}
         </h1>
-        <p  class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-200">{!! trans('home.banner.content1') !!}</p>
-
 
 
 </div>
