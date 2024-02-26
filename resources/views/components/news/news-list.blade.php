@@ -7,15 +7,11 @@
 
 </div>
 <div class="bg-black/20 relative pt-[100px] h-[500px] w-full">
-    <div class="absolute">
-        <h1
-        class=" text-center top-0 mx-auto my-auto max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-            {!! trans('home.banner.infotag') !!}
+    <div class="absolute h-full w-full flex items-center text-center">
+        <h1 class=" text-center top-0 mx-auto my-auto max-w-2xl text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+            "Close the Deal" <br> ga pake ribet!
         </h1>
     </div>
-
-
-
 </div>
 <section class="relative pt-8  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
 
