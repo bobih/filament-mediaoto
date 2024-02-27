@@ -47,13 +47,13 @@ class NewsList extends Component
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
                         $query->withCategory($this->category);
                     })
-                    ->when(NewsPost::withAllTags([$this->tag])->first(), function($query){
-                        $query->withAllTags([$this->tag]);
+                    ->when(NewsPost::withAnyTags([$this->tag])->first(), function($query){
+                        $query->withAnyTags([$this->tag]);
                     });
 
-                    $response = NewsPost::withAnyTags('yadea')->get();
+                    //$response = NewsPost::withAnyTags('yadea')->get();
 
-                    dd($response);
+                    //dd($response);
 
         $this->totalData = count($response->get());
 
