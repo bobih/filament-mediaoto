@@ -33,23 +33,6 @@ window.Carousel = Carousel;
 document.addEventListener('DOMContentLoaded', () => {
     window.$ = jQuery;
 
-   // setTimeout(function () {
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.setAttribute('id', 'gcaptchasrc');
-        script.setAttribute('async', '');
-        script.setAttribute('defer', '');
-        script.type = 'text/javascript';
-        script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
-
-        head.appendChild(script);
-
-   // }, 3000);
-
-
-
-
-
 });
 
 
@@ -150,7 +133,7 @@ document.addEventListener('livewire:navigated', () => {
 
     Observer.start();
 
-    /*
+
     setTimeout(function () {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -163,7 +146,7 @@ document.addEventListener('livewire:navigated', () => {
         head.appendChild(script);
 
     }, 3000);
-*/
+
 
 
 
