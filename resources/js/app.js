@@ -241,12 +241,12 @@ document.addEventListener('livewire:navigated', () => {
 
     if(imgBanner != null){
     const imgUrl = imgBanner.getAttribute('data-src');
-    imgUrl.setAttribute('src',imgUrl);
-    imgUrl.removeAttribute('data-src');
-    if (imgUrl.complete) {
+    imgBanner.setAttribute('src',imgUrl);
+    imgBanner.removeAttribute('data-src');
+    if (imgBanner.complete) {
         console.log('loaded--1');
       } else {
-        imgUrl.addEventListener('load', function(){
+        imgBanner.addEventListener('load', function(){
             console.log('loaded...2');
         });
       }
