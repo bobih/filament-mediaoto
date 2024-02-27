@@ -8,6 +8,7 @@ wire:ignore="" class="fixed w-full h-[460px]">
     data-te-lazy-load-init
     data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
     data-te-lazy-error="https://place-hold.it/1321x583?text=Error"
+    data-te-lazy-animation="[zoom-in_1s_ease-in-out]"
         data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/videos/news3.webm"
         id="newsVideo"
         class="absolute w-full bottom-0 " autoplay="autoplay" loop="loop" muted="muted" >
