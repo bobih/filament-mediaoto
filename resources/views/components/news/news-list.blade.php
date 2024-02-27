@@ -6,7 +6,7 @@ wire:ignore="" class="fixed w-full h-[460px]">
     <div x-persist="player">
     <video
     data-te-lazy-load-init
-    data-te-lazy-offset="1000"
+    data-te-lazy-offset="-100"
     data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
     data-te-lazy-error="https://place-hold.it/1321x583?text=Error"
     data-te-lazy-animation="[zoom-in_1s_ease-in-out]"
