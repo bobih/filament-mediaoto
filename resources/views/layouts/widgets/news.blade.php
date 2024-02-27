@@ -36,7 +36,7 @@
                             data-te-lazy-src="{{ $post->getWebpthumb()}}"
                             data-te-lazy-offset="10"
                             data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
-                            data-te-lazy-animation="[zoom-in_1s_ease-in-out]"
+                            data-te-lazy-animation="[fade-in_0.5s_ease-in-out]"
                             class="border-gray-300 dark:border-gray-700 md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border  shadow-md rounded-lg duration-300"
                                  alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
