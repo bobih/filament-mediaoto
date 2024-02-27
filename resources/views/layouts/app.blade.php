@@ -269,13 +269,16 @@
         */
         ?>
 
-
+    <?php /*
     @if (env('APP_ENV','local') == "production")
         <!-- Google tag (gtag.js B3ac5) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LP278P3T"></script>
         <script type="text/javascript">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-Q7LP278P3T");</script>
         @include('googletagmanager::head')
     @endif
+
+    */ ?>
+
     <?php /*
     <!-- Fonts -->
 
