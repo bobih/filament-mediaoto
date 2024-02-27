@@ -1,18 +1,11 @@
 @props(['posts','categories','agent'])
 
 @if ($agent->isMobile() == false)
-<div
-wire:ignore="" class="fixed w-full h-[460px]">
+<div wire:ignore="" class="fixed w-full h-[460px]">
     <div x-persist="player">
-    <video
-    data-te-lazy-load-init
-    data-te-lazy-offset="-100"
-    data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
-    data-te-lazy-error="https://place-hold.it/1321x583?text=Error"
-    data-te-lazy-animation="[zoom-in_1s_ease-in-out]"
-        data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/videos/news3.webm"
-        id="newsVideo"
-        class="absolute w-full bottom-0 " autoplay="autoplay" loop="loop" muted="muted" >
+    <video  id="newsVideo" class="absolute w-full bottom-0 " autoplay="" loop="" muted="" plays-inline="">
+        <source src="/videos/news3.webm" type="video/webm">
+        Your browser does not support the video tag.
     </video>
     </div>
 
