@@ -52,7 +52,7 @@ class NewsList extends Component
 
                     $response = NewsPost::withAllTags(['google'])->get();
 
-                    //dd($response);
+                    dd($response);
 
         $this->totalData = count($response->get());
 
