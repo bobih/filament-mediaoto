@@ -10,7 +10,7 @@ wire:ignore="" class="fixed w-full h-[460px]">
 
         data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/videos/news3.webm"
         id="newsVideo"
-        class="absolute w-full bottom-0 " autoplay="autoplay" loop="loop" muted="muted" plays-inline="" >
+        class="absolute w-full bottom-0 " autoplay="autoplay" loop="loop" muted="muted" >
     </video>
     </div>
 
