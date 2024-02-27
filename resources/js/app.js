@@ -150,7 +150,7 @@ document.addEventListener('livewire:navigated', () => {
 
     }, 3000);
 
-
+    /*
     const card = document.querySelectorAll('#animate')
 
     if (card.length > 0) {
@@ -178,19 +178,8 @@ document.addEventListener('livewire:navigated', () => {
 
         observer.observe(card[0]);
     }
+    */
 
-    /*
-        window.onscroll = function() {
-
-
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById("mobilesearch").style.top = "20";
-        } else {
-            document.getElementById("mobilesearch").style.top = "20";
-        }
-        }
-
-        */
 
     let lastScrollTop =
         window.scrollY || document.documentElement.scrollTop;
@@ -241,11 +230,24 @@ document.addEventListener('livewire:navigated', () => {
     source.setAttribute('src', 'https://www.mediaoto.id/videos/news3.webm');
     source.setAttribute('type', 'video/webm');
 
-    if(video){
+    if(video != null){
         video.appendChild(source);
         video.load();
         video.play();
     }
+
+    /***** Banner Lazy Load ***/
+    const imgBanner = document.getElementById('bannerImg');
+    const imgUrl = imgBanner.getAttribute('data-src');
+    imgUrl.setAttribute('src',imgUrl);
+    imgUrl.removeAttribute('data-src');
+    if (imgUrl.complete) {
+        console.log('loaded--1');
+      } else {
+        imgUrl.addEventListener('load', function(){
+            console.log('loaded...2');
+        });
+      }
 
 })
 
