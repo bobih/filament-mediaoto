@@ -303,6 +303,12 @@
 
     <?php /* <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script> */ ?>
     <?php /*** <!-- Styles --> **/ ?>
+    @if ($agent->isMobile())
+    <link rel="preload" fetchpriority="high" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" type="image/webp">
+    @else
+    <link rel="preload" fetchpriority="high" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" type="image/webp">
+
+    @endif
     @livewireStyles
 </head>
 
