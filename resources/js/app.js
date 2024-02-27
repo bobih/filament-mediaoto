@@ -238,6 +238,8 @@ document.addEventListener('livewire:navigated', () => {
 
     /***** Banner Lazy Load ***/
     const imgBanner = document.getElementById('bannerImg');
+
+    if(imgBanner != null){
     const imgUrl = imgBanner.getAttribute('data-src');
     imgUrl.setAttribute('src',imgUrl);
     imgUrl.removeAttribute('data-src');
@@ -248,6 +250,7 @@ document.addEventListener('livewire:navigated', () => {
             console.log('loaded...2');
         });
       }
+    }
 
 })
 
