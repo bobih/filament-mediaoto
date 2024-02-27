@@ -53,7 +53,7 @@ class NewsList extends Component
 
                     $response = NewsPost::withAnyTags('iims2024')->get();
 
-                    //dd($response);
+                    dd($response);
 
         $this->totalData = count($response->get());
 
