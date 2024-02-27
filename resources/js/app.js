@@ -12,7 +12,7 @@ import { onBackgroundMessage } from "firebase/messaging/sw";
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import Observer from 'tailwindcss-intersect';
 
-import { Animate, Ripple, Carousel,LazyLoad, initTE } from "tw-elements";
+import { Animate, Ripple, Carousel, LazyLoad, initTE } from "tw-elements";
 import jQuery from 'jquery';
 
 
@@ -50,7 +50,7 @@ document.addEventListener('livewire:update', function () {
 document.addEventListener('livewire:navigated', () => {
     console.log('navigated');
     initFlowbite();
-    initTE({ Ripple, Animate, Carousel,LazyLoad }, { allowReinits: true });
+    initTE({ Ripple, Animate, Carousel, LazyLoad }, { allowReinits: true });
 
     window.$ = jQuery;
 
@@ -77,22 +77,22 @@ document.addEventListener('livewire:navigated', () => {
                 //console.log(currentToken);
                 var fcmstore = localStorage.getItem('fcmtoken');
 
-                if(fcmstore != currentToken || fcmstore == ''){
+                if (fcmstore != currentToken || fcmstore == '') {
                     console.log('update token....');
                     $.ajax({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
+                        },
                         url: '/settoken',
                         type: "POST",
-                        data:     {fcmtoken: currentToken, fcmstore: fcmstore},
+                        data: { fcmtoken: currentToken, fcmstore: fcmstore },
                         dataType: "json",
                         error: function (request, error) {
                             console.log('error Update');
                             console.log(error);
 
                         },
-                        success:function(data) {
+                        success: function (data) {
                             //console.log('Success');
                             //console.log(data);
                             localStorage.setItem('fcmtoken', currentToken);
@@ -230,7 +230,7 @@ document.addEventListener('livewire:navigated', () => {
     source.setAttribute('src', 'https://www.mediaoto.id/videos/news3.webm');
     source.setAttribute('type', 'video/webm');
 
-    if(video != null){
+    if (video != null) {
         video.appendChild(source);
         video.load();
         video.play();
@@ -239,17 +239,44 @@ document.addEventListener('livewire:navigated', () => {
     /***** Banner Lazy Load ***/
     const imgBanner = document.getElementById('bannerImg');
 
-    if(imgBanner != null){
-    const imgUrl = imgBanner.getAttribute('data-src');
-    imgBanner.setAttribute('src',imgUrl);
-    imgBanner.removeAttribute('data-src');
-    if (imgBanner.complete) {
-        console.log('loaded--1');
-      } else {
-        imgBanner.addEventListener('load', function(){
-            console.log('loaded...2');
-        });
-      }
+    if (imgBanner != null) {
+        const imgUrl = imgBanner.getAttribute('data-src');
+        imgBanner.setAttribute('src', imgUrl);
+        imgBanner.removeAttribute('data-src');
+        if (imgBanner.complete) {
+            console.log('loaded--1');
+        }
+
+    }
+
+    function animateBanner() {
+        const card = document.querySelectorAll('#animate')
+
+        if (card.length > 0) {
+            const observer = new IntersectionObserver(entries => {
+
+                entries.forEach(entry => {
+                    // console.log(entry);
+
+                    const manuallyEl = entry.target;
+                    //console.log(manuallyEl);
+                    const manually = new Animate(manuallyEl, {
+
+                    });
+                    if (entry.isIntersecting) {
+                        manually.startAnimation();
+                    } else {
+                        //  manually.stopAnimation();
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                //rootMargin: "-100px"
+            });
+
+
+            observer.observe(card[0]);
+        }
     }
 
 })
