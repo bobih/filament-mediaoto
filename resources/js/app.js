@@ -238,12 +238,8 @@ document.addEventListener('livewire:navigated', () => {
 
     const myLazyLoading = new LazyLoad(document.getElementById('newsVideo'), {
         lazySrc: 'https://www.mediaoto.id/videos/news3.webm',
-        lazyPlaceholder: 'https://www.mediaoto.id/images/blank.png'
-      });
-      //myLazyLoading.getOrCreateInstance();
-      const myLazyLoadingEl = document.getElementById('newsVideo');
-      myLazyLoadingEl.addEventListener('onLoad.te.lazy', function (e) {
-        console.log('Video Loadded...');
+        lazyPlaceholder: 'https://www.mediaoto.id/images/blank.png',
+        lazyOffset: 0
       });
 
 })
