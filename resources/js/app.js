@@ -201,9 +201,9 @@ document.addEventListener('livewire:navigated', () => {
 
     if (video != null) {
         video.appendChild(source);
-        video.load().then(function(){
+        video.onloadeddata = function(){
             video.play();
-        });
+        };
 
     }
 
