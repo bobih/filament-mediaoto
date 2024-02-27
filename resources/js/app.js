@@ -240,7 +240,7 @@ document.addEventListener('livewire:navigated', () => {
         lazySrc: 'https://www.mediaoto.id/videos/news3.webm',
         lazyPlaceholder: 'https://www.mediaoto.id/images/blank.png'
       });
-      myLazyLoading.getOrCreateInstance();
+      //myLazyLoading.getOrCreateInstance();
       myLazyLoading.addEventListener('onLoad.te.lazy', function (e) {
         console.log('Video Loadded...');
       });
