@@ -89,7 +89,7 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 md:hidden mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img id="bannerImg" class="" data-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" alt="mediaoto-apps" title="mediaoto-apps">
+            <img id="bannerImg" class="opacity-0" data-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
@@ -113,7 +113,7 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img id="bannerImg" class="" data-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
+            <img id="bannerImg" class="opacity-0" data-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 

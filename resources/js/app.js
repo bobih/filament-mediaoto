@@ -244,6 +244,8 @@ document.addEventListener('livewire:navigated', () => {
         imgBanner.setAttribute('src', imgUrl);
         imgBanner.removeAttribute('data-src');
         if (imgBanner.complete) {
+            imgBanner.classList.remove('opacity-0');
+            imgBanner.classList.add('opacity-100');
            animateBanner();
         }
 
