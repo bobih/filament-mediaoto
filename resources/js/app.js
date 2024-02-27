@@ -234,14 +234,7 @@ document.addEventListener('livewire:navigated', () => {
     );
 
 
-    /*** Video Lazy Load
-
-    const myLazyLoading = new LazyLoad(document.getElementById('newsVideo'), {
-        lazySrc: 'https://www.mediaoto.id/videos/news3.webm',
-        lazyPlaceholder: 'https://www.mediaoto.id/images/blank.png',
-        lazyOffset: 500
-      });
-      ***/
+    /*** Video Lazy Load ***/
 
     var video = document.getElementById('newsVideo');
     var source = document.createElement('source');
@@ -251,9 +244,6 @@ document.addEventListener('livewire:navigated', () => {
     video.appendChild(source);
     video.load();
     video.play();
-
-    //sources[0].src = 'https://www.mediaoto.id/videos/news3.webm';
-    //video.load();
 
 })
 
