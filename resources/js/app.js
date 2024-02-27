@@ -143,6 +143,8 @@ document.addEventListener('livewire:navigated', () => {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.setAttribute('id', 'gcaptchasrc');
+        script.setAttribute('async', '');
+        script.setAttribute('defer', '');
         script.type = 'text/javascript';
         script.src = "https://www.google.com/recaptcha/api.js?render=6LeHcFYpAAAAAOKa9eRzN5C431nydTUyCVbqEfZZ";
 
@@ -150,35 +152,7 @@ document.addEventListener('livewire:navigated', () => {
 
     }, 3000);
 
-    /*
-    const card = document.querySelectorAll('#animate')
 
-    if (card.length > 0) {
-        const observer = new IntersectionObserver(entries => {
-
-            entries.forEach(entry => {
-                // console.log(entry);
-
-                const manuallyEl = entry.target;
-                //console.log(manuallyEl);
-                const manually = new Animate(manuallyEl, {
-
-                });
-                if (entry.isIntersecting) {
-                    manually.startAnimation();
-                } else {
-                   //  manually.stopAnimation();
-                }
-            });
-        }, {
-            threshold: 0.5,
-            //rootMargin: "-100px"
-        });
-
-
-        observer.observe(card[0]);
-    }
-    */
 
 
     let lastScrollTop =
