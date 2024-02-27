@@ -33,7 +33,7 @@ window.Carousel = Carousel;
 document.addEventListener('DOMContentLoaded', () => {
     window.$ = jQuery;
 
-    setTimeout(function () {
+   // setTimeout(function () {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.setAttribute('id', 'gcaptchasrc');
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         head.appendChild(script);
 
-    }, 3000);
+   // }, 3000);
 
 
 
