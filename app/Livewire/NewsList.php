@@ -51,7 +51,7 @@ class NewsList extends Component
                         $query->withAllTags([$this->tag]);
                     });
 
-                    //$response = NewsPost::withAnyTags(['yadea'])->get();
+                    $response = NewsPost::tags()->containing('yadea')->get();
 
                     dd($response);
 
