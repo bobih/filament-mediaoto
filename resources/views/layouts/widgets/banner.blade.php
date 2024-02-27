@@ -89,11 +89,7 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 md:hidden mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img data-te-lazy-load-init
-                data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
-                data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp"
-                data-te-lazy-animation="[fade-in_1s_ease-in-out]"
-                class="" width="380" height="284" alt="mediaoto-apps" title="mediaoto-apps">
+            <img class="" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
@@ -117,9 +113,7 @@
         data-te-animation="[fly-in-left_0.5s]"
         data-te-animation-show-on-load="false"
          class="z-10 hidden md:block mt-10 lg:mt-0 lg:col-span-5 lg:flex">
-            <img data-te-lazy-load-init
-            data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
-            data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" class="" width="520" height="389"  alt="mediaoto-apps" title="mediaoto-apps">
+            <img class="" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
 
 
