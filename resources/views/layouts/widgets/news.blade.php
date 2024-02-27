@@ -31,8 +31,12 @@
                         <div class= "scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
 
                         <a wire:navigate title="{{ $post->title}}" href="{{ route('news.show', $post->slug) }}">
-                            <img loading="lazy" class="border-gray-300 dark:border-gray-700 md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border  shadow-md rounded-lg duration-300"
-                                src="{{ $post->getWebpthumb()}}" alt="{{ $post->title }}"
+                            <img
+                            data-te-lazy-load-init
+                            data-te-lazy-src="{{ $post->getWebpthumb()}}"
+                            data-te-lazy-placeholder="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/blank.png"
+                            class="border-gray-300 dark:border-gray-700 md:hover:-translate-y-1 md:hover:scale-110 top-0 left-0 right-0 bottom-0 h-full w-full object-fit border  shadow-md rounded-lg duration-300"
+                                 alt="{{ $post->title }}"
                                 title="{{ $post->title }}">
                         </a>
                         </div>
