@@ -143,12 +143,6 @@ class NewsPost extends Model implements HasMedia
         );
     }
 
-    public function tags(): MorphToMany
-    {
-        return $this
-            ->morphToMany(self::getTagClassName(), 'taggable', 'taggables', null, 'tag_id')
-            ->orderBy('order_column');
-    }
 
     public function scopeActive($query)
     {
@@ -331,10 +325,5 @@ class NewsPost extends Model implements HasMedia
         });
     }
 
-    public function scopeWithTag($query, string $tag)
-    {
-        $query->whereHas('tags', function ($query) use ($tag) {
-            $query->where('slug', $tag);
-        });
-    }
+
 }
