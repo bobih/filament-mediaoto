@@ -50,7 +50,7 @@ class NewsList extends Component
                         $query->withAllTags([$this->tag]);
                     });
 
-                    $response = NewsPost::withAllTags(['google'])->get();
+                    $response = NewsPost::withAllTags(['google'],'categories')->get();
 
                     dd($response);
 
