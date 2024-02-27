@@ -244,8 +244,7 @@ document.addEventListener('livewire:navigated', () => {
         imgBanner.setAttribute('src', imgUrl);
         imgBanner.removeAttribute('data-src');
         if (imgBanner.complete) {
-            imgBanner.classList.remove('opacity-0');
-            imgBanner.classList.add('opacity-100');
+
            animateBanner();
         }
 
@@ -266,6 +265,8 @@ document.addEventListener('livewire:navigated', () => {
 
                     });
                     if (entry.isIntersecting) {
+                        imgBanner.classList.remove('opacity-0');
+                        imgBanner.classList.add('opacity-100');
                         manually.startAnimation();
                     } else {
                         //  manually.stopAnimation();
