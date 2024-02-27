@@ -265,10 +265,13 @@ document.addEventListener('livewire:navigated', () => {
 
                     });
                     if (entry.isIntersecting) {
-                        imgBanner.classList.remove('opacity-0');
+
                         imgBanner.classList.add('opacity-100');
                         manually.startAnimation();
                     } else {
+
+                        imgBanner.classList.remove('opacity-100');
+                        imgBanner.classList.add('opacity-0');
                         //  manually.stopAnimation();
                     }
                 });
