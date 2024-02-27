@@ -1,8 +1,8 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
 @if ($agent->isMobile())
-<link rel="preload" fetchpriority="high" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" type="image/webp">
+<link rel="preload" fetchpriority="low" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-mobile.webp" type="image/webp">
 @else
-<link rel="preload" fetchpriority="high" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" type="image/webp">
+<link rel="preload" fetchpriority="low" as="image" href="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" type="image/webp">
 
 @endif
 
