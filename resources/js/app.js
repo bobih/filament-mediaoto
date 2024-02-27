@@ -246,7 +246,7 @@ document.addEventListener('livewire:navigated', () => {
         if (imgBanner.complete) {
            animateBanner();
         } else {
-            img.addEventListener('load', animateBanner);
+            imgBanner.addEventListener('load', animateBanner);
         }
 
     }
