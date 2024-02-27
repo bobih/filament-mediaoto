@@ -242,5 +242,12 @@ document.addEventListener('livewire:navigated', () => {
         lazyOffset: 500
       });
       ***/
+
+    var video = document.getElementById('newsVideo')[0];
+    var sources = video.getElementsByTagName('source');
+    sources[0].src = 'https://www.mediaoto.id/videos/news3.webm';
+
+    video.load();
+
 })
 
