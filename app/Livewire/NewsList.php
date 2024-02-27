@@ -51,9 +51,9 @@ class NewsList extends Component
                         $query->withAnyTags([$this->tag]);
                     });
 
-                    $response = NewsPost::withAnyTagsOfAnyType(['iims2024'])->get();
+                    //$response = NewsPost::withAnyTagsOfAnyType(['iims2024'])->get();
 
-                    dd($response);
+                    //dd($response);
 
         $this->totalData = count($response->get());
 
