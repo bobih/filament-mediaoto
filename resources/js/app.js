@@ -241,9 +241,11 @@ document.addEventListener('livewire:navigated', () => {
     source.setAttribute('src', 'https://www.mediaoto.id/videos/news3.webm');
     source.setAttribute('type', 'video/webm');
 
-    video.appendChild(source);
-    video.load();
-    video.play();
+    if(video){
+        video.appendChild(source);
+        video.load();
+        video.play();
+    }
 
 })
 
