@@ -277,7 +277,7 @@ document.addEventListener('livewire:navigated', () => {
                     }
                 });
             }, {
-                threshold: 1,
+                threshold: 0.2,
                 //rootMargin: "-100px"
             });
 
