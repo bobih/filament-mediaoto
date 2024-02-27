@@ -51,7 +51,7 @@ class NewsList extends Component
                         $query->withAllTags([$this->tag]);
                     });
 
-                    $response = Tag::containing('honda')->get();// NewsPost::withAllTags(['google'],'categories')->get();
+                    $response = NewsPost::withAnyTags(['iims'])->get();
 
                     dd($response);
 
