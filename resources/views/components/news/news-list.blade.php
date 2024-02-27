@@ -4,7 +4,7 @@
 <div wire:ignore="" class="fixed w-full h-[460px]">
     <div x-persist="player">
     <video  id="newsVideo" class="absolute w-full bottom-0 " autoplay="" loop="" muted="" plays-inline="">
-        <source scr=""  type="video/webm">
+        <source src=""  type="video/webm">
         Your browser does not support the video tag.
     </video>
     </div>
