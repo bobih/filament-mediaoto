@@ -201,8 +201,10 @@ document.addEventListener('livewire:navigated', () => {
 
     if (video != null) {
         video.appendChild(source);
-        video.load();
-        video.play();
+        video.load().then(function(){
+            video.play();
+        });
+
     }
 
     /***** Banner Lazy Load ***/
