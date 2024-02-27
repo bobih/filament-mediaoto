@@ -9,8 +9,6 @@
         data-te-lazy-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/videos/news3.webm"
         id="newsVideo"
         class="absolute w-full bottom-0 " autoplay="" loop="" muted="" plays-inline="" >
-        <source type="video/webm">
-        Your browser does not support the video tag.
     </video>
     </div>
 
