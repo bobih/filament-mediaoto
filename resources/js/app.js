@@ -243,11 +243,17 @@ document.addEventListener('livewire:navigated', () => {
       });
       ***/
 
-    var video = document.getElementById('newsVideo')[0];
-    var sources = video.getElementsByTagName('source');
-    sources[0].src = 'https://www.mediaoto.id/videos/news3.webm';
+    var video = document.getElementById('newsVideo');
+    var source = document.createElement('source');
+    source.setAttribute('src', 'https://www.mediaoto.id/videos/news3.webm');
+    source.setAttribute('type', 'video/webm');
 
+    video.appendChild(source);
     video.load();
+    video.play();
+
+    //sources[0].src = 'https://www.mediaoto.id/videos/news3.webm';
+    //video.load();
 
 })
 
