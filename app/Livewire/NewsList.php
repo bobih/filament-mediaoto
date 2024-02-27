@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Livewire;
+use Spatie\Tags\Tag;
 use Livewire\Component;
 use App\Models\NewsPost;
 use Illuminate\Support\Str;
 use Jenssegers\Agent\Agent;
-use Livewire\Attributes\On;
 
+use Livewire\Attributes\On;
 use App\Models\NewsCategory;
 use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
@@ -50,7 +51,7 @@ class NewsList extends Component
                         $query->withAllTags([$this->tag]);
                     });
 
-                    $response = NewsPost::withAllTags(['google'],'categories')->get();
+                    $response = Tag::containing('iims')->get();// NewsPost::withAllTags(['google'],'categories')->get();
 
                     dd($response);
 
