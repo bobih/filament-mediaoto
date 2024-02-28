@@ -76,9 +76,7 @@
                     autoplay="true">
                 </x-lottie>
             </div>
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
-                {{__('home.aboutus.aboutus')}}
-            </h2>
+
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
@@ -164,6 +162,9 @@
 
             </div>
         </div>
+        <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
+            {{__('home.aboutus.aboutus')}}
+        </h2>
         <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-300 lg:col-span-2">
             <p class="mb-4 text-justify opacity-0 intersect:opacity-100 transition-opacity duration-1000 delay-300 intersect-once">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4 text-justify opacity-0 intersect:opacity-100 transition-opacity duration-1000 delay-300 intersect-once">{{__('home.aboutus.content2')}}</p>
