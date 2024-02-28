@@ -49,12 +49,23 @@
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
             <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
+            <?php /*
             <h2 data-te-animation-init
-            data-te-animation-start="onScroll"
-            data-te-animation-on-scroll="repeat"
-            data-te-animation-show-on-load="false"
-            data-te-animation-reset="true"
-            data-te-animation="[fade-in_1s_ease-in-out]"  class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">{{__('home.aboutus.infotag')}}</h2>
+                data-te-animation-start="onScroll"
+                data-te-animation-on-scroll="repeat"
+                data-te-animation-show-on-load="false"
+                data-te-animation-reset="true"
+                data-te-animation="[fade-in_1s_ease-in-out]"  class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
+            {{__('home.aboutus.infotag')}}
+            </h2>
+            */ ?>
+            <x-lottie
+            class="w-[30px] justify-between "
+            path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/deal.json"
+            animType="svg"
+            loop="true"
+            autoplay="true">
+        </x-lottie>
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
