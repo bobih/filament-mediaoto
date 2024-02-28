@@ -59,6 +59,12 @@
             {{__('home.aboutus.infotag')}}
             </h2>
             */ ?>
+            <div data-te-animation-init
+            data-te-animation-start="onScroll"
+            data-te-animation-on-scroll="repeat"
+            data-te-animation-show-on-load="false"
+            data-te-animation-reset="true"
+            data-te-animation="[fade-in_1s_ease-in-out]">
             <x-lottie
             class="w-[300px] justify-between "
             path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
@@ -66,6 +72,7 @@
             loop="true"
             autoplay="true">
         </x-lottie>
+    </div>
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
