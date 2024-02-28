@@ -60,9 +60,7 @@
             {{__('home.aboutus.infotag')}}
             </h2>
             */ ?>
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
-                {{__('home.aboutus.aboutus')}}
-        </h2>
+
             <div data-te-animation-init
             data-te-animation-start="onScroll"
             data-te-animation-on-scroll="none"
@@ -70,14 +68,17 @@
             data-te-animation-reset="true"
             data-te-animation="[drop-in_0.5s]"
             class="h-[300px]">
-            <x-lottie
-            class="w-[300px] justify-between "
-            path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
-            animType="svg"
-            loop="true"
-            autoplay="true">
-        </x-lottie>
-    </div>
+                <x-lottie
+                    class="w-[300px] justify-between "
+                    path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
+                    animType="svg"
+                    loop="true"
+                    autoplay="true">
+                </x-lottie>
+            </div>
+            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
+                {{__('home.aboutus.aboutus')}}
+            </h2>
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
