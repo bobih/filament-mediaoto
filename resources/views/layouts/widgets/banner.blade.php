@@ -66,8 +66,16 @@
 
             </div>
             @if ($agent->isMobile())
+            <x-lottie
+                class="w-full justify-between "
+                style="color:red; background-color:blue;"
+                path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/connect1.json"
+                animType="svg"
+                loop="true"
+                autoplay="true">
+            </x-lottie>
             <div class="flex w-full justify-between ">
-                <div class="block md:hidden">
+                <div class="block">
                     <button title="getstarted" x-data={} x-on:click="$dispatch('open-modal')"
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         {{__('home.banner.button1')}}

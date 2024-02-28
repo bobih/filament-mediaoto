@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '82e70314ed97296cfb3dce0cde326b883a5bfbb2',
+        'reference' => '5522dd9381976104a510306b7a7cf38794716810',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'aldeebhasan/lottie-laravel' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => 'c1a584ac125edc093431c82335f3c9f54bd853c3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../aldeebhasan/lottie-laravel',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'anourvalar/eloquent-serialize' => array(
             'pretty_version' => '1.2.17',
             'version' => '1.2.17.0',
@@ -787,7 +796,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '82e70314ed97296cfb3dce0cde326b883a5bfbb2',
+            'reference' => '5522dd9381976104a510306b7a7cf38794716810',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

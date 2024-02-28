@@ -216,4 +216,5 @@ return array(
     'BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
     'AnourValar\\EloquentSerialize\\' => array($vendorDir . '/anourvalar/eloquent-serialize/src'),
+    'Aldeebhasan\\LottieLaravel\\' => array($vendorDir . '/aldeebhasan/lottie-laravel/src'),
 );

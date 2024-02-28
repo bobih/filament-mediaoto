@@ -49,6 +49,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
+        'c049f6cd924734de22ddb80c05fdfe32' => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/utilities/helpers.php',
         '096c2d3bc2fc8bdd430b86b9391cf287' => __DIR__ . '/..' . '/awcodes/filament-tiptap-editor/src/helpers.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
@@ -336,6 +337,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             'App\\' => 4,
             'AnourValar\\EloquentSerialize\\' => 29,
+            'Aldeebhasan\\LottieLaravel\\' => 26,
         ),
     );
 
@@ -1190,6 +1192,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         array (
             0 => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src',
         ),
+        'Aldeebhasan\\LottieLaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -1225,6 +1231,10 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
     );
 
     public static $classMap = array (
+        'Aldeebhasan\\LottieLaravel\\Components\\LottieComponent' => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/src/Components/LottieComponent.php',
+        'Aldeebhasan\\LottieLaravel\\Facades\\Lottie' => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/src/Facades/Lottie.php',
+        'Aldeebhasan\\LottieLaravel\\LottieLaravelServiceProvider' => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/src/LottieLaravelServiceProvider.php',
+        'Aldeebhasan\\LottieLaravel\\LottieManager' => __DIR__ . '/..' . '/aldeebhasan/lottie-laravel/src/LottieManager.php',
         'AnourValar\\EloquentSerialize\\Facades\\EloquentSerializeFacade' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Facades/EloquentSerializeFacade.php',
         'AnourValar\\EloquentSerialize\\Grammars\\EloquentBuilderGrammar' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Grammars/EloquentBuilderGrammar.php',
         'AnourValar\\EloquentSerialize\\Grammars\\ModelGrammar' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Grammars/ModelGrammar.php',
@@ -1381,6 +1391,7 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Livewire\\ContactUs' => __DIR__ . '/../..' . '/app/Livewire/ContactUs.php',
+        'App\\Livewire\\ImageCarousel' => __DIR__ . '/../..' . '/app/Livewire/ImageCarousel.php',
         'App\\Livewire\\NewsList' => __DIR__ . '/../..' . '/app/Livewire/NewsList.php',
         'App\\Livewire\\SearchBox' => __DIR__ . '/../..' . '/app/Livewire/SearchBox.php',
         'App\\Livewire\\TopNav' => __DIR__ . '/../..' . '/app/Livewire/TopNav.php',

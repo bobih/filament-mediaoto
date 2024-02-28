@@ -6,6 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Aldeebhasan\\LottieLaravel\\Components\\LottieComponent' => $vendorDir . '/aldeebhasan/lottie-laravel/src/Components/LottieComponent.php',
+    'Aldeebhasan\\LottieLaravel\\Facades\\Lottie' => $vendorDir . '/aldeebhasan/lottie-laravel/src/Facades/Lottie.php',
+    'Aldeebhasan\\LottieLaravel\\LottieLaravelServiceProvider' => $vendorDir . '/aldeebhasan/lottie-laravel/src/LottieLaravelServiceProvider.php',
+    'Aldeebhasan\\LottieLaravel\\LottieManager' => $vendorDir . '/aldeebhasan/lottie-laravel/src/LottieManager.php',
     'AnourValar\\EloquentSerialize\\Facades\\EloquentSerializeFacade' => $vendorDir . '/anourvalar/eloquent-serialize/src/Facades/EloquentSerializeFacade.php',
     'AnourValar\\EloquentSerialize\\Grammars\\EloquentBuilderGrammar' => $vendorDir . '/anourvalar/eloquent-serialize/src/Grammars/EloquentBuilderGrammar.php',
     'AnourValar\\EloquentSerialize\\Grammars\\ModelGrammar' => $vendorDir . '/anourvalar/eloquent-serialize/src/Grammars/ModelGrammar.php',
@@ -162,6 +166,7 @@ return array(
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Livewire\\ContactUs' => $baseDir . '/app/Livewire/ContactUs.php',
+    'App\\Livewire\\ImageCarousel' => $baseDir . '/app/Livewire/ImageCarousel.php',
     'App\\Livewire\\NewsList' => $baseDir . '/app/Livewire/NewsList.php',
     'App\\Livewire\\SearchBox' => $baseDir . '/app/Livewire/SearchBox.php',
     'App\\Livewire\\TopNav' => $baseDir . '/app/Livewire/TopNav.php',
