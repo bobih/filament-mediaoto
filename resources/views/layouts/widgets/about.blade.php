@@ -68,7 +68,8 @@
             data-te-animation-on-scroll="none"
             data-te-animation-show-on-load="false"
             data-te-animation-reset="true"
-            data-te-animation="[fade-in_1s_ease-in-out]">
+            data-te-animation="[drop-in_0.5s]"
+            class="h-[300px]">
             <x-lottie
             class="w-[300px] justify-between "
             path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
