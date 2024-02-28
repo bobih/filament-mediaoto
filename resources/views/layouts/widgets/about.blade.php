@@ -59,7 +59,12 @@
             {{__('home.aboutus.infotag')}}
             </h2>
             */ ?>
-            <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 intersect-once transition duration-700 delay-200">
+            <div data-te-animation-init
+            data-te-animation-start="onScroll"
+            data-te-animation-on-scroll="none"
+            data-te-animation-show-on-load="false"
+            data-te-animation-reset="true"
+            data-te-animation="[fade-in_1s_ease-in-out]">
             <x-lottie
             class="w-[300px] justify-between "
             path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
