@@ -67,8 +67,7 @@
             </div>
             @if ($agent->isMobile())
             <x-lottie
-                class="w-full justify-between "
-                style="color:red; background-color:blue;"
+                class="w-10 justify-between "
                 path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/connect1.json"
                 animType="svg"
                 loop="true"
