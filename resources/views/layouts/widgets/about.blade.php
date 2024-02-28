@@ -60,8 +60,8 @@
             </h2>
             */ ?>
             <x-lottie
-            class="w-[30px] justify-between "
-            path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/deal.json"
+            class="w-[300px] justify-between "
+            path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/about.json"
             animType="svg"
             loop="true"
             autoplay="true">
