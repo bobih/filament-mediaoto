@@ -298,7 +298,7 @@
     <?php /* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" /> */ ?>
 
     <?php /* @filamentStyles */ ?>
-    <?php /* <script src="https://cdn.tailwindcss.com"></script> */ ?>
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <?php /* <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}" async></script> */ ?>
