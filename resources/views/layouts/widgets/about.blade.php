@@ -48,8 +48,9 @@
     class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6 ">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
-            <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
             <?php /*
+            <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
+
             <h2 data-te-animation-init
                 data-te-animation-start="onScroll"
                 data-te-animation-on-scroll="repeat"
@@ -59,6 +60,9 @@
             {{__('home.aboutus.infotag')}}
             </h2>
             */ ?>
+            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
+                {{__('home.aboutus.infotag')}}
+        </h2>
             <div data-te-animation-init
             data-te-animation-start="onScroll"
             data-te-animation-on-scroll="none"
