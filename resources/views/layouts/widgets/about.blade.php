@@ -61,7 +61,7 @@
             </h2>
             */ ?>
             <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
-                {{__('home.aboutus.infotag')}}
+                {{__('home.aboutus.aboutus')}}
         </h2>
             <div data-te-animation-init
             data-te-animation-start="onScroll"
