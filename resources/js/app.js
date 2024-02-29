@@ -272,6 +272,8 @@ document.addEventListener('livewire:navigated', () => {
         }
 
         function init(){
+            let brandroll = document.getElementById("brandroll");
+            brandroll.stop();
             let animation = null;
             let title1 = aecontainer.getAttribute('title1');
             let title2 = aecontainer.getAttribute('title2');
@@ -298,6 +300,9 @@ document.addEventListener('livewire:navigated', () => {
                 function completedAnim(){
                 //console.log(jsonObj);
                 document.getElementById("gplaybtn").classList.remove('opacity-0');
+                brandroll.start();
+
+
                 //document.getElementById("gplaybtn").classList.add('opacity-100');
 
 
