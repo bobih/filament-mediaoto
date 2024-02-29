@@ -260,21 +260,39 @@ document.addEventListener('livewire:navigated', () => {
     /** Test Lottie */
     const aecontainer = document.getElementById('bm');
     if(aecontainer != null){
-    var animtitle = aecontainer.getAttribute('txt-data');
-    var animation =  bodymovin.loadAnimation({
-        container: document.getElementById('bm'),
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: '/images/anime/mediaoto_up1.json',
+        var uri = '/images/anime/mediaoto_up1.json';
 
-      });
-      console.log(path);
-        animation.play();
-        animation.addEventListener('complete', completedAnim);
-      function completedAnim(){
-        console.log('Yuhuuuuuuu');
-      }
+        function Get(uri){
+            var httReq = new XMLHttpRequest();
+            httReq.open('GET',uri,false);
+            httReq.send(null);
+            return httReq.responseText;
+        }
+
+        function init(){
+
+            var jsonObj = JSON.parse(Get(uri));
+            var animtitle = aecontainer.getAttribute('txt-data');
+            var animation =  bodymovin.loadAnimation({
+                container: document.getElementById('bm'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                animationData: jsonObj,
+
+              });
+                animation.play();
+                animation.addEventListener('complete', completedAnim);
+
+                function completedAnim(){
+                console.log('Yuhuuuuuuu');
+              }
+
+
+        }
+
+        init();
+
     }
 
 
