@@ -271,13 +271,13 @@ document.addEventListener('livewire:navigated', () => {
 
         function init(){
 
-            var jsonObj = JSON.parse(Get(uri));
+            var jsonObj = JSON.parse(JSON.stringify(Get(uri)));
             var animtitle = aecontainer.getAttribute('titledata').toString();
             console.log(animtitle);
 
 
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
-            var newjSon = jsonObj;
+            var newjSon = JSON.parse(JSON.stringify(jsonObj));
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
