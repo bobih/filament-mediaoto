@@ -6,7 +6,7 @@
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-1.json"
             title1="Title1"
             title2="Title2"
-            title3="Title3"
+            title3="{!! trans('home.banner.content1') !!}"
             >
         </div>
     </div>
