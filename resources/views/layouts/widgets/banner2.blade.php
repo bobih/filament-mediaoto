@@ -9,7 +9,7 @@
             title3="{!! trans('home.banner.content1') !!}"
             >
         </div>
-        <div id="gplaybtn" class="absolute opacity-0 right-8 bottom-0  mb-60 text-right">
+        <div id="gplaybtn" class="absolute right-8 top-[600px] text-right">
             <a title="android" target="_blank" rel="noopener noreferrer"
             href="https://play.google.com/store/apps/details?id=id.mediaoto.apps"
              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
