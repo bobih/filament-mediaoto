@@ -2,7 +2,7 @@
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
-        <div id="bm" class="w-full h-[626px] justify-between " txt-data="{!! __('home.aboutus.infotag') !!}">
+        <div id="bm" class="w-full h-[626px] justify-between " titledata="{!! __('home.aboutus.infotag') !!}">
         </div>
     </div>
     @endif

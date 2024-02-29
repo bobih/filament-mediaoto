@@ -272,7 +272,7 @@ document.addEventListener('livewire:navigated', () => {
         function init(){
 
             var jsonObj = JSON.parse(Get(uri));
-            var animtitle = aecontainer.getAttribute('txt-data');
+            var animtitle = aecontainer.getAttribute('titledata');
 
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
 
