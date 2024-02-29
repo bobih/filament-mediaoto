@@ -270,6 +270,9 @@ document.addEventListener('livewire:navigated', () => {
       };
       anim = lottie.loadAnimation(animdata);
 
+      anim.addEventListener('onLoopComplete',function(){
+        console.log('heloooo');
+      });
 
       function loopCompleted(){
         console.log('player completed...');
