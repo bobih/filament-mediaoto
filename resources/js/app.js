@@ -270,8 +270,8 @@ document.addEventListener('livewire:navigated', () => {
         }
 
         function init(){
-            let jsonObj = null;
-            jsonObj = JSON.parse(Get(uri));
+            let animation = null;
+            var jsonObj = JSON.parse(Get(uri));
             let animtitle = aecontainer.getAttribute('titledata').toString();
             console.log(animtitle);
 
@@ -279,7 +279,7 @@ document.addEventListener('livewire:navigated', () => {
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
 
 
-            var animation =  lottie.loadAnimation({
+            animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
                 renderer: 'svg',
                 loop: false,
