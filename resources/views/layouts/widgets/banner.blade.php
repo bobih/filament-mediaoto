@@ -6,7 +6,7 @@
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-5.json"
             title1='"Close the Deal"'
             title2="gak pake ribet"
-            title3="Lacak tahapan dan pencapaian <br />transaksi Anda. Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami."
+            title3="Lacak tahapan dan pencapaian \r transaksi Anda. Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami."
             >
         </div>
     </div>
