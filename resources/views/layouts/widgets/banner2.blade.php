@@ -1,5 +1,5 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
-<section class="h-[626px] pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
+<section class="h-[760px] pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
         <div id="bm" class="-mt-20 w-full h-[626px] justify-between fill-black bg:fill-white "
