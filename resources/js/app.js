@@ -266,7 +266,7 @@ document.addEventListener('livewire:navigated', () => {
         renderer: 'svg',
         loop: false,
         autoplay: false,
-        path: '/images/anime/mobile-1.json',
+        path: '/images/anime/mediaoto_lottie.json',
 
       });
         animation.play();
