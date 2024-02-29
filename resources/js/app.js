@@ -273,12 +273,15 @@ document.addEventListener('livewire:navigated', () => {
 
         function init(){
             let animation = null;
-            let animtitle = aecontainer.getAttribute('titledata').toString();
+            let title1 = aecontainer.getAttribute('title1');
+            let title2 = aecontainer.getAttribute('title2');
+            let title3 = aecontainer.getAttribute('title3');
             var jsonObj = JSON.parse(Get(uri));
 
 
-            jsonObj.layers[0].t.d.k[0].s.t = animtitle.toString();
-            jsonObj.layers[1].t.d.k[0].s.t = "Jajal OIII";
+            jsonObj.layers[0].t.d.k[0].s.t = title3;
+            jsonObj.layers[1].t.d.k[0].s.t =  title2;
+            jsonObj.layers[2].t.d.k[0].s.t =  title1;
 
 
             animation =  lottie.loadAnimation({
