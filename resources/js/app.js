@@ -260,6 +260,7 @@ document.addEventListener('livewire:navigated', () => {
     /** Test Lottie */
     const aecontainer = document.getElementById('bm');
     if(aecontainer != null){
+    var animtitle = aecontainer.getAttribute('txt-data');
     var animation =  bodymovin.loadAnimation({
         container: document.getElementById('bm'),
         renderer: 'svg',
