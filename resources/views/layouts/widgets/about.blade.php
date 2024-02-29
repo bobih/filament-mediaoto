@@ -68,6 +68,7 @@
             data-te-animation-reset="true"
             data-te-animation="[drop-in_0.5s]"
             class="h-[300px]">
+            <?php /*
                 <x-lottie
                     class="w-[300px] justify-between "
                     path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mediaoto_mobile.json"
@@ -75,6 +76,7 @@
                     loop="false"
                     autoplay="true">
                 </x-lottie>
+                */ ?>
             </div>
 
             <div class="pt-16 flex items-center text-gray-500 ">
