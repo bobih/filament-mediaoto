@@ -3,8 +3,8 @@
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
         <?php
-            $newtext = "Lacak tahapan dan pencapaian Anda" . "\r";
-            $newtext .= "Nikmati penjadwalan yang efisien" . "\r";
+            $newtext = "Lacak tahapan dan pencapaian Anda" . "\n";
+            $newtext .= " Nikmati penjadwalan yang efisien" . "\n";
 
             ?>
         <div id="bm" class="w-full h-[626px] justify-between fill-black bg:fill-white "
