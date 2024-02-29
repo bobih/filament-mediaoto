@@ -276,7 +276,7 @@ document.addEventListener('livewire:navigated', () => {
             console.log(animtitle);
 
 
-
+            jsonObj.layers[0].t.d.k[0].s.t = animtitle;
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
@@ -287,7 +287,7 @@ document.addEventListener('livewire:navigated', () => {
 
               });
 
-              animation.animationData.layers[0].t.d.k[0].s.t = animtitle;
+
 
                 animation.play();
                 animation.addEventListener('complete', completedAnim);
