@@ -257,5 +257,14 @@ document.addEventListener('livewire:navigated', () => {
         }
     }
 
+    /** Test Lottie */
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('bm'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/images/anime/mediaoto_mobile.json'
+      })
+
 })
 
