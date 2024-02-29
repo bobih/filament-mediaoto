@@ -70,7 +70,7 @@
             class="h-[300px]">
 
             </div>
-            <div id="bm" class="w-[300px] h-[400px] justify-between " txt-data="{{__('home.aboutus.infotag')}}"> </div>
+            <div id="bm" class="w-full h-full justify-between " txt-data="{{__('home.aboutus.infotag')}}"> </div>
 
             <div class="pt-16 flex items-center text-gray-500 ">
 
