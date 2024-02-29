@@ -296,7 +296,11 @@ document.addEventListener('livewire:navigated', () => {
                 animation.addEventListener('complete', completedAnim);
 
                 function completedAnim(){
-                console.log(jsonObj);
+                //console.log(jsonObj);
+                document.getElementById("gplaybtn").classList.remove('opacity-0');
+                //document.getElementById("gplaybtn").classList.add('opacity-100');
+
+
               }
         }
 
