@@ -6,7 +6,7 @@
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-1.json"
             title1="Title1"
             title2="Title2"
-            title3="{{__('home.banner.content1')}}"
+            title3="Lacak tahapan dan pencapaian transaksi Anda. Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami."
             >
         </div>
     </div>
