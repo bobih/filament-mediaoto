@@ -69,18 +69,6 @@
             data-te-animation="[drop-in_0.5s]"
             class="h-[300px]">
 
-                <x-lottie
-                    class="w-[300px] justify-between "
-                    path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mediaoto_mobile.json"
-                    animType="svg"
-                    loop="false"
-                    autoplay="true">
-                </x-lottie>
-
-
-
-
-
             </div>
             <div id="bm" class="w-[300px] h-[400px] justify-between "> </div>
 
