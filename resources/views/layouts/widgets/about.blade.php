@@ -70,7 +70,6 @@
             class="h-[300px]">
 
             </div>
-            <div id="bm" class="w-full h-full justify-between " txt-data="{{__('home.aboutus.infotag')}}"> </div>
 
             <div class="pt-16 flex items-center text-gray-500 ">
 
