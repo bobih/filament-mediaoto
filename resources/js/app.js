@@ -269,6 +269,7 @@ document.addEventListener('livewire:navigated', () => {
         path: '/images/anime/mediaoto_up1.json',
 
       });
+      console.log(path);
         animation.play();
         animation.addEventListener('complete', completedAnim);
       function completedAnim(){
