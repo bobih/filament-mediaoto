@@ -276,7 +276,7 @@ document.addEventListener('livewire:navigated', () => {
             console.log(animtitle);
 
 
-            jsonObj.layers[0].t.d.k[0].s.t = animtitle;
+            jsonObj.layers[0].t.d.k[0].s.t = "Hellloooooo.....";
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
@@ -286,17 +286,12 @@ document.addEventListener('livewire:navigated', () => {
                 animationData: jsonObj,
 
               });
-
-
-
                 animation.play();
                 animation.addEventListener('complete', completedAnim);
 
                 function completedAnim(){
                 console.log('Yuhuuuuuuu');
               }
-
-
         }
 
         init();
