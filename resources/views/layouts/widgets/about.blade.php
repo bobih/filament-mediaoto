@@ -78,10 +78,11 @@
                 </x-lottie>
 
 
-                <div id="bm" class="w-[300px] justify-between "> </div>
+
 
 
             </div>
+            <div id="bm" class="w-[300px] h-[400px] justify-between "> </div>
 
             <div class="pt-16 flex items-center text-gray-500 ">
 
