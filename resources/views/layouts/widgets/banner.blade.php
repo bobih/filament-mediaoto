@@ -2,7 +2,7 @@
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
-        <div id="bm" class="w-full h-[626px] justify-between "
+        <div id="bm" class="w-full h-[626px] justify-between fill-white bg:fill-black "
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-1.json"
             title1="Title1"
             title2="Title2"
