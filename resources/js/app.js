@@ -265,11 +265,12 @@ document.addEventListener('livewire:navigated', () => {
         renderer: 'svg',
         loop: false,
         autoplay: true,
-        path: '/images/anime/mediaoto_mobile.json'
+        path: '/images/anime/mediaoto_mobile.json',
+        onLoopComplete: loopCompleted,
       });
-      animation.addEventListener('onLoopComplete',function(){
+      function loopCompleted(){
         console.log('player completed...');
-      });
+      };
     }
 
 
