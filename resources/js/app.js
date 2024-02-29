@@ -275,7 +275,7 @@ document.addEventListener('livewire:navigated', () => {
             var animtitle = aecontainer.getAttribute('titledata');
             console.log(animtitle);
 
-            jsonObj.layers[0].t.d.k[0].s.t = animtitle;
+
 
 
             var animation =  bodymovin.loadAnimation({
@@ -286,6 +286,9 @@ document.addEventListener('livewire:navigated', () => {
                 animationData: jsonObj,
 
               });
+
+              animation.animationData.layers[0].t.d.k[0].s.t = animtitle;
+
                 animation.play();
                 animation.addEventListener('complete', completedAnim);
 
