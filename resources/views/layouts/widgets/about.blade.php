@@ -73,7 +73,7 @@
                     path="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mediaoto_mobile.json"
                     animType="svg"
                     loop="false"
-                    autoplay="false">
+                    autoplay="true">
                 </x-lottie>
             </div>
 
