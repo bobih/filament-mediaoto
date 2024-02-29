@@ -4,7 +4,7 @@
     <div class="flex w-full justify-between ">
         <div id="bm" class="-mt-20 w-full h-[626px] justify-between fill-black bg:fill-white "
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-6.json"
-            title1="{!! trans('home.banner.tagline1') !!}"
+            title1="{{ trans('home.banner.tagline1') }}"
             title2="{!! trans('home.banner.tagline2') !!}"
             title3="{!! trans('home.banner.content1') !!}"
             >
