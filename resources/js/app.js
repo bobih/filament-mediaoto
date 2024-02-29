@@ -267,7 +267,7 @@ document.addEventListener('livewire:navigated', () => {
         autoplay: true,
         path: '/images/anime/mediaoto_mobile.json'
       });
-      bodymovin.addEventListener('onLoopComplete',function(){
+      animation.addEventListener('onLoopComplete',function(){
         console.log('player completed...');
       });
     }
