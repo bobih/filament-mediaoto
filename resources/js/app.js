@@ -260,7 +260,7 @@ document.addEventListener('livewire:navigated', () => {
     /** Test Lottie */
     const aecontainer = document.getElementById('bm');
     if(aecontainer != null){
-        var uri = '/images/anime/mediaoto_up1.json';
+        var uri = '/images/anime/mediaoto_lottie.json';
 
         function Get(uri){
             var httReq = new XMLHttpRequest();
