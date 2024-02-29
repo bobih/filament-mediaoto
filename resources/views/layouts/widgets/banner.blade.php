@@ -3,7 +3,7 @@
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
         <div id="bm" class="w-full h-[626px] justify-between fill-black bg:fill-white "
-            datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-5.json"
+            datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-4.json"
             title1='"Close the Deal"'
             title2="gak pake ribet"
             title3="Lacak tahapan dan pencapaian \r transaksi Anda. Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami."
