@@ -275,7 +275,7 @@ document.addEventListener('livewire:navigated', () => {
             var jsonObj = JSON.parse(Get(uri));
 
 
-            jsonObj.layers[0].t.d.k[0].s.t = animtitle;
+            jsonObj.layers[0].t.d.k[0].s.t = animtitle.toString();
 
 
             animation =  lottie.loadAnimation({
