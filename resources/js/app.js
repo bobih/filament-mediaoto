@@ -276,7 +276,7 @@ document.addEventListener('livewire:navigated', () => {
             console.log(animtitle);
 
 
-            jsonObj.layers[0].t.d.k[0].s.t = "Hellloooooo.....";
+            jsonObj.layers[0].t.d.k[0].s.t = animtitle;
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
