@@ -6,7 +6,7 @@
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile_r2.json"
             title1="{{ trans('home.banner.tagline1') }}"
             title2="{!! trans('home.banner.tagline2') !!}"
-            title3="  {!! str_replace(' ', '',trans('home.banner.content1')) !!}"
+            title3="{!! trim(preg_replace('/\s\s+/', ' ', str_replace("\n", " ",trans('home.banner.content1')))) !!}"
             >
         </div>
         <div id="gplaybtn" class="opacity-0 ease-in-out transition-all duration-1000 absolute right-8 top-[600px] text-right">
