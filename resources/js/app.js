@@ -266,12 +266,17 @@ document.addEventListener('livewire:navigated', () => {
         loop: false,
         autoplay: false,
         path: '/images/anime/mediaoto_mobile.json',
+        onComplete: completedAnim
       });
       animation.play();
 
       animation.addEventListener('onComplete',function(){
         console.log('heloooo');
       });
+
+      function completedAnim(){
+        console.log('Yuhuuuuuuu');
+      }
     }
 
 
