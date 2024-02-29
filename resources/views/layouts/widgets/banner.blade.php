@@ -1,5 +1,12 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
+    @if ($agent->isMobile())
+    <div class="flex w-full justify-between ">
+        <div id="bm" class="w-full h-full justify-between " txt-data="{{__('home.aboutus.infotag')}}">
+        </div>
+    </div>
+    @endif
+
     @if (!$agent->isMobile())
     <div class="hidden dark:block wrapper">
         <div class="gradient gradient-1"></div>
