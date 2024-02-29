@@ -48,29 +48,13 @@
     class="pt-18 gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-3 lg:py-16 lg:px-6 ">
 
         <div class="font-light text-gray-200 sm:text-lg dark:text-gray-400">
-            <?php /*
             <p class="mb-4">{{__('home.aboutus.aboutus')}}</p>
-
             <h2 data-te-animation-init
-                data-te-animation-start="onScroll"
-                data-te-animation-on-scroll="repeat"
-                data-te-animation-show-on-load="false"
-                data-te-animation-reset="true"
-                data-te-animation="[fade-in_1s_ease-in-out]"  class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
-            {{__('home.aboutus.infotag')}}
-            </h2>
-            */ ?>
-
-            <div data-te-animation-init
             data-te-animation-start="onScroll"
-            data-te-animation-on-scroll="none"
+            data-te-animation-on-scroll="repeat"
             data-te-animation-show-on-load="false"
             data-te-animation-reset="true"
-            data-te-animation="[drop-in_0.5s]"
-            class="h-[300px]">
-
-            </div>
-
+            data-te-animation="[fade-in_1s_ease-in-out]"  class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">{{__('home.aboutus.infotag')}}</h2>
             <div class="pt-16 flex items-center text-gray-500 ">
 
 
@@ -156,11 +140,7 @@
 
             </div>
         </div>
-
         <div class="mt-10 font-light text-gray-200 sm:text-lg dark:text-gray-300 lg:col-span-2">
-            <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-200 dark:text-white">
-                {{__('home.aboutus.aboutus')}}
-            </h2>
             <p class="mb-4 text-justify opacity-0 intersect:opacity-100 transition-opacity duration-1000 delay-300 intersect-once">{{__('home.aboutus.content1')}}</p>
             <p class="mb-4 text-justify opacity-0 intersect:opacity-100 transition-opacity duration-1000 delay-300 intersect-once">{{__('home.aboutus.content2')}}</p>
             <p class="mb-4 text-justify opacity-0 intersect:opacity-100 transition-opacity duration-1000 delay-300 intersect-once">{{__('home.aboutus.content3')}}</p>
