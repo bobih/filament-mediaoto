@@ -277,13 +277,14 @@ document.addEventListener('livewire:navigated', () => {
 
 
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
+            var newjSon = jsonObj;
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                animationData: jsonObj,
+                animationData: newjSon,
 
               });
                 animation.play();
