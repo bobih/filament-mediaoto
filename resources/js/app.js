@@ -270,21 +270,21 @@ document.addEventListener('livewire:navigated', () => {
         }
 
         function init(){
-
-            var jsonObj = JSON.parse(Get(uri));
-            var animtitle = aecontainer.getAttribute('titledata').toString();
+            let jsonObj = null;
+            jsonObj = JSON.parse(Get(uri));
+            let animtitle = aecontainer.getAttribute('titledata').toString();
             console.log(animtitle);
 
 
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
-            var newjSon = JSON.parse(JSON.stringify(jsonObj));
+
 
             var animation =  lottie.loadAnimation({
                 container: document.getElementById('bm'),
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                animationData: newjSon,
+                animationData: jsonObj,
 
               });
                 animation.play();
