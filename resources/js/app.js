@@ -258,13 +258,21 @@ document.addEventListener('livewire:navigated', () => {
     }
 
     /** Test Lottie */
+    const aecontainer = document.getElementById('bm');
+    if(aecontainer != null){
     var animation = bodymovin.loadAnimation({
         container: document.getElementById('bm'),
         renderer: 'svg',
-        loop: true,
+        loop: false,
         autoplay: true,
         path: '/images/anime/mediaoto_mobile.json'
-      })
+      });
+      bodymovin.addEventListener('onLoopComplete',function(){
+        console.log('player completed...');
+      });
+    }
+
+
 
 })
 
