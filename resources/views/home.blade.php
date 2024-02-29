@@ -8,7 +8,12 @@
 
     @endsection
     @section('homesection')
+        @if ($agent->isMobile())
+        @include('layouts.widgets.banner2')
+        @else
         @include('layouts.widgets.banner')
+        @endif
+
         @include('layouts.widgets.about')
         @include('layouts.widgets.services')
         @include('layouts.widgets.products')
