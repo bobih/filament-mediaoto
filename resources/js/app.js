@@ -268,9 +268,9 @@ document.addEventListener('livewire:navigated', () => {
         path: '/images/anime/mediaoto_mobile.json',
         onLoopComplete: loopCompleted,
       };
-      anim = lottie.loadAnimation(animdata);
+      var anim = lottie.loadAnimation(animdata);
 
-      lottie.addEventListener('onLoopComplete',function(){
+      anim.addEventListener('onLoopComplete',function(){
         console.log('heloooo');
       });
 
