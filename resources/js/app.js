@@ -271,9 +271,8 @@ document.addEventListener('livewire:navigated', () => {
 
         function init(){
             let animation = null;
-            var jsonObj = JSON.parse(Get(uri));
             let animtitle = aecontainer.getAttribute('titledata').toString();
-            console.log(animtitle);
+            var jsonObj = JSON.parse(Get(uri));
 
 
             jsonObj.layers[0].t.d.k[0].s.t = animtitle;
@@ -291,7 +290,7 @@ document.addEventListener('livewire:navigated', () => {
                 animation.addEventListener('complete', completedAnim);
 
                 function completedAnim(){
-                console.log('Yuhuuuuuuu');
+                console.log(jsonObj);
               }
         }
 
