@@ -270,7 +270,7 @@ document.addEventListener('livewire:navigated', () => {
       };
       anim = lottie.loadAnimation(animdata);
 
-      anim.addEventListener('onLoopComplete',function(){
+      lottie.addEventListener('onLoopComplete',function(){
         console.log('heloooo');
       });
 
