@@ -16,7 +16,7 @@ return [
     "banner" => [
         "infotag"       => "Close more deals with single page leads management",
         "tagline1"        => "Close more deals",
-        "tagline2"        => "with single page leads management",
+        "tagline2"        => "with single management",
         "content1"      => "Track the stages and milestones of your deals to maintain a streamlined sales process.
                             Enjoy one-click calling, efficient appointment scheduling, and seamless lead follow-up",
         "button1"       => "Contact Us",
