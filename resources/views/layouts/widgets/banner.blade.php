@@ -2,7 +2,7 @@
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
-        <div id="bm" class="w-full h-[626px] justify-between " txt-data='Testing 123'>
+        <div id="bm" class="w-full h-[626px] justify-between " txt-data='Lacak tahapan dan pencapaian transaksi Anda. Nikmati penjadwalan yang efisien, dan follow-up prospek yang lebih lancar dengan Apps kami'>
         </div>
     </div>
     @endif
