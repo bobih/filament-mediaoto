@@ -260,23 +260,19 @@ document.addEventListener('livewire:navigated', () => {
     /** Test Lottie */
     const aecontainer = document.getElementById('bm');
     if(aecontainer != null){
-    var animdata = {
+    var animation =  bodymovin.loadAnimation({
         container: document.getElementById('bm'),
         renderer: 'svg',
         loop: false,
         autoplay: true,
         path: '/images/anime/mediaoto_mobile.json',
         onLoopComplete: loopCompleted,
-      };
-      var anim = lottie.loadAnimation(animdata);
+      });
+      animation.play();
 
-      anim.addEventListener('onLoopComplete',function(){
+      animation.addEventListener('onComplete',function(){
         console.log('heloooo');
       });
-
-      function loopCompleted(){
-        console.log('player completed...');
-      };
     }
 
 
