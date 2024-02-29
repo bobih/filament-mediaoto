@@ -78,7 +78,7 @@
                 </x-lottie>
 
 
-                <div id="bm"> </div>
+                <div id="bm" class="w-[300px] justify-between "> </div>
 
 
             </div>
