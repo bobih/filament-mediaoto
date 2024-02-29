@@ -264,16 +264,12 @@ document.addEventListener('livewire:navigated', () => {
         container: document.getElementById('bm'),
         renderer: 'svg',
         loop: false,
-        autoplay: false,
+        autoplay: true,
         path: '/images/anime/mediaoto_mobile.json',
+        complete: completedAnim
       });
-      animation.play();
-      animation.addEventListener('complete', completedAnim);
-
-      animation.addEventListener('onComplete',function(){
-        console.log('heloooo');
-      });
-
+     // animation.play();
+     // animation.addEventListener('complete', completedAnim);
       function completedAnim(){
         console.log('Yuhuuuuuuu');
       }
