@@ -272,6 +272,8 @@ document.addEventListener('livewire:navigated', () => {
         function init(){
 
             var jsonObj = JSON.parse(Get(uri));
+            jsonObj.layers[0].t.d.k[0].s.t = "Hellooooo";
+
             var animtitle = aecontainer.getAttribute('txt-data');
             var animation =  bodymovin.loadAnimation({
                 container: document.getElementById('bm'),
