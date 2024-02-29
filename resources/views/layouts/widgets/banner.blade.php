@@ -2,7 +2,9 @@
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
-        <div id="bm" class="w-full h-[626px] justify-between " titledata="{!! __('home.aboutus.infotag') !!}">
+        <div id="bm" class="w-full h-[626px] justify-between "
+            datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-1.json"
+            titledata="{!! __('home.aboutus.infotag') !!}">
         </div>
     </div>
     @endif
@@ -74,9 +76,7 @@
             </div>
             @if ($agent->isMobile())
             <div class="flex w-full justify-between ">
-                <div id="bm" class="w-full h-full justify-between " txt-data="{{__('home.aboutus.infotag')}}">
-                </div>
-<?php /*
+                <?php /*
                 <div class="block">
                     <button title="getstarted" x-data={} x-on:click="$dispatch('open-modal')"
                         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-400 rounded-lg hover:bg-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
