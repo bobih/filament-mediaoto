@@ -264,7 +264,7 @@ document.addEventListener('livewire:navigated', () => {
 
         var uri = aecontainer.getAttribute('datasrc');
 
-        function Get(uri){
+        function Get(uri) {
             var httReq = new XMLHttpRequest();
 
             //httReq.open('GET',uri,false);
@@ -284,7 +284,7 @@ document.addEventListener('livewire:navigated', () => {
 
         }
 
-        function init(){
+        async function init()  {
             let brandroll = document.getElementById("brandroll");
             brandroll.stop();
             let animation = null;
@@ -292,7 +292,7 @@ document.addEventListener('livewire:navigated', () => {
             let title2 = aecontainer.getAttribute('title2');
             let title3 = aecontainer.getAttribute('title3');
            // var jsonObj = JSON.parse(Get(uri));
-            var jsonObj = Get(uri);
+            var jsonObj = await Get(uri);
 
 
             jsonObj.layers[0].t.d.k[0].s.t = title3;
