@@ -273,7 +273,7 @@ document.addEventListener('livewire:navigated', () => {
 
             httReq.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log('http get...');
+                    console.log(this.responseText);
                     return this.responseText;
                 }
             };
