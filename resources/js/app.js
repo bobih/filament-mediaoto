@@ -266,7 +266,7 @@ document.addEventListener('livewire:navigated', () => {
 
         function Get(uri){
             var httReq = new XMLHttpRequest();
-            httReq.open('GET',uri,false);
+            httReq.open('GET',uri,true);
             httReq.send(null);
             return httReq.responseText;
         }
