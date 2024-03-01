@@ -90,6 +90,11 @@
     visibility: hidden;
 }
 
+.shadow-md {
+    --tw-shadow: 0 4px 12px -1px #00000052,0 2px 12px -2px #00000052;
+    --tw-shadow-colored: 0 4px 12px -1px var(--tw-shadow-color),0 2px 12px -2px var(--tw-shadow-color);
+}
+
 @keyframes lights {
     0% {
         color: hsl(230, 40%, 80%);
