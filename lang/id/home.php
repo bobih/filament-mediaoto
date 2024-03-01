@@ -78,7 +78,7 @@ return [
         "price2tag"   => "Gold",
         "price2desc"  => "Pilihan terbaik untuk penggunaan pribadi",
         "price3tag"   => "Diamond",
-        "price3desc"  => "Pilihan terbaik untuk medium korporasi",
+        "price3desc"  => "Pilihan terbaik untuk medium korporasi dan penggunaan pribadi",
 
     ],
 
