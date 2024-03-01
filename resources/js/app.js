@@ -308,7 +308,7 @@ document.addEventListener('livewire:navigated', () => {
                 //console.log(jsonObj);
                     document.getElementById("gplaybtn").classList.remove('opacity-0');
                     brandroll.classList.remove('opacity-0');
-                    brandroll.classList.add('opacity-10');
+                    brandroll.classList.add('opacity-100');
                     brandroll.start();
                 }
             };
