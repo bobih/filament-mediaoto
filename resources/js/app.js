@@ -121,6 +121,7 @@ document.addEventListener('livewire:navigated', () => {
     /** Consent from Cloudflare */
     document.addEventListener("zarazConsentAPIReady", () => {
         setTimeout(function () {
+            console.log('consent api..')
             zaraz.consent.modal = true;
         }, 3000);
 
