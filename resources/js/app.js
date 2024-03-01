@@ -300,6 +300,8 @@ document.addEventListener('livewire:navigated', () => {
                 function completedAnim(){
                 //console.log(jsonObj);
                 document.getElementById("gplaybtn").classList.remove('opacity-0');
+                brandroll.classList.remove('opacity-0');
+                brandroll.classList.add('opacity-10');
                 brandroll.start();
 
 
