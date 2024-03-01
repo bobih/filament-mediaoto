@@ -286,7 +286,6 @@ document.addEventListener('livewire:navigated', () => {
 
             request.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
                     var jsonObj =  JSON.parse(this.responseText);
 
                     jsonObj.layers[0].t.d.k[0].s.t = title3;
