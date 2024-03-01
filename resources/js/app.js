@@ -264,35 +264,21 @@ document.addEventListener('livewire:navigated', () => {
 
         var uri = aecontainer.getAttribute('datasrc');
 
-        function Get(uri) {
+        function Get(uri){
             var httReq = new XMLHttpRequest();
-
-            //httReq.open('GET',uri,false);
-            //httReq.send(null);
-            //return httReq.responseText;
-            httReq.responseType = 'json';
-            httReq.open('GET',uri,true);
-
-
-            httReq.onload  = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.response);
-                    return this.response;
-                }
-            };
+            httReq.open('GET',uri,false);
             httReq.send(null);
-
+            return httReq.responseText;
         }
 
-        async function init()  {
+        function init(){
             let brandroll = document.getElementById("brandroll");
             brandroll.stop();
             let animation = null;
             let title1 = aecontainer.getAttribute('title1');
             let title2 = aecontainer.getAttribute('title2');
             let title3 = aecontainer.getAttribute('title3');
-           // var jsonObj = JSON.parse(Get(uri));
-            var jsonObj = await Get(uri);
+            var jsonObj = JSON.parse(Get(uri));
 
 
             jsonObj.layers[0].t.d.k[0].s.t = title3;
