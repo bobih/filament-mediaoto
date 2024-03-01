@@ -48,9 +48,10 @@ document.addEventListener('livewire:navigated', () => {
 
     window.$ = jQuery;
 
-
+    // Start Observer
     Observer.start();
 
+    /** FCm Notification */
     const firebaseConfig = {
         apiKey: "AIzaSyCjO4yYxDMZzKorD0dq4zZlNTmDMBzLgz8",
         authDomain: "mediaoto-b3ac5.firebaseapp.com",
@@ -60,17 +61,12 @@ document.addEventListener('livewire:navigated', () => {
         appId: "1:676189219899:web:0deaa956dfaafb4eb0001e",
         measurementId: "G-Q7LP278P3T"
     };
-
     const app = initializeApp(firebaseConfig);
     const messaging = getMessaging(app);
-
     setTimeout(function () {
-
         getToken(messaging, { vapidKey: 'BLAS3rXde9HJb5ShCKkLck1jjoxilByCSt4t_318DETgDBj36VPGlPG8sHiq8WSG4Gk4HdJvGlop5VFwAJVHaNg' }).then((currentToken) => {
             if (currentToken) {
-                //console.log(currentToken);
                 var fcmstore = localStorage.getItem('fcmtoken');
-
                 if (fcmstore != currentToken || fcmstore == '') {
                     console.log('update token....');
                     $.ajax({
@@ -82,58 +78,33 @@ document.addEventListener('livewire:navigated', () => {
                         data: { fcmtoken: currentToken, fcmstore: fcmstore },
                         dataType: "json",
                         error: function (request, error) {
-                            console.log('error Update');
-                            console.log(error);
-
+                            //console.log(error);
                         },
                         success: function (data) {
-                            //console.log('Success');
-                            //console.log(data);
                             localStorage.setItem('fcmtoken', currentToken);
-
                         },
                     });
                 }
-
-
             } else {
                 // Show permission request UI
                 console.log('No registration token available. Request permission to generate one.');
                 requestPermission();
-                // ...
             }
         }).catch((err) => {
             //console.log('An error occurred while retrieving token. ', err);
-            // ...
         });
     }, 5000);
-
     function requestPermission() {
         console.log('Requesting permission...');
-        // [START request_permission]
         messaging.requestPermission().then(function () {
             console.log('Notification permission granted.');
-            // TODO(developer): Retrieve an Instance ID token for use with FCM.
-            // [START_EXCLUDE]
-            // In many cases once an app has been granted notification permission, it
-            // should update its UI reflecting this.
-            //resetUI();
-            // [END_EXCLUDE]
         }).catch(function (err) {
             console.log('Unable to get permission to notify.', err);
         });
-        // [END request_permission]
     }
 
 
-
-
-
-
-
-    Observer.start();
-
-
+    /** Google Recaptcha  ***/
     setTimeout(function () {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -147,9 +118,17 @@ document.addEventListener('livewire:navigated', () => {
 
     }, 3000);
 
+    /** Consent from Cloudflare */
+    document.addEventListener("zarazConsentAPIReady", () => {
+        setTimeout(function () {
+            zaraz.consent.modal = true;
+        }, 3000);
+
+      });
 
 
 
+    /** Search Box on mobile **/
     let lastScrollTop =
         window.scrollY || document.documentElement.scrollTop;
 
@@ -158,31 +137,22 @@ document.addEventListener('livewire:navigated', () => {
         function handleScroll() {
             const scrollTopPosition =
                 window.scrollY || document.documentElement.scrollTop;
-
             const manuallyEl = document.getElementById("mobilesearch");
             if (manuallyEl != null) {
-
                 if (scrollTopPosition > lastScrollTop) {
                     // console.log('scrolling down');
-
-
                     document.getElementById("mobilesearch").classList.remove('opacity-100');
                     document.getElementById("mobilesearch").classList.remove('-mt-4');
                     document.getElementById("mobilesearch").classList.add('opacity-0');
                     document.getElementById("mobilesearch").classList.add('-mt-20');
                     document.getElementById("searchbox").setAttribute("disabled", true);
-
-
-
                 } else if (scrollTopPosition < lastScrollTop) {
                     // console.log('scrolling up');
-
                     document.getElementById("mobilesearch").classList.remove('-mt-20');
                     document.getElementById("mobilesearch").classList.add('-mt-4');
                     document.getElementById("mobilesearch").classList.remove('opacity-0');
                     document.getElementById("mobilesearch").classList.add('opacity-100');
                     document.getElementById("searchbox").removeAttribute("disabled");
-
                 }
                 lastScrollTop =
                     scrollTopPosition <= 0 ? 0 : scrollTopPosition;
@@ -201,7 +171,7 @@ document.addEventListener('livewire:navigated', () => {
 
     if (video != null) {
         video.appendChild(source);
-        video.onloadeddata = function(){
+        video.onloadeddata = function () {
             video.play();
         };
 
@@ -215,7 +185,7 @@ document.addEventListener('livewire:navigated', () => {
         imgBanner.setAttribute('src', imgUrl);
         imgBanner.removeAttribute('data-src');
         if (imgBanner.complete) {
-           animateBanner();
+            animateBanner();
         } else {
             imgBanner.addEventListener('load', animateBanner);
         }
@@ -224,54 +194,39 @@ document.addEventListener('livewire:navigated', () => {
 
     function animateBanner() {
         const card = document.querySelectorAll('#animate')
-
         if (card.length > 0) {
             const observer = new IntersectionObserver(entries => {
-
                 entries.forEach(entry => {
-                    // console.log(entry);
-
                     const manuallyEl = entry.target;
-                    //console.log(manuallyEl);
                     const manually = new Animate(manuallyEl, {
-
                     });
                     if (entry.isIntersecting) {
-
                         imgBanner.classList.add('opacity-100');
                         manually.startAnimation();
                     } else {
-
                         imgBanner.classList.remove('opacity-100');
                         imgBanner.classList.add('opacity-0');
-                        //  manually.stopAnimation();
                     }
                 });
             }, {
                 threshold: 0.5,
                 //rootMargin: "-100px"
             });
-
-
             observer.observe(card[0]);
         }
     }
 
     /** Test Lottie */
     const aecontainer = document.getElementById('bm');
-    if(aecontainer != null){
-
-
-
-
-        function Get(uri){
+    if (aecontainer != null) {
+        function Get(uri) {
             var httReq = new XMLHttpRequest();
-            httReq.open('GET',uri,true);
+            httReq.open('GET', uri, true);
             httReq.send(null);
             return httReq.responseText;
         }
 
-        function init(){
+        function init() {
             var uri = aecontainer.getAttribute('datasrc');
             let brandroll = document.getElementById("brandroll");
             brandroll.stop();
@@ -284,54 +239,38 @@ document.addEventListener('livewire:navigated', () => {
             request.open('GET', uri);
             request.send();
 
-            request.onreadystatechange = function() {
+            request.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    var jsonObj =  JSON.parse(this.responseText);
+                    var jsonObj = JSON.parse(this.responseText);
 
                     jsonObj.layers[0].t.d.k[0].s.t = title3;
-                    jsonObj.layers[1].t.d.k[0].s.t =  title2;
-                    jsonObj.layers[2].t.d.k[0].s.t =  title1;
+                    jsonObj.layers[1].t.d.k[0].s.t = title2;
+                    jsonObj.layers[2].t.d.k[0].s.t = title1;
 
 
-            animation =  lottie.loadAnimation({
-                container: document.getElementById('bm'),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                animationData: jsonObj,
+                    animation = lottie.loadAnimation({
+                        container: document.getElementById('bm'),
+                        renderer: 'svg',
+                        loop: false,
+                        autoplay: false,
+                        animationData: jsonObj,
 
-              });
-                animation.play();
-                animation.addEventListener('complete', completedAnim);
+                    });
+                    animation.play();
+                    animation.addEventListener('complete', completedAnim);
 
-                function completedAnim(){
-                //console.log(jsonObj);
-                    document.getElementById("gplaybtn").classList.remove('opacity-0');
-                    brandroll.classList.remove('opacity-0');
-                    brandroll.classList.add('opacity-100');
-                    brandroll.start();
-                }
-            };
-
-
-
-            //var jsonObj = JSON.parse(Get(uri));
-
-
-
-
-
-                //document.getElementById("gplaybtn").classList.add('opacity-100');
-
-
-              }
+                    function completedAnim() {
+                        //console.log(jsonObj);
+                        document.getElementById("gplaybtn").classList.remove('opacity-0');
+                        brandroll.classList.remove('opacity-0');
+                        brandroll.classList.add('opacity-100');
+                        brandroll.start();
+                    }
+                };
+            }
         }
-
         init();
-
     }
 
-
-
-})
+});
 
