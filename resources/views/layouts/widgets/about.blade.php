@@ -4,7 +4,7 @@
  class="  dark:bg-gray-700 intersect:bg-[#172554] transition-colors ease-out duration-1000">
     <div class=" w-full absolute ">
         <div
-            class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-lg ">
+            class="invisible lg:visible w-3/5 mx-auto relative -m-12 p-5 h-32 bg-gray-400/70 dark:bg-gray-100/40 rounded-lg justify-center grid grid-cols-2 gap-4 text-center  shadow-md ">
                 <div
                     class="flex h-full  bg-gray-100 hover:bg-white dark:hover:bg-gray-800   items-center rounded-lg dark:bg-gray-700 dark:text-gray-300">
                     <div class="px-5 text-center ">
