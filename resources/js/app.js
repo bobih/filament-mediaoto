@@ -278,12 +278,16 @@ document.addEventListener('livewire:navigated', () => {
             let title1 = aecontainer.getAttribute('title1');
             let title2 = aecontainer.getAttribute('title2');
             let title3 = aecontainer.getAttribute('title3');
-            var jsonObj = JSON.parse(Get(uri));
 
+            var request = new XMLHttpRequest();
 
-            jsonObj.layers[0].t.d.k[0].s.t = title3;
-            jsonObj.layers[1].t.d.k[0].s.t =  title2;
-            jsonObj.layers[2].t.d.k[0].s.t =  title1;
+            request.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var jsonObj =  JSON.parse(this.responseText);
+
+                    jsonObj.layers[0].t.d.k[0].s.t = title3;
+                    jsonObj.layers[1].t.d.k[0].s.t =  title2;
+                    jsonObj.layers[2].t.d.k[0].s.t =  title1;
 
 
             animation =  lottie.loadAnimation({
@@ -303,6 +307,16 @@ document.addEventListener('livewire:navigated', () => {
                 brandroll.classList.remove('opacity-0');
                 brandroll.classList.add('opacity-10');
                 brandroll.start();
+                }
+            };
+
+            request.open('GET', uri);
+            request.send();
+
+            //var jsonObj = JSON.parse(Get(uri));
+
+
+
 
 
                 //document.getElementById("gplaybtn").classList.add('opacity-100');
