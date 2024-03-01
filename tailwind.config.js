@@ -33,6 +33,13 @@ export default {
             'animate-[fade-in_0.5s_ease-in-out]'
                 ],
         extend: {
+            dropShadow: {
+                '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+                '4xl': [
+                    '0 35px 35px rgba(0, 0, 0, 0.25)',
+                    '0 45px 65px rgba(0, 0, 0, 0.15)'
+                ]
+              },
             animation: {
                 'lights': 'lights 5s 750ms linear infinite',
               },
