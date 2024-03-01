@@ -271,13 +271,13 @@ document.addEventListener('livewire:navigated', () => {
             //httReq.send(null);
             //return httReq.responseText;
 
-            httReq.onreadystatechange = function() {
+            httReq.onload  = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                    return this.responseText;
+                    console.log(this.response);
+                    return this.response;
                 }
             };
-
+            httReq.responseType = 'json';
             httReq.open('GET',uri,false);
             httReq.send(null);
 
