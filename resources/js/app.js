@@ -291,7 +291,8 @@ document.addEventListener('livewire:navigated', () => {
             let title1 = aecontainer.getAttribute('title1');
             let title2 = aecontainer.getAttribute('title2');
             let title3 = aecontainer.getAttribute('title3');
-            var jsonObj = JSON.parse(Get(uri));
+           // var jsonObj = JSON.parse(Get(uri));
+            var jsonObj = Get(uri);
 
 
             jsonObj.layers[0].t.d.k[0].s.t = title3;
