@@ -118,7 +118,7 @@ document.addEventListener('livewire:navigated', () => {
 
     }, 3000);
 
-    /** Consent from Cloudflare */
+    /** Consent from Cloudflare
     document.addEventListener("zarazConsentAPIReady", () => {
         setTimeout(function () {
             console.log('consent api..')
@@ -127,7 +127,7 @@ document.addEventListener('livewire:navigated', () => {
 
       });
 
-
+      */
 
     /** Search Box on mobile **/
     let lastScrollTop =
