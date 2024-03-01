@@ -266,9 +266,20 @@ document.addEventListener('livewire:navigated', () => {
 
         function Get(uri){
             var httReq = new XMLHttpRequest();
+
+            //httReq.open('GET',uri,false);
+            //httReq.send(null);
+            //return httReq.responseText;
+
+            httReq.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    return httReq.responseText;
+                }
+            };
+
             httReq.open('GET',uri,false);
             httReq.send(null);
-            return httReq.responseText;
+
         }
 
         function init(){
