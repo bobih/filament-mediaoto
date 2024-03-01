@@ -262,7 +262,7 @@ document.addEventListener('livewire:navigated', () => {
     if(aecontainer != null){
 
 
-        var uri = aecontainer.getAttribute('datasrc');
+
 
         function Get(uri){
             var httReq = new XMLHttpRequest();
@@ -272,6 +272,7 @@ document.addEventListener('livewire:navigated', () => {
         }
 
         function init(){
+            var uri = aecontainer.getAttribute('datasrc');
             let brandroll = document.getElementById("brandroll");
             brandroll.stop();
             let animation = null;
@@ -280,9 +281,12 @@ document.addEventListener('livewire:navigated', () => {
             let title3 = aecontainer.getAttribute('title3');
 
             var request = new XMLHttpRequest();
+            request.open('GET', uri);
+            request.send();
 
             request.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
                     var jsonObj =  JSON.parse(this.responseText);
 
                     jsonObj.layers[0].t.d.k[0].s.t = title3;
@@ -303,15 +307,14 @@ document.addEventListener('livewire:navigated', () => {
 
                 function completedAnim(){
                 //console.log(jsonObj);
-                document.getElementById("gplaybtn").classList.remove('opacity-0');
-                brandroll.classList.remove('opacity-0');
-                brandroll.classList.add('opacity-10');
-                brandroll.start();
+                    document.getElementById("gplaybtn").classList.remove('opacity-0');
+                    brandroll.classList.remove('opacity-0');
+                    brandroll.classList.add('opacity-10');
+                    brandroll.start();
                 }
             };
 
-            request.open('GET', uri);
-            request.send();
+
 
             //var jsonObj = JSON.parse(Get(uri));
 
