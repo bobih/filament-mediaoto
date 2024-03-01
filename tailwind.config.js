@@ -34,7 +34,10 @@ export default {
                 ],
         extend: {
             boxShadow: {
-                'md': ['0 4px 10px -1px #00000052','0 2px 10px -2px #00000052'],
+                'md': [
+                    '0 4px 10px -1px #00000052',
+                    '0 2px 10px -2px #00000052'
+                ]
               },
             dropShadow: {
                 'md': ['0 4px 10px -1px #00000052','0 2px 10px -2px #00000052'],
