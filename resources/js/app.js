@@ -270,6 +270,9 @@ document.addEventListener('livewire:navigated', () => {
             //httReq.open('GET',uri,false);
             //httReq.send(null);
             //return httReq.responseText;
+            httReq.responseType = 'json';
+            httReq.open('GET',uri,true);
+
 
             httReq.onload  = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -277,8 +280,6 @@ document.addEventListener('livewire:navigated', () => {
                     return this.response;
                 }
             };
-            httReq.responseType = 'json';
-            httReq.open('GET',uri,false);
             httReq.send(null);
 
         }
