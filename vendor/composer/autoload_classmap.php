@@ -50,7 +50,6 @@ return array(
     'App\\Filament\\Resources\\CarModelResource\\Pages\\EditCarModel' => $baseDir . '/app/Filament/Resources/CarModelResource/Pages/EditCarModel.php',
     'App\\Filament\\Resources\\CarModelResource\\Pages\\ListCarModels' => $baseDir . '/app/Filament/Resources/CarModelResource/Pages/ListCarModels.php',
     'App\\Filament\\Resources\\CarModelResource\\Pages\\ViewCarModel' => $baseDir . '/app/Filament/Resources/CarModelResource/Pages/ViewCarModel.php',
-    'App\\Filament\\Resources\\CarModelResource\\RelationManagers\\CarVariantRelationManager' => $baseDir . '/app/Filament/Resources/CarModelResource/RelationManagers/CarVariantRelationManager.php',
     'App\\Filament\\Resources\\CarTransmissionResource' => $baseDir . '/app/Filament/Resources/CarTransmissionResource.php',
     'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\CreateCarTransmission' => $baseDir . '/app/Filament/Resources/CarTransmissionResource/Pages/CreateCarTransmission.php',
     'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\EditCarTransmission' => $baseDir . '/app/Filament/Resources/CarTransmissionResource/Pages/EditCarTransmission.php',

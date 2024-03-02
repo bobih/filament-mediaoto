@@ -1275,7 +1275,6 @@ class ComposerStaticInit94b5aca2d462e105144b80451584f9a3
         'App\\Filament\\Resources\\CarModelResource\\Pages\\EditCarModel' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/EditCarModel.php',
         'App\\Filament\\Resources\\CarModelResource\\Pages\\ListCarModels' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/ListCarModels.php',
         'App\\Filament\\Resources\\CarModelResource\\Pages\\ViewCarModel' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/Pages/ViewCarModel.php',
-        'App\\Filament\\Resources\\CarModelResource\\RelationManagers\\CarVariantRelationManager' => __DIR__ . '/../..' . '/app/Filament/Resources/CarModelResource/RelationManagers/CarVariantRelationManager.php',
         'App\\Filament\\Resources\\CarTransmissionResource' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource.php',
         'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\CreateCarTransmission' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource/Pages/CreateCarTransmission.php',
         'App\\Filament\\Resources\\CarTransmissionResource\\Pages\\EditCarTransmission' => __DIR__ . '/../..' . '/app/Filament/Resources/CarTransmissionResource/Pages/EditCarTransmission.php',

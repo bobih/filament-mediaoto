@@ -3,8 +3,6 @@ import 'flowbite';
 import './darktogle';
 import './notif';
 
-
-
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
 import { onBackgroundMessage } from "firebase/messaging/sw";
@@ -22,19 +20,10 @@ window.LazyLoad = LazyLoad;
 window.Ripple = Ripple;
 window.Carousel = Carousel;
 
-
-
-//requestPermission();
-
-
-// Request Notification Permission
-
-
 document.addEventListener('DOMContentLoaded', () => {
     window.$ = jQuery;
 
 });
-
 
 document.addEventListener('livewire:update', function () {
     console.log('livewire:update');
