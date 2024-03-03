@@ -1,12 +1,8 @@
 <div id="banner" class="-mt-20 mb-20 md:mb-20"></div>
 <section class="pt-20 pb-10 bg-gray-100 dark:bg-gray-900 md:pb-12 z-10">
+<?php /*
     @if ($agent->isMobile())
     <div class="flex w-full justify-between ">
-        <?php
-            $newtext = "Lacak tahapan dan pencapaian Anda" . "\n";
-            $newtext .= " Nikmati penjadwalan yang efisien" . "\n";
-
-            ?>
         <div id="bm" class="w-full h-[626px] justify-between fill-black bg:fill-white "
             datasrc = "{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/anime/mobile-6.json"
             title1='"Close the Deal"'
@@ -16,6 +12,7 @@
         </div>
     </div>
     @endif
+    */ ?>
 
     @if (!$agent->isMobile())
     <div class="hidden dark:block wrapper">
@@ -98,7 +95,7 @@
 
         </div>
 
-
+        <?php /*
         @if ($agent->isMobile())
         <div id="animate"
         data-te-animation-init
@@ -123,7 +120,8 @@
          </a>
         </div>
 
-        @else
+        @endif
+        */ ?>
         <div id="animate"
         data-te-animation-init
         data-te-animation-reset="true"
@@ -133,9 +131,6 @@
          class="z-10 mt-10 lg:mt-0 lg:col-span-5 lg:flex">
             <img id="bannerImg" class="opacity-0" width="520" height="389" data-src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/phone-mockup-desktop.webp" alt="mediaoto-apps" title="mediaoto-apps">
         </div>
-
-
-        @endif
     </div>
     <script>
 

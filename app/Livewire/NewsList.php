@@ -23,7 +23,7 @@ class NewsList extends Component
 
     public $category = '';
 
-
+    public $author = '';
 
     public $tag = '';
 
@@ -36,16 +36,19 @@ class NewsList extends Component
 
         $agent = new Agent();
 
-
+        
         $response = NewsPost::where(function ($query) {
                         $query->where('title', 'LIKE', "%".$this->search."%")
-                                ->orWhere('description', 'LIKE', "%".$this->search."%");
+                        ->orWhere('description', 'LIKE', "%".$this->search."%");
                     })
                     ->with('categories','media','tags','author')
                     ->published()
                     ->orderBy('published_at','desc')
                     ->when(NewsCategory::where('slug',$this->category)->first(), function($query){
                         $query->withCategory($this->category);
+                    })
+                    ->when(NewsPost::withAuthor($this->author)->first(),function($query){
+                        $query->withAuthor($this->author);
                     })
                     ->when(NewsPost::withAnyTags([$this->tag])->first(), function($query){
                         $query->withAnyTags([$this->tag]);
@@ -114,7 +117,7 @@ class NewsList extends Component
            $this->category = $category;
 
         } else if(Url::currentRoute() == 'news.search'){
-            $this->reset('category','tag');
+            $this->reset('category','tag','author,');
            $arrUrl = explode ("/", Url::current());
            $search = $arrUrl [(count ($arrUrl) - 1)];
            $search = Str::of($search)->replace('-', ' ');
@@ -122,10 +125,16 @@ class NewsList extends Component
            //dd('OK');
 
         } else if(Url::currentRoute() == 'news.tag'){
-            $this->reset('search','category');
+            $this->reset('search','category','author');
            $arrUrl = explode ("/", Url::current());
            $tag = $arrUrl [(count ($arrUrl) - 1)];
            $this->tag = $tag;
+
+        } else if(Url::currentRoute() == 'news.author'){
+            $this->reset('search','category','tag');
+           $arrUrl = explode ("/", Url::current());
+           $author = $arrUrl [(count ($arrUrl) - 1)];
+           $this->author = $author;
 
         }
 }

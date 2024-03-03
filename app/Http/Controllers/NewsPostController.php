@@ -32,6 +32,9 @@ class NewsPostController extends Controller
             return to_route('news.category', ['category' => $request->input('category')]);
         } else if ($request->has('tag')) {
             return to_route('news.tag', ['tag' => $request->input('tag')]);
+         } else if ($request->has('author')) {
+            dd( $request->input('author'));
+            return to_route('news.author', ['author' => $request->input('author')]);
         }
 
 
@@ -233,6 +236,78 @@ class NewsPostController extends Controller
     public function search(string $search)
     {
         GoogleTagManager::set('pageType', 'news-search');
+        $agent = new Agent();
+
+        $search = Str::of($search)->replace('-', ' ');
+        $arrSearch = explode(' ',$search);
+
+
+
+
+        if (env('APP_ENV', 'local') == 'production') {
+            $newsResponse = Cache::remember('newsSearchResponse', Carbon::now()->addDay(), function () use ($arrSearch) {
+                return NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
+                    }
+                })
+                    ->with('categories', 'media', 'tags', 'author')
+                    ->published()
+                    ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+            });
+
+            $newsLatest = Cache::remember('newsLatest', Carbon::now()->addMinutes(30), function () {
+                return NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            });
+
+            $newscategories = Cache::remember('newscategories', Carbon::now()->addHours(1), function () {
+                return NewsCategory::whereHas('posts', function ($query) {
+                    $query->published();
+                })->take(10)->get();
+            });
+        } else {
+            $newsResponse =  NewsPost::where('title', 'LIKE', "%".$search."%")
+                ->with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+
+
+
+                $newsResponse =  NewsPost::where(function($query) use ($arrSearch) {
+                    foreach ($arrSearch as $value) {
+                        $query->orWhere('title', 'LIKE', "%".$value."%");
+                    }
+                })
+                ->with('categories', 'media', 'tags', 'author')
+                ->published()
+                ->orderBy('published_at', 'desc')->with('media', 'tags', 'author')->orderBy('published_at', 'desc')->take(5)->get();
+
+                //print_r($newsResponse->toSql() );
+                //exit();
+
+
+            $newsLatest = NewsPost::orderBy('published_at', 'desc')->with('categories', 'media', 'tags', 'author')->take(3)->get();
+            $newscategories = NewsCategory::whereHas('posts', function ($query) {
+                $query->published();
+            })->take(10)->get();
+        }
+
+
+        $newsResponse = [];
+
+        return view('news.index', [
+            "posts" => $newsResponse,
+            "latest" => $newsLatest,
+            "categories" => $newscategories,
+            "agent" => $agent
+        ]);
+    }
+
+
+    public function author(string $search)
+    {
+        GoogleTagManager::set('pageType', 'news-author');
         $agent = new Agent();
 
         $search = Str::of($search)->replace('-', ' ');

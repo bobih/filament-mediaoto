@@ -33,6 +33,7 @@ Route::get('/news/{news:slug}', [NewsPostController::class,'show'])->name('news.
 Route::get('/news/category/{category}', [NewsPostController::class,'category'])->name('news.category');
 Route::get('/news/search/{search}', [NewsPostController::class,'search'])->name('news.search');
 Route::get('/news/tag/{tag}', [NewsPostController::class,'tag'])->name('news.tag');
+Route::get('/news/author/{author}', [NewsPostController::class,'author'])->name('news.author');
 
 Route::post('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');
 Route::get('/settoken', [FcmController::class,'setToken'])->name('fcm.settoken');

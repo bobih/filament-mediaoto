@@ -325,5 +325,12 @@ class NewsPost extends Model implements HasMedia
         });
     }
 
+    public function scopeWithAuthor($query, string $author)
+    {
+        $query->whereHas('author', function ($query) use ($author) {
+            $query->where('nama','=', $author);
+        });
+    }
+
 
 }

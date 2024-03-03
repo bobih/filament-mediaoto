@@ -15,16 +15,18 @@
                     @if ($post->author->id != 36)
                     <!-- Author -->
                     <address class="pb-10 md:pb-10 ">
-                        <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                            <img class="mr-4 w-16 h-16 rounded-full" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
-                            <div>
-                                <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{$post->author->nama}}</a>
-                                <p class="text-base text-gray-900 dark:text-gray-400">Content Creative Mediaoto</p>
-                                <?php /*
-                                <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="{{ $post->published_at }}" title="{{ $post->published_at }}">{{ $post->published_at }}</time></p>
-                                */ ?>
+                        <a wire:navigate href="{{ route('news.author', Str::slug($post->author->nama)) }}" rel="author" >
+                            <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                                <img class="mr-4 w-16 h-16 rounded-full" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/{{$post->author->image}}" alt="{{$post->author->nama}}">
+                                <div>
+                                     <span class="text-xl font-bold text-gray-900 dark:text-white">   {{$post->author->nama}}</span>
+                                    <p class="text-base text-gray-900 dark:text-gray-400">Content Creative Mediaoto</p>
+                                    <?php /*
+                                    <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="{{ $post->published_at }}" title="{{ $post->published_at }}">{{ $post->published_at }}</time></p>
+                                    */ ?>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </address>
                     @endif
 
