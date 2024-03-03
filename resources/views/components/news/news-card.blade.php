@@ -19,15 +19,16 @@
     <div class="flex justify-between items-center">
 
         @if ($post->author->id != 36)
+         <a wire:navigate href="{{ route('news.author', Str::slug($post->author->nama)) }}">
+            <div class="flex items-center space-x-4">
 
-        <div class="flex items-center space-x-4">
-            <a wire:navigate href="{{ route('news.author', Str::slug($post->author->nama)) }}">
-                <img class="w-7 h-7 rounded-full" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/{{$post->author->image}}" alt="{{$post->author->nama}}" />
-                <span class="font-medium dark:text-white">
-                    {{$post->author->nama}}
-                </span>
-            </a>
-        </div>
+                    <img class="w-7 h-7 rounded-full" src="{{env('IMAGE_URL','https://www.mediaoto.id')}}/images/{{$post->author->image}}" alt="{{$post->author->nama}}" />
+                    <span class="font-medium dark:text-white">
+                        {{$post->author->nama}}
+                    </span>
+
+            </div>
+        </a>
         @endif
 
 
