@@ -13,7 +13,7 @@
         @else
         @include('layouts.widgets.banner')
         @endif
-        <?php /*@include('layouts.widgets.about2') */ ?>
+        @include('layouts.widgets.about2')
         @include('layouts.widgets.about')
         @include('layouts.widgets.services')
         @include('layouts.widgets.products')
