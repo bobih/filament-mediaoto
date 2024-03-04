@@ -1,32 +1,34 @@
-@props(['posts','categories','agent'])
-
+@props(['posts','categories','agent','banner'])
+<div id="banner" class="md:h-[72px]"></div>
 @if ($agent->isMobile() == false)
-<div wire:ignore="" class="fixed w-full h-[460px]">
-    <div x-persist="player">
-    <video  id="newsVideo" class="absolute w-full bottom-0 " autoplay="" loop="" muted="" plays-inline="">
-    </video>
-    </div>
+    @if($banner == true)
+        <div wire:ignore="" class="fixed w-full h-[460px]">
+            <div x-persist="player">
+                <video  id="newsVideo" class="absolute w-full bottom-0 " autoplay="" loop="" muted="" plays-inline="">
+                </video>
+            </div>
 
-</div>
-<div wire:ignore class="bg-white/50 dark:bg-black/10 relative h-[460px] w-full">
-    <div class="fixed h-full w-full text-center">
-        <div class="pl-12 mt-[240px] text-start">
+        </div>
 
-            <h1 data-te-animation-init
-            data-te-animation-start="onScroll"
-            data-te-animation-on-scroll="repeat"
-            data-te-animation-show-on-load="false"
-            data-te-animation-reset="true"
-            data-te-animation="[fade-in_1s_ease-in-out]" class="text-black max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
-                {!! __('news.banner') !!}
-            </h1>
-            <p class="text-black max-w-2xl lg:mb-8 md:text-lg lg:text-xl dark:text-white">
-                {{__('news.banner_desc')}}
-            </p>
-    </div>
+        <div wire:ignore class="bg-white/50 dark:bg-black/10 relative h-[460px] w-full">
+            <div class="fixed h-full w-full text-center">
+                <div class="pl-12 mt-[240px] text-start">
 
-    </div>
-</div>
+                    <h1 data-te-animation-init
+                    data-te-animation-start="onScroll"
+                    data-te-animation-on-scroll="repeat"
+                    data-te-animation-show-on-load="false"
+                    data-te-animation-reset="true"
+                    data-te-animation="[fade-in_1s_ease-in-out]" class="text-black max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">
+                        {!! __('news.banner') !!}
+                    </h1>
+                    <p class="text-black max-w-2xl lg:mb-8 md:text-lg lg:text-xl dark:text-white">
+                        {{__('news.banner_desc')}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    @endif
 @endif
 <?php /*
 <section class="md:relative pt-20 md:pt-8  mx-auto md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">

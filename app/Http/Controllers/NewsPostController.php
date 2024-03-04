@@ -67,7 +67,8 @@ class NewsPostController extends Controller
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
-            "agent" => $agent
+            "agent" => $agent,
+            "banner" => true
         ]);
     }
 
@@ -227,7 +228,8 @@ class NewsPostController extends Controller
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
-            "agent" => $agent
+            "agent" => $agent,
+            "banner" => false
         ]);
     }
 
@@ -300,7 +302,8 @@ class NewsPostController extends Controller
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
-            "agent" => $agent
+            "agent" => $agent,
+            "banner" => false
         ]);
     }
 
@@ -372,7 +375,8 @@ class NewsPostController extends Controller
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
-            "agent" => $agent
+            "agent" => $agent,
+            "banner" => false
         ]);
     }
 
@@ -418,7 +422,8 @@ class NewsPostController extends Controller
             "posts" => $newsResponse,
             "latest" => $newsLatest,
             "categories" => $newscategories,
-            "agent" => $agent
+            "agent" => $agent,
+            "banner" => false
         ]);
     }
 
