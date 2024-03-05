@@ -81,15 +81,19 @@ class DeliveryController extends Controller
         // Get list User from showroom
         $listUser = DB::table('prospek')->select(DB::raw('distinct(userid)'));
         $listUser->where('showroom', $showroom);
+
+
+
         foreach ($listUser->get() as $user) {
             $arruserid[] = $user->userid;
         }
+
 
         //Notification::make()->danger()->title('total User (' . count($arruserid) . ')')->icon('heroicon-o-check')->send();
 
         $listLeads = DB::table('prospek')->select('leadsid');
 
-        $listUser->whereIn('leadsid', $arruserid);
+        $listLeads->whereIn('leadsid', $arruserid);
 
         if ($listLeads->count() > 0) {
             foreach ($listLeads->get() as $lead) {

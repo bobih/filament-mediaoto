@@ -174,6 +174,8 @@ class InvoiceResource extends Resource
                                         // Get ExceptionList
                                         $deliveryController = new DeliveryController();
                                         $exceptionList = $deliveryController->getExceptionList($user->id, $user->showroom);
+
+                                        //dd($exceptionList);
                                         if (count($exceptionList) > 0) {
                                             $pushList->whereNotIn('id', $exceptionList);
                                         }
@@ -181,7 +183,9 @@ class InvoiceResource extends Resource
 
 
                                         if ($model) {
-                                            //$idsArr = explode(',',$model);
+                                            $idsArr = implode(',',$model);
+                                            //dd($idsArr);
+
                                             $pushList->whereIn('model', $model);
                                         }
                                         $pushList->orderBy('create', 'desc');
