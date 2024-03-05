@@ -187,7 +187,7 @@ class NewsPostResource extends Resource
                     */
 
                     SpatieMediaLibraryFileUpload::make('image')
-                    ->responsiveImages()
+                    //->responsiveImages()
                     ->required()
                     ->conversion('thumb'),
 
