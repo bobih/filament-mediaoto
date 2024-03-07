@@ -24,6 +24,7 @@
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-adsense-account" content="ca-pub-1433601050494794">
     @if (isset($post))
 <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Mediaoto" />
@@ -239,36 +240,8 @@
             }
         </script>
 
-        <?php
-        /*
-            if(count($itemlist) > 0 && $itemlist != null){
-                $itemListElement = array();
-                $x=1;
-                foreach ($itemlist as $list) {
-                    $itemListElement[] = array
-                            (
-                            "@type" =>"ListItem",
-                            "position" => $x,
-                            "url" => "https://www.mediaoto.id/". $list->slug
-                            );
-                $x++;
-                }
-
-                $listItems = array(
-                    "@context" => "http://schema.org",
-                    "@type" => "ItemList",
-                    "itemListElement" => array($itemListElement)
-                );
-
-
-            echo '<script type="application/ld+json">';
-            echo  json_encode($listItems);
-            echo '</script>';
-        }
-
-        */
-        ?>
-
+       
+    
     <?php /*
     @if (env('APP_ENV','local') == "production")
         <!-- Google tag (gtag.js B3ac5) -->
